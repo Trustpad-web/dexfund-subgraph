@@ -1,0 +1,105 @@
+{
+  "address": "0x6cA2042458B6DA5Ffbc010A26C8C5Be371041F79",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "calcUnderlyingValues",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isSupportedAsset",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isSupported_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x5c43c43728f442dd8437addf02d829d271985413b7b494eed839975ca25f2e6d",
+  "receipt": {
+    "to": null,
+    "from": "0x5DB342FB039C1c85bec5fE89Af6734621f421D84",
+    "contractAddress": "0x6cA2042458B6DA5Ffbc010A26C8C5Be371041F79",
+    "transactionIndex": 1,
+    "gasUsed": "155305",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x2e5d99576452bd015205c36aa0c339e6ffbbac51e69463701ebdf8668e83f6c0",
+    "transactionHash": "0x5c43c43728f442dd8437addf02d829d271985413b7b494eed839975ca25f2e6d",
+    "logs": [],
+    "blockNumber": 27569067,
+    "cumulativeGasUsed": "280896",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "5baec805a00b47872da815c8a1dea72f",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"calcUnderlyingValues\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isSupportedAsset\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isSupported_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Enzyme Council <security@enzyme.finance>\",\"details\":\"Used purely for extraordinary circumstances where we want to prevent value calculations, while allowing an asset to continue to be in the asset universe\",\"kind\":\"dev\",\"methods\":{\"isSupportedAsset(address)\":{\"returns\":{\"isSupported_\":\"True if the asset is a supported primitive\"}}},\"title\":\"RevertingPriceFeed Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"calcUnderlyingValues(address,uint256)\":{\"notice\":\"Converts a given amount of a derivative to its underlying asset values\"},\"isSupportedAsset(address)\":{\"notice\":\"Checks whether an asset is a supported primitive of the price feed\"}},\"notice\":\"Price feed that always reverts on value conversion\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/release/infrastructure/price-feeds/derivatives/feeds/RevertingPriceFeed.sol\":\"RevertingPriceFeed\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/release/infrastructure/price-feeds/derivatives/IDerivativePriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\r\\n\\r\\n/*\\r\\n    This file is part of the Enzyme Protocol.\\r\\n\\r\\n    (c) Enzyme Council <council@enzyme.finance>\\r\\n\\r\\n    For the full license information, please view the LICENSE\\r\\n    file that was distributed with this source code.\\r\\n*/\\r\\n\\r\\npragma solidity 0.6.12;\\r\\n\\r\\n/// @title IDerivativePriceFeed Interface\\r\\n/// @author Enzyme Council <security@enzyme.finance>\\r\\n/// @notice Simple interface for derivative price source oracle implementations\\r\\ninterface IDerivativePriceFeed {\\r\\n    function calcUnderlyingValues(address, uint256)\\r\\n        external\\r\\n        returns (address[] memory, uint256[] memory);\\r\\n\\r\\n    function isSupportedAsset(address) external view returns (bool);\\r\\n}\\r\\n\",\"keccak256\":\"0x577c4605a159c1083ef8d823d3b18896c321fd712071360ae235e22bf207cad0\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/feeds/RevertingPriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\r\\n\\r\\n/*\\r\\n    This file is part of the Enzyme Protocol.\\r\\n\\r\\n    (c) Enzyme Council <council@enzyme.finance>\\r\\n\\r\\n    For the full license information, please view the LICENSE\\r\\n    file that was distributed with this source code.\\r\\n*/\\r\\n\\r\\npragma solidity 0.6.12;\\r\\n\\r\\nimport \\\"../IDerivativePriceFeed.sol\\\";\\r\\n\\r\\n/// @title RevertingPriceFeed Contract\\r\\n/// @author Enzyme Council <security@enzyme.finance>\\r\\n/// @notice Price feed that always reverts on value conversion\\r\\n/// @dev Used purely for extraordinary circumstances where we want to prevent value calculations,\\r\\n/// while allowing an asset to continue to be in the asset universe\\r\\ncontract RevertingPriceFeed is IDerivativePriceFeed {\\r\\n    /// @notice Converts a given amount of a derivative to its underlying asset values\\r\\n    function calcUnderlyingValues(address, uint256)\\r\\n        external\\r\\n        override\\r\\n        returns (address[] memory, uint256[] memory)\\r\\n    {\\r\\n        revert(\\\"calcUnderlyingValues: RevertingPriceFeed\\\");\\r\\n    }\\r\\n\\r\\n    /// @notice Checks whether an asset is a supported primitive of the price feed\\r\\n    /// @return isSupported_ True if the asset is a supported primitive\\r\\n    function isSupportedAsset(address) public view override returns (bool isSupported_) {\\r\\n        return true;\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0xa964fcd443e402b8eb7ef80d2486ef99e6de28e2f3db56b24eca76789ba7c0d1\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506101d8806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063727212f61461003b5780639be918e614610100575b600080fd5b6100676004803603604081101561005157600080fd5b506001600160a01b03813516906020013561013a565b604051808060200180602001838103835285818151815260200191508051906020019060200280838360005b838110156100ab578181015183820152602001610093565b50505050905001838103825284818151815260200191508051906020019060200280838360005b838110156100ea5781810151838201526020016100d2565b5050505090500194505050505060405180910390f35b6101266004803603602081101561011657600080fd5b50356001600160a01b0316610174565b604080519115158252519081900360200190f35b60608060405162461bcd60e51b815260040180806020018281038252602881526020018061017b6028913960400191505060405180910390fd5b5060019056fe63616c63556e6465726c79696e6756616c7565733a20526576657274696e67507269636546656564a2646970667358221220862789144681ff1f945d664800bf99afa5b51635b3ad038250dea5ab04377d6464736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c8063727212f61461003b5780639be918e614610100575b600080fd5b6100676004803603604081101561005157600080fd5b506001600160a01b03813516906020013561013a565b604051808060200180602001838103835285818151815260200191508051906020019060200280838360005b838110156100ab578181015183820152602001610093565b50505050905001838103825284818151815260200191508051906020019060200280838360005b838110156100ea5781810151838201526020016100d2565b5050505090500194505050505060405180910390f35b6101266004803603602081101561011657600080fd5b50356001600160a01b0316610174565b604080519115158252519081900360200190f35b60608060405162461bcd60e51b815260040180806020018281038252602881526020018061017b6028913960400191505060405180910390fd5b5060019056fe63616c63556e6465726c79696e6756616c7565733a20526576657274696e67507269636546656564a2646970667358221220862789144681ff1f945d664800bf99afa5b51635b3ad038250dea5ab04377d6464736f6c634300060c0033",
+  "devdoc": {
+    "author": "Enzyme Council <security@enzyme.finance>",
+    "details": "Used purely for extraordinary circumstances where we want to prevent value calculations, while allowing an asset to continue to be in the asset universe",
+    "kind": "dev",
+    "methods": {
+      "isSupportedAsset(address)": {
+        "returns": {
+          "isSupported_": "True if the asset is a supported primitive"
+        }
+      }
+    },
+    "title": "RevertingPriceFeed Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "calcUnderlyingValues(address,uint256)": {
+        "notice": "Converts a given amount of a derivative to its underlying asset values"
+      },
+      "isSupportedAsset(address)": {
+        "notice": "Checks whether an asset is a supported primitive of the price feed"
+      }
+    },
+    "notice": "Price feed that always reverts on value conversion",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}
