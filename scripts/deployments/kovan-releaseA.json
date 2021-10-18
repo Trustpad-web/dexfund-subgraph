@@ -3,7 +3,7 @@
   "chainId": "42",
   "contracts": {
     "AdapterBlacklist": {
-      "address": "0x762c8CEb54A7bED77e7aAB084928Bbff39438300",
+      "address": "0x311c92e87852769094F4B51b8EC145CC3D17f904",
       "abi": [
         {
           "inputs": [
@@ -259,7 +259,7 @@
       }
     },
     "AdapterWhitelist": {
-      "address": "0x3AEF77bc169a957033Fe6b385ea8964A183f5Dc3",
+      "address": "0x00f1d9b9d65d3cD4c6Bc9a81B3313a3Bd6A906F5",
       "abi": [
         {
           "inputs": [
@@ -515,7 +515,7 @@
       }
     },
     "AggregatedDerivativePriceFeed": {
-      "address": "0x1899F9e144A0D47cC1471e797C2b7930adf530b3",
+      "address": "0x109e67c9E3C76Af5985769BcbC1EBAD7c4703553",
       "abi": [
         {
           "inputs": [
@@ -740,7 +740,7 @@
       ]
     },
     "AssetBlacklist": {
-      "address": "0x53268f29C166F6420F68aEc58b5046d6b95dc136",
+      "address": "0x55cCb6c57190Fdb5e6f7943f3ac003426bBaBF51",
       "abi": [
         {
           "inputs": [
@@ -996,7 +996,7 @@
       }
     },
     "AssetWhitelist": {
-      "address": "0x7683F8DcC80Ce520c8A0395fDBf30E083dcA7EDC",
+      "address": "0xb81ba538b965fb0515e43471bec04934d9aa2404",
       "abi": [
         {
           "inputs": [
@@ -1252,7 +1252,7 @@
       }
     },
     "AuthUserExecutedSharesRequestorFactory": {
-      "address": "0x763AAAAA45A9761fD21ab0cA71c76b5e075Bc064",
+      "address": "0xF3485e8D185CE5596d92279685EA7a5eAEBDfa37",
       "abi": [
         {
           "inputs": [
@@ -1356,7 +1356,7 @@
       ]
     },
     "AuthUserExecutedSharesRequestorLib": {
-      "address": "0x78bcE31A24C73C921dce8233E10271078Df6A391",
+      "address": "0xC79cF886A468a06e777075e6799C610bb2623835",
       "abi": [
         {
           "anonymous": false,
@@ -1634,7 +1634,7 @@
       ]
     },
     "BuySharesCallerWhitelist": {
-      "address": "0x2a0e8e532440a477d0C1520F674356eAbd9fB5Cc",
+      "address": "0x3Ca09Dc224E0838dd29C778356eB00E26CaD3AF5",
       "abi": [
         {
           "inputs": [
@@ -1890,7 +1890,7 @@
       }
     },
     "ChainlinkPriceFeed": {
-      "address": "0x1dbf40Fc502A61a09c38F5D0f4D07f42AC507606",
+      "address": "0x2cC6D6915A9E9f340435b7AD8C2e916706b8FD59",
       "abi": [
         {
           "inputs": [
@@ -2384,7 +2384,7 @@
       ]
     },
     "CompoundAdapter": {
-      "address": "0xe759441dA6BCfba3a389384638d415eE80B2883B",
+      "address": "0xA061153B8D6A44cF4D3e89564101C8b419710313",
       "abi": [
         {
           "inputs": [
@@ -2501,6 +2501,19 @@
         {
           "inputs": [],
           "name": "REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
           "outputs": [
             {
               "internalType": "bytes4",
@@ -2715,7 +2728,7 @@
       }
     },
     "CompoundPriceFeed": {
-      "address": "0xd54CD71FD75A23FA8e4df44E4176e17Eb6f2B36D",
+      "address": "0xF694f588cfC026f4988538cac07cA72684123807",
       "abi": [
         {
           "inputs": [
@@ -2871,7 +2884,7 @@
       ]
     },
     "ComptrollerLib": {
-      "address": "0x55dbd3b92CEC623Ea5B37BBb9ED5Ec086887AA1A",
+      "address": "0x50381b32b9a1b91D2423d4773A2E02a855cb0c0d",
       "abi": [
         {
           "inputs": [
@@ -3460,26 +3473,86 @@
         },
         "chainlink": {
           "aggregators": {
-            "bat": ["0x0e4fcec26c9f85c3d714370c98f43c4e02fc35ae", 0],
-            "bnb": ["0x8993ed705cdf5e84d0a3b754b5ee0e1783fcdf16", 1],
-            "busd": ["0xbf7a18ea5de0501f7559144e702b29c55b055ccb", 0],
-            "bzrx": ["0x9aa9da35dc44f93d90436bfe256f465f720c3ae5", 0],
-            "dai": ["0x777a68032a88e5a84678a77af2cd65a7b3c0775a", 0],
-            "enj": ["0xfadbe2ee798889f02d1d39edad98eff4c7fe95d4", 0],
-            "knc": ["0xb8e8130d244cfd13a75d6b9aee029b1c33c808a7", 0],
-            "link": ["0x3af8c569ab77af5230596acf0e8c2f9351d24c38", 0],
-            "mana": ["0x1b93d8e109cfedcbb3cc74ed761de286d5771511", 0],
-            "mkr": ["0x0b156192e04bad92b6c1c13cf8739d14d78d5701", 0],
-            "ren": ["0xf1939bece7708382b5fb5e559f630cb8b39a10ee", 0],
-            "rep": ["0x3a7e6117f2979eff81855de32819fbba48a63e9e", 0],
-            "snx": ["0xf9a76ae7a1075fe7d646b06ff05bd48b9fa5582e", 0],
-            "susd": ["0xb343e7a1af578fa35632435243d814e7497622f7", 0],
-            "uni": ["0x17756515f112429471f86f98d5052acb6c47f6ee", 0],
-            "usdc": ["0x64eac61a2dfda2c3fa04eed49aa33d021aec8838", 0],
-            "usdt": ["0x0bf499444525a23e7bb61997539725ca2e928138", 0],
-            "wbtc": ["0xf7904a295a029a3abdffb6f12755974a958c7c25", 0],
-            "yfi": ["0xc5d1b1deb2992738c0273408ac43e1e906086b6c", 0],
-            "zrx": ["0xbc3f28ccc21e9b5856e81e6372aff57307e2e883", 0]
+            "bat": [
+              "0x0e4fcec26c9f85c3d714370c98f43c4e02fc35ae",
+              0
+            ],
+            "bnb": [
+              "0x8993ed705cdf5e84d0a3b754b5ee0e1783fcdf16",
+              1
+            ],
+            "busd": [
+              "0xbf7a18ea5de0501f7559144e702b29c55b055ccb",
+              0
+            ],
+            "bzrx": [
+              "0x9aa9da35dc44f93d90436bfe256f465f720c3ae5",
+              0
+            ],
+            "dai": [
+              "0x777a68032a88e5a84678a77af2cd65a7b3c0775a",
+              0
+            ],
+            "enj": [
+              "0xfadbe2ee798889f02d1d39edad98eff4c7fe95d4",
+              0
+            ],
+            "knc": [
+              "0xb8e8130d244cfd13a75d6b9aee029b1c33c808a7",
+              0
+            ],
+            "link": [
+              "0x3af8c569ab77af5230596acf0e8c2f9351d24c38",
+              0
+            ],
+            "mana": [
+              "0x1b93d8e109cfedcbb3cc74ed761de286d5771511",
+              0
+            ],
+            "mkr": [
+              "0x0b156192e04bad92b6c1c13cf8739d14d78d5701",
+              0
+            ],
+            "ren": [
+              "0xf1939bece7708382b5fb5e559f630cb8b39a10ee",
+              0
+            ],
+            "rep": [
+              "0x3a7e6117f2979eff81855de32819fbba48a63e9e",
+              0
+            ],
+            "snx": [
+              "0xf9a76ae7a1075fe7d646b06ff05bd48b9fa5582e",
+              0
+            ],
+            "susd": [
+              "0xb343e7a1af578fa35632435243d814e7497622f7",
+              0
+            ],
+            "uni": [
+              "0x17756515f112429471f86f98d5052acb6c47f6ee",
+              0
+            ],
+            "usdc": [
+              "0x64eac61a2dfda2c3fa04eed49aa33d021aec8838",
+              0
+            ],
+            "usdt": [
+              "0x0bf499444525a23e7bb61997539725ca2e928138",
+              0
+            ],
+            "wbtc": [
+              "0xf7904a295a029a3abdffb6f12755974a958c7c25",
+              0
+            ],
+            "yfi": [
+              "0xc5d1b1deb2992738c0273408ac43e1e906086b6c",
+              0
+            ],
+            "zrx": [
+              "0xbc3f28ccc21e9b5856e81e6372aff57307e2e883",
+              0
+            ]
           },
           "ethusd": "0x9326bfa02add2366b30bacb125260af641031331"
         },
@@ -3520,17 +3593,7 @@
             }
           }
         },
-        "idle": {
-          "bestYieldIdleDai": "0x0000000000000000000000000000000000000000",
-          "bestYieldIdleUsdc": "0x0000000000000000000000000000000000000000",
-          "bestYieldIdleUsdt": "0x0000000000000000000000000000000000000000",
-          "bestYieldIdleSusd": "0x0000000000000000000000000000000000000000",
-          "bestYieldIdleTusd": "0x0000000000000000000000000000000000000000",
-          "bestYieldIdleWbtc": "0x0000000000000000000000000000000000000000",
-          "riskAdjustedIdleDai": "0x0000000000000000000000000000000000000000",
-          "riskAdjustedIdleUsdc": "0x0000000000000000000000000000000000000000",
-          "riskAdjustedIdleUsdt": "0x0000000000000000000000000000000000000000"
-        },
+        "idle": {},
         "kyber": {
           "networkProxy": "0x9AAb3f75489902f3a48495025729a0AF77d4b11e"
         },
@@ -3587,26 +3650,48 @@
           "pools": {},
           "router": "0x0022B151B637722757852Ef64c57c982277203fF"
         },
+        "uniswapV3": {
+          "router": "0xB09eF74C72e565E29A6398415F64415fb39d578E"
+        },
+        "unsupportedAssets": {},
         "wdgld": {
           "ethusd": "0x9326bfa02add2366b30bacb125260af641031331",
           "wdgld": "0x23993cA98c63F1f8de457C271f8ceFD9076A42f4",
           "xauusd": "0x0000000000000000000000000000000000000000"
         },
         "weth": "0xd0a1e359811322d97991e03f863a0c30c2cf029c",
+        "yearn": {
+          "vaultV2": {
+            "registry": "0x50c1a2eA0a861A967D9d0FFE2AE4012c2E053804",
+            "yVaults": {}
+          }
+        },
         "zeroex": {
           "allowedMakers": [],
           "exchange": "0x6Ffa4088e56986E25e65d73657C23D3A869EE570"
         },
         "vaultCalls": [
-          ["0x93a5c5c7547832c8ebfccabc2157d43a9c5e68d4", "0x447fbc63"],
-          ["0x0000000000000000000000000000000000000000", "0x6a627842"],
-          ["0x0000000000000000000000000000000000000000", "0xa51e1904"],
-          ["0x0000000000000000000000000000000000000000", "0xdd289d60"]
+          [
+            "0x93a5c5c7547832c8ebfccabc2157d43a9c5e68d4",
+            "0x447fbc63"
+          ],
+          [
+            "0x0000000000000000000000000000000000000000",
+            "0x6a627842"
+          ],
+          [
+            "0x0000000000000000000000000000000000000000",
+            "0xa51e1904"
+          ],
+          [
+            "0x0000000000000000000000000000000000000000",
+            "0xdd289d60"
+          ]
         ]
       }
     },
     "Dispatcher": {
-      "address": "0xba9493530494958EC2DeED9c8BB34004ff37Ad28",
+      "address": "0xeb85C242C8de456aD6b4104b351668aB96399615",
       "abi": [
         {
           "inputs": [],
@@ -4315,7 +4400,7 @@
       ]
     },
     "EntranceRateBurnFee": {
-      "address": "0xb56c9a58c907a48CcD700136a4fa39F1c6E3dbf2",
+      "address": "0xd8FAF922653212360327eDE27ee1CC64731f7358",
       "abi": [
         {
           "inputs": [
@@ -4606,7 +4691,7 @@
       }
     },
     "EntranceRateDirectFee": {
-      "address": "0x44f7E598A75855230e8B55855e370Fb6e6Fa2dc7",
+      "address": "0x60fEDBC04fb795F0455D494578b7F342bF8B3F27",
       "abi": [
         {
           "inputs": [
@@ -4897,7 +4982,7 @@
       }
     },
     "FeeManager": {
-      "address": "0x9D4705Dc3d24F988f5dd2C306F7a7E7524c7aCBB",
+      "address": "0xFDB42488D0A2F32693F3D87141806734ea7833b9",
       "abi": [
         {
           "inputs": [
@@ -5429,7 +5514,7 @@
       ]
     },
     "FundActionsWrapper": {
-      "address": "0x7954a509058CB9a4F3169Df64D5332793092219E",
+      "address": "0x529eFd4cf667b182e6CcC771335DEb1A2383E3A7",
       "abi": [
         {
           "inputs": [
@@ -5614,7 +5699,7 @@
       ]
     },
     "FundDeployer": {
-      "address": "0xC5bADFDa459c329d20AA155a95dC43BA04c71228",
+      "address": "0x148a6FFbD7CCF8Ef7DB4dFD3103C4f197f3d46B2",
       "abi": [
         {
           "inputs": [
@@ -6240,7 +6325,7 @@
       ]
     },
     "GuaranteedRedemption": {
-      "address": "0x108F9370443626018C053CCA6d447e946C0aE33C",
+      "address": "0x3ed8993dd7f2553528151a2866319cd360a239ab",
       "abi": [
         {
           "inputs": [
@@ -6647,7 +6732,7 @@
       }
     },
     "IntegrationManager": {
-      "address": "0x284d07Ea5EEf265592cfF84657903c9Da2aCeA16",
+      "address": "0x35a9ed450d4b5a12e24Ff81df198C7e412Aa2745",
       "abi": [
         {
           "inputs": [
@@ -6669,16 +6754,6 @@
             {
               "internalType": "address",
               "name": "_primitivePriceFeed",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "_synthetixPriceFeed",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "_synthetixAddressResolver",
               "type": "address"
             }
           ],
@@ -6977,32 +7052,6 @@
           "type": "function"
         },
         {
-          "inputs": [],
-          "name": "getSynthetixAddressResolver",
-          "outputs": [
-            {
-              "internalType": "address",
-              "name": "synthetixAddressResolver_",
-              "type": "address"
-            }
-          ],
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "inputs": [],
-          "name": "getSynthetixPriceFeed",
-          "outputs": [
-            {
-              "internalType": "address",
-              "name": "synthetixPriceFeed_",
-              "type": "address"
-            }
-          ],
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
           "inputs": [
             {
               "internalType": "address",
@@ -7115,7 +7164,7 @@
       ]
     },
     "InvestorWhitelist": {
-      "address": "0x7AA9de0e4Dc5f5990B0487ff494e5C640CAE9F4A",
+      "address": "0x14f1595fb49c681b2f722135ed112fb461fa351a",
       "abi": [
         {
           "inputs": [
@@ -7371,7 +7420,7 @@
       }
     },
     "KyberAdapter": {
-      "address": "0x367C5084781bFebe3aE56d2387b70187F154BCd5",
+      "address": "0x96ddd26E07055fe1709b3702A1CbdD1128F29bc9",
       "abi": [
         {
           "inputs": [
@@ -7488,6 +7537,19 @@
         {
           "inputs": [],
           "name": "REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
           "outputs": [
             {
               "internalType": "bytes4",
@@ -7679,7 +7741,7 @@
       }
     },
     "ManagementFee": {
-      "address": "0xda3400c7aBA11e683f4eb9b8f94B202C49fBdFaa",
+      "address": "0x9d41c27b06a8e51c05E2E24284aD8489A2A3206d",
       "abi": [
         {
           "inputs": [
@@ -7982,7 +8044,7 @@
       }
     },
     "MaxConcentration": {
-      "address": "0xDF7A8AB72246bA6ea551bfFd7259dBD7ff4C6848",
+      "address": "0xEFc8b170A74481590CDCD0651B7032BD8ee5d776",
       "abi": [
         {
           "inputs": [
@@ -8218,7 +8280,7 @@
       }
     },
     "MinMaxInvestment": {
-      "address": "0x18b292A0A9E1092572d73D105e621f93f2b7f484",
+      "address": "0xb2c37f3d8C5f22c891Ff43f59d33DE53Dd97d71c",
       "abi": [
         {
           "inputs": [
@@ -8449,7 +8511,7 @@
       }
     },
     "PerformanceFee": {
-      "address": "0x9b9CF0ECdb2c4ad9cd03382323d3C85E5a180163",
+      "address": "0xa049B664F1A4E6aE46445dd4f970a29Fd9236fC0",
       "abi": [
         {
           "inputs": [
@@ -8870,7 +8932,7 @@
       }
     },
     "PolicyManager": {
-      "address": "0xdc2f2d25568604F63f4Af5dC4988895d1A1e29BA",
+      "address": "0x008DBE548c97D253c8161305883AE506f264c4fD",
       "abi": [
         {
           "inputs": [
@@ -9286,8 +9348,61 @@
         }
       ]
     },
+    "RevertingPriceFeed": {
+      "address": "0x91eBf511F14a96b25E0BE98E6441bE2EB90A9783",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "calcUnderlyingValues",
+          "outputs": [
+            {
+              "internalType": "address[]",
+              "name": "",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "isSupportedAsset",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "isSupported_",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+    },
     "SynthetixAdapter": {
-      "address": "0x810809f334A3bf96437adC7540C0D74bdA653aD8",
+      "address": "0xf58f5683CdaDF0DBAeC0c684Cc8706e441b78def",
       "abi": [
         {
           "inputs": [
@@ -9414,6 +9529,19 @@
         {
           "inputs": [],
           "name": "REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
           "outputs": [
             {
               "internalType": "bytes4",
@@ -9627,7 +9755,7 @@
       }
     },
     "SynthetixPriceFeed": {
-      "address": "0x4BA8f54EC8f11e69e95933Cc894cC726567072C0",
+      "address": "0xfE9bE5590f2BEEb56F76D1CEcf815E89b8C9020C",
       "abi": [
         {
           "inputs": [
@@ -9866,18 +9994,46 @@
       ]
     },
     "TrackedAssetsAdapter": {
-      "address": "0x311c8CfBFF5fBC79b0F3926B1C52A37dcd0257Af",
+      "address": "0x900D14dbe9BaD3fCBae7A724E1A55026154a7B20",
       "abi": [
         {
           "inputs": [
             {
               "internalType": "address",
+              "name": "_fundDeployer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
               "name": "_integrationManager",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_valueInterpreter",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_wethToken",
               "type": "address"
             }
           ],
           "stateMutability": "nonpayable",
           "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "nextDustToleranceInWeth",
+              "type": "uint256"
+            }
+          ],
+          "name": "DustToleranceInWethSet",
+          "type": "event"
         },
         {
           "inputs": [],
@@ -9985,6 +10141,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -10060,11 +10229,76 @@
         },
         {
           "inputs": [],
+          "name": "getDustToleranceInWeth",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "dustToleranceInWeth_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFundDeployer",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "fundDeployer_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getIntegrationManager",
           "outputs": [
             {
               "internalType": "address",
               "name": "integrationManager_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getOwner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "owner_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getValueInterpreter",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "valueInterpreter_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getWethToken",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "wethToken_",
               "type": "address"
             }
           ],
@@ -10127,6 +10361,42 @@
           ],
           "stateMutability": "view",
           "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_vaultProxy",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_encodedCallArgs",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "name": "removeTrackedAssets",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_nextDustToleranceInWeth",
+              "type": "uint256"
+            }
+          ],
+          "name": "setDustToleranceInWeth",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         }
       ],
       "linkedData": {
@@ -10134,7 +10404,7 @@
       }
     },
     "UniswapV2Adapter": {
-      "address": "0x3d3887758023a6a1DCAF999E5429055Fb43CAfaE",
+      "address": "0x9786Ad458E9B2d248e44335FF16715f0523cB5F7",
       "abi": [
         {
           "inputs": [
@@ -10251,6 +10521,19 @@
         {
           "inputs": [],
           "name": "REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
           "outputs": [
             {
               "internalType": "bytes4",
@@ -10484,7 +10767,7 @@
       }
     },
     "UniswapV2PoolPriceFeed": {
-      "address": "0xA311e4F6719e3eD91ce3f7f20294009AcF0BF0D3",
+      "address": "0x7226F0Fbc141943f5c6E196CD6148BCCEa1E0f8e",
       "abi": [
         {
           "inputs": [
@@ -10753,8 +11036,307 @@
         }
       ]
     },
+    "UniswapV3Adapter": {
+      "address": "0x01441CF6A4bde170d5BeCA5E8B91689E565CB495",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_integrationManager",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_router",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [],
+          "name": "ADD_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "APPROVE_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIM_REWARDS_AND_REINVEST_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIM_REWARDS_AND_SWAP_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIM_REWARDS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "LEND_AND_STAKE_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "LEND_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "STAKE_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "TAKE_ORDER_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "UNSTAKE_AND_REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "UNSTAKE_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getIntegrationManager",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "integrationManager_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getUniswapV3Router",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "router_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "identifier",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "identifier_",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes4",
+              "name": "_selector",
+              "type": "bytes4"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_encodedCallArgs",
+              "type": "bytes"
+            }
+          ],
+          "name": "parseAssetsForMethod",
+          "outputs": [
+            {
+              "internalType": "enum IIntegrationManager.SpendAssetsHandleType",
+              "name": "spendAssetsHandleType_",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address[]",
+              "name": "spendAssets_",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "spendAssetAmounts_",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "address[]",
+              "name": "incomingAssets_",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "minIncomingAssetAmounts_",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_vaultProxy",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_encodedCallArgs",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "name": "takeOrder",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ],
+      "linkedData": {
+        "type": "ADAPTER"
+      }
+    },
     "ValueInterpreter": {
-      "address": "0xFEE7aEE3907d1657fd2BdcBba8909AF40a144421",
+      "address": "0x1f956E9D93ACa08907323Bf0878A1a87F96a8C65",
       "abi": [
         {
           "inputs": [
@@ -10937,7 +11519,7 @@
       ]
     },
     "VaultLib": {
-      "address": "0xe5cf8b7dd03e2cb3A9A5b1237bb8e99DbaC29704",
+      "address": "0x7D47fbB324f3BBD70e4234edb148579bF403adC3",
       "abi": [
         {
           "anonymous": false,
@@ -11630,8 +12212,520 @@
         }
       ]
     },
+    "YearnVaultV2Adapter": {
+      "address": "0x8649b862BC810af3Eb617068d123981Cb07553Fb",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_integrationManager",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_yearnVaultV2PriceFeed",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [],
+          "name": "ADD_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "APPROVE_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIM_REWARDS_AND_REINVEST_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIM_REWARDS_AND_SWAP_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIM_REWARDS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "LEND_AND_STAKE_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "LEND_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "STAKE_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "TAKE_ORDER_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "UNSTAKE_AND_REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "UNSTAKE_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getIntegrationManager",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "integrationManager_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getYearnVaultV2PriceFeed",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "yearnVaultV2PriceFeed_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "identifier",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "identifier_",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_vaultProxy",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_encodedAssetTransferArgs",
+              "type": "bytes"
+            }
+          ],
+          "name": "lend",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes4",
+              "name": "_selector",
+              "type": "bytes4"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_encodedCallArgs",
+              "type": "bytes"
+            }
+          ],
+          "name": "parseAssetsForMethod",
+          "outputs": [
+            {
+              "internalType": "enum IIntegrationManager.SpendAssetsHandleType",
+              "name": "spendAssetsHandleType_",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address[]",
+              "name": "spendAssets_",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "spendAssetAmounts_",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "address[]",
+              "name": "incomingAssets_",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "minIncomingAssetAmounts_",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_vaultProxy",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_encodedCallArgs",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_encodedAssetTransferArgs",
+              "type": "bytes"
+            }
+          ],
+          "name": "redeem",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ],
+      "linkedData": {
+        "type": "ADAPTER"
+      }
+    },
+    "YearnVaultV2PriceFeed": {
+      "address": "0x9cCB32c5Cfc343a2CA7dc0c5ccB2467800DF7e28",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_fundDeployer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_yearnVaultV2Registry",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "derivative",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "underlying",
+              "type": "address"
+            }
+          ],
+          "name": "DerivativeAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "derivative",
+              "type": "address"
+            }
+          ],
+          "name": "DerivativeRemoved",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "_derivatives",
+              "type": "address[]"
+            },
+            {
+              "internalType": "address[]",
+              "name": "_underlyings",
+              "type": "address[]"
+            }
+          ],
+          "name": "addDerivatives",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_derivative",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_derivativeAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "calcUnderlyingValues",
+          "outputs": [
+            {
+              "internalType": "address[]",
+              "name": "underlyings_",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "underlyingAmounts_",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFundDeployer",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "fundDeployer_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getOwner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "owner_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_derivative",
+              "type": "address"
+            }
+          ],
+          "name": "getUnderlyingForDerivative",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "underlying_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getYearnVaultV2Registry",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "yearnVaultV2Registry_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_asset",
+              "type": "address"
+            }
+          ],
+          "name": "isSupportedAsset",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "isSupported_",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "_derivatives",
+              "type": "address[]"
+            }
+          ],
+          "name": "removeDerivatives",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]
+    },
     "ZeroExV2Adapter": {
-      "address": "0x1dEbC247ecCB10dA06D42D6590E6FE19bc9a87FA",
+      "address": "0xCcdbB68F05665d69d0C7950746bBeBbDc1480A2f",
       "abi": [
         {
           "inputs": [
@@ -11779,6 +12873,19 @@
         {
           "inputs": [],
           "name": "REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
           "outputs": [
             {
               "internalType": "bytes4",

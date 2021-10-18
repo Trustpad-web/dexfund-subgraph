@@ -1,5 +1,5 @@
 specVersion: 0.0.2
-description: Enzyme Finance
+description: Radar Finance
 repository: https://github.com/trust0212/radar_graph
 schema:
   file: ./schema.graphql
@@ -26,11 +26,11 @@ dataSources:
       entities: []
       abis:
         - name: DispatcherContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/Dispatcher.json
+          file: ./abi/{{networkName}}/Dispatcher.json
         - name: FundDeployerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/FundDeployer.json
+          file: ./abi/{{networkName}}/FundDeployer.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
       eventHandlers:
         - event: CurrentFundDeployerSet(address,address)
           handler: handleCurrentFundDeployerSet
@@ -75,11 +75,11 @@ dataSources:
       entities: []
       abis:
         - name: FundDeployerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/FundDeployer.json
+          file: ./abi/{{networkName}}/FundDeployer.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -115,11 +115,11 @@ dataSources:
       entities: []
       abis:
         - name: FeeManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/FeeManager.json
+          file: ./abi/{{networkName}}/FeeManager.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -129,9 +129,9 @@ dataSources:
         - name: IFeeInterface
           file: ./node_modules/@enzymefinance/protocol/artifacts/IFee.json
         - name: ManagementFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ManagementFee.json
+          file: ./abi/{{networkName}}/ManagementFee.json
         - name: PerformanceFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PerformanceFee.json
+          file: ./abi/{{networkName}}/PerformanceFee.json
       eventHandlers:
         - event: AllSharesOutstandingForcePaidForFund(indexed address,address,uint256)
           handler: handleAllSharesOutstandingForcePaidForFund
@@ -163,13 +163,13 @@ dataSources:
       entities: []
       abis:
         - name: ManagementFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ManagementFee.json
+          file: ./abi/{{networkName}}/ManagementFee.json
         - name: FeeManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/FeeManager.json
+          file: ./abi/{{networkName}}/FeeManager.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -179,7 +179,7 @@ dataSources:
         - name: IFeeInterface
           file: ./node_modules/@enzymefinance/protocol/artifacts/IFee.json
         - name: ManagementFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ManagementFee.json
+          file: ./abi/{{networkName}}/ManagementFee.json
       eventHandlers:
         - event: FundSettingsAdded(indexed address,uint256)
           handler: handleFundSettingsAdded
@@ -203,15 +203,15 @@ dataSources:
       entities: []
       abis:
         - name: PerformanceFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PerformanceFee.json
+          file: ./abi/{{networkName}}/PerformanceFee.json
         - name: ManagementFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ManagementFee.json
+          file: ./abi/{{networkName}}/ManagementFee.json
         - name: FeeManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/FeeManager.json
+          file: ./abi/{{networkName}}/FeeManager.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
       eventHandlers:
         - event: ActivatedForFund(indexed address,uint256)
           handler: handleActivatedForFund
@@ -239,13 +239,13 @@ dataSources:
       entities: []
       abis:
         - name: EntranceRateDirectFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/EntranceRateDirectFee.json
+          file: ./abi/{{networkName}}/EntranceRateDirectFee.json
         - name: FeeManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/FeeManager.json
+          file: ./abi/{{networkName}}/FeeManager.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -255,7 +255,7 @@ dataSources:
         - name: IFeeInterface
           file: ./node_modules/@enzymefinance/protocol/artifacts/IFee.json
         - name: ManagementFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ManagementFee.json
+          file: ./abi/{{networkName}}/ManagementFee.json
       eventHandlers:
         - event: FundSettingsAdded(indexed address,uint256)
           handler: handleFundSettingsAdded
@@ -277,13 +277,13 @@ dataSources:
       entities: []
       abis:
         - name: EntranceRateBurnFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/EntranceRateBurnFee.json
+          file: ./abi/{{networkName}}/EntranceRateBurnFee.json
         - name: FeeManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/FeeManager.json
+          file: ./abi/{{networkName}}/FeeManager.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -293,7 +293,7 @@ dataSources:
         - name: IFeeInterface
           file: ./node_modules/@enzymefinance/protocol/artifacts/IFee.json
         - name: ManagementFeeContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ManagementFee.json
+          file: ./abi/{{networkName}}/ManagementFee.json
       eventHandlers:
         - event: FundSettingsAdded(indexed address,uint256)
           handler: handleFundSettingsAdded
@@ -315,11 +315,11 @@ dataSources:
       entities: []
       abis:
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -329,7 +329,7 @@ dataSources:
         - name: IPolicyInterface
           file: ./node_modules/@enzymefinance/protocol/artifacts/IPolicy.json
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
       eventHandlers:
         - event: PolicyDeregistered(indexed address,indexed string)
           handler: handlePolicyDeregistered
@@ -355,15 +355,15 @@ dataSources:
       entities: []
       abis:
         - name: AdapterBlacklistContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/AdapterBlacklist.json
+          file: ./abi/{{networkName}}/AdapterBlacklist.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
       eventHandlers:
         - event: AddressesAdded(indexed address,address[])
           handler: handleAddressesAdded
@@ -385,17 +385,17 @@ dataSources:
       entities: []
       abis:
         - name: AdapterWhitelistContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/AdapterWhitelist.json
+          file: ./abi/{{networkName}}/AdapterWhitelist.json
         - name: FeeManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/FeeManager.json
+          file: ./abi/{{networkName}}/FeeManager.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
       eventHandlers:
         - event: AddressesAdded(indexed address,address[])
           handler: handleAddressesAdded
@@ -417,15 +417,15 @@ dataSources:
       entities: []
       abis:
         - name: AssetWhitelistContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/AssetWhitelist.json
+          file: ./abi/{{networkName}}/AssetWhitelist.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
       eventHandlers:
         - event: AddressesAdded(indexed address,address[])
           handler: handleAddressesAdded
@@ -447,15 +447,15 @@ dataSources:
       entities: []
       abis:
         - name: AssetBlacklistContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/AssetBlacklist.json
+          file: ./abi/{{networkName}}/AssetBlacklist.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
       eventHandlers:
         - event: AddressesAdded(indexed address,address[])
           handler: handleAddressesAdded
@@ -477,15 +477,15 @@ dataSources:
       entities: []
       abis:
         - name: BuySharesCallerWhitelistContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/BuySharesCallerWhitelist.json
+          file: ./abi/{{networkName}}/BuySharesCallerWhitelist.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
       eventHandlers:
         - event: AddressesAdded(indexed address,address[])
           handler: handleAddressesAdded
@@ -507,15 +507,15 @@ dataSources:
       entities: []
       abis:
         - name: GuaranteedRedemptionContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/GuaranteedRedemption.json
+          file: ./abi/{{networkName}}/GuaranteedRedemption.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -547,15 +547,15 @@ dataSources:
       entities: []
       abis:
         - name: InvestorWhitelistContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/InvestorWhitelist.json
+          file: ./abi/{{networkName}}/InvestorWhitelist.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
       eventHandlers:
         - event: AddressesAdded(indexed address,address[])
           handler: handleAddressesAdded
@@ -577,15 +577,15 @@ dataSources:
       entities: []
       abis:
         - name: MaxConcentrationContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MaxConcentration.json
+          file: ./abi/{{networkName}}/MaxConcentration.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
       eventHandlers:
         - event: MaxConcentrationSet(indexed address,uint256)
           handler: handleMaxConcentrationSet
@@ -605,13 +605,13 @@ dataSources:
       entities: []
       abis:
         - name: MinMaxInvestmentContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/MinMaxInvestment.json
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: PolicyManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/PolicyManager.json
+          file: ./abi/{{networkName}}/PolicyManager.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -637,11 +637,11 @@ dataSources:
       entities: []
       abis:
         - name: IntegrationManagerContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/IntegrationManager.json
+          file: ./abi/{{networkName}}/IntegrationManager.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -651,7 +651,7 @@ dataSources:
         - name: IIntegrationAdapterInterface
           file: ./node_modules/@enzymefinance/protocol/artifacts/IIntegrationAdapter.json
         - name: CompoundAdapter
-          file: ./node_modules/@enzymefinance/protocol/artifacts/CompoundAdapter.json
+          file: ./abi/{{networkName}}/CompoundAdapter.json
       eventHandlers:
         - event: AdapterDeregistered(indexed address,indexed string)
           handler: handleAdapterDeregistered
@@ -679,11 +679,11 @@ dataSources:
       entities: []
       abis:
         - name: ChainlinkPriceFeedContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ChainlinkPriceFeed.json
+          file: ./abi/{{networkName}}/ChainlinkPriceFeed.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -695,7 +695,7 @@ dataSources:
         - name: ChainlinkAggregatorProxyContract
           file: ./node_modules/@chainlink/contracts/abi/v0.6/AggregatorProxy.json
         - name: ValueInterpreterContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ValueInterpreter.json
+          file: ./abi/{{networkName}}/ValueInterpreter.json
       eventHandlers:
         - event: EthUsdAggregatorSet(address,address)
           handler: handleEthUsdAggregatorSet
@@ -721,11 +721,11 @@ dataSources:
       entities: []
       abis:
         - name: AggregatedDerivativePriceFeedContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/AggregatedDerivativePriceFeed.json
+          file: ./abi/{{networkName}}/AggregatedDerivativePriceFeed.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -733,7 +733,7 @@ dataSources:
         - name: ERC20SymbolBytesContract
           file: ./src/utils/abis/ERC20SymbolBytes.json
         - name: ValueInterpreterContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ValueInterpreter.json
+          file: ./abi/{{networkName}}/ValueInterpreter.json
         - name: IUniswapV2PairContract
           file: ./node_modules/@enzymefinance/protocol/artifacts/IUniswapV2Pair.json
         - name: ICERC20Contract
@@ -743,7 +743,7 @@ dataSources:
         - name: AlphaHomoraV1PriceFeedContract
           file: ./node_modules/@enzymefinance/protocol/artifacts/AlphaHomoraV1PriceFeed.json
         - name: CompoundPriceFeedContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/CompoundPriceFeed.json
+          file: ./abi/{{networkName}}/CompoundPriceFeed.json
         - name: CurvePriceFeedContract
           file: ./node_modules/@enzymefinance/protocol/artifacts/CurvePriceFeed.json
         - name: ICurveAddressProviderContract
@@ -755,11 +755,11 @@ dataSources:
         - name: StakehoundEthPriceFeedContract
           file: ./node_modules/@enzymefinance/protocol/artifacts/StakehoundEthPriceFeed.json
         - name: SynthetixPriceFeedContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/SynthetixPriceFeed.json
+          file: ./abi/{{networkName}}/SynthetixPriceFeed.json
         - name: UniswapV2PoolPriceFeedContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/UniswapV2PoolPriceFeed.json
+          file: ./abi/{{networkName}}/UniswapV2PoolPriceFeed.json
         - name: YearnVaultV2PriceFeedContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/YearnVaultV2PriceFeed.json
+          file: ./abi/{{networkName}}/YearnVaultV2PriceFeed.json
       eventHandlers:
         - event: DerivativeAdded(indexed address,address)
           handler: handleDerivativeAdded
@@ -783,9 +783,9 @@ templates:
       entities: []
       abis:
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -825,9 +825,9 @@ templates:
       entities: []
       abis:
         - name: ComptrollerLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ComptrollerLib.json
+          file: ./abi/{{networkName}}/ComptrollerLib.json
         - name: VaultLibContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/VaultLib.json
+          file: ./abi/{{networkName}}/VaultLib.json
         - name: ERC20Contract
           file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
         - name: ERC20NameBytesContract
@@ -861,7 +861,7 @@ templates:
       file: ./src/mappings/ChainlinkAggregator.ts
       abis:
         - name: ValueInterpreterContract
-          file: ./node_modules/@enzymefinance/protocol/artifacts/ValueInterpreter.json
+          file: ./abi/{{networkName}}/ValueInterpreter.json
         - name: ChainlinkAggregatorContract
           file: ./node_modules/@chainlink/contracts/abi/v0.6/AggregatorInterface.json
         - name: ChainlinkAggregatorProxyContract

@@ -111,8 +111,8 @@ interface DeploymentWithMetadata extends Deployment {
   networkName: string;
   startBlock: number;
 }
-
 async function fetchDeployment(source: string): Promise<DeploymentWithMetadata> {
+  console.log('netsource: ', source)
   if (source === 'kovan') {
     return {
       networkName: 'kovan',
@@ -459,7 +459,6 @@ async function fetchDeployment(source: string): Promise<DeploymentWithMetadata> 
 
   throw new Error('Unsupported deployment');
 }
-
 yargs
   .command('flatten', 'Flatten the generated code.', () => {
     const generated = path.resolve(__dirname, '..', 'src', 'generated');
@@ -493,8 +492,8 @@ yargs
       });
     },
     async (args) => {
+      console.log('net: ', args.deployment);
       const deploymentJson = await fetchDeployment(args.deployment);
-
       {
         console.log('Generating subgraph manifest');
 
@@ -517,7 +516,6 @@ yargs
 
         const compile = handlebars.compile(templateContent);
         const replaced = compile(deploymentJson);
-
         fs.writeFileSync(outputFile, replaced);
       }
 
