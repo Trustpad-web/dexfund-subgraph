@@ -1,0 +1,1072 @@
+{
+  "address": "0x0546043FFf4533A8EEA5279034e1bF6362ec20D1",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fundDeployer",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "payee",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "sharesDue",
+          "type": "uint256"
+        }
+      ],
+      "name": "AllSharesOutstandingForcePaidForFund",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "fee",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "identifier",
+          "type": "string"
+        }
+      ],
+      "name": "FeeDeregistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "fee",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "settingsData",
+          "type": "bytes"
+        }
+      ],
+      "name": "FeeEnabledForFund",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "fee",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "identifier",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum IFeeManager.FeeHook[]",
+          "name": "implementedHooksForSettle",
+          "type": "uint8[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum IFeeManager.FeeHook[]",
+          "name": "implementedHooksForUpdate",
+          "type": "uint8[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "usesGavOnSettle",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "usesGavOnUpdate",
+          "type": "bool"
+        }
+      ],
+      "name": "FeeRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "fee",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "enum IFeeManager.SettlementType",
+          "name": "settlementType",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "payer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "payee",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "sharesDue",
+          "type": "uint256"
+        }
+      ],
+      "name": "FeeSettledForFund",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "prevFeesRecipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "nextFeesRecipient",
+          "type": "address"
+        }
+      ],
+      "name": "FeesRecipientSetForFund",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newProtocolFee",
+          "type": "address"
+        }
+      ],
+      "name": "ProtocolFeeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "fee",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "sharesDue",
+          "type": "uint256"
+        }
+      ],
+      "name": "SharesOutstandingPaidForFund",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "name": "activateForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "fees",
+          "type": "address[]"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "addUserFeeWhitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deactivateForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_fees",
+          "type": "address[]"
+        }
+      ],
+      "name": "deregisterFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fee",
+          "type": "address"
+        },
+        {
+          "internalType": "enum IFeeManager.FeeHook",
+          "name": "_hook",
+          "type": "uint8"
+        }
+      ],
+      "name": "feeSettlesOnHook",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "settlesOnHook_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fee",
+          "type": "address"
+        },
+        {
+          "internalType": "enum IFeeManager.FeeHook",
+          "name": "_hook",
+          "type": "uint8"
+        }
+      ],
+      "name": "feeUpdatesOnHook",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "updatesOnHook_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fee",
+          "type": "address"
+        }
+      ],
+      "name": "feeUsesGavOnSettle",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "usesGav_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fee",
+          "type": "address"
+        }
+      ],
+      "name": "feeUsesGavOnUpdate",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "usesGav_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        }
+      ],
+      "name": "getEnabledFeesForFund",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "enabledFees_",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getExtensionDeployTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_fee",
+          "type": "address"
+        }
+      ],
+      "name": "getFeeSharesOutstandingForFund",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "sharesOutstanding_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFundDeployer",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "fundDeployer_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getProtocolFee",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getRegisteredFees",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "registeredFees_",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        }
+      ],
+      "name": "getVaultProxyForFund",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "vaultProxy_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum IFeeManager.FeeHook",
+          "name": "_hook",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_settlementData",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_gav",
+          "type": "uint256"
+        }
+      ],
+      "name": "invokeHook",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum IFeeManager.FeeHook",
+          "name": "_hook",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_settlementData",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_gav",
+          "type": "uint256"
+        }
+      ],
+      "name": "invokeHookProtocolFee",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fee",
+          "type": "address"
+        }
+      ],
+      "name": "isRegisteredFee",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isRegisteredFee_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_actionId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_callArgs",
+          "type": "bytes"
+        }
+      ],
+      "name": "receiveCallFromComptroller",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_fees",
+          "type": "address[]"
+        }
+      ],
+      "name": "registerFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "fees",
+          "type": "address[]"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "removeUserFeeWhitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_configData",
+          "type": "bytes"
+        }
+      ],
+      "name": "setConfigForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_newProtocolFee",
+          "type": "address"
+        }
+      ],
+      "name": "updateProtocolFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x5e532034c176cc46c5b608f505754a5f9c48b26ca614707318eb85e64faec37c",
+  "receipt": {
+    "to": null,
+    "from": "0x5a43993587dD57d58c16bbEbdf23b9F6D279176f",
+    "contractAddress": "0x0546043FFf4533A8EEA5279034e1bF6362ec20D1",
+    "transactionIndex": 151,
+    "gasUsed": "3234821",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xb6f2d760bb964b7b07c3c7d0025a350c64e11142b1fd6612c78ebffdd8c29cce",
+    "transactionHash": "0x5e532034c176cc46c5b608f505754a5f9c48b26ca614707318eb85e64faec37c",
+    "logs": [],
+    "blockNumber": 13522601,
+    "cumulativeGasUsed": "12445782",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x217912B16c8A00C2D9F2fDFCA94127ca37cFe948"
+  ],
+  "solcInputHash": "34b1516e615d6cbcdbaf9542624efee9",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fundDeployer\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptrollerProxy\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"payee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"sharesDue\",\"type\":\"uint256\"}],\"name\":\"AllSharesOutstandingForcePaidForFund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"fee\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"string\",\"name\":\"identifier\",\"type\":\"string\"}],\"name\":\"FeeDeregistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptrollerProxy\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"fee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"settingsData\",\"type\":\"bytes\"}],\"name\":\"FeeEnabledForFund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"fee\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"string\",\"name\":\"identifier\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"enum IFeeManager.FeeHook[]\",\"name\":\"implementedHooksForSettle\",\"type\":\"uint8[]\"},{\"indexed\":false,\"internalType\":\"enum IFeeManager.FeeHook[]\",\"name\":\"implementedHooksForUpdate\",\"type\":\"uint8[]\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"usesGavOnSettle\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"usesGavOnUpdate\",\"type\":\"bool\"}],\"name\":\"FeeRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptrollerProxy\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"fee\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"enum IFeeManager.SettlementType\",\"name\":\"settlementType\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"payer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"payee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"sharesDue\",\"type\":\"uint256\"}],\"name\":\"FeeSettledForFund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptrollerProxy\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"prevFeesRecipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nextFeesRecipient\",\"type\":\"address\"}],\"name\":\"FeesRecipientSetForFund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newProtocolFee\",\"type\":\"address\"}],\"name\":\"ProtocolFeeUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptrollerProxy\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"fee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"sharesDue\",\"type\":\"uint256\"}],\"name\":\"SharesOutstandingPaidForFund\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"name\":\"activateForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"fees\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"addUserFeeWhitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deactivateForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_fees\",\"type\":\"address[]\"}],\"name\":\"deregisterFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fee\",\"type\":\"address\"},{\"internalType\":\"enum IFeeManager.FeeHook\",\"name\":\"_hook\",\"type\":\"uint8\"}],\"name\":\"feeSettlesOnHook\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"settlesOnHook_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fee\",\"type\":\"address\"},{\"internalType\":\"enum IFeeManager.FeeHook\",\"name\":\"_hook\",\"type\":\"uint8\"}],\"name\":\"feeUpdatesOnHook\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"updatesOnHook_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fee\",\"type\":\"address\"}],\"name\":\"feeUsesGavOnSettle\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"usesGav_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fee\",\"type\":\"address\"}],\"name\":\"feeUsesGavOnUpdate\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"usesGav_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"}],\"name\":\"getEnabledFeesForFund\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"enabledFees_\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getExtensionDeployTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_fee\",\"type\":\"address\"}],\"name\":\"getFeeSharesOutstandingForFund\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"sharesOutstanding_\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFundDeployer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"fundDeployer_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getProtocolFee\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getRegisteredFees\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"registeredFees_\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"}],\"name\":\"getVaultProxyForFund\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"vaultProxy_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum IFeeManager.FeeHook\",\"name\":\"_hook\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"_settlementData\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"_gav\",\"type\":\"uint256\"}],\"name\":\"invokeHook\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum IFeeManager.FeeHook\",\"name\":\"_hook\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"_settlementData\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"_gav\",\"type\":\"uint256\"}],\"name\":\"invokeHookProtocolFee\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fee\",\"type\":\"address\"}],\"name\":\"isRegisteredFee\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isRegisteredFee_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_actionId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_callArgs\",\"type\":\"bytes\"}],\"name\":\"receiveCallFromComptroller\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_fees\",\"type\":\"address[]\"}],\"name\":\"registerFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"fees\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"removeUserFeeWhitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_configData\",\"type\":\"bytes\"}],\"name\":\"setConfigForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newProtocolFee\",\"type\":\"address\"}],\"name\":\"updateProtocolFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Enzyme Council <security@enzyme.finance>\",\"kind\":\"dev\",\"methods\":{\"deactivateForFund()\":{\"details\":\"msg.sender is validated during __invokeHook()\"},\"deregisterFees(address[])\":{\"params\":{\"_fees\":\"Addresses of fees to be deregistered\"}},\"feeSettlesOnHook(address,uint8)\":{\"params\":{\"_fee\":\"The address of the fee to check\",\"_hook\":\"The FeeHook to check\"},\"returns\":{\"settlesOnHook_\":\"True if the fee settles on the given hook\"}},\"feeUpdatesOnHook(address,uint8)\":{\"params\":{\"_fee\":\"The address of the fee to check\",\"_hook\":\"The FeeHook to check\"},\"returns\":{\"updatesOnHook_\":\"True if the fee updates on the given hook\"}},\"feeUsesGavOnSettle(address)\":{\"params\":{\"_fee\":\"The address of the fee to check\"},\"returns\":{\"usesGav_\":\"True if the fee uses GAV during settle() implementation\"}},\"feeUsesGavOnUpdate(address)\":{\"params\":{\"_fee\":\"The address of the fee to check\"},\"returns\":{\"usesGav_\":\"True if the fee uses GAV during update() implementation\"}},\"getEnabledFeesForFund(address)\":{\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund\"},\"returns\":{\"enabledFees_\":\"An array of enabled fee addresses\"}},\"getFeeSharesOutstandingForFund(address,address)\":{\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund\",\"_fee\":\"The fee address\"},\"returns\":{\"sharesOutstanding_\":\"The amount of shares outstanding\"}},\"getFundDeployer()\":{\"returns\":{\"fundDeployer_\":\"The `FUND_DEPLOYER` variable value\"}},\"getOwner()\":{\"details\":\"Ownership is deferred to the owner of the FundDeployer contract\",\"returns\":{\"owner_\":\"The owner\"}},\"getRegisteredFees()\":{\"returns\":{\"registeredFees_\":\"A list of all registered fee addresses\"}},\"getVaultProxyForFund(address)\":{\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund\"},\"returns\":{\"vaultProxy_\":\"The VaultProxy of the fund\"}},\"invokeHook(uint8,bytes,uint256)\":{\"params\":{\"_gav\":\"The GAV for a fund if known in the invocating code, otherwise 0\",\"_hook\":\"The FeeHook to invoke\",\"_settlementData\":\"The encoded settlement parameters specific to the FeeHook\"}},\"isRegisteredFee(address)\":{\"params\":{\"_fee\":\"The address of the fee to check\"},\"returns\":{\"isRegisteredFee_\":\"True if the fee is registered\"}},\"receiveCallFromComptroller(address,uint256,bytes)\":{\"details\":\"This is the only way to call a function on this contract that updates VaultProxy state. For both of these actions, any caller is allowed, so we don't use the caller param.\",\"params\":{\"_actionId\":\"An ID representing the desired action\",\"_callArgs\":\"Encoded arguments specific to the _actionId\"}},\"registerFees(address[])\":{\"details\":\"Stores the hooks that a fee implements and whether each implementation uses GAV, which fronts the gas for calls to check if a hook is implemented, and guarantees that these hook implementation return values do not change post-registration.\",\"params\":{\"_fees\":\"Addresses of fees to be registered\"}},\"setConfigForFund(bytes)\":{\"details\":\"Caller is expected to be a valid ComptrollerProxy, but there isn't a need to validate. The order of `fees` determines the order in which fees of the same FeeHook will be applied. It is recommended to run ManagementFee before PerformanceFee in order to achieve precise PerformanceFee calcs.\",\"params\":{\"_configData\":\"Encoded config data\"}}},\"title\":\"FeeManager Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"activateForFund(bool)\":{\"notice\":\"Activate already-configured fees for use in the calling fund\"},\"deactivateForFund()\":{\"notice\":\"Deactivate fees for a fund\"},\"deregisterFees(address[])\":{\"notice\":\"Remove fees from the list of registered fees\"},\"feeSettlesOnHook(address,uint8)\":{\"notice\":\"Checks if a fee implements settle() on a particular hook\"},\"feeUpdatesOnHook(address,uint8)\":{\"notice\":\"Checks if a fee implements update() on a particular hook\"},\"feeUsesGavOnSettle(address)\":{\"notice\":\"Checks if a fee uses GAV in its settle() implementation\"},\"feeUsesGavOnUpdate(address)\":{\"notice\":\"Checks if a fee uses GAV in its update() implementation\"},\"getEnabledFeesForFund(address)\":{\"notice\":\"Get a list of enabled fees for a given fund\"},\"getFeeSharesOutstandingForFund(address,address)\":{\"notice\":\"Get the amount of shares outstanding for a particular fee for a fund\"},\"getFundDeployer()\":{\"notice\":\"Gets the `FUND_DEPLOYER` variable\"},\"getOwner()\":{\"notice\":\"Gets the owner of this contract\"},\"getRegisteredFees()\":{\"notice\":\"Get all registered fees\"},\"getVaultProxyForFund(address)\":{\"notice\":\"Gets the verified VaultProxy for a given ComptrollerProxy\"},\"invokeHook(uint8,bytes,uint256)\":{\"notice\":\"Allows all fees for a particular FeeHook to implement settle() and update() logic\"},\"isRegisteredFee(address)\":{\"notice\":\"Check whether a fee is registered\"},\"receiveCallFromComptroller(address,uint256,bytes)\":{\"notice\":\"Receives a dispatched `callOnExtension` from a fund's ComptrollerProxy\"},\"registerFees(address[])\":{\"notice\":\"Add fees to the list of registered fees\"},\"setConfigForFund(bytes)\":{\"notice\":\"Enable and configure fees for use in the calling fund\"}},\"notice\":\"Manages fees for funds\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/release/extensions/fee-manager/FeeManager.sol\":\"FeeManager\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\n * checks.\\n *\\n * Arithmetic operations in Solidity wrap on overflow. This can easily result\\n * in bugs, because programmers usually assume that an overflow raises an\\n * error, which is the standard behavior in high level programming languages.\\n * `SafeMath` restores this intuition by reverting the transaction when an\\n * operation overflows.\\n *\\n * Using this library instead of the unchecked operations eliminates an entire\\n * class of bugs, so it's recommended to use it always.\\n */\\nlibrary SafeMath {\\n    /**\\n     * @dev Returns the addition of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        uint256 c = a + b;\\n        if (c < a) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the substraction of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b > a) return (false, 0);\\n        return (true, a - b);\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\n        // benefit is lost if 'b' is also tested.\\n        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522\\n        if (a == 0) return (true, 0);\\n        uint256 c = a * b;\\n        if (c / a != b) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the division of two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a / b);\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a % b);\\n    }\\n\\n    /**\\n     * @dev Returns the addition of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `+` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Addition cannot overflow.\\n     */\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\n        uint256 c = a + b;\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting on\\n     * overflow (when the result is negative).\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b <= a, \\\"SafeMath: subtraction overflow\\\");\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `*` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Multiplication cannot overflow.\\n     */\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\n        if (a == 0) return 0;\\n        uint256 c = a * b;\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: division by zero\\\");\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting when dividing by zero.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: modulo by zero\\\");\\n        return a % b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on\\n     * overflow (when the result is negative).\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {trySub}.\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b <= a, errorMessage);\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting with custom message on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryDiv}.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting with custom message when dividing by zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryMod}.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a % b;\\n    }\\n}\\n\",\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\nimport \\\"../../utils/Context.sol\\\";\\nimport \\\"./IERC20.sol\\\";\\nimport \\\"../../math/SafeMath.sol\\\";\\n\\n/**\\n * @dev Implementation of the {IERC20} interface.\\n *\\n * This implementation is agnostic to the way tokens are created. This means\\n * that a supply mechanism has to be added in a derived contract using {_mint}.\\n * For a generic mechanism see {ERC20PresetMinterPauser}.\\n *\\n * TIP: For a detailed writeup see our guide\\n * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How\\n * to implement supply mechanisms].\\n *\\n * We have followed general OpenZeppelin guidelines: functions revert instead\\n * of returning `false` on failure. This behavior is nonetheless conventional\\n * and does not conflict with the expectations of ERC20 applications.\\n *\\n * Additionally, an {Approval} event is emitted on calls to {transferFrom}.\\n * This allows applications to reconstruct the allowance for all accounts just\\n * by listening to said events. Other implementations of the EIP may not emit\\n * these events, as it isn't required by the specification.\\n *\\n * Finally, the non-standard {decreaseAllowance} and {increaseAllowance}\\n * functions have been added to mitigate the well-known issues around setting\\n * allowances. See {IERC20-approve}.\\n */\\ncontract ERC20 is Context, IERC20 {\\n    using SafeMath for uint256;\\n\\n    mapping (address => uint256) private _balances;\\n\\n    mapping (address => mapping (address => uint256)) private _allowances;\\n\\n    uint256 private _totalSupply;\\n\\n    string private _name;\\n    string private _symbol;\\n    uint8 private _decimals;\\n\\n    /**\\n     * @dev Sets the values for {name} and {symbol}, initializes {decimals} with\\n     * a default value of 18.\\n     *\\n     * To select a different value for {decimals}, use {_setupDecimals}.\\n     *\\n     * All three of these values are immutable: they can only be set once during\\n     * construction.\\n     */\\n    constructor (string memory name_, string memory symbol_) public {\\n        _name = name_;\\n        _symbol = symbol_;\\n        _decimals = 18;\\n    }\\n\\n    /**\\n     * @dev Returns the name of the token.\\n     */\\n    function name() public view virtual returns (string memory) {\\n        return _name;\\n    }\\n\\n    /**\\n     * @dev Returns the symbol of the token, usually a shorter version of the\\n     * name.\\n     */\\n    function symbol() public view virtual returns (string memory) {\\n        return _symbol;\\n    }\\n\\n    /**\\n     * @dev Returns the number of decimals used to get its user representation.\\n     * For example, if `decimals` equals `2`, a balance of `505` tokens should\\n     * be displayed to a user as `5,05` (`505 / 10 ** 2`).\\n     *\\n     * Tokens usually opt for a value of 18, imitating the relationship between\\n     * Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is\\n     * called.\\n     *\\n     * NOTE: This information is only used for _display_ purposes: it in\\n     * no way affects any of the arithmetic of the contract, including\\n     * {IERC20-balanceOf} and {IERC20-transfer}.\\n     */\\n    function decimals() public view virtual returns (uint8) {\\n        return _decimals;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-totalSupply}.\\n     */\\n    function totalSupply() public view virtual override returns (uint256) {\\n        return _totalSupply;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-balanceOf}.\\n     */\\n    function balanceOf(address account) public view virtual override returns (uint256) {\\n        return _balances[account];\\n    }\\n\\n    /**\\n     * @dev See {IERC20-transfer}.\\n     *\\n     * Requirements:\\n     *\\n     * - `recipient` cannot be the zero address.\\n     * - the caller must have a balance of at least `amount`.\\n     */\\n    function transfer(address recipient, uint256 amount) public virtual override returns (bool) {\\n        _transfer(_msgSender(), recipient, amount);\\n        return true;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-allowance}.\\n     */\\n    function allowance(address owner, address spender) public view virtual override returns (uint256) {\\n        return _allowances[owner][spender];\\n    }\\n\\n    /**\\n     * @dev See {IERC20-approve}.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     */\\n    function approve(address spender, uint256 amount) public virtual override returns (bool) {\\n        _approve(_msgSender(), spender, amount);\\n        return true;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-transferFrom}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance. This is not\\n     * required by the EIP. See the note at the beginning of {ERC20}.\\n     *\\n     * Requirements:\\n     *\\n     * - `sender` and `recipient` cannot be the zero address.\\n     * - `sender` must have a balance of at least `amount`.\\n     * - the caller must have allowance for ``sender``'s tokens of at least\\n     * `amount`.\\n     */\\n    function transferFrom(address sender, address recipient, uint256 amount) public virtual override returns (bool) {\\n        _transfer(sender, recipient, amount);\\n        _approve(sender, _msgSender(), _allowances[sender][_msgSender()].sub(amount, \\\"ERC20: transfer amount exceeds allowance\\\"));\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Atomically increases the allowance granted to `spender` by the caller.\\n     *\\n     * This is an alternative to {approve} that can be used as a mitigation for\\n     * problems described in {IERC20-approve}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     */\\n    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {\\n        _approve(_msgSender(), spender, _allowances[_msgSender()][spender].add(addedValue));\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Atomically decreases the allowance granted to `spender` by the caller.\\n     *\\n     * This is an alternative to {approve} that can be used as a mitigation for\\n     * problems described in {IERC20-approve}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     * - `spender` must have allowance for the caller of at least\\n     * `subtractedValue`.\\n     */\\n    function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {\\n        _approve(_msgSender(), spender, _allowances[_msgSender()][spender].sub(subtractedValue, \\\"ERC20: decreased allowance below zero\\\"));\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Moves tokens `amount` from `sender` to `recipient`.\\n     *\\n     * This is internal function is equivalent to {transfer}, and can be used to\\n     * e.g. implement automatic token fees, slashing mechanisms, etc.\\n     *\\n     * Emits a {Transfer} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `sender` cannot be the zero address.\\n     * - `recipient` cannot be the zero address.\\n     * - `sender` must have a balance of at least `amount`.\\n     */\\n    function _transfer(address sender, address recipient, uint256 amount) internal virtual {\\n        require(sender != address(0), \\\"ERC20: transfer from the zero address\\\");\\n        require(recipient != address(0), \\\"ERC20: transfer to the zero address\\\");\\n\\n        _beforeTokenTransfer(sender, recipient, amount);\\n\\n        _balances[sender] = _balances[sender].sub(amount, \\\"ERC20: transfer amount exceeds balance\\\");\\n        _balances[recipient] = _balances[recipient].add(amount);\\n        emit Transfer(sender, recipient, amount);\\n    }\\n\\n    /** @dev Creates `amount` tokens and assigns them to `account`, increasing\\n     * the total supply.\\n     *\\n     * Emits a {Transfer} event with `from` set to the zero address.\\n     *\\n     * Requirements:\\n     *\\n     * - `to` cannot be the zero address.\\n     */\\n    function _mint(address account, uint256 amount) internal virtual {\\n        require(account != address(0), \\\"ERC20: mint to the zero address\\\");\\n\\n        _beforeTokenTransfer(address(0), account, amount);\\n\\n        _totalSupply = _totalSupply.add(amount);\\n        _balances[account] = _balances[account].add(amount);\\n        emit Transfer(address(0), account, amount);\\n    }\\n\\n    /**\\n     * @dev Destroys `amount` tokens from `account`, reducing the\\n     * total supply.\\n     *\\n     * Emits a {Transfer} event with `to` set to the zero address.\\n     *\\n     * Requirements:\\n     *\\n     * - `account` cannot be the zero address.\\n     * - `account` must have at least `amount` tokens.\\n     */\\n    function _burn(address account, uint256 amount) internal virtual {\\n        require(account != address(0), \\\"ERC20: burn from the zero address\\\");\\n\\n        _beforeTokenTransfer(account, address(0), amount);\\n\\n        _balances[account] = _balances[account].sub(amount, \\\"ERC20: burn amount exceeds balance\\\");\\n        _totalSupply = _totalSupply.sub(amount);\\n        emit Transfer(account, address(0), amount);\\n    }\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the `owner` s tokens.\\n     *\\n     * This internal function is equivalent to `approve`, and can be used to\\n     * e.g. set automatic allowances for certain subsystems, etc.\\n     *\\n     * Emits an {Approval} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `owner` cannot be the zero address.\\n     * - `spender` cannot be the zero address.\\n     */\\n    function _approve(address owner, address spender, uint256 amount) internal virtual {\\n        require(owner != address(0), \\\"ERC20: approve from the zero address\\\");\\n        require(spender != address(0), \\\"ERC20: approve to the zero address\\\");\\n\\n        _allowances[owner][spender] = amount;\\n        emit Approval(owner, spender, amount);\\n    }\\n\\n    /**\\n     * @dev Sets {decimals} to a value other than the default one of 18.\\n     *\\n     * WARNING: This function should only be called from the constructor. Most\\n     * applications that interact with token contracts will not expect\\n     * {decimals} to ever change, and may work incorrectly if it does.\\n     */\\n    function _setupDecimals(uint8 decimals_) internal virtual {\\n        _decimals = decimals_;\\n    }\\n\\n    /**\\n     * @dev Hook that is called before any transfer of tokens. This includes\\n     * minting and burning.\\n     *\\n     * Calling conditions:\\n     *\\n     * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens\\n     * will be to transferred to `to`.\\n     * - when `from` is zero, `amount` tokens will be minted for `to`.\\n     * - when `to` is zero, `amount` of ``from``'s tokens will be burned.\\n     * - `from` and `to` are never both zero.\\n     *\\n     * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].\\n     */\\n    function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }\\n}\\n\",\"keccak256\":\"0xca0c2396dbeb3503b51abf4248ebf77a1461edad513c01529df51850a012bee3\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `recipient`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address recipient, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `sender` to `recipient` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n}\\n\",\"keccak256\":\"0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/*\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with GSN meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address payable) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes memory) {\\n        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691\\n        return msg.data;\\n    }\\n}\\n\",\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/EnumerableSet.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Library for managing\\n * https://en.wikipedia.org/wiki/Set_(abstract_data_type)[sets] of primitive\\n * types.\\n *\\n * Sets have the following properties:\\n *\\n * - Elements are added, removed, and checked for existence in constant time\\n * (O(1)).\\n * - Elements are enumerated in O(n). No guarantees are made on the ordering.\\n *\\n * ```\\n * contract Example {\\n *     // Add the library methods\\n *     using EnumerableSet for EnumerableSet.AddressSet;\\n *\\n *     // Declare a set state variable\\n *     EnumerableSet.AddressSet private mySet;\\n * }\\n * ```\\n *\\n * As of v3.3.0, sets of type `bytes32` (`Bytes32Set`), `address` (`AddressSet`)\\n * and `uint256` (`UintSet`) are supported.\\n */\\nlibrary EnumerableSet {\\n    // To implement this library for multiple types with as little code\\n    // repetition as possible, we write it in terms of a generic Set type with\\n    // bytes32 values.\\n    // The Set implementation uses private functions, and user-facing\\n    // implementations (such as AddressSet) are just wrappers around the\\n    // underlying Set.\\n    // This means that we can only create new EnumerableSets for types that fit\\n    // in bytes32.\\n\\n    struct Set {\\n        // Storage of set values\\n        bytes32[] _values;\\n\\n        // Position of the value in the `values` array, plus 1 because index 0\\n        // means a value is not in the set.\\n        mapping (bytes32 => uint256) _indexes;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function _add(Set storage set, bytes32 value) private returns (bool) {\\n        if (!_contains(set, value)) {\\n            set._values.push(value);\\n            // The value is stored at length-1, but we add 1 to all indexes\\n            // and use 0 as a sentinel value\\n            set._indexes[value] = set._values.length;\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function _remove(Set storage set, bytes32 value) private returns (bool) {\\n        // We read and store the value's index to prevent multiple reads from the same storage slot\\n        uint256 valueIndex = set._indexes[value];\\n\\n        if (valueIndex != 0) { // Equivalent to contains(set, value)\\n            // To delete an element from the _values array in O(1), we swap the element to delete with the last one in\\n            // the array, and then remove the last element (sometimes called as 'swap and pop').\\n            // This modifies the order of the array, as noted in {at}.\\n\\n            uint256 toDeleteIndex = valueIndex - 1;\\n            uint256 lastIndex = set._values.length - 1;\\n\\n            // When the value to delete is the last one, the swap operation is unnecessary. However, since this occurs\\n            // so rarely, we still do the swap anyway to avoid the gas cost of adding an 'if' statement.\\n\\n            bytes32 lastvalue = set._values[lastIndex];\\n\\n            // Move the last value to the index where the value to delete is\\n            set._values[toDeleteIndex] = lastvalue;\\n            // Update the index for the moved value\\n            set._indexes[lastvalue] = toDeleteIndex + 1; // All indexes are 1-based\\n\\n            // Delete the slot where the moved value was stored\\n            set._values.pop();\\n\\n            // Delete the index for the deleted slot\\n            delete set._indexes[value];\\n\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function _contains(Set storage set, bytes32 value) private view returns (bool) {\\n        return set._indexes[value] != 0;\\n    }\\n\\n    /**\\n     * @dev Returns the number of values on the set. O(1).\\n     */\\n    function _length(Set storage set) private view returns (uint256) {\\n        return set._values.length;\\n    }\\n\\n   /**\\n    * @dev Returns the value stored at position `index` in the set. O(1).\\n    *\\n    * Note that there are no guarantees on the ordering of values inside the\\n    * array, and it may change when more values are added or removed.\\n    *\\n    * Requirements:\\n    *\\n    * - `index` must be strictly less than {length}.\\n    */\\n    function _at(Set storage set, uint256 index) private view returns (bytes32) {\\n        require(set._values.length > index, \\\"EnumerableSet: index out of bounds\\\");\\n        return set._values[index];\\n    }\\n\\n    // Bytes32Set\\n\\n    struct Bytes32Set {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _add(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _remove(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(Bytes32Set storage set, bytes32 value) internal view returns (bool) {\\n        return _contains(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(Bytes32Set storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n   /**\\n    * @dev Returns the value stored at position `index` in the set. O(1).\\n    *\\n    * Note that there are no guarantees on the ordering of values inside the\\n    * array, and it may change when more values are added or removed.\\n    *\\n    * Requirements:\\n    *\\n    * - `index` must be strictly less than {length}.\\n    */\\n    function at(Bytes32Set storage set, uint256 index) internal view returns (bytes32) {\\n        return _at(set._inner, index);\\n    }\\n\\n    // AddressSet\\n\\n    struct AddressSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(AddressSet storage set, address value) internal returns (bool) {\\n        return _add(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(AddressSet storage set, address value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(AddressSet storage set, address value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(AddressSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n   /**\\n    * @dev Returns the value stored at position `index` in the set. O(1).\\n    *\\n    * Note that there are no guarantees on the ordering of values inside the\\n    * array, and it may change when more values are added or removed.\\n    *\\n    * Requirements:\\n    *\\n    * - `index` must be strictly less than {length}.\\n    */\\n    function at(AddressSet storage set, uint256 index) internal view returns (address) {\\n        return address(uint160(uint256(_at(set._inner, index))));\\n    }\\n\\n\\n    // UintSet\\n\\n    struct UintSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _add(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(UintSet storage set, uint256 value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values on the set. O(1).\\n     */\\n    function length(UintSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n   /**\\n    * @dev Returns the value stored at position `index` in the set. O(1).\\n    *\\n    * Note that there are no guarantees on the ordering of values inside the\\n    * array, and it may change when more values are added or removed.\\n    *\\n    * Requirements:\\n    *\\n    * - `index` must be strictly less than {length}.\\n    */\\n    function at(UintSet storage set, uint256 index) internal view returns (uint256) {\\n        return uint256(_at(set._inner, index));\\n    }\\n}\\n\",\"keccak256\":\"0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164\",\"license\":\"MIT\"},\"contracts/persistent/buyback-vault/IBuybackVault.sol\":{\"content\":\"pragma solidity 0.6.12;\\n\\ninterface IBuybackVault {\\n    function getOwner() external view returns (address);\\n\\n    function setOperators(address _dispatcher, address _feeManager) external;\\n\\n    function getFeeManager() external view returns (address);\\n\\n    function getDispatcher() external view returns (address);\\n\\n    function redeemShares(address[] memory _vaults) external;\\n\\n    function redeemAllShares() external;\\n\\n    function withdrawERC20(address[] calldata _assets, address _withdrawAddress) external;\\n\\n    function addTrackedVault(address _vault) external;\\n\\n    function removeTrackedVault(address _vault) external;\\n\\n    function isTrackedVault(address _vault) external view returns (bool);\\n\\n    function getTrackedVaultsLength() external view returns (uint256);\\n\\n    function getTrackedVault(uint256 _id) external view returns (address);\\n}\",\"keccak256\":\"0x77ea1495cbeb316557a4901efe1296cc7483600f0233b4cb5f33b4be968851fc\"},\"contracts/persistent/utils/IMigratableVault.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IMigratableVault Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @dev DO NOT EDIT CONTRACT\\ninterface IMigratableVault {\\n    function canMigrate(address _who) external view returns (bool canMigrate_);\\n\\n    function init(\\n        address _owner,\\n        address _accessor,\\n        string calldata _fundName\\n    ) external;\\n\\n    function setAccessor(address _nextAccessor) external;\\n\\n    function setVaultLib(address _nextVaultLib) external;\\n}\\n\",\"keccak256\":\"0x8e1355a7efa8ec2172f5c9b532071def392b86ab1e5534d2fc73417a6e9f7238\",\"license\":\"GPL-3.0\"},\"contracts/release/core/fund-deployer/IFundDeployer.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IFundDeployer Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IFundDeployer {\\n    enum ReleaseStatus {PreLaunch, Live, Paused}\\n\\n    function getOwner() external view returns (address);\\n\\n    function getBuybackVault() external view returns (address);\\n\\n    function getReleaseStatus() external view returns (ReleaseStatus);\\n\\n    function isRegisteredVaultCall(address, bytes4) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xe5d28ccc67b68ed61a36eac1e3dfda4230b3669c71e2169ec190ec243bd78742\",\"license\":\"GPL-3.0\"},\"contracts/release/core/fund/comptroller/IComptroller.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IComptroller Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IComptroller {\\n    enum VaultAction {\\n        None,\\n        BurnShares,\\n        MintShares,\\n        TransferShares,\\n        ApproveAssetSpender,\\n        WithdrawAssetTo,\\n        AddTrackedAsset,\\n        RemoveTrackedAsset\\n    }\\n\\n    function activate(address, bool) external;\\n\\n    function calcGav(bool) external returns (uint256, bool);\\n\\n    function calcGrossShareValue(bool) external returns (uint256, bool);\\n\\n    function callOnExtension(\\n        address,\\n        uint256,\\n        bytes calldata\\n    ) external;\\n\\n    function redeemShares() external returns (address[] memory payoutAssets_, uint256[] memory payoutAmounts_);\\n\\n    function configureExtensions(bytes calldata, bytes calldata) external;\\n\\n    function destruct() external;\\n\\n    function getDenominationAsset() external view returns (address);\\n\\n    function getVaultProxy() external view returns (address);\\n\\n    function init(address, uint256) external;\\n\\n    function buyShares(address[] calldata _buyers, uint256[] calldata _investmentAmounts, uint256[] calldata _minSharesQuantities) external returns (uint256[] memory sharesReceivedAmounts_);\\n\\n    function permissionedVaultAction(VaultAction, bytes calldata) external;\\n}\\n\",\"keccak256\":\"0x2622e70a159a074de87c23f44ea268e844b35d6032d243431209981e62023987\",\"license\":\"GPL-3.0\"},\"contracts/release/core/fund/vault/IVault.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../../../persistent/utils/IMigratableVault.sol\\\";\\n\\n/// @title IVault Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IVault is IMigratableVault {\\n    function addTrackedAsset(address) external;\\n\\n    function approveAssetSpender(\\n        address,\\n        address,\\n        uint256\\n    ) external;\\n\\n    function burnShares(address, uint256) external;\\n\\n    function callOnContract(address, bytes calldata) external;\\n\\n    function getAccessor() external view returns (address);\\n\\n    function getOwner() external view returns (address);\\n\\n    function getTrackedAssets() external view returns (address[] memory);\\n\\n    function getTrackedAssetsLength() external view returns (uint256);\\n\\n    function isTrackedAsset(address) external view returns (bool);\\n\\n    function mintShares(address, uint256) external;\\n\\n    function removeTrackedAsset(address) external;\\n\\n    function transferShares(\\n        address,\\n        address,\\n        uint256\\n    ) external;\\n\\n    function withdrawAssetTo(\\n        address,\\n        address,\\n        uint256\\n    ) external;\\n}\\n\",\"keccak256\":\"0xdf4113aa774441ea569313fc0eaf6efe87d22a2bb77857d6a170aa3209f13219\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/IExtension.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IExtension Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for all extensions\\ninterface IExtension {\\n    function activateForFund(bool _isMigration) external;\\n\\n    function deactivateForFund() external;\\n\\n    function receiveCallFromComptroller(\\n        address _comptrollerProxy,\\n        uint256 _actionId,\\n        bytes calldata _callArgs\\n    ) external;\\n\\n    function setConfigForFund(bytes calldata _configData) external;\\n}\\n\",\"keccak256\":\"0x7fcbf884a27aca97ce8660cf5af9e52b436896bed8ceff1dd8e570a9358e6432\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/fee-manager/FeeManager.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\npragma experimental ABIEncoderV2;\\n\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\nimport \\\"@openzeppelin/contracts/token/ERC20/ERC20.sol\\\";\\nimport \\\"@openzeppelin/contracts/utils/EnumerableSet.sol\\\";\\nimport \\\"../../core/fund/comptroller/IComptroller.sol\\\";\\nimport \\\"../../core/fund/vault/IVault.sol\\\";\\nimport \\\"../../utils/AddressArrayLib.sol\\\";\\nimport \\\"../utils/ExtensionBase.sol\\\";\\nimport \\\"../utils/FundDeployerOwnerMixin.sol\\\";\\nimport \\\"../utils/PermissionedVaultActionMixin.sol\\\";\\nimport \\\"./IFee.sol\\\";\\nimport \\\"./IFeeManager.sol\\\";\\nimport \\\"./../../core/fund-deployer/IFundDeployer.sol\\\";\\nimport \\\"./../../../persistent/buyback-vault/IBuybackVault.sol\\\";\\n\\n/// @title FeeManager Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Manages fees for funds\\ncontract FeeManager is\\n    IFeeManager,\\n    ExtensionBase,\\n    FundDeployerOwnerMixin,\\n    PermissionedVaultActionMixin\\n{\\n    using AddressArrayLib for address[];\\n    using EnumerableSet for EnumerableSet.AddressSet;\\n    using SafeMath for uint256;\\n\\n    event AllSharesOutstandingForcePaidForFund(\\n        address indexed comptrollerProxy,\\n        address payee,\\n        uint256 sharesDue\\n    );\\n\\n    event FeeDeregistered(address indexed fee, string indexed identifier);\\n\\n    event FeeEnabledForFund(\\n        address indexed comptrollerProxy,\\n        address indexed fee,\\n        bytes settingsData\\n    );\\n\\n    event FeeRegistered(\\n        address indexed fee,\\n        string indexed identifier,\\n        FeeHook[] implementedHooksForSettle,\\n        FeeHook[] implementedHooksForUpdate,\\n        bool usesGavOnSettle,\\n        bool usesGavOnUpdate\\n    );\\n\\n    event FeeSettledForFund(\\n        address indexed comptrollerProxy,\\n        address indexed fee,\\n        SettlementType indexed settlementType,\\n        address payer,\\n        address payee,\\n        uint256 sharesDue\\n    );\\n\\n    event SharesOutstandingPaidForFund(\\n        address indexed comptrollerProxy,\\n        address indexed fee,\\n        uint256 sharesDue\\n    );\\n\\n    event FeesRecipientSetForFund(\\n        address indexed comptrollerProxy,\\n        address prevFeesRecipient,\\n        address nextFeesRecipient\\n    );\\n\\n    event ProtocolFeeUpdated(address indexed newProtocolFee);\\n\\n    address private PROTOCOL_FEE;\\n\\n    EnumerableSet.AddressSet private registeredFees;\\n    mapping(address => bool) private feeToUsesGavOnSettle;\\n    mapping(address => bool) private feeToUsesGavOnUpdate;\\n    mapping(address => mapping(FeeHook => bool)) private feeToHookToImplementsSettle;\\n    mapping(address => mapping(FeeHook => bool)) private feeToHookToImplementsUpdate;\\n\\n    mapping(address => address[]) private comptrollerProxyToFees;\\n    mapping(address => mapping(address => uint256))\\n        private comptrollerProxyToFeeToSharesOutstanding;\\n\\n    constructor(address _fundDeployer) public FundDeployerOwnerMixin(_fundDeployer) {}\\n\\n    // EXTERNAL FUNCTIONS\\n\\n    /// @notice Activate already-configured fees for use in the calling fund\\n    function activateForFund(bool) external override {\\n        address vaultProxy = __setValidatedVaultProxy(msg.sender);\\n\\n        address[] memory enabledFees = comptrollerProxyToFees[msg.sender];\\n        for (uint256 i; i < enabledFees.length; i++) {\\n            IFee(enabledFees[i]).activateForFund(msg.sender, vaultProxy);\\n        }\\n    }\\n\\n    /// @notice Deactivate fees for a fund\\n    /// @dev msg.sender is validated during __invokeHook()\\n    function deactivateForFund() external override {\\n        // Settle continuous fees one last time, but without calling Fee.update()\\n        __invokeHook(msg.sender, IFeeManager.FeeHook.Continuous, \\\"\\\", 0, false);\\n\\n        // Force payout of remaining shares outstanding\\n        __forcePayoutAllSharesOutstanding(msg.sender);\\n\\n        // Clean up storage\\n        __deleteFundStorage(msg.sender);\\n    }\\n\\n    /// @notice Receives a dispatched `callOnExtension` from a fund's ComptrollerProxy\\n    /// @param _actionId An ID representing the desired action\\n    /// @param _callArgs Encoded arguments specific to the _actionId\\n    /// @dev This is the only way to call a function on this contract that updates VaultProxy state.\\n    /// For both of these actions, any caller is allowed, so we don't use the caller param.\\n    function receiveCallFromComptroller(\\n        address,\\n        uint256 _actionId,\\n        bytes calldata _callArgs\\n    ) external override {\\n        if (_actionId == 0) {\\n            // Settle and update all continuous fees\\n            __invokeHook(msg.sender, IFeeManager.FeeHook.Continuous, \\\"\\\", 0, true);\\n        } else if (_actionId == 1) {\\n            __payoutSharesOutstandingForFees(msg.sender, _callArgs);\\n        } else {\\n            revert(\\\"receiveCallFromComptroller: Invalid _actionId\\\");\\n        }\\n    }\\n\\n    /// @notice Enable and configure fees for use in the calling fund\\n    /// @param _configData Encoded config data\\n    /// @dev Caller is expected to be a valid ComptrollerProxy, but there isn't a need to validate.\\n    /// The order of `fees` determines the order in which fees of the same FeeHook will be applied.\\n    /// It is recommended to run ManagementFee before PerformanceFee in order to achieve precise\\n    /// PerformanceFee calcs.\\n    function setConfigForFund(bytes calldata _configData) external override {\\n        (address[] memory fees, bytes[] memory settingsData) = abi.decode(\\n            _configData,\\n            (address[], bytes[])\\n        );\\n\\n        // Sanity checks\\n        require(\\n            fees.length == settingsData.length,\\n            \\\"setConfigForFund: fees and settingsData array lengths unequal\\\"\\n        );\\n        require(fees.isUniqueSet(), \\\"setConfigForFund: fees cannot include duplicates\\\");\\n\\n        // Enable each fee with settings\\n        for (uint256 i; i < fees.length; i++) {\\n            require(isRegisteredFee(fees[i]), \\\"setConfigForFund: Fee is not registered\\\");\\n\\n            // Set fund config on fee\\n            IFee(fees[i]).addFundSettings(msg.sender, settingsData[i]);\\n\\n            // Enable fee for fund\\n            comptrollerProxyToFees[msg.sender].push(fees[i]);\\n\\n            emit FeeEnabledForFund(msg.sender, fees[i], settingsData[i]);\\n        }\\n    }\\n\\n    /// @notice Allows all fees for a particular FeeHook to implement settle() and update() logic\\n    /// @param _hook The FeeHook to invoke\\n    /// @param _settlementData The encoded settlement parameters specific to the FeeHook\\n    /// @param _gav The GAV for a fund if known in the invocating code, otherwise 0\\n    function invokeHook(\\n        FeeHook _hook,\\n        bytes calldata _settlementData,\\n        uint256 _gav\\n    ) external override {\\n        __invokeHook(msg.sender, _hook, _settlementData, _gav, true);\\n    }\\n\\n    function invokeHookProtocolFee(\\n        FeeHook _hook,\\n        bytes calldata _settlementData,\\n        uint256 _gav\\n    ) external override returns (bool, uint256) {\\n        if (PROTOCOL_FEE != address(0)) {\\n            address vaultProxy = getVaultProxyForFund(msg.sender);\\n\\n            // This check isn't strictly necessary, but its cost is insignificant,\\n            // and helps to preserve data integrity.\\n            require(vaultProxy != address(0), \\\"__invokeHook: Fund is not active\\\");\\n\\n            return __settleProtocolFee(msg.sender, vaultProxy, _hook, _settlementData, _gav);\\n        }\\n    }\\n\\n    // PRIVATE FUNCTIONS\\n\\n    /// @dev Helper to destroy local storage to get gas refund,\\n    /// and to prevent further calls to fee manager\\n    function __deleteFundStorage(address _comptrollerProxy) private {\\n        delete comptrollerProxyToFees[_comptrollerProxy];\\n        delete comptrollerProxyToVaultProxy[_comptrollerProxy];\\n    }\\n\\n    /// @dev Helper to force the payout of shares outstanding across all fees.\\n    /// For the current release, all shares in the VaultProxy are assumed to be\\n    /// shares outstanding from fees. If not, then they were sent there by mistake\\n    /// and are otherwise unrecoverable. We can therefore take the VaultProxy's\\n    /// shares balance as the totalSharesOutstanding to payout to the fund owner.\\n    function __forcePayoutAllSharesOutstanding(address _comptrollerProxy) private {\\n        address vaultProxy = getVaultProxyForFund(_comptrollerProxy);\\n\\n        uint256 totalSharesOutstanding = ERC20(vaultProxy).balanceOf(vaultProxy);\\n        if (totalSharesOutstanding == 0) {\\n            return;\\n        }\\n\\n        // Destroy any shares outstanding storage\\n        address[] memory fees = comptrollerProxyToFees[_comptrollerProxy];\\n        for (uint256 i; i < fees.length; i++) {\\n            delete comptrollerProxyToFeeToSharesOutstanding[_comptrollerProxy][fees[i]];\\n        }\\n\\n        // Distribute all shares outstanding to the fees recipient\\n        address payee = IVault(vaultProxy).getOwner();\\n        __transferShares(_comptrollerProxy, vaultProxy, payee, totalSharesOutstanding);\\n\\n        emit AllSharesOutstandingForcePaidForFund(\\n            _comptrollerProxy,\\n            payee,\\n            totalSharesOutstanding\\n        );\\n    }\\n\\n    /// @dev Helper to get the canonical value of GAV if not yet set and required by fee\\n    function __getGavAsNecessary(\\n        address _comptrollerProxy,\\n        address _fee,\\n        uint256 _gavOrZero\\n    ) private returns (uint256 gav_) {\\n        if (_gavOrZero == 0 && feeUsesGavOnUpdate(_fee)) {\\n            // Assumes that any fee that requires GAV would need to revert if invalid or not final\\n            bool gavIsValid;\\n            (gav_, gavIsValid) = IComptroller(_comptrollerProxy).calcGav(true);\\n            require(gavIsValid, \\\"__getGavAsNecessary: Invalid GAV\\\");\\n        } else {\\n            gav_ = _gavOrZero;\\n        }\\n\\n        return gav_;\\n    }\\n\\n    /// @dev Helper to run settle() on all enabled fees for a fund that implement a given hook, and then to\\n    /// optionally run update() on the same fees. This order allows fees an opportunity to update\\n    /// their local state after all VaultProxy state transitions (i.e., minting, burning,\\n    /// transferring shares) have finished. To optimize for the expensive operation of calculating\\n    /// GAV, once one fee requires GAV, we recycle that `gav` value for subsequent fees.\\n    /// Assumes that _gav is either 0 or has already been validated.\\n    function __invokeHook(\\n        address _comptrollerProxy,\\n        FeeHook _hook,\\n        bytes memory _settlementData,\\n        uint256 _gavOrZero,\\n        bool _updateFees\\n    ) private {\\n        address[] memory fees = comptrollerProxyToFees[_comptrollerProxy];\\n        if (fees.length == 0) {\\n            return;\\n        }\\n\\n        address vaultProxy = getVaultProxyForFund(_comptrollerProxy);\\n\\n        // This check isn't strictly necessary, but its cost is insignificant,\\n        // and helps to preserve data integrity.\\n        require(vaultProxy != address(0), \\\"__invokeHook: Fund is not active\\\");\\n\\n        // First, allow all fees to implement settle()\\n        uint256 gav = __settleFees(\\n            _comptrollerProxy,\\n            vaultProxy,\\n            fees,\\n            _hook,\\n            _settlementData,\\n            _gavOrZero\\n        );\\n\\n        // Second, allow fees to implement update()\\n        // This function does not allow any further altering of VaultProxy state\\n        // (i.e., burning, minting, or transferring shares)\\n        if (_updateFees) {\\n            __updateFees(_comptrollerProxy, vaultProxy, fees, _hook, _settlementData, gav);\\n        }\\n    }\\n\\n    /// @dev Helper to payout the shares outstanding for the specified fees.\\n    /// Does not call settle() on fees.\\n    /// Only callable via ComptrollerProxy.callOnExtension().\\n    function __payoutSharesOutstandingForFees(address _comptrollerProxy, bytes memory _callArgs)\\n        private\\n    {\\n        address[] memory fees = abi.decode(_callArgs, (address[]));\\n        address vaultProxy = getVaultProxyForFund(msg.sender);\\n\\n        uint256 sharesOutstandingDue;\\n        for (uint256 i; i < fees.length; i++) {\\n            if (!IFee(fees[i]).payout(_comptrollerProxy, vaultProxy)) {\\n                continue;\\n            }\\n\\n\\n                uint256 sharesOutstandingForFee\\n             = comptrollerProxyToFeeToSharesOutstanding[_comptrollerProxy][fees[i]];\\n            if (sharesOutstandingForFee == 0) {\\n                continue;\\n            }\\n\\n            sharesOutstandingDue = sharesOutstandingDue.add(sharesOutstandingForFee);\\n\\n            // Delete shares outstanding and distribute from VaultProxy to the fees recipient\\n            comptrollerProxyToFeeToSharesOutstanding[_comptrollerProxy][fees[i]] = 0;\\n\\n            emit SharesOutstandingPaidForFund(_comptrollerProxy, fees[i], sharesOutstandingForFee);\\n        }\\n\\n        if (sharesOutstandingDue > 0) {\\n            __transferShares(\\n                _comptrollerProxy,\\n                vaultProxy,\\n                IVault(vaultProxy).getOwner(),\\n                sharesOutstandingDue\\n            );\\n        }\\n    }\\n\\n    /// @dev Helper to settle a fee\\n    function __settleFee(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        address _fee,\\n        FeeHook _hook,\\n        bytes memory _settlementData,\\n        uint256 _gav\\n    ) private {\\n        (SettlementType settlementType, address payer, uint256 sharesDue) = IFee(_fee).settle(\\n            _comptrollerProxy,\\n            _vaultProxy,\\n            _hook,\\n            _settlementData,\\n            _gav\\n        );\\n        if (settlementType == SettlementType.None) {\\n            return;\\n        }\\n\\n        address payee;\\n        if (settlementType == SettlementType.Direct) {\\n            payee = IVault(_vaultProxy).getOwner();\\n            __transferShares(_comptrollerProxy, payer, payee, sharesDue);\\n        } else if (settlementType == SettlementType.Mint) {\\n            payee = IVault(_vaultProxy).getOwner();\\n            __mintShares(_comptrollerProxy, payee, sharesDue);\\n        } else if (settlementType == SettlementType.Burn) {\\n            __burnShares(_comptrollerProxy, payer, sharesDue);\\n        } else if (settlementType == SettlementType.MintSharesOutstanding) {\\n            comptrollerProxyToFeeToSharesOutstanding[_comptrollerProxy][_fee] = comptrollerProxyToFeeToSharesOutstanding[_comptrollerProxy][_fee]\\n                .add(sharesDue);\\n\\n            payee = _vaultProxy;\\n            __mintShares(_comptrollerProxy, payee, sharesDue);\\n        } else if (settlementType == SettlementType.BurnSharesOutstanding) {\\n            comptrollerProxyToFeeToSharesOutstanding[_comptrollerProxy][_fee] = comptrollerProxyToFeeToSharesOutstanding[_comptrollerProxy][_fee]\\n                .sub(sharesDue);\\n\\n            payer = _vaultProxy;\\n            __burnShares(_comptrollerProxy, payer, sharesDue);\\n        } else {\\n            revert(\\\"__settleFee: Invalid SettlementType\\\");\\n        }\\n\\n        emit FeeSettledForFund(_comptrollerProxy, _fee, settlementType, payer, payee, sharesDue);\\n    }\\n\\n    function __settleProtocolFee(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        FeeHook _hook,\\n        bytes memory _settlementData,\\n        uint256 _gav\\n    ) private returns (bool, uint256) {\\n        (SettlementType settlementType, address payer, uint256 sharesDue) = IFee(PROTOCOL_FEE).settle(\\n            _comptrollerProxy,\\n            _vaultProxy,\\n            _hook,\\n            _settlementData,\\n            _gav\\n        );\\n\\n        if (settlementType == SettlementType.None) {\\n            return (false, uint256(0));\\n        }\\n\\n        require(settlementType == SettlementType.MintBuyback, \\\"Invalid settlement for Protocol fee\\\");\\n\\n        address payee;\\n        payee = IFundDeployer(FUND_DEPLOYER).getBuybackVault();\\n        __transferShares(_comptrollerProxy, payer, payee, sharesDue);\\n\\n        IBuybackVault(payee).addTrackedVault(_vaultProxy);\\n\\n        emit FeeSettledForFund(_comptrollerProxy, PROTOCOL_FEE, settlementType, payer, payee, sharesDue);\\n        return (true, sharesDue);\\n    }\\n\\n    /// @dev Helper to settle fees that implement a given fee hook\\n    function __settleFees(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        address[] memory _fees,\\n        FeeHook _hook,\\n        bytes memory _settlementData,\\n        uint256 _gavOrZero\\n    ) private returns (uint256 gav_) {\\n        gav_ = _gavOrZero;\\n\\n        for (uint256 i; i < _fees.length; i++) {\\n            if (!feeSettlesOnHook(_fees[i], _hook)) {\\n                continue;\\n            }\\n\\n            gav_ = __getGavAsNecessary(_comptrollerProxy, _fees[i], gav_);\\n\\n            __settleFee(_comptrollerProxy, _vaultProxy, _fees[i], _hook, _settlementData, gav_);\\n        }\\n\\n        return gav_;\\n    }\\n\\n    /// @dev Helper to update fees that implement a given fee hook\\n    function __updateFees(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        address[] memory _fees,\\n        FeeHook _hook,\\n        bytes memory _settlementData,\\n        uint256 _gavOrZero\\n    ) private {\\n        uint256 gav = _gavOrZero;\\n\\n        for (uint256 i; i < _fees.length; i++) {\\n            if (!feeUpdatesOnHook(_fees[i], _hook)) {\\n                continue;\\n            }\\n\\n            gav = __getGavAsNecessary(_comptrollerProxy, _fees[i], gav);\\n\\n            IFee(_fees[i]).update(_comptrollerProxy, _vaultProxy, _hook, _settlementData, gav);\\n        }\\n    }\\n\\n    ///////////////////\\n    // FEES REGISTRY //\\n    ///////////////////\\n\\n    /// @notice Remove fees from the list of registered fees\\n    /// @param _fees Addresses of fees to be deregistered\\n    function deregisterFees(address[] calldata _fees) external onlyFundDeployerOwner {\\n        require(_fees.length > 0, \\\"deregisterFees: _fees cannot be empty\\\");\\n\\n        for (uint256 i; i < _fees.length; i++) {\\n            require(isRegisteredFee(_fees[i]), \\\"deregisterFees: fee is not registered\\\");\\n\\n            registeredFees.remove(_fees[i]);\\n\\n            emit FeeDeregistered(_fees[i], IFee(_fees[i]).identifier());\\n        }\\n    }\\n\\n    /// @notice Add fees to the list of registered fees\\n    /// @param _fees Addresses of fees to be registered\\n    /// @dev Stores the hooks that a fee implements and whether each implementation uses GAV,\\n    /// which fronts the gas for calls to check if a hook is implemented, and guarantees\\n    /// that these hook implementation return values do not change post-registration.\\n    function registerFees(address[] calldata _fees) external onlyFundDeployerOwner {\\n        require(_fees.length > 0, \\\"registerFees: _fees cannot be empty\\\");\\n\\n        for (uint256 i; i < _fees.length; i++) {\\n            require(!isRegisteredFee(_fees[i]), \\\"registerFees: fee already registered\\\");\\n\\n            registeredFees.add(_fees[i]);\\n\\n            IFee feeContract = IFee(_fees[i]);\\n            (\\n                FeeHook[] memory implementedHooksForSettle,\\n                FeeHook[] memory implementedHooksForUpdate,\\n                bool usesGavOnSettle,\\n                bool usesGavOnUpdate\\n            ) = feeContract.implementedHooks();\\n\\n            // Stores the hooks for which each fee implements settle() and update()\\n            for (uint256 j; j < implementedHooksForSettle.length; j++) {\\n                feeToHookToImplementsSettle[_fees[i]][implementedHooksForSettle[j]] = true;\\n            }\\n            for (uint256 j; j < implementedHooksForUpdate.length; j++) {\\n                feeToHookToImplementsUpdate[_fees[i]][implementedHooksForUpdate[j]] = true;\\n            }\\n\\n            // Stores whether each fee requires GAV during its implementations for settle() and update()\\n            if (usesGavOnSettle) {\\n                feeToUsesGavOnSettle[_fees[i]] = true;\\n            }\\n            if (usesGavOnUpdate) {\\n                feeToUsesGavOnUpdate[_fees[i]] = true;\\n            }\\n\\n            emit FeeRegistered(\\n                _fees[i],\\n                feeContract.identifier(),\\n                implementedHooksForSettle,\\n                implementedHooksForUpdate,\\n                usesGavOnSettle,\\n                usesGavOnUpdate\\n            );\\n        }\\n    }\\n\\n    function updateProtocolFee(address _newProtocolFee) external override onlyFundDeployerOwner {\\n        PROTOCOL_FEE = _newProtocolFee;\\n\\n        emit ProtocolFeeUpdated(_newProtocolFee);\\n    }\\n\\n    function addUserFeeWhitelist(address[] calldata fees, address user) external override onlyFundDeployerOwner {\\n        for(uint256 i = 0; i < fees.length; i++) {\\n            IFee(fees[i]).addPayerWhitelist(user);\\n        }\\n    }\\n\\n    function removeUserFeeWhitelist(address[] calldata fees, address user) external override onlyFundDeployerOwner {\\n        for(uint256 i = 0; i < fees.length; i++) {\\n            IFee(fees[i]).removePayerWhitelist(user);\\n        }\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Get a list of enabled fees for a given fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @return enabledFees_ An array of enabled fee addresses\\n    function getEnabledFeesForFund(address _comptrollerProxy)\\n        external\\n        view\\n        returns (address[] memory enabledFees_)\\n    {\\n        return comptrollerProxyToFees[_comptrollerProxy];\\n    }\\n\\n    /// @notice Get the amount of shares outstanding for a particular fee for a fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _fee The fee address\\n    /// @return sharesOutstanding_ The amount of shares outstanding\\n    function getFeeSharesOutstandingForFund(address _comptrollerProxy, address _fee)\\n        external\\n        view\\n        returns (uint256 sharesOutstanding_)\\n    {\\n        return comptrollerProxyToFeeToSharesOutstanding[_comptrollerProxy][_fee];\\n    }\\n\\n    /// @notice Get all registered fees\\n    /// @return registeredFees_ A list of all registered fee addresses\\n    function getRegisteredFees() external view returns (address[] memory registeredFees_) {\\n        registeredFees_ = new address[](registeredFees.length());\\n        for (uint256 i; i < registeredFees_.length; i++) {\\n            registeredFees_[i] = registeredFees.at(i);\\n        }\\n\\n        return registeredFees_;\\n    }\\n\\n    /// @notice Checks if a fee implements settle() on a particular hook\\n    /// @param _fee The address of the fee to check\\n    /// @param _hook The FeeHook to check\\n    /// @return settlesOnHook_ True if the fee settles on the given hook\\n    function feeSettlesOnHook(address _fee, FeeHook _hook)\\n        public\\n        view\\n        returns (bool settlesOnHook_)\\n    {\\n        return feeToHookToImplementsSettle[_fee][_hook];\\n    }\\n\\n    /// @notice Checks if a fee implements update() on a particular hook\\n    /// @param _fee The address of the fee to check\\n    /// @param _hook The FeeHook to check\\n    /// @return updatesOnHook_ True if the fee updates on the given hook\\n    function feeUpdatesOnHook(address _fee, FeeHook _hook)\\n        public\\n        view\\n        returns (bool updatesOnHook_)\\n    {\\n        return feeToHookToImplementsUpdate[_fee][_hook];\\n    }\\n\\n    /// @notice Checks if a fee uses GAV in its settle() implementation\\n    /// @param _fee The address of the fee to check\\n    /// @return usesGav_ True if the fee uses GAV during settle() implementation\\n    function feeUsesGavOnSettle(address _fee) public view returns (bool usesGav_) {\\n        return feeToUsesGavOnSettle[_fee];\\n    }\\n\\n    /// @notice Checks if a fee uses GAV in its update() implementation\\n    /// @param _fee The address of the fee to check\\n    /// @return usesGav_ True if the fee uses GAV during update() implementation\\n    function feeUsesGavOnUpdate(address _fee) public view returns (bool usesGav_) {\\n        return feeToUsesGavOnUpdate[_fee];\\n    }\\n\\n    /// @notice Check whether a fee is registered\\n    /// @param _fee The address of the fee to check\\n    /// @return isRegisteredFee_ True if the fee is registered\\n    function isRegisteredFee(address _fee) public view returns (bool isRegisteredFee_) {\\n        return registeredFees.contains(_fee);\\n    }\\n\\n    function getProtocolFee() public view returns (address) {\\n        return PROTOCOL_FEE;\\n    }\\n}\\n\",\"keccak256\":\"0x5701e57421980432cd6a10d256b93384072df75db32350551537ee5950663d72\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/fee-manager/IFee.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"./IFeeManager.sol\\\";\\n\\n/// @title Fee Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for all fees\\ninterface IFee {\\n    function activateForFund(address _comptrollerProxy, address _vaultProxy) external;\\n\\n    function addFundSettings(address _comptrollerProxy, bytes calldata _settingsData) external;\\n\\n    function identifier() external pure returns (string memory identifier_);\\n\\n    function isPayerWhitelisted(address _payer) external view returns (bool);\\n\\n    function implementedHooks()\\n        external\\n        view\\n        returns (\\n            IFeeManager.FeeHook[] memory implementedHooksForSettle_,\\n            IFeeManager.FeeHook[] memory implementedHooksForUpdate_,\\n            bool usesGavOnSettle_,\\n            bool usesGavOnUpdate_\\n        );\\n\\n    function payout(address _comptrollerProxy, address _vaultProxy)\\n        external\\n        returns (bool isPayable_);\\n\\n    function settle(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        IFeeManager.FeeHook _hook,\\n        bytes calldata _settlementData,\\n        uint256 _gav\\n    )\\n        external\\n        returns (\\n            IFeeManager.SettlementType settlementType_,\\n            address payer_,\\n            uint256 sharesDue_\\n        );\\n\\n    function update(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        IFeeManager.FeeHook _hook,\\n        bytes calldata _settlementData,\\n        uint256 _gav\\n    ) external;\\n\\n    function addPayerWhitelist(address _payer) external;\\n\\n    function removePayerWhitelist(address _payer) external;\\n}\\n\",\"keccak256\":\"0x84e1d7789be0ceb0026c9294fcfd81b77a53ac42be033a23e081e18ae532f0c4\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/fee-manager/IFeeManager.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\npragma experimental ABIEncoderV2;\\n\\n/// @title FeeManager Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for the FeeManager\\ninterface IFeeManager {\\n    // No fees for the current release are implemented post-redeemShares\\n    enum FeeHook {\\n        Continuous,\\n        BuySharesSetup,\\n        PreBuyShares,\\n        PostBuyShares,\\n        BuySharesCompleted,\\n        PreRedeemShares\\n    }\\n    enum SettlementType {None, Direct, Mint, Burn, MintSharesOutstanding, BurnSharesOutstanding, MintBuyback}\\n\\n    function invokeHook(\\n        FeeHook,\\n        bytes calldata,\\n        uint256\\n    ) external;\\n\\n    function invokeHookProtocolFee(\\n        FeeHook,\\n        bytes calldata,\\n        uint256\\n    ) external returns (bool, uint256);\\n\\n    function updateProtocolFee(address) external;\\n\\n    function addUserFeeWhitelist(address[] calldata fees, address user) external;\\n\\n    function removeUserFeeWhitelist(address[] calldata fees, address user) external;\\n}\\n\",\"keccak256\":\"0xc0bbcfc8c6476521e2acd54fd2c2a179b5059ccfe8b01d4b70077cd8b1f5ea6f\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/utils/ExtensionBase.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../core/fund/comptroller/IComptroller.sol\\\";\\nimport \\\"../../core/fund/vault/IVault.sol\\\";\\nimport \\\"../IExtension.sol\\\";\\n\\n/// @title ExtensionBase Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Base class for an extension\\nabstract contract ExtensionBase is IExtension {\\n    mapping(address => address) internal comptrollerProxyToVaultProxy;\\n\\n    uint256 internal immutable EXTENSION_DEPLOY_TIMESTAMP;\\n\\n    constructor() public {\\n        EXTENSION_DEPLOY_TIMESTAMP = block.timestamp;\\n    }\\n\\n    /// @notice Allows extension to run logic during fund activation\\n    /// @dev Unimplemented by default, may be overridden.\\n    function activateForFund(bool) external virtual override {\\n        return;\\n    }\\n\\n    /// @notice Allows extension to run logic during fund deactivation (destruct)\\n    /// @dev Unimplemented by default, may be overridden.\\n    function deactivateForFund() external virtual override {\\n        return;\\n    }\\n\\n    /// @notice Receives calls from ComptrollerLib.callOnExtension()\\n    /// and dispatches the appropriate action\\n    /// @dev Unimplemented by default, may be overridden.\\n    function receiveCallFromComptroller(\\n        address,\\n        uint256,\\n        bytes calldata\\n    ) external virtual override {\\n        revert(\\\"receiveCallFromComptroller: Unimplemented for Extension\\\");\\n    }\\n\\n    /// @notice Allows extension to run logic during fund configuration\\n    /// @dev Unimplemented by default, may be overridden.\\n    function setConfigForFund(bytes calldata) external virtual override {\\n        return;\\n    }\\n\\n    /// @dev Helper to validate a ComptrollerProxy-VaultProxy relation, which we store for both\\n    /// gas savings and to guarantee a spoofed ComptrollerProxy does not change getVaultProxy().\\n    /// Will revert without reason if the expected interfaces do not exist.\\n    function __setValidatedVaultProxy(address _comptrollerProxy)\\n        internal\\n        returns (address vaultProxy_)\\n    {\\n        require(\\n            comptrollerProxyToVaultProxy[_comptrollerProxy] == address(0),\\n            \\\"__setValidatedVaultProxy: Already set\\\"\\n        );\\n\\n        vaultProxy_ = IComptroller(_comptrollerProxy).getVaultProxy();\\n        require(vaultProxy_ != address(0), \\\"__setValidatedVaultProxy: Missing vaultProxy\\\");\\n\\n        require(\\n            _comptrollerProxy == IVault(vaultProxy_).getAccessor(),\\n            \\\"__setValidatedVaultProxy: Not the VaultProxy accessor\\\"\\n        );\\n\\n        comptrollerProxyToVaultProxy[_comptrollerProxy] = vaultProxy_;\\n\\n        return vaultProxy_;\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the verified VaultProxy for a given ComptrollerProxy\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @return vaultProxy_ The VaultProxy of the fund\\n    function getVaultProxyForFund(address _comptrollerProxy)\\n        public\\n        view\\n        returns (address vaultProxy_)\\n    {\\n        return comptrollerProxyToVaultProxy[_comptrollerProxy];\\n    }\\n\\n    function getExtensionDeployTimestamp() external view returns (uint256) {\\n        return EXTENSION_DEPLOY_TIMESTAMP;\\n    }\\n}\\n\",\"keccak256\":\"0xc918787924701e97a509a91ee389db0076df207dd3278f83c8f94e3c869ded42\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/utils/FundDeployerOwnerMixin.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../core/fund-deployer/IFundDeployer.sol\\\";\\n\\n/// @title FundDeployerOwnerMixin Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A mixin contract that defers ownership to the owner of FundDeployer\\nabstract contract FundDeployerOwnerMixin {\\n    address internal immutable FUND_DEPLOYER;\\n\\n    modifier onlyFundDeployerOwner() {\\n        require(\\n            msg.sender == getOwner(),\\n            \\\"onlyFundDeployerOwner: Only the FundDeployer owner can call this function\\\"\\n        );\\n        _;\\n    }\\n\\n    constructor(address _fundDeployer) public {\\n        FUND_DEPLOYER = _fundDeployer;\\n    }\\n\\n    /// @notice Gets the owner of this contract\\n    /// @return owner_ The owner\\n    /// @dev Ownership is deferred to the owner of the FundDeployer contract\\n    function getOwner() public view returns (address owner_) {\\n        return IFundDeployer(FUND_DEPLOYER).getOwner();\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `FUND_DEPLOYER` variable\\n    /// @return fundDeployer_ The `FUND_DEPLOYER` variable value\\n    function getFundDeployer() external view returns (address fundDeployer_) {\\n        return FUND_DEPLOYER;\\n    }\\n}\\n\",\"keccak256\":\"0xae16a22807bc31d46654889122b8db7ee55b731efc8d6feb4c978d13fee3336d\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/utils/PermissionedVaultActionMixin.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../core/fund/comptroller/IComptroller.sol\\\";\\n\\n/// @title PermissionedVaultActionMixin Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A mixin contract for extensions that can make permissioned vault calls\\nabstract contract PermissionedVaultActionMixin {\\n    /// @notice Adds a tracked asset to the fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _asset The asset to add\\n    function __addTrackedAsset(address _comptrollerProxy, address _asset) internal {\\n        IComptroller(_comptrollerProxy).permissionedVaultAction(\\n            IComptroller.VaultAction.AddTrackedAsset,\\n            abi.encode(_asset)\\n        );\\n    }\\n\\n    /// @notice Grants an allowance to a spender to use a fund's asset\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _asset The asset for which to grant an allowance\\n    /// @param _target The spender of the allowance\\n    /// @param _amount The amount of the allowance\\n    function __approveAssetSpender(\\n        address _comptrollerProxy,\\n        address _asset,\\n        address _target,\\n        uint256 _amount\\n    ) internal {\\n        IComptroller(_comptrollerProxy).permissionedVaultAction(\\n            IComptroller.VaultAction.ApproveAssetSpender,\\n            abi.encode(_asset, _target, _amount)\\n        );\\n    }\\n\\n    /// @notice Burns fund shares for a particular account\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _target The account for which to burn shares\\n    /// @param _amount The amount of shares to burn\\n    function __burnShares(\\n        address _comptrollerProxy,\\n        address _target,\\n        uint256 _amount\\n    ) internal {\\n        IComptroller(_comptrollerProxy).permissionedVaultAction(\\n            IComptroller.VaultAction.BurnShares,\\n            abi.encode(_target, _amount)\\n        );\\n    }\\n\\n    /// @notice Mints fund shares to a particular account\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _target The account to which to mint shares\\n    /// @param _amount The amount of shares to mint\\n    function __mintShares(\\n        address _comptrollerProxy,\\n        address _target,\\n        uint256 _amount\\n    ) internal {\\n        IComptroller(_comptrollerProxy).permissionedVaultAction(\\n            IComptroller.VaultAction.MintShares,\\n            abi.encode(_target, _amount)\\n        );\\n    }\\n\\n    /// @notice Removes a tracked asset from the fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _asset The asset to remove\\n    function __removeTrackedAsset(address _comptrollerProxy, address _asset) internal {\\n        IComptroller(_comptrollerProxy).permissionedVaultAction(\\n            IComptroller.VaultAction.RemoveTrackedAsset,\\n            abi.encode(_asset)\\n        );\\n    }\\n\\n    /// @notice Transfers fund shares from one account to another\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _from The account from which to transfer shares\\n    /// @param _to The account to which to transfer shares\\n    /// @param _amount The amount of shares to transfer\\n    function __transferShares(\\n        address _comptrollerProxy,\\n        address _from,\\n        address _to,\\n        uint256 _amount\\n    ) internal {\\n        IComptroller(_comptrollerProxy).permissionedVaultAction(\\n            IComptroller.VaultAction.TransferShares,\\n            abi.encode(_from, _to, _amount)\\n        );\\n    }\\n\\n    /// @notice Withdraws an asset from the VaultProxy to a given account\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _asset The asset to withdraw\\n    /// @param _target The account to which to withdraw the asset\\n    /// @param _amount The amount of asset to withdraw\\n    function __withdrawAssetTo(\\n        address _comptrollerProxy,\\n        address _asset,\\n        address _target,\\n        uint256 _amount\\n    ) internal {\\n        IComptroller(_comptrollerProxy).permissionedVaultAction(\\n            IComptroller.VaultAction.WithdrawAssetTo,\\n            abi.encode(_asset, _target, _amount)\\n        );\\n    }\\n}\\n\",\"keccak256\":\"0xbc4bf14e578810303589d4a2ed41c4d74cce2860330ffd7ed440658ede986406\",\"license\":\"GPL-3.0\"},\"contracts/release/utils/AddressArrayLib.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title AddressArray Library\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A library to extend the address array data type\\nlibrary AddressArrayLib {\\n    /// @dev Helper to add an item to an array. Does not assert uniqueness of the new item.\\n    function addItem(address[] memory _self, address _itemToAdd)\\n        internal\\n        pure\\n        returns (address[] memory nextArray_)\\n    {\\n        nextArray_ = new address[](_self.length + 1);\\n        for (uint256 i; i < _self.length; i++) {\\n            nextArray_[i] = _self[i];\\n        }\\n        nextArray_[_self.length] = _itemToAdd;\\n\\n        return nextArray_;\\n    }\\n\\n    /// @dev Helper to add an item to an array, only if it is not already in the array.\\n    function addUniqueItem(address[] memory _self, address _itemToAdd)\\n        internal\\n        pure\\n        returns (address[] memory nextArray_)\\n    {\\n        if (contains(_self, _itemToAdd)) {\\n            return _self;\\n        }\\n\\n        return addItem(_self, _itemToAdd);\\n    }\\n\\n    /// @dev Helper to verify if an array contains a particular value\\n    function contains(address[] memory _self, address _target)\\n        internal\\n        pure\\n        returns (bool doesContain_)\\n    {\\n        for (uint256 i; i < _self.length; i++) {\\n            if (_target == _self[i]) {\\n                return true;\\n            }\\n        }\\n        return false;\\n    }\\n\\n    /// @dev Helper to reassign all items in an array with a specified value\\n    function fill(address[] memory _self, address _value)\\n        internal\\n        pure\\n        returns (address[] memory nextArray_)\\n    {\\n        nextArray_ = new address[](_self.length);\\n        for (uint256 i; i < nextArray_.length; i++) {\\n            nextArray_[i] = _value;\\n        }\\n\\n        return nextArray_;\\n    }\\n\\n    /// @dev Helper to verify if array is a set of unique values.\\n    /// Does not assert length > 0.\\n    function isUniqueSet(address[] memory _self) internal pure returns (bool isUnique_) {\\n        if (_self.length <= 1) {\\n            return true;\\n        }\\n\\n        uint256 arrayLength = _self.length;\\n        for (uint256 i; i < arrayLength; i++) {\\n            for (uint256 j = i + 1; j < arrayLength; j++) {\\n                if (_self[i] == _self[j]) {\\n                    return false;\\n                }\\n            }\\n        }\\n\\n        return true;\\n    }\\n\\n    /// @dev Helper to remove items from an array. Removes all matching occurrences of each item.\\n    /// Does not assert uniqueness of either array.\\n    function removeItems(address[] memory _self, address[] memory _itemsToRemove)\\n        internal\\n        pure\\n        returns (address[] memory nextArray_)\\n    {\\n        if (_itemsToRemove.length == 0) {\\n            return _self;\\n        }\\n\\n        bool[] memory indexesToRemove = new bool[](_self.length);\\n        uint256 remainingItemsCount = _self.length;\\n        for (uint256 i; i < _self.length; i++) {\\n            if (contains(_itemsToRemove, _self[i])) {\\n                indexesToRemove[i] = true;\\n                remainingItemsCount--;\\n            }\\n        }\\n\\n        if (remainingItemsCount == _self.length) {\\n            nextArray_ = _self;\\n        } else if (remainingItemsCount > 0) {\\n            nextArray_ = new address[](remainingItemsCount);\\n            uint256 nextArrayIndex;\\n            for (uint256 i; i < _self.length; i++) {\\n                if (!indexesToRemove[i]) {\\n                    nextArray_[nextArrayIndex] = _self[i];\\n                    nextArrayIndex++;\\n                }\\n            }\\n        }\\n\\n        return nextArray_;\\n    }\\n}\\n\",\"keccak256\":\"0x702bded074c5190e27ebe39ee77166593cc1296d4cb275c1a96914620ee55c83\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x60c06040523480156200001157600080fd5b5060405162003a6d38038062003a6d833981016040819052620000349162000061565b4260805260601b6001600160601b03191660a052620000b6565b80516200005b816200009c565b92915050565b6000602082840312156200007457600080fd5b60006200008284846200004e565b949350505050565b60006001600160a01b0382166200005b565b620000a7816200008a565b8114620000b357600080fd5b50565b60805160a05160601c613986620000e760003980610cb75280610f4c52806119645250806112ec52506139866000f3fe608060405234801561001057600080fd5b50600436106101585760003560e01c8063893d20e8116100c3578063aa051c2c1161007c578063aa051c2c146102c7578063bd8e959a146102e7578063dfda6586146102ef578063e2a1b39814610302578063e87e9cf514610315578063ec7c39e91461031d57610158565b8063893d20e81461027657806389cbe1d01461027e57806397c0ac871461029157806399c7358314610299578063a5a41031146102ac578063a9f3b42f146102b457610158565b8063467903461161011557806346790346146101e957806353acffa0146102095780635db1a1891461021c5780637759c1641461022f57806380d570631461024257806384b6513d1461025557610158565b806306bbda641461015d5780631a97ec1e1461017b5780631bee801e1461019057806324da4f19146101a35780633a687cf4146101b65780633c470297146101d6575b600080fd5b610165610330565b6040516101729190613607565b60405180910390f35b61018e610189366004612b37565b6103c5565b005b61018e61019e366004612a8f565b6104a1565b61018e6101b1366004612af6565b61052b565b6101c96101c43660046129e1565b6109a2565b6040516101729190613662565b6101c96101e43660046129e1565b6109c4565b6101fc6101f73660046129e1565b6109e2565b6040516101729190613524565b6101c9610217366004612a5f565b610a00565b61018e61022a3660046129e1565b610a4d565b61018e61023d366004612d1b565b610acf565b61018e610250366004612caa565b610b15565b610268610263366004612d1b565b610c17565b604051610172929190613670565b6101fc610cb3565b61018e61028c366004612ce6565b610d4b565b6101fc610f4a565b6101c96102a73660046129e1565b610f6e565b6101fc610f7b565b6101656102c23660046129e1565b610f8a565b6102da6102d5366004612a25565b611000565b60405161017291906137cd565b61018e61102b565b61018e6102fd366004612b37565b61105d565b61018e610310366004612af6565b61112a565b6102da6112ea565b6101c961032b366004612a5f565b61130e565b606061033c6002611333565b6001600160401b038111801561035157600080fd5b5060405190808252806020026020018201604052801561037b578160200160208202803683370190505b50905060005b81518110156103c15761039560028261133e565b8282815181106103a157fe5b6001600160a01b0390921660209283029190910190910152600101610381565b5090565b6103cd610cb3565b6001600160a01b0316336001600160a01b0316146104065760405162461bcd60e51b81526004016103fd906136dd565b60405180910390fd5b60005b8281101561049b5783838281811061041d57fe5b905060200201602081019061043291906129e1565b6001600160a01b0316636a29d94e836040518263ffffffff1660e01b815260040161045d9190613524565b600060405180830381600087803b15801561047757600080fd5b505af115801561048b573d6000803e3d6000fd5b5050600190920191506104099050565b50505050565b826104ca576104c53360006040518060200160405280600081525060006001611351565b61049b565b8260011415610513576104c53383838080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525061143592505050565b60405162461bcd60e51b81526004016103fd9061370d565b610533610cb3565b6001600160a01b0316336001600160a01b0316146105635760405162461bcd60e51b81526004016103fd906136dd565b806105805760405162461bcd60e51b81526004016103fd906137ad565b60005b8181101561099d576105af83838381811061059a57fe5b90506020020160208101906102a791906129e1565b156105cc5760405162461bcd60e51b81526004016103fd9061377d565b6105f88383838181106105db57fe5b90506020020160208101906105f091906129e1565b6002906116bd565b50600083838381811061060757fe5b905060200201602081019061061c91906129e1565b9050606080600080846001600160a01b031663cbf54bb26040518163ffffffff1660e01b815260040160006040518083038186803b15801561065d57600080fd5b505afa158015610671573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526106999190810190612c1c565b935093509350935060005b8451811015610747576001600660008b8b8b8181106106bf57fe5b90506020020160208101906106d491906129e1565b6001600160a01b03166001600160a01b03168152602001908152602001600020600087848151811061070257fe5b6020026020010151600581111561071557fe5b600581111561072057fe5b81526020810191909152604001600020805460ff19169115159190911790556001016106a4565b5060005b83518110156107ee576001600760008b8b8b81811061076657fe5b905060200201602081019061077b91906129e1565b6001600160a01b03166001600160a01b0316815260200190815260200160002060008684815181106107a957fe5b602002602001015160058111156107bc57fe5b60058111156107c757fe5b81526020810191909152604001600020805460ff191691151591909117905560010161074b565b508115610845576001600460008a8a8a81811061080757fe5b905060200201602081019061081c91906129e1565b6001600160a01b031681526020810191909152604001600020805460ff19169115159190911790555b801561089b576001600560008a8a8a81811061085d57fe5b905060200201602081019061087291906129e1565b6001600160a01b031681526020810191909152604001600020805460ff19169115159190911790555b846001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b1580156108d457600080fd5b505afa1580156108e8573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526109109190810190612dbb565b60405161091d9190613518565b604051809103902088888881811061093157fe5b905060200201602081019061094691906129e1565b6001600160a01b03167f0cc09421dfd6f16fe9f3e1329fe97c2c82bed949019621d503a1220831abb62e868686866040516109849493929190613618565b60405180910390a3505060019093019250610583915050565b505050565b6001600160a01b03811660009081526004602052604090205460ff165b919050565b6001600160a01b031660009081526005602052604090205460ff1690565b6001600160a01b039081166000908152602081905260409020541690565b6001600160a01b038216600090815260076020526040812081836005811115610a2557fe5b6005811115610a3057fe5b815260208101919091526040016000205460ff1690505b92915050565b610a55610cb3565b6001600160a01b0316336001600160a01b031614610a855760405162461bcd60e51b81526004016103fd906136dd565b600180546001600160a01b0319166001600160a01b0383169081179091556040517f18b11d7c2c1188c003e9d2cf7f233fcf5f340fc774aa66b1e4f87bd28959772890600090a250565b61049b338585858080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250879250600191506113519050565b6000610b20336116d2565b3360009081526008602090815260409182902080548351818402810184019094528084529394506060939091830182828015610b8557602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610b67575b5050505050905060005b815181101561049b57818181518110610ba457fe5b60200260200101516001600160a01b0316633146d05833856040518363ffffffff1660e01b8152600401610bd9929190613532565b600060405180830381600087803b158015610bf357600080fd5b505af1158015610c07573d6000803e3d6000fd5b505060019092019150610b8f9050565b60015460009081906001600160a01b031615610caa576000610c38336109e2565b90506001600160a01b038116610c605760405162461bcd60e51b81526004016103fd906137bd565b610ca433828989898080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152508b9250611878915050565b92509250505b94509492505050565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b158015610d0e57600080fd5b505afa158015610d22573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d469190612a07565b905090565b606080610d5a83850185612bbf565b915091508051825114610d7f5760405162461bcd60e51b81526004016103fd9061372d565b610d8882611acd565b610da45760405162461bcd60e51b81526004016103fd9061375d565b60005b8251811015610f4357610dcc838281518110610dbf57fe5b6020026020010151610f6e565b610de85760405162461bcd60e51b81526004016103fd906136bd565b828181518110610df457fe5b60200260200101516001600160a01b0316630f5f6b4f33848481518110610e1757fe5b60200260200101516040518363ffffffff1660e01b8152600401610e3c92919061354d565b600060405180830381600087803b158015610e5657600080fd5b505af1158015610e6a573d6000803e3d6000fd5b5050336000908152600860205260409020855190925085915083908110610e8d57fe5b60209081029190910181015182546001810184556000938452919092200180546001600160a01b0319166001600160a01b039092169190911790558251839082908110610ed657fe5b60200260200101516001600160a01b0316336001600160a01b03167f62b7814f137868e44c7a83c2b0a340fc5dacef8f3e748867d0f5f879fc0ef6da848481518110610f1e57fe5b6020026020010151604051610f33919061367e565b60405180910390a3600101610da7565b5050505050565b7f000000000000000000000000000000000000000000000000000000000000000090565b6000610a47600283611b61565b6001546001600160a01b031690565b6001600160a01b038116600090815260086020908152604091829020805483518184028101840190945280845260609392830182828015610ff457602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610fd6575b50505050509050919050565b6001600160a01b03918216600090815260096020908152604080832093909416825291909152205490565b61104933600060405180602001604052806000815250600080611351565b61105233611b76565b61105b33611db0565b565b611065610cb3565b6001600160a01b0316336001600160a01b0316146110955760405162461bcd60e51b81526004016103fd906136dd565b60005b8281101561049b578383828181106110ac57fe5b90506020020160208101906110c191906129e1565b6001600160a01b0316639714574c836040518263ffffffff1660e01b81526004016110ec9190613524565b600060405180830381600087803b15801561110657600080fd5b505af115801561111a573d6000803e3d6000fd5b5050600190920191506110989050565b611132610cb3565b6001600160a01b0316336001600160a01b0316146111625760405162461bcd60e51b81526004016103fd906136dd565b8061117f5760405162461bcd60e51b81526004016103fd9061376d565b60005b8181101561099d5761119983838381811061059a57fe5b6111b55760405162461bcd60e51b81526004016103fd9061378d565b6111e18383838181106111c457fe5b90506020020160208101906111d991906129e1565b600290611df8565b508282828181106111ee57fe5b905060200201602081019061120391906129e1565b6001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b15801561123b57600080fd5b505afa15801561124f573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526112779190810190612dbb565b6040516112849190613518565b604051809103902083838381811061129857fe5b90506020020160208101906112ad91906129e1565b6001600160a01b03167f3a9db4e30d2c448ca18bdd1a6c2e611b9f28cee12f4f6faf79722a0ea2d7242360405160405180910390a3600101611182565b7f000000000000000000000000000000000000000000000000000000000000000090565b6001600160a01b038216600090815260066020526040812081836005811115610a2557fe5b6000610a4782611e0d565b600061134a8383611e11565b9392505050565b6001600160a01b0385166000908152600860209081526040918290208054835181840281018401909452808452606093928301828280156113bb57602002820191906000526020600020905b81546001600160a01b0316815260019091019060200180831161139d575b505050505090508051600014156113d25750610f43565b60006113dd876109e2565b90506001600160a01b0381166114055760405162461bcd60e51b81526004016103fd906137bd565b60006114158883858a8a8a611e56565b9050831561142b5761142b8883858a8a86611ede565b5050505050505050565b60608180602001905181019061144b9190612b8b565b90506000611458336109e2565b90506000805b835181101561163a5783818151811061147357fe5b60200260200101516001600160a01b031663b78b481387856040518363ffffffff1660e01b81526004016114a892919061356d565b602060405180830381600087803b1580156114c257600080fd5b505af11580156114d6573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906114fa9190612cc8565b61150357611632565b6001600160a01b03861660009081526009602052604081208551829087908590811061152b57fe5b60200260200101516001600160a01b03166001600160a01b0316815260200190815260200160002054905080600014156115655750611632565b61156f8382611fa5565b9250600060096000896001600160a01b03166001600160a01b0316815260200190815260200160002060008785815181106115a657fe5b60200260200101516001600160a01b03166001600160a01b03168152602001908152602001600020819055508482815181106115de57fe5b60200260200101516001600160a01b0316876001600160a01b03167fcda32f0422c94049db811f90e9e3e2537f709654eeb3e087d70a5e33916df9a58360405161162891906137cd565b60405180910390a3505b60010161145e565b508015610f4357610f438583846001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561167f57600080fd5b505afa158015611693573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906116b79190612a07565b84611fca565b600061134a836001600160a01b03841661204a565b6001600160a01b038181166000908152602081905260408120549091161561170c5760405162461bcd60e51b81526004016103fd906136ad565b816001600160a01b031663c98091876040518163ffffffff1660e01b815260040160206040518083038186803b15801561174557600080fd5b505afa158015611759573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061177d9190612a07565b90506001600160a01b0381166117a55760405162461bcd60e51b81526004016103fd906136ed565b806001600160a01b0316635a53e3486040518163ffffffff1660e01b815260040160206040518083038186803b1580156117de57600080fd5b505afa1580156117f2573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906118169190612a07565b6001600160a01b0316826001600160a01b0316146118465760405162461bcd60e51b81526004016103fd9061374d565b6001600160a01b03918216600090815260208190526040902080546001600160a01b0319169282169290921790915590565b6001546040516320c496bf60e11b815260009182918291829182916001600160a01b0316906341892d7e906118b9908d908d908d908d908d9060040161357b565b606060405180830381600087803b1580156118d357600080fd5b505af11580156118e7573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061190b9190612d78565b91945092509050600083600681111561192057fe5b14156119355760008094509450505050611ac3565b600683600681111561194357fe5b146119605760405162461bcd60e51b81526004016103fd906136cd565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316636b59efa36040518163ffffffff1660e01b815260040160206040518083038186803b1580156119bb57600080fd5b505afa1580156119cf573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906119f39190612a07565b9050611a018b848385611fca565b6040516338ef0a1560e01b81526001600160a01b038216906338ef0a1590611a2d908d90600401613524565b600060405180830381600087803b158015611a4757600080fd5b505af1158015611a5b573d6000803e3d6000fd5b50505050836006811115611a6b57fe5b6001546040516001600160a01b03918216918e16907fef7da7c40d1fc52df907f6fed0e539680d5fb491c3b8f94db234a360dafe1d6290611ab1908890879089906135c4565b60405180910390a45060019450925050505b9550959350505050565b60006001825111611ae0575060016109bf565b815160005b81811015611b5757600181015b82811015611b4e57848181518110611b0657fe5b60200260200101516001600160a01b0316858381518110611b2357fe5b60200260200101516001600160a01b03161415611b4657600093505050506109bf565b600101611af2565b50600101611ae5565b5060019392505050565b600061134a836001600160a01b038416612094565b6000611b81826109e2565b90506000816001600160a01b03166370a08231836040518263ffffffff1660e01b8152600401611bb19190613524565b60206040518083038186803b158015611bc957600080fd5b505afa158015611bdd573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190611c019190612def565b905080611c0f575050611dad565b6001600160a01b038316600090815260086020908152604091829020805483518184028101840190945280845260609392830182828015611c7957602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311611c5b575b5050505050905060005b8151811015611ce3576001600160a01b03851660009081526009602052604081208351909190849084908110611cb557fe5b6020908102919091018101516001600160a01b03168252810191909152604001600090812055600101611c83565b506000836001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b158015611d1f57600080fd5b505afa158015611d33573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190611d579190612a07565b9050611d6585858386611fca565b846001600160a01b03167fe1ddc13838bdb841a7c5c11b6f7c9bde7199c71756f2ba118de8cf3e036b91f68285604051611da09291906135ec565b60405180910390a2505050505b50565b6001600160a01b0381166000908152600860205260408120611dd191612676565b6001600160a01b0316600090815260208190526040902080546001600160a01b0319169055565b600061134a836001600160a01b0384166120ac565b5490565b81546000908210611e345760405162461bcd60e51b81526004016103fd9061369d565b826000018281548110611e4357fe5b9060005260206000200154905092915050565b8060005b8551811015611ed257611e80868281518110611e7257fe5b60200260200101518661130e565b611e8957611eca565b611ea788878381518110611e9957fe5b602002602001015184612172565b9150611eca8888888481518110611eba57fe5b602002602001015188888761223b565b600101611e5a565b505b9695505050505050565b8060005b855181101561142b57611f08868281518110611efa57fe5b602002602001015186610a00565b611f1157611f9d565b611f2188878381518110611e9957fe5b9150858181518110611f2f57fe5b60200260200101516001600160a01b031663233faf5f89898888876040518663ffffffff1660e01b8152600401611f6a95949392919061357b565b600060405180830381600087803b158015611f8457600080fd5b505af1158015611f98573d6000803e3d6000fd5b505050505b600101611ee2565b60008282018381101561134a5760405162461bcd60e51b81526004016103fd906136fd565b836001600160a01b03166310acd06d6003858585604051602001611ff0939291906135c4565b6040516020818303038152906040526040518363ffffffff1660e01b815260040161201c92919061368f565b600060405180830381600087803b15801561203657600080fd5b505af115801561142b573d6000803e3d6000fd5b60006120568383612094565b61208c57508154600181810184556000848152602080822090930184905584548482528286019093526040902091909155610a47565b506000610a47565b60009081526001919091016020526040902054151590565b6000818152600183016020526040812054801561216857835460001980830191908101906000908790839081106120df57fe5b90600052602060002001549050808760000184815481106120fc57fe5b60009182526020808320909101929092558281526001898101909252604090209084019055865487908061212c57fe5b60019003818190600052602060002001600090559055866001016000878152602001908152602001600020600090556001945050505050610a47565b6000915050610a47565b6000811580156121865750612186836109c4565b1561223457604051637a89e49360e11b81526000906001600160a01b0386169063f513c926906121bb90600190600401613662565b6040805180830381600087803b1580156121d457600080fd5b505af11580156121e8573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061220c9190612e0d565b90925090508061222e5760405162461bcd60e51b81526004016103fd9061373d565b5061134a565b5092915050565b6000806000866001600160a01b03166341892d7e8a8a8989896040518663ffffffff1660e01b815260040161227495949392919061357b565b606060405180830381600087803b15801561228e57600080fd5b505af11580156122a2573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906122c69190612d78565b9194509250905060008360068111156122db57fe5b14156122e95750505061259b565b600060018460068111156122f957fe5b141561238357886001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561233857600080fd5b505afa15801561234c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906123709190612a07565b905061237e8a848385611fca565b61253b565b600284600681111561239157fe5b141561241557886001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b1580156123d057600080fd5b505afa1580156123e4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906124089190612a07565b905061237e8a82846125a3565b600384600681111561242357fe5b14156124345761237e8a848461262a565b600484600681111561244257fe5b14156124ab576001600160a01b03808b166000908152600960209081526040808320938c16835292905220546124789083611fa5565b6001600160a01b03808c166000908152600960209081526040808320938d1683529290522055508761237e8a82846125a3565b60058460068111156124b957fe5b1415612523576001600160a01b03808b166000908152600960209081526040808320938c16835292905220546124ef908361264e565b6001600160a01b03808c166000908152600960209081526040808320938d168352929052205588925061237e8a848461262a565b60405162461bcd60e51b81526004016103fd9061379d565b83600681111561254757fe5b886001600160a01b03168b6001600160a01b03167fef7da7c40d1fc52df907f6fed0e539680d5fb491c3b8f94db234a360dafe1d6286858760405161258e939291906135c4565b60405180910390a4505050505b505050505050565b826001600160a01b03166310acd06d600284846040516020016125c79291906135ec565b6040516020818303038152906040526040518363ffffffff1660e01b81526004016125f392919061368f565b600060405180830381600087803b15801561260d57600080fd5b505af1158015612621573d6000803e3d6000fd5b50505050505050565b826001600160a01b03166310acd06d600184846040516020016125c79291906135ec565b6000828211156126705760405162461bcd60e51b81526004016103fd9061371d565b50900390565b5080546000825590600052602060002090810190611dad91905b808211156103c15760008155600101612690565b8035610a4781613910565b8051610a4781613910565b60008083601f8401126126cc57600080fd5b5081356001600160401b038111156126e357600080fd5b6020830191508360208202830111156126fb57600080fd5b9250929050565b600082601f83011261271357600080fd5b813561272661272182613801565b6137db565b9150818183526020840193506020810190508385602084028201111561274b57600080fd5b60005b83811015612777578161276188826126a4565b845250602092830192919091019060010161274e565b5050505092915050565b600082601f83011261279257600080fd5b81516127a061272182613801565b915081818352602084019350602081019050838560208402820111156127c557600080fd5b60005b8381101561277757816127db88826126af565b84525060209283019291909101906001016127c8565b600082601f83011261280257600080fd5b813561281061272182613801565b81815260209384019390925082018360005b8381101561277757813586016128388882612915565b8452506020928301929190910190600101612822565b600082601f83011261285f57600080fd5b815161286d61272182613801565b9150818183526020840193506020810190508385602084028201111561289257600080fd5b60005b8381101561277757816128a8888261296f565b8452506020928301929190910190600101612895565b8035610a4781613924565b8051610a4781613924565b60008083601f8401126128e657600080fd5b5081356001600160401b038111156128fd57600080fd5b6020830191508360018202830111156126fb57600080fd5b600082601f83011261292657600080fd5b813561293461272182613821565b9150808252602083016020830185838301111561295057600080fd5b61295b8382846138ba565b50505092915050565b8035610a478161392d565b8051610a478161392d565b8051610a478161393a565b600082601f83011261299657600080fd5b81516129a461272182613821565b915080825260208301602083018583830111156129c057600080fd5b61295b8382846138c6565b8035610a4781613947565b8051610a4781613947565b6000602082840312156129f357600080fd5b60006129ff84846126a4565b949350505050565b600060208284031215612a1957600080fd5b60006129ff84846126af565b60008060408385031215612a3857600080fd5b6000612a4485856126a4565b9250506020612a55858286016126a4565b9150509250929050565b60008060408385031215612a7257600080fd5b6000612a7e85856126a4565b9250506020612a5585828601612964565b60008060008060608587031215612aa557600080fd5b6000612ab187876126a4565b9450506020612ac2878288016129cb565b93505060408501356001600160401b03811115612ade57600080fd5b612aea878288016128d4565b95989497509550505050565b60008060208385031215612b0957600080fd5b82356001600160401b03811115612b1f57600080fd5b612b2b858286016126ba565b92509250509250929050565b600080600060408486031215612b4c57600080fd5b83356001600160401b03811115612b6257600080fd5b612b6e868287016126ba565b93509350506020612b81868287016126a4565b9150509250925092565b600060208284031215612b9d57600080fd5b81516001600160401b03811115612bb357600080fd5b6129ff84828501612781565b60008060408385031215612bd257600080fd5b82356001600160401b03811115612be857600080fd5b612bf485828601612702565b92505060208301356001600160401b03811115612c1057600080fd5b612a55858286016127f1565b60008060008060808587031215612c3257600080fd5b84516001600160401b03811115612c4857600080fd5b612c548782880161284e565b94505060208501516001600160401b03811115612c7057600080fd5b612c7c8782880161284e565b9350506040612c8d878288016128c9565b9250506060612c9e878288016128c9565b91505092959194509250565b600060208284031215612cbc57600080fd5b60006129ff84846128be565b600060208284031215612cda57600080fd5b60006129ff84846128c9565b60008060208385031215612cf957600080fd5b82356001600160401b03811115612d0f57600080fd5b612b2b858286016128d4565b60008060008060608587031215612d3157600080fd5b6000612d3d8787612964565b94505060208501356001600160401b03811115612d5957600080fd5b612d65878288016128d4565b93509350506040612c9e878288016129cb565b600080600060608486031215612d8d57600080fd5b6000612d99868661297a565b9350506020612daa868287016126af565b9250506040612b81868287016129d6565b600060208284031215612dcd57600080fd5b81516001600160401b03811115612de357600080fd5b6129ff84828501612985565b600060208284031215612e0157600080fd5b60006129ff84846129d6565b60008060408385031215612e2057600080fd5b6000612e2c85856129d6565b9250506020612a55858286016128c9565b6000612e498383612e6c565b505060200190565b6000612e498383612f5d565b612e668161388e565b82525050565b612e668161385b565b6000612e808261384e565b612e8a8185613852565b9350612e9583613848565b8060005b83811015612ec3578151612ead8882612e3d565b9750612eb883613848565b925050600101612e99565b509495945050505050565b6000612ed98261384e565b612ee38185613852565b9350612eee83613848565b8060005b83811015612ec3578151612f068882612e51565b9750612f1183613848565b925050600101612ef2565b612e6681613866565b6000612f308261384e565b612f3a8185613852565b9350612f4a8185602086016138c6565b612f53816138f2565b9093019392505050565b612e6681613899565b612e66816138a4565b6000612f7a8261384e565b612f8481856109bf565b9350612f948185602086016138c6565b9290920192915050565b6000612fab602283613852565b7f456e756d657261626c655365743a20696e646578206f7574206f6620626f756e815261647360f01b602082015260400192915050565b6000612fef602583613852565b7f5f5f73657456616c6964617465645661756c7450726f78793a20416c726561648152641e481cd95d60da1b602082015260400192915050565b6000613036602783613852565b7f736574436f6e666967466f7246756e643a20466565206973206e6f74207265678152661a5cdd195c995960ca1b602082015260400192915050565b600061307f602383613852565b7f496e76616c696420736574746c656d656e7420666f722050726f746f636f6c2081526266656560e81b602082015260400192915050565b60006130c4604983613852565b7f6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652081527f46756e644465706c6f796572206f776e65722063616e2063616c6c207468697360208201526810333ab731ba34b7b760b91b604082015260600192915050565b6000613135602c83613852565b7f5f5f73657456616c6964617465645661756c7450726f78793a204d697373696e81526b67207661756c7450726f787960a01b602082015260400192915050565b6000613183601b83613852565b7f536166654d6174683a206164646974696f6e206f766572666c6f770000000000815260200192915050565b60006131bc602d83613852565b7f7265636569766543616c6c46726f6d436f6d7074726f6c6c65723a20496e766181526c1b1a590817d858dd1a5bdb9259609a1b602082015260400192915050565b600061320b601e83613852565b7f536166654d6174683a207375627472616374696f6e206f766572666c6f770000815260200192915050565b6000613244603d83613852565b7f736574436f6e666967466f7246756e643a206665657320616e6420736574746981527f6e677344617461206172726179206c656e6774687320756e657175616c000000602082015260400192915050565b60006132a3602083613852565b7f5f5f67657447617641734e65636573736172793a20496e76616c696420474156815260200192915050565b60006132dc603583613852565b7f5f5f73657456616c6964617465645661756c7450726f78793a204e6f7420746881527432902b30bab63a283937bc3c9030b1b1b2b9b9b7b960591b602082015260400192915050565b6000613333603083613852565b7f736574436f6e666967466f7246756e643a20666565732063616e6e6f7420696e81526f636c756465206475706c69636174657360801b602082015260400192915050565b6000613385602583613852565b7f64657265676973746572466565733a205f666565732063616e6e6f7420626520815264656d70747960d81b602082015260400192915050565b60006133cc602483613852565b7f7265676973746572466565733a2066656520616c726561647920726567697374815263195c995960e21b602082015260400192915050565b6000613412602583613852565b7f64657265676973746572466565733a20666565206973206e6f742072656769738152641d195c995960da1b602082015260400192915050565b6000613459602383613852565b7f5f5f736574746c654665653a20496e76616c696420536574746c656d656e745481526279706560e81b602082015260400192915050565b600061349e602383613852565b7f7265676973746572466565733a205f666565732063616e6e6f7420626520656d81526270747960e81b602082015260400192915050565b60006134e3602083613852565b7f5f5f696e766f6b65486f6f6b3a2046756e64206973206e6f7420616374697665815260200192915050565b612e668161388b565b600061134a8284612f6f565b60208101610a478284612e6c565b604081016135408285612e5d565b61134a6020830184612e6c565b6040810161355b8285612e5d565b81810360208301526129ff8184612f25565b604081016135408285612e6c565b60a081016135898288612e6c565b6135966020830187612e6c565b6135a36040830186612f5d565b81810360608301526135b58185612f25565b9050611ed4608083018461350f565b606081016135d28286612e6c565b6135df6020830185612e6c565b6129ff604083018461350f565b604081016135fa8285612e6c565b61134a602083018461350f565b6020808252810161134a8184612e75565b608080825281016136298187612ece565b9050818103602083015261363d8186612ece565b905061364c6040830185612f1c565b6136596060830184612f1c565b95945050505050565b60208101610a478284612f1c565b604081016135fa8285612f1c565b6020808252810161134a8184612f25565b6040810161355b8285612f66565b60208082528101610a4781612f9e565b60208082528101610a4781612fe2565b60208082528101610a4781613029565b60208082528101610a4781613072565b60208082528101610a47816130b7565b60208082528101610a4781613128565b60208082528101610a4781613176565b60208082528101610a47816131af565b60208082528101610a47816131fe565b60208082528101610a4781613237565b60208082528101610a4781613296565b60208082528101610a47816132cf565b60208082528101610a4781613326565b60208082528101610a4781613378565b60208082528101610a47816133bf565b60208082528101610a4781613405565b60208082528101610a478161344c565b60208082528101610a4781613491565b60208082528101610a47816134d6565b60208101610a47828461350f565b6040518181016001600160401b03811182821017156137f957600080fd5b604052919050565b60006001600160401b0382111561381757600080fd5b5060209081020190565b60006001600160401b0382111561383757600080fd5b506020601f91909101601f19160190565b60200190565b5190565b90815260200190565b6000610a478261387f565b151590565b806109bf816138fc565b806109bf81613906565b6001600160a01b031690565b90565b6000610a47826138af565b6000610a478261386b565b6000610a4782613875565b6000610a478261385b565b82818337506000910152565b60005b838110156138e15781810151838201526020016138c9565b8381111561049b5750506000910152565b601f01601f191690565b60068110611dad57fe5b60088110611dad57fe5b6139198161385b565b8114611dad57600080fd5b61391981613866565b60068110611dad57600080fd5b60078110611dad57600080fd5b6139198161388b56fea2646970667358221220a972e5044a8005476247dcfe4b20530fe71e25758ff4ae291201a5e64098531b64736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101585760003560e01c8063893d20e8116100c3578063aa051c2c1161007c578063aa051c2c146102c7578063bd8e959a146102e7578063dfda6586146102ef578063e2a1b39814610302578063e87e9cf514610315578063ec7c39e91461031d57610158565b8063893d20e81461027657806389cbe1d01461027e57806397c0ac871461029157806399c7358314610299578063a5a41031146102ac578063a9f3b42f146102b457610158565b8063467903461161011557806346790346146101e957806353acffa0146102095780635db1a1891461021c5780637759c1641461022f57806380d570631461024257806384b6513d1461025557610158565b806306bbda641461015d5780631a97ec1e1461017b5780631bee801e1461019057806324da4f19146101a35780633a687cf4146101b65780633c470297146101d6575b600080fd5b610165610330565b6040516101729190613607565b60405180910390f35b61018e610189366004612b37565b6103c5565b005b61018e61019e366004612a8f565b6104a1565b61018e6101b1366004612af6565b61052b565b6101c96101c43660046129e1565b6109a2565b6040516101729190613662565b6101c96101e43660046129e1565b6109c4565b6101fc6101f73660046129e1565b6109e2565b6040516101729190613524565b6101c9610217366004612a5f565b610a00565b61018e61022a3660046129e1565b610a4d565b61018e61023d366004612d1b565b610acf565b61018e610250366004612caa565b610b15565b610268610263366004612d1b565b610c17565b604051610172929190613670565b6101fc610cb3565b61018e61028c366004612ce6565b610d4b565b6101fc610f4a565b6101c96102a73660046129e1565b610f6e565b6101fc610f7b565b6101656102c23660046129e1565b610f8a565b6102da6102d5366004612a25565b611000565b60405161017291906137cd565b61018e61102b565b61018e6102fd366004612b37565b61105d565b61018e610310366004612af6565b61112a565b6102da6112ea565b6101c961032b366004612a5f565b61130e565b606061033c6002611333565b6001600160401b038111801561035157600080fd5b5060405190808252806020026020018201604052801561037b578160200160208202803683370190505b50905060005b81518110156103c15761039560028261133e565b8282815181106103a157fe5b6001600160a01b0390921660209283029190910190910152600101610381565b5090565b6103cd610cb3565b6001600160a01b0316336001600160a01b0316146104065760405162461bcd60e51b81526004016103fd906136dd565b60405180910390fd5b60005b8281101561049b5783838281811061041d57fe5b905060200201602081019061043291906129e1565b6001600160a01b0316636a29d94e836040518263ffffffff1660e01b815260040161045d9190613524565b600060405180830381600087803b15801561047757600080fd5b505af115801561048b573d6000803e3d6000fd5b5050600190920191506104099050565b50505050565b826104ca576104c53360006040518060200160405280600081525060006001611351565b61049b565b8260011415610513576104c53383838080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525061143592505050565b60405162461bcd60e51b81526004016103fd9061370d565b610533610cb3565b6001600160a01b0316336001600160a01b0316146105635760405162461bcd60e51b81526004016103fd906136dd565b806105805760405162461bcd60e51b81526004016103fd906137ad565b60005b8181101561099d576105af83838381811061059a57fe5b90506020020160208101906102a791906129e1565b156105cc5760405162461bcd60e51b81526004016103fd9061377d565b6105f88383838181106105db57fe5b90506020020160208101906105f091906129e1565b6002906116bd565b50600083838381811061060757fe5b905060200201602081019061061c91906129e1565b9050606080600080846001600160a01b031663cbf54bb26040518163ffffffff1660e01b815260040160006040518083038186803b15801561065d57600080fd5b505afa158015610671573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526106999190810190612c1c565b935093509350935060005b8451811015610747576001600660008b8b8b8181106106bf57fe5b90506020020160208101906106d491906129e1565b6001600160a01b03166001600160a01b03168152602001908152602001600020600087848151811061070257fe5b6020026020010151600581111561071557fe5b600581111561072057fe5b81526020810191909152604001600020805460ff19169115159190911790556001016106a4565b5060005b83518110156107ee576001600760008b8b8b81811061076657fe5b905060200201602081019061077b91906129e1565b6001600160a01b03166001600160a01b0316815260200190815260200160002060008684815181106107a957fe5b602002602001015160058111156107bc57fe5b60058111156107c757fe5b81526020810191909152604001600020805460ff191691151591909117905560010161074b565b508115610845576001600460008a8a8a81811061080757fe5b905060200201602081019061081c91906129e1565b6001600160a01b031681526020810191909152604001600020805460ff19169115159190911790555b801561089b576001600560008a8a8a81811061085d57fe5b905060200201602081019061087291906129e1565b6001600160a01b031681526020810191909152604001600020805460ff19169115159190911790555b846001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b1580156108d457600080fd5b505afa1580156108e8573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526109109190810190612dbb565b60405161091d9190613518565b604051809103902088888881811061093157fe5b905060200201602081019061094691906129e1565b6001600160a01b03167f0cc09421dfd6f16fe9f3e1329fe97c2c82bed949019621d503a1220831abb62e868686866040516109849493929190613618565b60405180910390a3505060019093019250610583915050565b505050565b6001600160a01b03811660009081526004602052604090205460ff165b919050565b6001600160a01b031660009081526005602052604090205460ff1690565b6001600160a01b039081166000908152602081905260409020541690565b6001600160a01b038216600090815260076020526040812081836005811115610a2557fe5b6005811115610a3057fe5b815260208101919091526040016000205460ff1690505b92915050565b610a55610cb3565b6001600160a01b0316336001600160a01b031614610a855760405162461bcd60e51b81526004016103fd906136dd565b600180546001600160a01b0319166001600160a01b0383169081179091556040517f18b11d7c2c1188c003e9d2cf7f233fcf5f340fc774aa66b1e4f87bd28959772890600090a250565b61049b338585858080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250879250600191506113519050565b6000610b20336116d2565b3360009081526008602090815260409182902080548351818402810184019094528084529394506060939091830182828015610b8557602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610b67575b5050505050905060005b815181101561049b57818181518110610ba457fe5b60200260200101516001600160a01b0316633146d05833856040518363ffffffff1660e01b8152600401610bd9929190613532565b600060405180830381600087803b158015610bf357600080fd5b505af1158015610c07573d6000803e3d6000fd5b505060019092019150610b8f9050565b60015460009081906001600160a01b031615610caa576000610c38336109e2565b90506001600160a01b038116610c605760405162461bcd60e51b81526004016103fd906137bd565b610ca433828989898080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152508b9250611878915050565b92509250505b94509492505050565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b158015610d0e57600080fd5b505afa158015610d22573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d469190612a07565b905090565b606080610d5a83850185612bbf565b915091508051825114610d7f5760405162461bcd60e51b81526004016103fd9061372d565b610d8882611acd565b610da45760405162461bcd60e51b81526004016103fd9061375d565b60005b8251811015610f4357610dcc838281518110610dbf57fe5b6020026020010151610f6e565b610de85760405162461bcd60e51b81526004016103fd906136bd565b828181518110610df457fe5b60200260200101516001600160a01b0316630f5f6b4f33848481518110610e1757fe5b60200260200101516040518363ffffffff1660e01b8152600401610e3c92919061354d565b600060405180830381600087803b158015610e5657600080fd5b505af1158015610e6a573d6000803e3d6000fd5b5050336000908152600860205260409020855190925085915083908110610e8d57fe5b60209081029190910181015182546001810184556000938452919092200180546001600160a01b0319166001600160a01b039092169190911790558251839082908110610ed657fe5b60200260200101516001600160a01b0316336001600160a01b03167f62b7814f137868e44c7a83c2b0a340fc5dacef8f3e748867d0f5f879fc0ef6da848481518110610f1e57fe5b6020026020010151604051610f33919061367e565b60405180910390a3600101610da7565b5050505050565b7f000000000000000000000000000000000000000000000000000000000000000090565b6000610a47600283611b61565b6001546001600160a01b031690565b6001600160a01b038116600090815260086020908152604091829020805483518184028101840190945280845260609392830182828015610ff457602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610fd6575b50505050509050919050565b6001600160a01b03918216600090815260096020908152604080832093909416825291909152205490565b61104933600060405180602001604052806000815250600080611351565b61105233611b76565b61105b33611db0565b565b611065610cb3565b6001600160a01b0316336001600160a01b0316146110955760405162461bcd60e51b81526004016103fd906136dd565b60005b8281101561049b578383828181106110ac57fe5b90506020020160208101906110c191906129e1565b6001600160a01b0316639714574c836040518263ffffffff1660e01b81526004016110ec9190613524565b600060405180830381600087803b15801561110657600080fd5b505af115801561111a573d6000803e3d6000fd5b5050600190920191506110989050565b611132610cb3565b6001600160a01b0316336001600160a01b0316146111625760405162461bcd60e51b81526004016103fd906136dd565b8061117f5760405162461bcd60e51b81526004016103fd9061376d565b60005b8181101561099d5761119983838381811061059a57fe5b6111b55760405162461bcd60e51b81526004016103fd9061378d565b6111e18383838181106111c457fe5b90506020020160208101906111d991906129e1565b600290611df8565b508282828181106111ee57fe5b905060200201602081019061120391906129e1565b6001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b15801561123b57600080fd5b505afa15801561124f573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526112779190810190612dbb565b6040516112849190613518565b604051809103902083838381811061129857fe5b90506020020160208101906112ad91906129e1565b6001600160a01b03167f3a9db4e30d2c448ca18bdd1a6c2e611b9f28cee12f4f6faf79722a0ea2d7242360405160405180910390a3600101611182565b7f000000000000000000000000000000000000000000000000000000000000000090565b6001600160a01b038216600090815260066020526040812081836005811115610a2557fe5b6000610a4782611e0d565b600061134a8383611e11565b9392505050565b6001600160a01b0385166000908152600860209081526040918290208054835181840281018401909452808452606093928301828280156113bb57602002820191906000526020600020905b81546001600160a01b0316815260019091019060200180831161139d575b505050505090508051600014156113d25750610f43565b60006113dd876109e2565b90506001600160a01b0381166114055760405162461bcd60e51b81526004016103fd906137bd565b60006114158883858a8a8a611e56565b9050831561142b5761142b8883858a8a86611ede565b5050505050505050565b60608180602001905181019061144b9190612b8b565b90506000611458336109e2565b90506000805b835181101561163a5783818151811061147357fe5b60200260200101516001600160a01b031663b78b481387856040518363ffffffff1660e01b81526004016114a892919061356d565b602060405180830381600087803b1580156114c257600080fd5b505af11580156114d6573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906114fa9190612cc8565b61150357611632565b6001600160a01b03861660009081526009602052604081208551829087908590811061152b57fe5b60200260200101516001600160a01b03166001600160a01b0316815260200190815260200160002054905080600014156115655750611632565b61156f8382611fa5565b9250600060096000896001600160a01b03166001600160a01b0316815260200190815260200160002060008785815181106115a657fe5b60200260200101516001600160a01b03166001600160a01b03168152602001908152602001600020819055508482815181106115de57fe5b60200260200101516001600160a01b0316876001600160a01b03167fcda32f0422c94049db811f90e9e3e2537f709654eeb3e087d70a5e33916df9a58360405161162891906137cd565b60405180910390a3505b60010161145e565b508015610f4357610f438583846001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561167f57600080fd5b505afa158015611693573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906116b79190612a07565b84611fca565b600061134a836001600160a01b03841661204a565b6001600160a01b038181166000908152602081905260408120549091161561170c5760405162461bcd60e51b81526004016103fd906136ad565b816001600160a01b031663c98091876040518163ffffffff1660e01b815260040160206040518083038186803b15801561174557600080fd5b505afa158015611759573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061177d9190612a07565b90506001600160a01b0381166117a55760405162461bcd60e51b81526004016103fd906136ed565b806001600160a01b0316635a53e3486040518163ffffffff1660e01b815260040160206040518083038186803b1580156117de57600080fd5b505afa1580156117f2573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906118169190612a07565b6001600160a01b0316826001600160a01b0316146118465760405162461bcd60e51b81526004016103fd9061374d565b6001600160a01b03918216600090815260208190526040902080546001600160a01b0319169282169290921790915590565b6001546040516320c496bf60e11b815260009182918291829182916001600160a01b0316906341892d7e906118b9908d908d908d908d908d9060040161357b565b606060405180830381600087803b1580156118d357600080fd5b505af11580156118e7573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061190b9190612d78565b91945092509050600083600681111561192057fe5b14156119355760008094509450505050611ac3565b600683600681111561194357fe5b146119605760405162461bcd60e51b81526004016103fd906136cd565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316636b59efa36040518163ffffffff1660e01b815260040160206040518083038186803b1580156119bb57600080fd5b505afa1580156119cf573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906119f39190612a07565b9050611a018b848385611fca565b6040516338ef0a1560e01b81526001600160a01b038216906338ef0a1590611a2d908d90600401613524565b600060405180830381600087803b158015611a4757600080fd5b505af1158015611a5b573d6000803e3d6000fd5b50505050836006811115611a6b57fe5b6001546040516001600160a01b03918216918e16907fef7da7c40d1fc52df907f6fed0e539680d5fb491c3b8f94db234a360dafe1d6290611ab1908890879089906135c4565b60405180910390a45060019450925050505b9550959350505050565b60006001825111611ae0575060016109bf565b815160005b81811015611b5757600181015b82811015611b4e57848181518110611b0657fe5b60200260200101516001600160a01b0316858381518110611b2357fe5b60200260200101516001600160a01b03161415611b4657600093505050506109bf565b600101611af2565b50600101611ae5565b5060019392505050565b600061134a836001600160a01b038416612094565b6000611b81826109e2565b90506000816001600160a01b03166370a08231836040518263ffffffff1660e01b8152600401611bb19190613524565b60206040518083038186803b158015611bc957600080fd5b505afa158015611bdd573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190611c019190612def565b905080611c0f575050611dad565b6001600160a01b038316600090815260086020908152604091829020805483518184028101840190945280845260609392830182828015611c7957602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311611c5b575b5050505050905060005b8151811015611ce3576001600160a01b03851660009081526009602052604081208351909190849084908110611cb557fe5b6020908102919091018101516001600160a01b03168252810191909152604001600090812055600101611c83565b506000836001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b158015611d1f57600080fd5b505afa158015611d33573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190611d579190612a07565b9050611d6585858386611fca565b846001600160a01b03167fe1ddc13838bdb841a7c5c11b6f7c9bde7199c71756f2ba118de8cf3e036b91f68285604051611da09291906135ec565b60405180910390a2505050505b50565b6001600160a01b0381166000908152600860205260408120611dd191612676565b6001600160a01b0316600090815260208190526040902080546001600160a01b0319169055565b600061134a836001600160a01b0384166120ac565b5490565b81546000908210611e345760405162461bcd60e51b81526004016103fd9061369d565b826000018281548110611e4357fe5b9060005260206000200154905092915050565b8060005b8551811015611ed257611e80868281518110611e7257fe5b60200260200101518661130e565b611e8957611eca565b611ea788878381518110611e9957fe5b602002602001015184612172565b9150611eca8888888481518110611eba57fe5b602002602001015188888761223b565b600101611e5a565b505b9695505050505050565b8060005b855181101561142b57611f08868281518110611efa57fe5b602002602001015186610a00565b611f1157611f9d565b611f2188878381518110611e9957fe5b9150858181518110611f2f57fe5b60200260200101516001600160a01b031663233faf5f89898888876040518663ffffffff1660e01b8152600401611f6a95949392919061357b565b600060405180830381600087803b158015611f8457600080fd5b505af1158015611f98573d6000803e3d6000fd5b505050505b600101611ee2565b60008282018381101561134a5760405162461bcd60e51b81526004016103fd906136fd565b836001600160a01b03166310acd06d6003858585604051602001611ff0939291906135c4565b6040516020818303038152906040526040518363ffffffff1660e01b815260040161201c92919061368f565b600060405180830381600087803b15801561203657600080fd5b505af115801561142b573d6000803e3d6000fd5b60006120568383612094565b61208c57508154600181810184556000848152602080822090930184905584548482528286019093526040902091909155610a47565b506000610a47565b60009081526001919091016020526040902054151590565b6000818152600183016020526040812054801561216857835460001980830191908101906000908790839081106120df57fe5b90600052602060002001549050808760000184815481106120fc57fe5b60009182526020808320909101929092558281526001898101909252604090209084019055865487908061212c57fe5b60019003818190600052602060002001600090559055866001016000878152602001908152602001600020600090556001945050505050610a47565b6000915050610a47565b6000811580156121865750612186836109c4565b1561223457604051637a89e49360e11b81526000906001600160a01b0386169063f513c926906121bb90600190600401613662565b6040805180830381600087803b1580156121d457600080fd5b505af11580156121e8573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061220c9190612e0d565b90925090508061222e5760405162461bcd60e51b81526004016103fd9061373d565b5061134a565b5092915050565b6000806000866001600160a01b03166341892d7e8a8a8989896040518663ffffffff1660e01b815260040161227495949392919061357b565b606060405180830381600087803b15801561228e57600080fd5b505af11580156122a2573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906122c69190612d78565b9194509250905060008360068111156122db57fe5b14156122e95750505061259b565b600060018460068111156122f957fe5b141561238357886001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561233857600080fd5b505afa15801561234c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906123709190612a07565b905061237e8a848385611fca565b61253b565b600284600681111561239157fe5b141561241557886001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b1580156123d057600080fd5b505afa1580156123e4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906124089190612a07565b905061237e8a82846125a3565b600384600681111561242357fe5b14156124345761237e8a848461262a565b600484600681111561244257fe5b14156124ab576001600160a01b03808b166000908152600960209081526040808320938c16835292905220546124789083611fa5565b6001600160a01b03808c166000908152600960209081526040808320938d1683529290522055508761237e8a82846125a3565b60058460068111156124b957fe5b1415612523576001600160a01b03808b166000908152600960209081526040808320938c16835292905220546124ef908361264e565b6001600160a01b03808c166000908152600960209081526040808320938d168352929052205588925061237e8a848461262a565b60405162461bcd60e51b81526004016103fd9061379d565b83600681111561254757fe5b886001600160a01b03168b6001600160a01b03167fef7da7c40d1fc52df907f6fed0e539680d5fb491c3b8f94db234a360dafe1d6286858760405161258e939291906135c4565b60405180910390a4505050505b505050505050565b826001600160a01b03166310acd06d600284846040516020016125c79291906135ec565b6040516020818303038152906040526040518363ffffffff1660e01b81526004016125f392919061368f565b600060405180830381600087803b15801561260d57600080fd5b505af1158015612621573d6000803e3d6000fd5b50505050505050565b826001600160a01b03166310acd06d600184846040516020016125c79291906135ec565b6000828211156126705760405162461bcd60e51b81526004016103fd9061371d565b50900390565b5080546000825590600052602060002090810190611dad91905b808211156103c15760008155600101612690565b8035610a4781613910565b8051610a4781613910565b60008083601f8401126126cc57600080fd5b5081356001600160401b038111156126e357600080fd5b6020830191508360208202830111156126fb57600080fd5b9250929050565b600082601f83011261271357600080fd5b813561272661272182613801565b6137db565b9150818183526020840193506020810190508385602084028201111561274b57600080fd5b60005b83811015612777578161276188826126a4565b845250602092830192919091019060010161274e565b5050505092915050565b600082601f83011261279257600080fd5b81516127a061272182613801565b915081818352602084019350602081019050838560208402820111156127c557600080fd5b60005b8381101561277757816127db88826126af565b84525060209283019291909101906001016127c8565b600082601f83011261280257600080fd5b813561281061272182613801565b81815260209384019390925082018360005b8381101561277757813586016128388882612915565b8452506020928301929190910190600101612822565b600082601f83011261285f57600080fd5b815161286d61272182613801565b9150818183526020840193506020810190508385602084028201111561289257600080fd5b60005b8381101561277757816128a8888261296f565b8452506020928301929190910190600101612895565b8035610a4781613924565b8051610a4781613924565b60008083601f8401126128e657600080fd5b5081356001600160401b038111156128fd57600080fd5b6020830191508360018202830111156126fb57600080fd5b600082601f83011261292657600080fd5b813561293461272182613821565b9150808252602083016020830185838301111561295057600080fd5b61295b8382846138ba565b50505092915050565b8035610a478161392d565b8051610a478161392d565b8051610a478161393a565b600082601f83011261299657600080fd5b81516129a461272182613821565b915080825260208301602083018583830111156129c057600080fd5b61295b8382846138c6565b8035610a4781613947565b8051610a4781613947565b6000602082840312156129f357600080fd5b60006129ff84846126a4565b949350505050565b600060208284031215612a1957600080fd5b60006129ff84846126af565b60008060408385031215612a3857600080fd5b6000612a4485856126a4565b9250506020612a55858286016126a4565b9150509250929050565b60008060408385031215612a7257600080fd5b6000612a7e85856126a4565b9250506020612a5585828601612964565b60008060008060608587031215612aa557600080fd5b6000612ab187876126a4565b9450506020612ac2878288016129cb565b93505060408501356001600160401b03811115612ade57600080fd5b612aea878288016128d4565b95989497509550505050565b60008060208385031215612b0957600080fd5b82356001600160401b03811115612b1f57600080fd5b612b2b858286016126ba565b92509250509250929050565b600080600060408486031215612b4c57600080fd5b83356001600160401b03811115612b6257600080fd5b612b6e868287016126ba565b93509350506020612b81868287016126a4565b9150509250925092565b600060208284031215612b9d57600080fd5b81516001600160401b03811115612bb357600080fd5b6129ff84828501612781565b60008060408385031215612bd257600080fd5b82356001600160401b03811115612be857600080fd5b612bf485828601612702565b92505060208301356001600160401b03811115612c1057600080fd5b612a55858286016127f1565b60008060008060808587031215612c3257600080fd5b84516001600160401b03811115612c4857600080fd5b612c548782880161284e565b94505060208501516001600160401b03811115612c7057600080fd5b612c7c8782880161284e565b9350506040612c8d878288016128c9565b9250506060612c9e878288016128c9565b91505092959194509250565b600060208284031215612cbc57600080fd5b60006129ff84846128be565b600060208284031215612cda57600080fd5b60006129ff84846128c9565b60008060208385031215612cf957600080fd5b82356001600160401b03811115612d0f57600080fd5b612b2b858286016128d4565b60008060008060608587031215612d3157600080fd5b6000612d3d8787612964565b94505060208501356001600160401b03811115612d5957600080fd5b612d65878288016128d4565b93509350506040612c9e878288016129cb565b600080600060608486031215612d8d57600080fd5b6000612d99868661297a565b9350506020612daa868287016126af565b9250506040612b81868287016129d6565b600060208284031215612dcd57600080fd5b81516001600160401b03811115612de357600080fd5b6129ff84828501612985565b600060208284031215612e0157600080fd5b60006129ff84846129d6565b60008060408385031215612e2057600080fd5b6000612e2c85856129d6565b9250506020612a55858286016128c9565b6000612e498383612e6c565b505060200190565b6000612e498383612f5d565b612e668161388e565b82525050565b612e668161385b565b6000612e808261384e565b612e8a8185613852565b9350612e9583613848565b8060005b83811015612ec3578151612ead8882612e3d565b9750612eb883613848565b925050600101612e99565b509495945050505050565b6000612ed98261384e565b612ee38185613852565b9350612eee83613848565b8060005b83811015612ec3578151612f068882612e51565b9750612f1183613848565b925050600101612ef2565b612e6681613866565b6000612f308261384e565b612f3a8185613852565b9350612f4a8185602086016138c6565b612f53816138f2565b9093019392505050565b612e6681613899565b612e66816138a4565b6000612f7a8261384e565b612f8481856109bf565b9350612f948185602086016138c6565b9290920192915050565b6000612fab602283613852565b7f456e756d657261626c655365743a20696e646578206f7574206f6620626f756e815261647360f01b602082015260400192915050565b6000612fef602583613852565b7f5f5f73657456616c6964617465645661756c7450726f78793a20416c726561648152641e481cd95d60da1b602082015260400192915050565b6000613036602783613852565b7f736574436f6e666967466f7246756e643a20466565206973206e6f74207265678152661a5cdd195c995960ca1b602082015260400192915050565b600061307f602383613852565b7f496e76616c696420736574746c656d656e7420666f722050726f746f636f6c2081526266656560e81b602082015260400192915050565b60006130c4604983613852565b7f6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652081527f46756e644465706c6f796572206f776e65722063616e2063616c6c207468697360208201526810333ab731ba34b7b760b91b604082015260600192915050565b6000613135602c83613852565b7f5f5f73657456616c6964617465645661756c7450726f78793a204d697373696e81526b67207661756c7450726f787960a01b602082015260400192915050565b6000613183601b83613852565b7f536166654d6174683a206164646974696f6e206f766572666c6f770000000000815260200192915050565b60006131bc602d83613852565b7f7265636569766543616c6c46726f6d436f6d7074726f6c6c65723a20496e766181526c1b1a590817d858dd1a5bdb9259609a1b602082015260400192915050565b600061320b601e83613852565b7f536166654d6174683a207375627472616374696f6e206f766572666c6f770000815260200192915050565b6000613244603d83613852565b7f736574436f6e666967466f7246756e643a206665657320616e6420736574746981527f6e677344617461206172726179206c656e6774687320756e657175616c000000602082015260400192915050565b60006132a3602083613852565b7f5f5f67657447617641734e65636573736172793a20496e76616c696420474156815260200192915050565b60006132dc603583613852565b7f5f5f73657456616c6964617465645661756c7450726f78793a204e6f7420746881527432902b30bab63a283937bc3c9030b1b1b2b9b9b7b960591b602082015260400192915050565b6000613333603083613852565b7f736574436f6e666967466f7246756e643a20666565732063616e6e6f7420696e81526f636c756465206475706c69636174657360801b602082015260400192915050565b6000613385602583613852565b7f64657265676973746572466565733a205f666565732063616e6e6f7420626520815264656d70747960d81b602082015260400192915050565b60006133cc602483613852565b7f7265676973746572466565733a2066656520616c726561647920726567697374815263195c995960e21b602082015260400192915050565b6000613412602583613852565b7f64657265676973746572466565733a20666565206973206e6f742072656769738152641d195c995960da1b602082015260400192915050565b6000613459602383613852565b7f5f5f736574746c654665653a20496e76616c696420536574746c656d656e745481526279706560e81b602082015260400192915050565b600061349e602383613852565b7f7265676973746572466565733a205f666565732063616e6e6f7420626520656d81526270747960e81b602082015260400192915050565b60006134e3602083613852565b7f5f5f696e766f6b65486f6f6b3a2046756e64206973206e6f7420616374697665815260200192915050565b612e668161388b565b600061134a8284612f6f565b60208101610a478284612e6c565b604081016135408285612e5d565b61134a6020830184612e6c565b6040810161355b8285612e5d565b81810360208301526129ff8184612f25565b604081016135408285612e6c565b60a081016135898288612e6c565b6135966020830187612e6c565b6135a36040830186612f5d565b81810360608301526135b58185612f25565b9050611ed4608083018461350f565b606081016135d28286612e6c565b6135df6020830185612e6c565b6129ff604083018461350f565b604081016135fa8285612e6c565b61134a602083018461350f565b6020808252810161134a8184612e75565b608080825281016136298187612ece565b9050818103602083015261363d8186612ece565b905061364c6040830185612f1c565b6136596060830184612f1c565b95945050505050565b60208101610a478284612f1c565b604081016135fa8285612f1c565b6020808252810161134a8184612f25565b6040810161355b8285612f66565b60208082528101610a4781612f9e565b60208082528101610a4781612fe2565b60208082528101610a4781613029565b60208082528101610a4781613072565b60208082528101610a47816130b7565b60208082528101610a4781613128565b60208082528101610a4781613176565b60208082528101610a47816131af565b60208082528101610a47816131fe565b60208082528101610a4781613237565b60208082528101610a4781613296565b60208082528101610a47816132cf565b60208082528101610a4781613326565b60208082528101610a4781613378565b60208082528101610a47816133bf565b60208082528101610a4781613405565b60208082528101610a478161344c565b60208082528101610a4781613491565b60208082528101610a47816134d6565b60208101610a47828461350f565b6040518181016001600160401b03811182821017156137f957600080fd5b604052919050565b60006001600160401b0382111561381757600080fd5b5060209081020190565b60006001600160401b0382111561383757600080fd5b506020601f91909101601f19160190565b60200190565b5190565b90815260200190565b6000610a478261387f565b151590565b806109bf816138fc565b806109bf81613906565b6001600160a01b031690565b90565b6000610a47826138af565b6000610a478261386b565b6000610a4782613875565b6000610a478261385b565b82818337506000910152565b60005b838110156138e15781810151838201526020016138c9565b8381111561049b5750506000910152565b601f01601f191690565b60068110611dad57fe5b60088110611dad57fe5b6139198161385b565b8114611dad57600080fd5b61391981613866565b60068110611dad57600080fd5b60078110611dad57600080fd5b6139198161388b56fea2646970667358221220a972e5044a8005476247dcfe4b20530fe71e25758ff4ae291201a5e64098531b64736f6c634300060c0033",
+  "devdoc": {
+    "author": "Enzyme Council <security@enzyme.finance>",
+    "kind": "dev",
+    "methods": {
+      "deactivateForFund()": {
+        "details": "msg.sender is validated during __invokeHook()"
+      },
+      "deregisterFees(address[])": {
+        "params": {
+          "_fees": "Addresses of fees to be deregistered"
+        }
+      },
+      "feeSettlesOnHook(address,uint8)": {
+        "params": {
+          "_fee": "The address of the fee to check",
+          "_hook": "The FeeHook to check"
+        },
+        "returns": {
+          "settlesOnHook_": "True if the fee settles on the given hook"
+        }
+      },
+      "feeUpdatesOnHook(address,uint8)": {
+        "params": {
+          "_fee": "The address of the fee to check",
+          "_hook": "The FeeHook to check"
+        },
+        "returns": {
+          "updatesOnHook_": "True if the fee updates on the given hook"
+        }
+      },
+      "feeUsesGavOnSettle(address)": {
+        "params": {
+          "_fee": "The address of the fee to check"
+        },
+        "returns": {
+          "usesGav_": "True if the fee uses GAV during settle() implementation"
+        }
+      },
+      "feeUsesGavOnUpdate(address)": {
+        "params": {
+          "_fee": "The address of the fee to check"
+        },
+        "returns": {
+          "usesGav_": "True if the fee uses GAV during update() implementation"
+        }
+      },
+      "getEnabledFeesForFund(address)": {
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund"
+        },
+        "returns": {
+          "enabledFees_": "An array of enabled fee addresses"
+        }
+      },
+      "getFeeSharesOutstandingForFund(address,address)": {
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund",
+          "_fee": "The fee address"
+        },
+        "returns": {
+          "sharesOutstanding_": "The amount of shares outstanding"
+        }
+      },
+      "getFundDeployer()": {
+        "returns": {
+          "fundDeployer_": "The `FUND_DEPLOYER` variable value"
+        }
+      },
+      "getOwner()": {
+        "details": "Ownership is deferred to the owner of the FundDeployer contract",
+        "returns": {
+          "owner_": "The owner"
+        }
+      },
+      "getRegisteredFees()": {
+        "returns": {
+          "registeredFees_": "A list of all registered fee addresses"
+        }
+      },
+      "getVaultProxyForFund(address)": {
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund"
+        },
+        "returns": {
+          "vaultProxy_": "The VaultProxy of the fund"
+        }
+      },
+      "invokeHook(uint8,bytes,uint256)": {
+        "params": {
+          "_gav": "The GAV for a fund if known in the invocating code, otherwise 0",
+          "_hook": "The FeeHook to invoke",
+          "_settlementData": "The encoded settlement parameters specific to the FeeHook"
+        }
+      },
+      "isRegisteredFee(address)": {
+        "params": {
+          "_fee": "The address of the fee to check"
+        },
+        "returns": {
+          "isRegisteredFee_": "True if the fee is registered"
+        }
+      },
+      "receiveCallFromComptroller(address,uint256,bytes)": {
+        "details": "This is the only way to call a function on this contract that updates VaultProxy state. For both of these actions, any caller is allowed, so we don't use the caller param.",
+        "params": {
+          "_actionId": "An ID representing the desired action",
+          "_callArgs": "Encoded arguments specific to the _actionId"
+        }
+      },
+      "registerFees(address[])": {
+        "details": "Stores the hooks that a fee implements and whether each implementation uses GAV, which fronts the gas for calls to check if a hook is implemented, and guarantees that these hook implementation return values do not change post-registration.",
+        "params": {
+          "_fees": "Addresses of fees to be registered"
+        }
+      },
+      "setConfigForFund(bytes)": {
+        "details": "Caller is expected to be a valid ComptrollerProxy, but there isn't a need to validate. The order of `fees` determines the order in which fees of the same FeeHook will be applied. It is recommended to run ManagementFee before PerformanceFee in order to achieve precise PerformanceFee calcs.",
+        "params": {
+          "_configData": "Encoded config data"
+        }
+      }
+    },
+    "title": "FeeManager Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "activateForFund(bool)": {
+        "notice": "Activate already-configured fees for use in the calling fund"
+      },
+      "deactivateForFund()": {
+        "notice": "Deactivate fees for a fund"
+      },
+      "deregisterFees(address[])": {
+        "notice": "Remove fees from the list of registered fees"
+      },
+      "feeSettlesOnHook(address,uint8)": {
+        "notice": "Checks if a fee implements settle() on a particular hook"
+      },
+      "feeUpdatesOnHook(address,uint8)": {
+        "notice": "Checks if a fee implements update() on a particular hook"
+      },
+      "feeUsesGavOnSettle(address)": {
+        "notice": "Checks if a fee uses GAV in its settle() implementation"
+      },
+      "feeUsesGavOnUpdate(address)": {
+        "notice": "Checks if a fee uses GAV in its update() implementation"
+      },
+      "getEnabledFeesForFund(address)": {
+        "notice": "Get a list of enabled fees for a given fund"
+      },
+      "getFeeSharesOutstandingForFund(address,address)": {
+        "notice": "Get the amount of shares outstanding for a particular fee for a fund"
+      },
+      "getFundDeployer()": {
+        "notice": "Gets the `FUND_DEPLOYER` variable"
+      },
+      "getOwner()": {
+        "notice": "Gets the owner of this contract"
+      },
+      "getRegisteredFees()": {
+        "notice": "Get all registered fees"
+      },
+      "getVaultProxyForFund(address)": {
+        "notice": "Gets the verified VaultProxy for a given ComptrollerProxy"
+      },
+      "invokeHook(uint8,bytes,uint256)": {
+        "notice": "Allows all fees for a particular FeeHook to implement settle() and update() logic"
+      },
+      "isRegisteredFee(address)": {
+        "notice": "Check whether a fee is registered"
+      },
+      "receiveCallFromComptroller(address,uint256,bytes)": {
+        "notice": "Receives a dispatched `callOnExtension` from a fund's ComptrollerProxy"
+      },
+      "registerFees(address[])": {
+        "notice": "Add fees to the list of registered fees"
+      },
+      "setConfigForFund(bytes)": {
+        "notice": "Enable and configure fees for use in the calling fund"
+      }
+    },
+    "notice": "Manages fees for funds",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 39659,
+        "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+        "label": "comptrollerProxyToVaultProxy",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_address)"
+      },
+      {
+        "astId": 14639,
+        "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+        "label": "PROTOCOL_FEE",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 14641,
+        "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+        "label": "registeredFees",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_struct(AddressSet)2091_storage"
+      },
+      {
+        "astId": 14645,
+        "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+        "label": "feeToUsesGavOnSettle",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 14649,
+        "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+        "label": "feeToUsesGavOnUpdate",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 14655,
+        "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+        "label": "feeToHookToImplementsSettle",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_mapping(t_address,t_mapping(t_enum(FeeHook)16261,t_bool))"
+      },
+      {
+        "astId": 14661,
+        "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+        "label": "feeToHookToImplementsUpdate",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_mapping(t_address,t_mapping(t_enum(FeeHook)16261,t_bool))"
+      },
+      {
+        "astId": 14666,
+        "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+        "label": "comptrollerProxyToFees",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_mapping(t_address,t_array(t_address)dyn_storage)"
+      },
+      {
+        "astId": 14672,
+        "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+        "label": "comptrollerProxyToFeeToSharesOutstanding",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)dyn_storage": {
+        "base": "t_address",
+        "encoding": "dynamic_array",
+        "label": "address[]",
+        "numberOfBytes": "32"
+      },
+      "t_array(t_bytes32)dyn_storage": {
+        "base": "t_bytes32",
+        "encoding": "dynamic_array",
+        "label": "bytes32[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_enum(FeeHook)16261": {
+        "encoding": "inplace",
+        "label": "enum IFeeManager.FeeHook",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_address)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_address,t_array(t_address)dyn_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address[])",
+        "numberOfBytes": "32",
+        "value": "t_array(t_address)dyn_storage"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_uint256)"
+      },
+      "t_mapping(t_address,t_mapping(t_enum(FeeHook)16261,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(enum IFeeManager.FeeHook => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_enum(FeeHook)16261,t_bool)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_bytes32,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_enum(FeeHook)16261,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_enum(FeeHook)16261",
+        "label": "mapping(enum IFeeManager.FeeHook => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_struct(AddressSet)2091_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.AddressSet",
+        "members": [
+          {
+            "astId": 2090,
+            "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+            "label": "_inner",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_struct(Set)1826_storage"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_struct(Set)1826_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.Set",
+        "members": [
+          {
+            "astId": 1821,
+            "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+            "label": "_values",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_array(t_bytes32)dyn_storage"
+          },
+          {
+            "astId": 1825,
+            "contract": "contracts/release/extensions/fee-manager/FeeManager.sol:FeeManager",
+            "label": "_indexes",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_bytes32,t_uint256)"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

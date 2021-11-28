@@ -1,0 +1,1311 @@
+{
+  "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fundDeployer",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_addressResolver",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_sUSD",
+          "type": "address"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_synths",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "synth",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "currencyKey",
+          "type": "bytes32"
+        }
+      ],
+      "name": "SynthAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "synth",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "prevCurrencyKey",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "nextCurrencyKey",
+          "type": "bytes32"
+        }
+      ],
+      "name": "SynthCurrencyKeyUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_synths",
+          "type": "address[]"
+        }
+      ],
+      "name": "addSynths",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_derivative",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_derivativeAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "calcUnderlyingValues",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "underlyings_",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "underlyingAmounts_",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAddressResolver",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_synth",
+          "type": "address"
+        }
+      ],
+      "name": "getCurrencyKeyForSynth",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "currencyKey_",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_synths",
+          "type": "address[]"
+        }
+      ],
+      "name": "getCurrencyKeysForSynths",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "currencyKeys_",
+          "type": "bytes32[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getDerivativePriceFeedDeployTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFundDeployer",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "fundDeployer_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getSUSD",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "susd_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_asset",
+          "type": "address"
+        }
+      ],
+      "name": "isSupportedAsset",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isSupported_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_synths",
+          "type": "address[]"
+        }
+      ],
+      "name": "updateSynthCurrencyKeys",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+  "receipt": {
+    "to": null,
+    "from": "0x5a43993587dD57d58c16bbEbdf23b9F6D279176f",
+    "contractAddress": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+    "transactionIndex": 347,
+    "gasUsed": "3227278",
+    "logsBloom": "0x002024040200000000009010040000040002400113110000002000500060000800040080000004002618000048002000000000000020048008000010000880120102036101000414045080000000000809830a100000010882040000004000200203801600100002000080040010008000000090002c1008000020603200000004004000004000050200000c4880008001000000408000000000000002848000000408000800090008000020000400000040010240000000404041000000000400000804100104050800000005000242040000c021400084040000904000006200360000000088002013100100000801000880000000100020010400a0200800",
+    "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195",
+    "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+    "logs": [
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000057ab1ec28d129707052df4df418d58a2d46d5f51"
+        ],
+        "data": "0x7355534400000000000000000000000000000000000000000000000000000000",
+        "logIndex": 471,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000176c674ee533c6139b0dc8b458d72a93dcb3e705"
+        ],
+        "data": "0x6941415645000000000000000000000000000000000000000000000000000000",
+        "logIndex": 472,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000008a8079c7149b8a1611e5c5d978dca3be16545f83"
+        ],
+        "data": "0x6941444100000000000000000000000000000000000000000000000000000000",
+        "logIndex": 473,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000afd870f32ce54efdbf677466b612bf8ad164454b"
+        ],
+        "data": "0x69424e4200000000000000000000000000000000000000000000000000000000",
+        "logIndex": 474,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000d6014ea05bde904448b743833ddf07c3c7837481"
+        ],
+        "data": "0x6942544300000000000000000000000000000000000000000000000000000000",
+        "logIndex": 475,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000336213e1ddfc69f4701fc3f86f4ef4a160c1159d"
+        ],
+        "data": "0x6943455800000000000000000000000000000000000000000000000000000000",
+        "logIndex": 476,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000006345728b1cce16e6f8c509950b5c84fff88530d9"
+        ],
+        "data": "0x69434f4d50000000000000000000000000000000000000000000000000000000",
+        "logIndex": 477,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000cb98f42221b2c251a4e74a1609722ee09f0cc08e"
+        ],
+        "data": "0x6944415348000000000000000000000000000000000000000000000000000000",
+        "logIndex": 478,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000014d10003807ac60d07bb0ba82caeac8d2087c157"
+        ],
+        "data": "0x6944454649000000000000000000000000000000000000000000000000000000",
+        "logIndex": 479,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000046a97629c9c1f58de6ec18c7f536e7e6d6a6ecde"
+        ],
+        "data": "0x69444f5400000000000000000000000000000000000000000000000000000000",
+        "logIndex": 480,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000f4eebdd0704021ef2a6bbe993fdf93030cd784b4"
+        ],
+        "data": "0x69454f5300000000000000000000000000000000000000000000000000000000",
+        "logIndex": 481,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000d50c1746d835d2770dda3703b69187bffeb14126"
+        ],
+        "data": "0x6945544300000000000000000000000000000000000000000000000000000000",
+        "logIndex": 482,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000a9859874e1743a32409f75bb11549892138bba1e"
+        ],
+        "data": "0x6945544800000000000000000000000000000000000000000000000000000000",
+        "logIndex": 483,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000002d7ac061fc3db53c39fe1607fb8cec1b2c162b01"
+        ],
+        "data": "0x694c494e4b000000000000000000000000000000000000000000000000000000",
+        "logIndex": 484,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000079da1431150c9b82d2e5dfc1c68b33216846851e"
+        ],
+        "data": "0x694c544300000000000000000000000000000000000000000000000000000000",
+        "logIndex": 485,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000a5a5df41883cdc00c4ccc6e8097130535399d9a3"
+        ],
+        "data": "0x694f494c00000000000000000000000000000000000000000000000000000000",
+        "logIndex": 486,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000000fed38108bdb8e62ef7b5680e8e0726e2f29e0de"
+        ],
+        "data": "0x6952454e00000000000000000000000000000000000000000000000000000000",
+        "logIndex": 487,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000c5807183a9661a533cb08cbc297594a0b864dc12"
+        ],
+        "data": "0x6954525800000000000000000000000000000000000000000000000000000000",
+        "logIndex": 488,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000036a00ff9072570ef4b9292117850b8fe08d96cce"
+        ],
+        "data": "0x69554e4900000000000000000000000000000000000000000000000000000000",
+        "logIndex": 489,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000004adf728e2df4945082cdd6053869f51278fae196"
+        ],
+        "data": "0x69584d5200000000000000000000000000000000000000000000000000000000",
+        "logIndex": 490,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000027269b3e45a4d3e79a3d6bfee0c8fb13d0d711a6"
+        ],
+        "data": "0x6958525000000000000000000000000000000000000000000000000000000000",
+        "logIndex": 491,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000008deef89058090ac5655a99eeb451a4f9183d1678"
+        ],
+        "data": "0x6958545a00000000000000000000000000000000000000000000000000000000",
+        "logIndex": 492,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000592244301cea952d6dab2fdc1fe6bd9e53917306"
+        ],
+        "data": "0x6959464900000000000000000000000000000000000000000000000000000000",
+        "logIndex": 493,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000cd39b5434a0a92cf47d1f567a7df84be356814f0"
+        ],
+        "data": "0x7331494e43480000000000000000000000000000000000000000000000000000",
+        "logIndex": 494,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000007537aae01f3b218dae75e10d952473823f961b87"
+        ],
+        "data": "0x734141504c000000000000000000000000000000000000000000000000000000",
+        "logIndex": 495,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000d2df355c19471c8bd7d8a3aa27ff4e26a21b4076"
+        ],
+        "data": "0x7341415645000000000000000000000000000000000000000000000000000000",
+        "logIndex": 496,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000e36e2d3c7c34281fa3bc737950a68571736880a1"
+        ],
+        "data": "0x7341444100000000000000000000000000000000000000000000000000000000",
+        "logIndex": 497,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000009cf7e61853ea30a41b02169391b393b901eac457"
+        ],
+        "data": "0x73414d5a4e000000000000000000000000000000000000000000000000000000",
+        "logIndex": 498,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000f48e200eaf9906362bb1442fca31e0835773b8b4"
+        ],
+        "data": "0x7341554400000000000000000000000000000000000000000000000000000000",
+        "logIndex": 499,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000036a2422a863d5b950882190ff5433e513413343a"
+        ],
+        "data": "0x7342434800000000000000000000000000000000000000000000000000000000",
+        "logIndex": 500,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000617aecb6137b5108d1e7d4918e3725c8cebdb848"
+        ],
+        "data": "0x73424e4200000000000000000000000000000000000000000000000000000000",
+        "logIndex": 501,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000fe18be6b3bd88a2d2a7f928d00292e7a9963cfc6"
+        ],
+        "data": "0x7342544300000000000000000000000000000000000000000000000000000000",
+        "logIndex": 502,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000eabacd844a196d7faf3ce596edebf9900341b420"
+        ],
+        "data": "0x7343455800000000000000000000000000000000000000000000000000000000",
+        "logIndex": 503,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000000f83287ff768d1c1e17a42f44d644d7f22e8ee1d"
+        ],
+        "data": "0x7343484600000000000000000000000000000000000000000000000000000000",
+        "logIndex": 504,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000eb029507d3e043dd6c87f2917c4e82b902c35618"
+        ],
+        "data": "0x73434f4d50000000000000000000000000000000000000000000000000000000",
+        "logIndex": 505,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000d38aeb759891882e78e957c80656572503d8c1b1"
+        ],
+        "data": "0x7343525600000000000000000000000000000000000000000000000000000000",
+        "logIndex": 506,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000fe33ae95a9f0da8a845af33516edc240dcd711d6"
+        ],
+        "data": "0x7344415348000000000000000000000000000000000000000000000000000000",
+        "logIndex": 507,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000e1afe1fd76fd88f78cbf599ea1846231b8ba3b6b"
+        ],
+        "data": "0x7344454649000000000000000000000000000000000000000000000000000000",
+        "logIndex": 508,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000001715ac0743102bf5cd58efbb6cf2dc2685d967b6"
+        ],
+        "data": "0x73444f5400000000000000000000000000000000000000000000000000000000",
+        "logIndex": 509,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000088c8cf3a212c0369698d13fe98fcb76620389841"
+        ],
+        "data": "0x73454f5300000000000000000000000000000000000000000000000000000000",
+        "logIndex": 510,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000022602469d704bffb0936c7a7cfcd18f7aa269375"
+        ],
+        "data": "0x7345544300000000000000000000000000000000000000000000000000000000",
+        "logIndex": 511,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000005e74c9036fb86bd7ecdcb084a0673efc32ea31cb"
+        ],
+        "data": "0x7345544800000000000000000000000000000000000000000000000000000000",
+        "logIndex": 512,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000d71ecff9342a5ced620049e616c5035f1db98620"
+        ],
+        "data": "0x7345555200000000000000000000000000000000000000000000000000000000",
+        "logIndex": 513,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000f50b5e535f62a56a9bd2d8e2434204e726c027fa"
+        ],
+        "data": "0x7346420000000000000000000000000000000000000000000000000000000000",
+        "logIndex": 514,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000023348160d7f5aca21195df2b70f28fce2b0be9fc"
+        ],
+        "data": "0x7346545345000000000000000000000000000000000000000000000000000000",
+        "logIndex": 515,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000097fe22e7341a0cd8db6f6c021a24dc8f4dad855f"
+        ],
+        "data": "0x7347425000000000000000000000000000000000000000000000000000000000",
+        "logIndex": 516,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000c63b8ecce56ab9c46184ec6ab85e4771fea4c8ad"
+        ],
+        "data": "0x73474f4f47000000000000000000000000000000000000000000000000000000",
+        "logIndex": 517,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000f6b1c627e95bfc3c1b4c9b825a032ff0fbf3e07d"
+        ],
+        "data": "0x734a505900000000000000000000000000000000000000000000000000000000",
+        "logIndex": 518,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000bbc455cb4f1b9e4bfc4b73970d360c8f032efee6"
+        ],
+        "data": "0x734c494e4b000000000000000000000000000000000000000000000000000000",
+        "logIndex": 519,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000c14103c2141e842e228fbac594579e798616ce7a"
+        ],
+        "data": "0x734c544300000000000000000000000000000000000000000000000000000000",
+        "logIndex": 520,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000005a7e3c07604eb515c16b36cd51906a65f021f609"
+        ],
+        "data": "0x734e464c58000000000000000000000000000000000000000000000000000000",
+        "logIndex": 521,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000757de3ac6b830a931ef178c6634c5c551773155c"
+        ],
+        "data": "0x734e494b4b454900000000000000000000000000000000000000000000000000",
+        "logIndex": 522,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000006d16cf3ec5f763d4d99cb0b0b110eefd93b11b56"
+        ],
+        "data": "0x734f494c00000000000000000000000000000000000000000000000000000000",
+        "logIndex": 523,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000d31533e8d0f3df62060e94b3f1318137bb6e3525"
+        ],
+        "data": "0x7352454e00000000000000000000000000000000000000000000000000000000",
+        "logIndex": 524,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000000352557b007a4aae1511c114409b932f06f9e2f4"
+        ],
+        "data": "0x7352554e45000000000000000000000000000000000000000000000000000000",
+        "logIndex": 525,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000f2e08356588ec5cd9e437552da87c0076b4970b0"
+        ],
+        "data": "0x7354525800000000000000000000000000000000000000000000000000000000",
+        "logIndex": 526,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000918da91ccbc32b7a6a0cc4ecd5987bbab6e31e6d"
+        ],
+        "data": "0x7354534c41000000000000000000000000000000000000000000000000000000",
+        "logIndex": 527,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x00000000000000000000000030635297e450b930f8693297eba160d9e6c8ebcf"
+        ],
+        "data": "0x73554e4900000000000000000000000000000000000000000000000000000000",
+        "logIndex": 528,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000006a22e5e94388464181578aa7a6b869e00fe27846"
+        ],
+        "data": "0x7358414700000000000000000000000000000000000000000000000000000000",
+        "logIndex": 529,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000261efcdd24cea98652b9700800a13dfbca4103ff"
+        ],
+        "data": "0x7358415500000000000000000000000000000000000000000000000000000000",
+        "logIndex": 530,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000005299d6f7472dcc137d7f3c4bcfbbb514babf341a"
+        ],
+        "data": "0x73584d5200000000000000000000000000000000000000000000000000000000",
+        "logIndex": 531,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000a2b0fde6d710e201d0d608e924a484d1a5fed57c"
+        ],
+        "data": "0x7358525000000000000000000000000000000000000000000000000000000000",
+        "logIndex": 532,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x0000000000000000000000002e59005c5c0f0a4d77cca82653d48b46322ee5cd"
+        ],
+        "data": "0x7358545a00000000000000000000000000000000000000000000000000000000",
+        "logIndex": 533,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      },
+      {
+        "transactionIndex": 347,
+        "blockNumber": 13522515,
+        "transactionHash": "0xb6df1d776d9115af613132d24df976194ba037b605434f9f1b33f27f74837f27",
+        "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
+        "topics": [
+          "0x61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8",
+          "0x000000000000000000000000992058b7db08f9734d84485bfbc243c4ee6954a7"
+        ],
+        "data": "0x7359464900000000000000000000000000000000000000000000000000000000",
+        "logIndex": 534,
+        "blockHash": "0xd47d5f48e91d19c692046462b81c93aed8fe13f7e3682d1455ae48e92fb84195"
+      }
+    ],
+    "blockNumber": 13522515,
+    "cumulativeGasUsed": "28693363",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xe819b666c7Cccec2e51806862bBB58615dcd84fA",
+    "0x4E3b31eB0E5CB73641EE1E65E7dCEFe520bA3ef2",
+    "0x57ab1ec28d129707052df4df418d58a2d46d5f51",
+    [
+      "0x176c674ee533c6139b0dc8b458d72a93dcb3e705",
+      "0x8a8079c7149b8a1611e5c5d978dca3be16545f83",
+      "0xafd870f32ce54efdbf677466b612bf8ad164454b",
+      "0xd6014ea05bde904448b743833ddf07c3c7837481",
+      "0x336213e1ddfc69f4701fc3f86f4ef4a160c1159d",
+      "0x6345728b1cce16e6f8c509950b5c84fff88530d9",
+      "0xcb98f42221b2c251a4e74a1609722ee09f0cc08e",
+      "0x14d10003807ac60d07bb0ba82caeac8d2087c157",
+      "0x46a97629c9c1f58de6ec18c7f536e7e6d6a6ecde",
+      "0xf4eebdd0704021ef2a6bbe993fdf93030cd784b4",
+      "0xd50c1746d835d2770dda3703b69187bffeb14126",
+      "0xa9859874e1743a32409f75bb11549892138bba1e",
+      "0x2d7ac061fc3db53c39fe1607fb8cec1b2c162b01",
+      "0x79da1431150c9b82d2e5dfc1c68b33216846851e",
+      "0xa5a5df41883cdc00c4ccc6e8097130535399d9a3",
+      "0x0fed38108bdb8e62ef7b5680e8e0726e2f29e0de",
+      "0xc5807183a9661a533cb08cbc297594a0b864dc12",
+      "0x36a00ff9072570ef4b9292117850b8fe08d96cce",
+      "0x4adf728e2df4945082cdd6053869f51278fae196",
+      "0x27269b3e45a4d3e79a3d6bfee0c8fb13d0d711a6",
+      "0x8deef89058090ac5655a99eeb451a4f9183d1678",
+      "0x592244301cea952d6dab2fdc1fe6bd9e53917306",
+      "0xcd39b5434a0a92cf47d1f567a7df84be356814f0",
+      "0x7537aae01f3b218dae75e10d952473823f961b87",
+      "0xd2df355c19471c8bd7d8a3aa27ff4e26a21b4076",
+      "0xe36e2d3c7c34281fa3bc737950a68571736880a1",
+      "0x9cf7e61853ea30a41b02169391b393b901eac457",
+      "0xf48e200eaf9906362bb1442fca31e0835773b8b4",
+      "0x36a2422a863d5b950882190ff5433e513413343a",
+      "0x617aecb6137b5108d1e7d4918e3725c8cebdb848",
+      "0xfe18be6b3bd88a2d2a7f928d00292e7a9963cfc6",
+      "0xeabacd844a196d7faf3ce596edebf9900341b420",
+      "0x0f83287ff768d1c1e17a42f44d644d7f22e8ee1d",
+      "0xeb029507d3e043dd6c87f2917c4e82b902c35618",
+      "0xd38aeb759891882e78e957c80656572503d8c1b1",
+      "0xfe33ae95a9f0da8a845af33516edc240dcd711d6",
+      "0xe1afe1fd76fd88f78cbf599ea1846231b8ba3b6b",
+      "0x1715ac0743102bf5cd58efbb6cf2dc2685d967b6",
+      "0x88c8cf3a212c0369698d13fe98fcb76620389841",
+      "0x22602469d704bffb0936c7a7cfcd18f7aa269375",
+      "0x5e74c9036fb86bd7ecdcb084a0673efc32ea31cb",
+      "0xd71ecff9342a5ced620049e616c5035f1db98620",
+      "0xf50b5e535f62a56a9bd2d8e2434204e726c027fa",
+      "0x23348160d7f5aca21195df2b70f28fce2b0be9fc",
+      "0x97fe22e7341a0cd8db6f6c021a24dc8f4dad855f",
+      "0xc63b8ecce56ab9c46184ec6ab85e4771fea4c8ad",
+      "0xf6b1c627e95bfc3c1b4c9b825a032ff0fbf3e07d",
+      "0xbbc455cb4f1b9e4bfc4b73970d360c8f032efee6",
+      "0xc14103c2141e842e228fbac594579e798616ce7a",
+      "0x5a7e3c07604eb515c16b36cd51906a65f021f609",
+      "0x757de3ac6b830a931ef178c6634c5c551773155c",
+      "0x6d16cf3ec5f763d4d99cb0b0b110eefd93b11b56",
+      "0xd31533e8d0f3df62060e94b3f1318137bb6e3525",
+      "0x0352557b007a4aae1511c114409b932f06f9e2f4",
+      "0xf2e08356588ec5cd9e437552da87c0076b4970b0",
+      "0x918da91ccbc32b7a6a0cc4ecd5987bbab6e31e6d",
+      "0x30635297e450b930f8693297eba160d9e6c8ebcf",
+      "0x6a22e5e94388464181578aa7a6b869e00fe27846",
+      "0x261efcdd24cea98652b9700800a13dfbca4103ff",
+      "0x5299d6f7472dcc137d7f3c4bcfbbb514babf341a",
+      "0xa2b0fde6d710e201d0d608e924a484d1a5fed57c",
+      "0x2e59005c5c0f0a4d77cca82653d48b46322ee5cd",
+      "0x992058b7db08f9734d84485bfbc243c4ee6954a7"
+    ]
+  ],
+  "solcInputHash": "34b1516e615d6cbcdbaf9542624efee9",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fundDeployer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_addressResolver\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_sUSD\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"_synths\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"synth\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"currencyKey\",\"type\":\"bytes32\"}],\"name\":\"SynthAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"synth\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"prevCurrencyKey\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"nextCurrencyKey\",\"type\":\"bytes32\"}],\"name\":\"SynthCurrencyKeyUpdated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_synths\",\"type\":\"address[]\"}],\"name\":\"addSynths\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_derivative\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_derivativeAmount\",\"type\":\"uint256\"}],\"name\":\"calcUnderlyingValues\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"underlyings_\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"underlyingAmounts_\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAddressResolver\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_synth\",\"type\":\"address\"}],\"name\":\"getCurrencyKeyForSynth\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"currencyKey_\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_synths\",\"type\":\"address[]\"}],\"name\":\"getCurrencyKeysForSynths\",\"outputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"currencyKeys_\",\"type\":\"bytes32[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDerivativePriceFeedDeployTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFundDeployer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"fundDeployer_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getSUSD\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"susd_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\"}],\"name\":\"isSupportedAsset\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isSupported_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_synths\",\"type\":\"address[]\"}],\"name\":\"updateSynthCurrencyKeys\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Enzyme Council <security@enzyme.finance>\",\"kind\":\"dev\",\"methods\":{\"addSynths(address[])\":{\"params\":{\"_synths\":\"Synths to add\"}},\"calcUnderlyingValues(address,uint256)\":{\"params\":{\"_derivative\":\"The derivative to convert\",\"_derivativeAmount\":\"The amount of the derivative to convert\"},\"returns\":{\"underlyingAmounts_\":\"The amount of each underlying asset for the equivalent derivative amount\",\"underlyings_\":\"The underlying assets for the _derivative\"}},\"getAddressResolver()\":{\"returns\":{\"_0\":\"addressResolver_ The `ADDRESS_RESOLVER` variable value\"}},\"getCurrencyKeyForSynth(address)\":{\"returns\":{\"currencyKey_\":\"The currencyKey value\"}},\"getCurrencyKeysForSynths(address[])\":{\"returns\":{\"currencyKeys_\":\"The currencyKey values\"}},\"getFundDeployer()\":{\"returns\":{\"fundDeployer_\":\"The `FUND_DEPLOYER` variable value\"}},\"getOwner()\":{\"details\":\"Ownership is deferred to the owner of the FundDeployer contract\",\"returns\":{\"owner_\":\"The owner\"}},\"getSUSD()\":{\"returns\":{\"susd_\":\"The `SUSD` variable value\"}},\"isSupportedAsset(address)\":{\"params\":{\"_asset\":\"The asset to check\"},\"returns\":{\"isSupported_\":\"True if the asset is a supported primitive\"}},\"updateSynthCurrencyKeys(address[])\":{\"details\":\"Anybody can call this function\",\"params\":{\"_synths\":\"Synths to update\"}}},\"title\":\"SynthetixPriceFeed Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"addSynths(address[])\":{\"notice\":\"Adds Synths to the price feed\"},\"calcUnderlyingValues(address,uint256)\":{\"notice\":\"Converts a given amount of a derivative to its underlying asset values\"},\"getAddressResolver()\":{\"notice\":\"Gets the `ADDRESS_RESOLVER` variable\"},\"getCurrencyKeyForSynth(address)\":{\"notice\":\"Gets the currencyKey for a given Synth\"},\"getCurrencyKeysForSynths(address[])\":{\"notice\":\"Gets the currencyKey for multiple given Synths\"},\"getFundDeployer()\":{\"notice\":\"Gets the `FUND_DEPLOYER` variable\"},\"getOwner()\":{\"notice\":\"Gets the owner of this contract\"},\"getSUSD()\":{\"notice\":\"Gets the `SUSD` variable\"},\"isSupportedAsset(address)\":{\"notice\":\"Checks whether an asset is a supported primitive of the price feed\"},\"updateSynthCurrencyKeys(address[])\":{\"notice\":\"Updates the cached currencyKey value for specified Synths\"}},\"notice\":\"A price feed that uses Synthetix oracles as price sources\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/release/infrastructure/price-feeds/derivatives/feeds/SynthetixPriceFeed.sol\":\"SynthetixPriceFeed\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\n * checks.\\n *\\n * Arithmetic operations in Solidity wrap on overflow. This can easily result\\n * in bugs, because programmers usually assume that an overflow raises an\\n * error, which is the standard behavior in high level programming languages.\\n * `SafeMath` restores this intuition by reverting the transaction when an\\n * operation overflows.\\n *\\n * Using this library instead of the unchecked operations eliminates an entire\\n * class of bugs, so it's recommended to use it always.\\n */\\nlibrary SafeMath {\\n    /**\\n     * @dev Returns the addition of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        uint256 c = a + b;\\n        if (c < a) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the substraction of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b > a) return (false, 0);\\n        return (true, a - b);\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\n        // benefit is lost if 'b' is also tested.\\n        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522\\n        if (a == 0) return (true, 0);\\n        uint256 c = a * b;\\n        if (c / a != b) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the division of two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a / b);\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a % b);\\n    }\\n\\n    /**\\n     * @dev Returns the addition of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `+` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Addition cannot overflow.\\n     */\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\n        uint256 c = a + b;\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting on\\n     * overflow (when the result is negative).\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b <= a, \\\"SafeMath: subtraction overflow\\\");\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `*` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Multiplication cannot overflow.\\n     */\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\n        if (a == 0) return 0;\\n        uint256 c = a * b;\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: division by zero\\\");\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting when dividing by zero.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: modulo by zero\\\");\\n        return a % b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on\\n     * overflow (when the result is negative).\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {trySub}.\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b <= a, errorMessage);\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting with custom message on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryDiv}.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting with custom message when dividing by zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryMod}.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a % b;\\n    }\\n}\\n\",\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\"},\"contracts/release/core/fund-deployer/IFundDeployer.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IFundDeployer Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IFundDeployer {\\n    enum ReleaseStatus {PreLaunch, Live, Paused}\\n\\n    function getOwner() external view returns (address);\\n\\n    function getBuybackVault() external view returns (address);\\n\\n    function getReleaseStatus() external view returns (ReleaseStatus);\\n\\n    function isRegisteredVaultCall(address, bytes4) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xe5d28ccc67b68ed61a36eac1e3dfda4230b3669c71e2169ec190ec243bd78742\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/utils/FundDeployerOwnerMixin.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../core/fund-deployer/IFundDeployer.sol\\\";\\n\\n/// @title FundDeployerOwnerMixin Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A mixin contract that defers ownership to the owner of FundDeployer\\nabstract contract FundDeployerOwnerMixin {\\n    address internal immutable FUND_DEPLOYER;\\n\\n    modifier onlyFundDeployerOwner() {\\n        require(\\n            msg.sender == getOwner(),\\n            \\\"onlyFundDeployerOwner: Only the FundDeployer owner can call this function\\\"\\n        );\\n        _;\\n    }\\n\\n    constructor(address _fundDeployer) public {\\n        FUND_DEPLOYER = _fundDeployer;\\n    }\\n\\n    /// @notice Gets the owner of this contract\\n    /// @return owner_ The owner\\n    /// @dev Ownership is deferred to the owner of the FundDeployer contract\\n    function getOwner() public view returns (address owner_) {\\n        return IFundDeployer(FUND_DEPLOYER).getOwner();\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `FUND_DEPLOYER` variable\\n    /// @return fundDeployer_ The `FUND_DEPLOYER` variable value\\n    function getFundDeployer() external view returns (address fundDeployer_) {\\n        return FUND_DEPLOYER;\\n    }\\n}\\n\",\"keccak256\":\"0xae16a22807bc31d46654889122b8db7ee55b731efc8d6feb4c978d13fee3336d\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/IDerivativePriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IDerivativePriceFeed Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Simple interface for derivative price source oracle implementations\\ninterface IDerivativePriceFeed {\\n    function calcUnderlyingValues(address, uint256)\\n        external\\n        returns (address[] memory, uint256[] memory);\\n\\n    function isSupportedAsset(address) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x5abbc57ccbf28b2c27a0ee496f0a949a0039912975e8f9a65312d884edd05332\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/feeds/SynthetixPriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\nimport \\\"../../../../extensions/utils/FundDeployerOwnerMixin.sol\\\";\\nimport \\\"../../../../interfaces/ISynthetix.sol\\\";\\nimport \\\"../../../../interfaces/ISynthetixAddressResolver.sol\\\";\\nimport \\\"../../../../interfaces/ISynthetixExchangeRates.sol\\\";\\nimport \\\"../../../../interfaces/ISynthetixProxyERC20.sol\\\";\\nimport \\\"../../../../interfaces/ISynthetixSynth.sol\\\";\\nimport \\\"../IDerivativePriceFeed.sol\\\";\\nimport \\\"./utils/DerivativePriceFeedBase.sol\\\";\\n\\n/// @title SynthetixPriceFeed Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A price feed that uses Synthetix oracles as price sources\\ncontract SynthetixPriceFeed is IDerivativePriceFeed, FundDeployerOwnerMixin, DerivativePriceFeedBase {\\n    using SafeMath for uint256;\\n\\n    event SynthAdded(address indexed synth, bytes32 currencyKey);\\n\\n    event SynthCurrencyKeyUpdated(\\n        address indexed synth,\\n        bytes32 prevCurrencyKey,\\n        bytes32 nextCurrencyKey\\n    );\\n\\n    uint256 private constant SYNTH_UNIT = 10**18;\\n    address private immutable ADDRESS_RESOLVER;\\n    address private immutable SUSD;\\n\\n    mapping(address => bytes32) private synthToCurrencyKey;\\n\\n    constructor(\\n        address _fundDeployer,\\n        address _addressResolver,\\n        address _sUSD,\\n        address[] memory _synths\\n    ) public FundDeployerOwnerMixin(_fundDeployer) {\\n        ADDRESS_RESOLVER = _addressResolver;\\n        SUSD = _sUSD;\\n\\n        address[] memory sUSDSynths = new address[](1);\\n        sUSDSynths[0] = _sUSD;\\n\\n        __addSynths(sUSDSynths);\\n        __addSynths(_synths);\\n    }\\n\\n    /// @notice Converts a given amount of a derivative to its underlying asset values\\n    /// @param _derivative The derivative to convert\\n    /// @param _derivativeAmount The amount of the derivative to convert\\n    /// @return underlyings_ The underlying assets for the _derivative\\n    /// @return underlyingAmounts_ The amount of each underlying asset for the equivalent derivative amount\\n    function calcUnderlyingValues(address _derivative, uint256 _derivativeAmount)\\n        external\\n        override\\n        returns (address[] memory underlyings_, uint256[] memory underlyingAmounts_)\\n    {\\n        underlyings_ = new address[](1);\\n        underlyings_[0] = SUSD;\\n        underlyingAmounts_ = new uint256[](1);\\n\\n        bytes32 currencyKey = getCurrencyKeyForSynth(_derivative);\\n        require(currencyKey != 0, \\\"calcUnderlyingValues: _derivative is not supported\\\");\\n\\n        address exchangeRates = ISynthetixAddressResolver(ADDRESS_RESOLVER).requireAndGetAddress(\\n            \\\"ExchangeRates\\\",\\n            \\\"calcUnderlyingValues: Missing ExchangeRates\\\"\\n        );\\n\\n        (uint256 rate, bool isInvalid) = ISynthetixExchangeRates(exchangeRates).rateAndInvalid(\\n            currencyKey\\n        );\\n        require(!isInvalid, \\\"calcUnderlyingValues: _derivative rate is not valid\\\");\\n\\n        underlyingAmounts_[0] = _derivativeAmount.mul(rate).div(SYNTH_UNIT);\\n\\n        return (underlyings_, underlyingAmounts_);\\n    }\\n\\n    /// @notice Checks whether an asset is a supported primitive of the price feed\\n    /// @param _asset The asset to check\\n    /// @return isSupported_ True if the asset is a supported primitive\\n    function isSupportedAsset(address _asset) public view override returns (bool isSupported_) {\\n        return getCurrencyKeyForSynth(_asset) != 0;\\n    }\\n\\n    /////////////////////\\n    // SYNTHS REGISTRY //\\n    /////////////////////\\n\\n    /// @notice Adds Synths to the price feed\\n    /// @param _synths Synths to add\\n    function addSynths(address[] calldata _synths) external onlyFundDeployerOwner {\\n        require(_synths.length > 0, \\\"addSynths: Empty _synths\\\");\\n\\n        __addSynths(_synths);\\n    }\\n\\n    /// @notice Updates the cached currencyKey value for specified Synths\\n    /// @param _synths Synths to update\\n    /// @dev Anybody can call this function\\n    function updateSynthCurrencyKeys(address[] calldata _synths) external {\\n        require(_synths.length > 0, \\\"updateSynthCurrencyKeys: Empty _synths\\\");\\n\\n        for (uint256 i; i < _synths.length; i++) {\\n            bytes32 prevCurrencyKey = synthToCurrencyKey[_synths[i]];\\n            require(prevCurrencyKey != 0, \\\"updateSynthCurrencyKeys: Synth not set\\\");\\n\\n            bytes32 nextCurrencyKey = __getCurrencyKey(_synths[i]);\\n            require(\\n                nextCurrencyKey != prevCurrencyKey,\\n                \\\"updateSynthCurrencyKeys: Synth has correct currencyKey\\\"\\n            );\\n\\n            synthToCurrencyKey[_synths[i]] = nextCurrencyKey;\\n\\n            emit SynthCurrencyKeyUpdated(_synths[i], prevCurrencyKey, nextCurrencyKey);\\n        }\\n    }\\n\\n    /// @dev Helper to add Synths\\n    function __addSynths(address[] memory _synths) private {\\n        for (uint256 i; i < _synths.length; i++) {\\n            require(synthToCurrencyKey[_synths[i]] == 0, \\\"__addSynths: Value already set\\\");\\n\\n            bytes32 currencyKey = __getCurrencyKey(_synths[i]);\\n            require(currencyKey != 0, \\\"__addSynths: No currencyKey\\\");\\n\\n            synthToCurrencyKey[_synths[i]] = currencyKey;\\n\\n            emit SynthAdded(_synths[i], currencyKey);\\n        }\\n    }\\n\\n    /// @dev Helper to query a currencyKey from Synthetix\\n    function __getCurrencyKey(address _synthProxy) private view returns (bytes32 currencyKey_) {\\n        return ISynthetixSynth(ISynthetixProxyERC20(_synthProxy).target()).currencyKey();\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `ADDRESS_RESOLVER` variable\\n    /// @return addressResolver_ The `ADDRESS_RESOLVER` variable value\\n    function getAddressResolver() external view returns (address) {\\n        return ADDRESS_RESOLVER;\\n    }\\n\\n    /// @notice Gets the currencyKey for multiple given Synths\\n    /// @return currencyKeys_ The currencyKey values\\n    function getCurrencyKeysForSynths(address[] calldata _synths)\\n        external\\n        view\\n        returns (bytes32[] memory currencyKeys_)\\n    {\\n        currencyKeys_ = new bytes32[](_synths.length);\\n        for (uint256 i; i < _synths.length; i++) {\\n            currencyKeys_[i] = synthToCurrencyKey[_synths[i]];\\n        }\\n\\n        return currencyKeys_;\\n    }\\n\\n    /// @notice Gets the `SUSD` variable\\n    /// @return susd_ The `SUSD` variable value\\n    function getSUSD() external view returns (address susd_) {\\n        return SUSD;\\n    }\\n\\n    /// @notice Gets the currencyKey for a given Synth\\n    /// @return currencyKey_ The currencyKey value\\n    function getCurrencyKeyForSynth(address _synth) public view returns (bytes32 currencyKey_) {\\n        return synthToCurrencyKey[_synth];\\n    }\\n}\\n\",\"keccak256\":\"0x304a2f7e3218a4172ff124a9d94e3685e89acf646a877a92a1fd1e01394dfcaa\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/feeds/utils/DerivativePriceFeedBase.sol\":{\"content\":\"pragma solidity 0.6.12;\\n\\nabstract contract DerivativePriceFeedBase {\\n    uint256 internal immutable DERIVATIVE_PRICE_FEED_DEPLOY_TIMESTAMP;\\n\\n    constructor() public {\\n        DERIVATIVE_PRICE_FEED_DEPLOY_TIMESTAMP = block.timestamp;\\n    }\\n\\n    function getDerivativePriceFeedDeployTimestamp() external view returns (uint256) {\\n        return DERIVATIVE_PRICE_FEED_DEPLOY_TIMESTAMP;\\n    }\\n}\",\"keccak256\":\"0x5ece6eae80f6a4fddc13b70fcc1913b35209e41ed931af30b6aadeff3fb10f88\"},\"contracts/release/interfaces/ISynthetix.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title ISynthetix Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface ISynthetix {\\n    function exchangeOnBehalfWithTracking(\\n        address,\\n        bytes32,\\n        uint256,\\n        bytes32,\\n        address,\\n        bytes32\\n    ) external returns (uint256);\\n}\\n\",\"keccak256\":\"0x6e90f409738433ba404b21e7593efb37786cceea8740113ab608da9fd53c6db8\",\"license\":\"GPL-3.0\"},\"contracts/release/interfaces/ISynthetixAddressResolver.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title ISynthetixAddressResolver Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface ISynthetixAddressResolver {\\n    function requireAndGetAddress(bytes32, string calldata) external view returns (address);\\n}\\n\",\"keccak256\":\"0x423c90261ed0c5daa3781e3312b583db40ce947610223b9db8e166342272f41f\",\"license\":\"GPL-3.0\"},\"contracts/release/interfaces/ISynthetixExchangeRates.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title ISynthetixExchangeRates Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface ISynthetixExchangeRates {\\n    function rateAndInvalid(bytes32) external view returns (uint256, bool);\\n}\\n\",\"keccak256\":\"0xef9e7a99d1ea30dd423558dc45b513b4ad0fc6df32a05b5258ebfaa89cfcad20\",\"license\":\"GPL-3.0\"},\"contracts/release/interfaces/ISynthetixProxyERC20.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title ISynthetixProxyERC20 Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface ISynthetixProxyERC20 {\\n    function target() external view returns (address);\\n}\\n\",\"keccak256\":\"0x32714bb006e6861aece8fe1a5e3862e0b5562bd7a482ab80f0330f2c0bbc5da6\",\"license\":\"GPL-3.0\"},\"contracts/release/interfaces/ISynthetixSynth.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title ISynthetixSynth Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface ISynthetixSynth {\\n    function currencyKey() external view returns (bytes32);\\n}\\n\",\"keccak256\":\"0xfad43b0fead48317fd90bfc3874d1511dc0de094764981467fa4cded78b39108\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x6101006040523480156200001257600080fd5b506040516200147e3803806200147e833981810160405260808110156200003857600080fd5b8151602083015160408085015160608601805192519496939591949391820192846401000000008211156200006c57600080fd5b9083019060208201858111156200008257600080fd5b8251866020820283011164010000000082111715620000a057600080fd5b82525081516020918201928201910280838360005b83811015620000cf578181015183820152602001620000b5565b5050505060608a811b6001600160601b03199081166080524260a0528a821b811660c05289821b1660e05260019190930181815260408082019052929550919350909150506020808301908036833701905050905082816000815181106200013357fe5b6001600160a01b039092166020928302919091019091015262000156816200016c565b62000161826200016c565b505050505062000406565b60005b815181101562000321576000808383815181106200018957fe5b60200260200101516001600160a01b03166001600160a01b03168152602001908152602001600020546000801b1462000209576040805162461bcd60e51b815260206004820152601e60248201527f5f5f61646453796e7468733a2056616c756520616c7265616479207365740000604482015290519081900360640190fd5b6000620002308383815181106200021c57fe5b60200260200101516200032560201b60201c565b90508062000285576040805162461bcd60e51b815260206004820152601b60248201527f5f5f61646453796e7468733a204e6f2063757272656e63794b65790000000000604482015290519081900360640190fd5b806000808585815181106200029657fe5b60200260200101516001600160a01b03166001600160a01b0316815260200190815260200160002081905550828281518110620002cf57fe5b60200260200101516001600160a01b03167f61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8826040518082815260200191505060405180910390a2506001016200016f565b5050565b6000816001600160a01b031663d4b839926040518163ffffffff1660e01b815260040160206040518083038186803b1580156200036157600080fd5b505afa15801562000376573d6000803e3d6000fd5b505050506040513d60208110156200038d57600080fd5b50516040805163dbd06c8560e01b815290516001600160a01b039092169163dbd06c8591600480820192602092909190829003018186803b158015620003d257600080fd5b505afa158015620003e7573d6000803e3d6000fd5b505050506040513d6020811015620003fe57600080fd5b505192915050565b60805160601c60a05160c05160601c60e05160601c61102a62000454600039806104ff52806108225250806104b652806105ae525080610b0f5250806108485280610ad8525061102a6000f3fe608060405234801561001057600080fd5b50600436106100a95760003560e01c8063893d20e811610071578063893d20e8146102d15780638bc3981c146102d95780638d8c19851461034957806397c0ac87146103815780639be918e614610389578063ba4906b8146103c3576100a9565b806347a9b6db146100ae57806371c1c54914610120578063727212f6146101445780637827f4f61461020957806386eab215146102c9575b600080fd5b61011e600480360360208110156100c457600080fd5b8101906020810181356401000000008111156100df57600080fd5b8201836020820111156100f157600080fd5b8035906020019184602083028401116401000000008311171561011357600080fd5b5090925090506103cb565b005b6101286104b4565b604080516001600160a01b039092168252519081900360200190f35b6101706004803603604081101561015a57600080fd5b506001600160a01b0381351690602001356104d8565b604051808060200180602001838103835285818151815260200191508051906020019060200280838360005b838110156101b457818101518382015260200161019c565b50505050905001838103825284818151815260200191508051906020019060200280838360005b838110156101f35781810151838201526020016101db565b5050505090500194505050505060405180910390f35b6102796004803603602081101561021f57600080fd5b81019060208101813564010000000081111561023a57600080fd5b82018360208201111561024c57600080fd5b8035906020019184602083028401116401000000008311171561026e57600080fd5b509092509050610768565b60408051602080825283518183015283519192839290830191858101910280838360005b838110156102b557818101518382015260200161029d565b505050509050019250505060405180910390f35b610128610820565b610128610844565b61011e600480360360208110156102ef57600080fd5b81019060208101813564010000000081111561030a57600080fd5b82018360208201111561031c57600080fd5b8035906020019184602083028401116401000000008311171561033e57600080fd5b5090925090506108d0565b61036f6004803603602081101561035f57600080fd5b50356001600160a01b0316610abb565b60408051918252519081900360200190f35b610128610ad6565b6103af6004803603602081101561039f57600080fd5b50356001600160a01b0316610afa565b604080519115158252519081900360200190f35b61036f610b0d565b6103d3610844565b6001600160a01b0316336001600160a01b0316146104225760405162461bcd60e51b8152600401808060200182810382526049815260200180610efc6049913960600191505060405180910390fd5b80610474576040805162461bcd60e51b815260206004820152601860248201527f61646453796e7468733a20456d707479205f73796e7468730000000000000000604482015290519081900360640190fd5b6104b0828280806020026020016040519081016040528093929190818152602001838360200280828437600092019190915250610b3192505050565b5050565b7f000000000000000000000000000000000000000000000000000000000000000090565b604080516001808252818301909252606091829190602080830190803683370190505091507f00000000000000000000000000000000000000000000000000000000000000008260008151811061052b57fe5b6001600160a01b0392909216602092830291909101820152604080516001808252818301909252918281019080368337019050509050600061056c85610abb565b9050806105aa5760405162461bcd60e51b8152600401808060200182810382526032815260200180610e9f6032913960400191505060405180910390fd5b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663dacb2d016040518163ffffffff1660e01b815260040180806c45786368616e6765526174657360981b815250602001806020018281038252602b815260200180610ed1602b913960400191505060206040518083038186803b15801561063c57600080fd5b505afa158015610650573d6000803e3d6000fd5b505050506040513d602081101561066657600080fd5b505160408051630c71cd2360e01b815260048101859052815192935060009283926001600160a01b03861692630c71cd239260248083019392829003018186803b1580156106b357600080fd5b505afa1580156106c7573d6000803e3d6000fd5b505050506040513d60408110156106dd57600080fd5b508051602090910151909250905080156107285760405162461bcd60e51b8152600401808060200182810382526033815260200180610f9c6033913960400191505060405180910390fd5b610744670de0b6b3a764000061073e8985610cd6565b90610d36565b8560008151811061075157fe5b602002602001018181525050505050509250929050565b60608167ffffffffffffffff8111801561078157600080fd5b506040519080825280602002602001820160405280156107ab578160200160208202803683370190505b50905060005b82811015610818576000808585848181106107c857fe5b905060200201356001600160a01b03166001600160a01b03166001600160a01b031681526020019081526020016000205482828151811061080557fe5b60209081029190910101526001016107b1565b505b92915050565b7f000000000000000000000000000000000000000000000000000000000000000090565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561089f57600080fd5b505afa1580156108b3573d6000803e3d6000fd5b505050506040513d60208110156108c957600080fd5b5051905090565b8061090c5760405162461bcd60e51b8152600401808060200182810382526026815260200180610e796026913960400191505060405180910390fd5b60005b81811015610ab657600080600085858581811061092857fe5b905060200201356001600160a01b03166001600160a01b03166001600160a01b03168152602001908152602001600020549050806000801b141561099d5760405162461bcd60e51b8152600401808060200182810382526026815260200180610fcf6026913960400191505060405180910390fd5b60006109c38585858181106109ae57fe5b905060200201356001600160a01b0316610d9d565b905081811415610a045760405162461bcd60e51b8152600401808060200182810382526036815260200180610f456036913960400191505060405180910390fd5b80600080878787818110610a1457fe5b905060200201356001600160a01b03166001600160a01b03166001600160a01b0316815260200190815260200160002081905550848484818110610a5457fe5b905060200201356001600160a01b03166001600160a01b03167f55ae8b6fd923a02180a807d2eb1ef5bd50db0347ca1be7ab7f5f1680cb8301978383604051808381526020018281526020019250505060405180910390a2505060010161090f565b505050565b6001600160a01b031660009081526020819052604090205490565b7f000000000000000000000000000000000000000000000000000000000000000090565b6000610b0582610abb565b151592915050565b7f000000000000000000000000000000000000000000000000000000000000000090565b60005b81518110156104b057600080838381518110610b4c57fe5b60200260200101516001600160a01b03166001600160a01b03168152602001908152602001600020546000801b14610bcb576040805162461bcd60e51b815260206004820152601e60248201527f5f5f61646453796e7468733a2056616c756520616c7265616479207365740000604482015290519081900360640190fd5b6000610be9838381518110610bdc57fe5b6020026020010151610d9d565b905080610c3d576040805162461bcd60e51b815260206004820152601b60248201527f5f5f61646453796e7468733a204e6f2063757272656e63794b65790000000000604482015290519081900360640190fd5b80600080858581518110610c4d57fe5b60200260200101516001600160a01b03166001600160a01b0316815260200190815260200160002081905550828281518110610c8557fe5b60200260200101516001600160a01b03167f61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8826040518082815260200191505060405180910390a250600101610b34565b600082610ce55750600061081a565b82820282848281610cf257fe5b0414610d2f5760405162461bcd60e51b8152600401808060200182810382526021815260200180610f7b6021913960400191505060405180910390fd5b9392505050565b6000808211610d8c576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b818381610d9557fe5b049392505050565b6000816001600160a01b031663d4b839926040518163ffffffff1660e01b815260040160206040518083038186803b158015610dd857600080fd5b505afa158015610dec573d6000803e3d6000fd5b505050506040513d6020811015610e0257600080fd5b50516040805163dbd06c8560e01b815290516001600160a01b039092169163dbd06c8591600480820192602092909190829003018186803b158015610e4657600080fd5b505afa158015610e5a573d6000803e3d6000fd5b505050506040513d6020811015610e7057600080fd5b50519291505056fe75706461746553796e746843757272656e63794b6579733a20456d707479205f73796e74687363616c63556e6465726c79696e6756616c7565733a205f64657269766174697665206973206e6f7420737570706f7274656463616c63556e6465726c79696e6756616c7565733a204d697373696e672045786368616e676552617465736f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652046756e644465706c6f796572206f776e65722063616e2063616c6c20746869732066756e6374696f6e75706461746553796e746843757272656e63794b6579733a2053796e74682068617320636f72726563742063757272656e63794b6579536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f7763616c63556e6465726c79696e6756616c7565733a205f646572697661746976652072617465206973206e6f742076616c696475706461746553796e746843757272656e63794b6579733a2053796e7468206e6f7420736574a26469706673582212206b21117338cbc9e3256689b0418d96d825de108d86364fe7a49d79b4ed60d48564736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100a95760003560e01c8063893d20e811610071578063893d20e8146102d15780638bc3981c146102d95780638d8c19851461034957806397c0ac87146103815780639be918e614610389578063ba4906b8146103c3576100a9565b806347a9b6db146100ae57806371c1c54914610120578063727212f6146101445780637827f4f61461020957806386eab215146102c9575b600080fd5b61011e600480360360208110156100c457600080fd5b8101906020810181356401000000008111156100df57600080fd5b8201836020820111156100f157600080fd5b8035906020019184602083028401116401000000008311171561011357600080fd5b5090925090506103cb565b005b6101286104b4565b604080516001600160a01b039092168252519081900360200190f35b6101706004803603604081101561015a57600080fd5b506001600160a01b0381351690602001356104d8565b604051808060200180602001838103835285818151815260200191508051906020019060200280838360005b838110156101b457818101518382015260200161019c565b50505050905001838103825284818151815260200191508051906020019060200280838360005b838110156101f35781810151838201526020016101db565b5050505090500194505050505060405180910390f35b6102796004803603602081101561021f57600080fd5b81019060208101813564010000000081111561023a57600080fd5b82018360208201111561024c57600080fd5b8035906020019184602083028401116401000000008311171561026e57600080fd5b509092509050610768565b60408051602080825283518183015283519192839290830191858101910280838360005b838110156102b557818101518382015260200161029d565b505050509050019250505060405180910390f35b610128610820565b610128610844565b61011e600480360360208110156102ef57600080fd5b81019060208101813564010000000081111561030a57600080fd5b82018360208201111561031c57600080fd5b8035906020019184602083028401116401000000008311171561033e57600080fd5b5090925090506108d0565b61036f6004803603602081101561035f57600080fd5b50356001600160a01b0316610abb565b60408051918252519081900360200190f35b610128610ad6565b6103af6004803603602081101561039f57600080fd5b50356001600160a01b0316610afa565b604080519115158252519081900360200190f35b61036f610b0d565b6103d3610844565b6001600160a01b0316336001600160a01b0316146104225760405162461bcd60e51b8152600401808060200182810382526049815260200180610efc6049913960600191505060405180910390fd5b80610474576040805162461bcd60e51b815260206004820152601860248201527f61646453796e7468733a20456d707479205f73796e7468730000000000000000604482015290519081900360640190fd5b6104b0828280806020026020016040519081016040528093929190818152602001838360200280828437600092019190915250610b3192505050565b5050565b7f000000000000000000000000000000000000000000000000000000000000000090565b604080516001808252818301909252606091829190602080830190803683370190505091507f00000000000000000000000000000000000000000000000000000000000000008260008151811061052b57fe5b6001600160a01b0392909216602092830291909101820152604080516001808252818301909252918281019080368337019050509050600061056c85610abb565b9050806105aa5760405162461bcd60e51b8152600401808060200182810382526032815260200180610e9f6032913960400191505060405180910390fd5b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663dacb2d016040518163ffffffff1660e01b815260040180806c45786368616e6765526174657360981b815250602001806020018281038252602b815260200180610ed1602b913960400191505060206040518083038186803b15801561063c57600080fd5b505afa158015610650573d6000803e3d6000fd5b505050506040513d602081101561066657600080fd5b505160408051630c71cd2360e01b815260048101859052815192935060009283926001600160a01b03861692630c71cd239260248083019392829003018186803b1580156106b357600080fd5b505afa1580156106c7573d6000803e3d6000fd5b505050506040513d60408110156106dd57600080fd5b508051602090910151909250905080156107285760405162461bcd60e51b8152600401808060200182810382526033815260200180610f9c6033913960400191505060405180910390fd5b610744670de0b6b3a764000061073e8985610cd6565b90610d36565b8560008151811061075157fe5b602002602001018181525050505050509250929050565b60608167ffffffffffffffff8111801561078157600080fd5b506040519080825280602002602001820160405280156107ab578160200160208202803683370190505b50905060005b82811015610818576000808585848181106107c857fe5b905060200201356001600160a01b03166001600160a01b03166001600160a01b031681526020019081526020016000205482828151811061080557fe5b60209081029190910101526001016107b1565b505b92915050565b7f000000000000000000000000000000000000000000000000000000000000000090565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561089f57600080fd5b505afa1580156108b3573d6000803e3d6000fd5b505050506040513d60208110156108c957600080fd5b5051905090565b8061090c5760405162461bcd60e51b8152600401808060200182810382526026815260200180610e796026913960400191505060405180910390fd5b60005b81811015610ab657600080600085858581811061092857fe5b905060200201356001600160a01b03166001600160a01b03166001600160a01b03168152602001908152602001600020549050806000801b141561099d5760405162461bcd60e51b8152600401808060200182810382526026815260200180610fcf6026913960400191505060405180910390fd5b60006109c38585858181106109ae57fe5b905060200201356001600160a01b0316610d9d565b905081811415610a045760405162461bcd60e51b8152600401808060200182810382526036815260200180610f456036913960400191505060405180910390fd5b80600080878787818110610a1457fe5b905060200201356001600160a01b03166001600160a01b03166001600160a01b0316815260200190815260200160002081905550848484818110610a5457fe5b905060200201356001600160a01b03166001600160a01b03167f55ae8b6fd923a02180a807d2eb1ef5bd50db0347ca1be7ab7f5f1680cb8301978383604051808381526020018281526020019250505060405180910390a2505060010161090f565b505050565b6001600160a01b031660009081526020819052604090205490565b7f000000000000000000000000000000000000000000000000000000000000000090565b6000610b0582610abb565b151592915050565b7f000000000000000000000000000000000000000000000000000000000000000090565b60005b81518110156104b057600080838381518110610b4c57fe5b60200260200101516001600160a01b03166001600160a01b03168152602001908152602001600020546000801b14610bcb576040805162461bcd60e51b815260206004820152601e60248201527f5f5f61646453796e7468733a2056616c756520616c7265616479207365740000604482015290519081900360640190fd5b6000610be9838381518110610bdc57fe5b6020026020010151610d9d565b905080610c3d576040805162461bcd60e51b815260206004820152601b60248201527f5f5f61646453796e7468733a204e6f2063757272656e63794b65790000000000604482015290519081900360640190fd5b80600080858581518110610c4d57fe5b60200260200101516001600160a01b03166001600160a01b0316815260200190815260200160002081905550828281518110610c8557fe5b60200260200101516001600160a01b03167f61209fb9d54461f939ea62c8e068ffba9ade97587787c035e7e09d44ebab2cb8826040518082815260200191505060405180910390a250600101610b34565b600082610ce55750600061081a565b82820282848281610cf257fe5b0414610d2f5760405162461bcd60e51b8152600401808060200182810382526021815260200180610f7b6021913960400191505060405180910390fd5b9392505050565b6000808211610d8c576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b818381610d9557fe5b049392505050565b6000816001600160a01b031663d4b839926040518163ffffffff1660e01b815260040160206040518083038186803b158015610dd857600080fd5b505afa158015610dec573d6000803e3d6000fd5b505050506040513d6020811015610e0257600080fd5b50516040805163dbd06c8560e01b815290516001600160a01b039092169163dbd06c8591600480820192602092909190829003018186803b158015610e4657600080fd5b505afa158015610e5a573d6000803e3d6000fd5b505050506040513d6020811015610e7057600080fd5b50519291505056fe75706461746553796e746843757272656e63794b6579733a20456d707479205f73796e74687363616c63556e6465726c79696e6756616c7565733a205f64657269766174697665206973206e6f7420737570706f7274656463616c63556e6465726c79696e6756616c7565733a204d697373696e672045786368616e676552617465736f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652046756e644465706c6f796572206f776e65722063616e2063616c6c20746869732066756e6374696f6e75706461746553796e746843757272656e63794b6579733a2053796e74682068617320636f72726563742063757272656e63794b6579536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f7763616c63556e6465726c79696e6756616c7565733a205f646572697661746976652072617465206973206e6f742076616c696475706461746553796e746843757272656e63794b6579733a2053796e7468206e6f7420736574a26469706673582212206b21117338cbc9e3256689b0418d96d825de108d86364fe7a49d79b4ed60d48564736f6c634300060c0033",
+  "devdoc": {
+    "author": "Enzyme Council <security@enzyme.finance>",
+    "kind": "dev",
+    "methods": {
+      "addSynths(address[])": {
+        "params": {
+          "_synths": "Synths to add"
+        }
+      },
+      "calcUnderlyingValues(address,uint256)": {
+        "params": {
+          "_derivative": "The derivative to convert",
+          "_derivativeAmount": "The amount of the derivative to convert"
+        },
+        "returns": {
+          "underlyingAmounts_": "The amount of each underlying asset for the equivalent derivative amount",
+          "underlyings_": "The underlying assets for the _derivative"
+        }
+      },
+      "getAddressResolver()": {
+        "returns": {
+          "_0": "addressResolver_ The `ADDRESS_RESOLVER` variable value"
+        }
+      },
+      "getCurrencyKeyForSynth(address)": {
+        "returns": {
+          "currencyKey_": "The currencyKey value"
+        }
+      },
+      "getCurrencyKeysForSynths(address[])": {
+        "returns": {
+          "currencyKeys_": "The currencyKey values"
+        }
+      },
+      "getFundDeployer()": {
+        "returns": {
+          "fundDeployer_": "The `FUND_DEPLOYER` variable value"
+        }
+      },
+      "getOwner()": {
+        "details": "Ownership is deferred to the owner of the FundDeployer contract",
+        "returns": {
+          "owner_": "The owner"
+        }
+      },
+      "getSUSD()": {
+        "returns": {
+          "susd_": "The `SUSD` variable value"
+        }
+      },
+      "isSupportedAsset(address)": {
+        "params": {
+          "_asset": "The asset to check"
+        },
+        "returns": {
+          "isSupported_": "True if the asset is a supported primitive"
+        }
+      },
+      "updateSynthCurrencyKeys(address[])": {
+        "details": "Anybody can call this function",
+        "params": {
+          "_synths": "Synths to update"
+        }
+      }
+    },
+    "title": "SynthetixPriceFeed Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "addSynths(address[])": {
+        "notice": "Adds Synths to the price feed"
+      },
+      "calcUnderlyingValues(address,uint256)": {
+        "notice": "Converts a given amount of a derivative to its underlying asset values"
+      },
+      "getAddressResolver()": {
+        "notice": "Gets the `ADDRESS_RESOLVER` variable"
+      },
+      "getCurrencyKeyForSynth(address)": {
+        "notice": "Gets the currencyKey for a given Synth"
+      },
+      "getCurrencyKeysForSynths(address[])": {
+        "notice": "Gets the currencyKey for multiple given Synths"
+      },
+      "getFundDeployer()": {
+        "notice": "Gets the `FUND_DEPLOYER` variable"
+      },
+      "getOwner()": {
+        "notice": "Gets the owner of this contract"
+      },
+      "getSUSD()": {
+        "notice": "Gets the `SUSD` variable"
+      },
+      "isSupportedAsset(address)": {
+        "notice": "Checks whether an asset is a supported primitive of the price feed"
+      },
+      "updateSynthCurrencyKeys(address[])": {
+        "notice": "Updates the cached currencyKey value for specified Synths"
+      }
+    },
+    "notice": "A price feed that uses Synthetix oracles as price sources",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 41711,
+        "contract": "contracts/release/infrastructure/price-feeds/derivatives/feeds/SynthetixPriceFeed.sol:SynthetixPriceFeed",
+        "label": "synthToCurrencyKey",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_bytes32)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_bytes32)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bytes32)",
+        "numberOfBytes": "32",
+        "value": "t_bytes32"
+      }
+    }
+  }
+}

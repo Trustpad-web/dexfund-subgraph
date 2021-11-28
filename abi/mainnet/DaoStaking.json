@@ -1,0 +1,275 @@
+{
+  "address": "0xd1239ebe4C1da18C919EB4b1aE61C2905E8B3a98",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "ProtocolFeeSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "vault",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "whitelistType",
+          "type": "uint8"
+        }
+      ],
+      "name": "WhitelistAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "vault",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "whitelistType",
+          "type": "uint8"
+        }
+      ],
+      "name": "WhitelistRemoved",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_vaultProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        }
+      ],
+      "name": "getExitFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFeeDivisor",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_vault",
+          "type": "address"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_whitelistType",
+          "type": "uint8"
+        }
+      ],
+      "name": "removeWhitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_newFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setProtocolFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_vault",
+          "type": "address"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_whitelistType",
+          "type": "uint8"
+        }
+      ],
+      "name": "whitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x1d0d791fe7e84a01c61ca0641934ba49a91cd2ba8242304c11f2ec8ed412b9f9",
+  "receipt": {
+    "to": null,
+    "from": "0x5a43993587dD57d58c16bbEbdf23b9F6D279176f",
+    "contractAddress": "0xd1239ebe4C1da18C919EB4b1aE61C2905E8B3a98",
+    "transactionIndex": 61,
+    "gasUsed": "404853",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xe28a6151a4ea855b4e4688ef40e8a5ac9a967a2e2dd3cf77f4fba268397c90f7",
+    "transactionHash": "0x1d0d791fe7e84a01c61ca0641934ba49a91cd2ba8242304c11f2ec8ed412b9f9",
+    "logs": [],
+    "blockNumber": 13522082,
+    "cumulativeGasUsed": "3760029",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "34b1516e615d6cbcdbaf9542624efee9",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newFee\",\"type\":\"uint256\"}],\"name\":\"ProtocolFeeSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"vault\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"whitelistType\",\"type\":\"uint8\"}],\"name\":\"WhitelistAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"vault\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"whitelistType\",\"type\":\"uint8\"}],\"name\":\"WhitelistRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_vaultProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"getExitFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFeeDivisor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_vault\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"_whitelistType\",\"type\":\"uint8\"}],\"name\":\"removeWhitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_newFee\",\"type\":\"uint256\"}],\"name\":\"setProtocolFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_vault\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"_whitelistType\",\"type\":\"uint8\"}],\"name\":\"whitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/mocks/MockDaoStaking.sol\":\"DaoStaking\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/mocks/MockDaoStaking.sol\":{\"content\":\"pragma solidity 0.6.12;\\n\\nimport \\\"./../persistent/dao-staking/IDaoStaking.sol\\\";\\n\\ncontract DaoStaking is IDaoStaking{\\n    uint256 private constant FEE_DIVISOR = 10000;\\n    uint256 private FEE = 100;\\n    address private owner;\\n\\n    // Whitelist types:\\n    // 0: The user doesn't pay the protocol fee on any vault\\n    // 1: No user redeeming shares from that specific vault will pay the protocol fee\\n    // 2: That specific user on that specific vault will not pay the protocol fee.\\n    event WhitelistAdded(address indexed user, address indexed vault, uint8 whitelistType);\\n    event WhitelistRemoved(address indexed user, address indexed vault, uint8 whitelistType);\\n\\n    event ProtocolFeeSet(uint256 newFee);\\n\\n    mapping(address => bool) private userWhitelist;\\n    mapping(address => bool) private vaultWhitelist;\\n    mapping(address => mapping(address => bool)) private userVaultWhitelist;\\n\\n    modifier onlyOwner {\\n        require(msg.sender == owner, \\\"Unauthorized\\\");\\n        _;\\n    }\\n\\n    constructor() public {\\n        owner = msg.sender;\\n    }\\n\\n    function getExitFee(address _vaultProxy, address _user) external view override returns (uint256) {\\n        if (userWhitelist[_user] || vaultWhitelist[_vaultProxy] || userVaultWhitelist[_user][_vaultProxy]) {\\n            return 0;\\n        }\\n        return FEE;\\n    }\\n\\n    function getFeeDivisor() external view override returns (uint256) {\\n        return FEE_DIVISOR;\\n    }\\n\\n    function setProtocolFee(uint256 _newFee) external onlyOwner {\\n        require(_newFee <= 5000, \\\"Fee too big\\\");\\n        FEE = _newFee;\\n\\n        emit ProtocolFeeSet(_newFee);\\n    }\\n\\n    function whitelist(address _user, address _vault, uint8 _whitelistType) external onlyOwner {\\n        if (_whitelistType == 0) {\\n            userWhitelist[_user] = true;\\n        } else if (_whitelistType == 1) {\\n            vaultWhitelist[_vault] = true;\\n        } else if (_whitelistType == 2) {\\n            userVaultWhitelist[_user][_vault] = true;\\n        } else {\\n            revert(\\\"Invalid whitelist type\\\");\\n        }\\n\\n        emit WhitelistAdded(_user, _vault, _whitelistType);\\n    }\\n\\n    function removeWhitelist(address _user, address _vault, uint8 _whitelistType) external onlyOwner {\\n        if (_whitelistType == 0) {\\n            userWhitelist[_user] = false;\\n        } else if (_whitelistType == 1) {\\n            vaultWhitelist[_vault] = false;\\n        } else if (_whitelistType == 2) {\\n            userVaultWhitelist[_user][_vault] = false;\\n        } else {\\n            revert(\\\"Invalid whitelist type\\\");\\n        }\\n\\n        emit WhitelistRemoved(_user, _vault, _whitelistType);\\n    }\\n}\",\"keccak256\":\"0x0b462dd12467fcca1c3ae1c86f3e653ef2b90045b67db19973d8fbb501ff42b4\"},\"contracts/persistent/dao-staking/IDaoStaking.sol\":{\"content\":\"pragma solidity 0.6.12;\\n\\ninterface IDaoStaking {\\n    function getExitFee(address _vaultProxy, address _user) external view returns (uint256);\\n\\n    function getFeeDivisor() external view returns (uint256);\\n}\",\"keccak256\":\"0x3d031f03c23207100af06e622d8f3f534a7547e6ac6664d52904b2ca4d3521b3\"}},\"version\":1}",
+  "bytecode": "0x6080604052606460005534801561001557600080fd5b50600180546001600160a01b0319163317905561058d806100376000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80631e3a07721461005c578063331d19a91461009c57806370bae203146100a4578063787dce3d146100e05780639684f775146100fd575b600080fd5b61008a6004803603604081101561007257600080fd5b506001600160a01b0381358116916020013516610137565b60408051918252519081900360200190f35b61008a6101be565b6100de600480360360608110156100ba57600080fd5b5080356001600160a01b03908116916020810135909116906040013560ff166101c4565b005b6100de600480360360208110156100f657600080fd5b5035610347565b6100de6004803603606081101561011357600080fd5b5080356001600160a01b03908116916020810135909116906040013560ff16610415565b6001600160a01b03811660009081526002602052604081205460ff168061017657506001600160a01b03831660009081526003602052604090205460ff165b806101a657506001600160a01b0380831660009081526004602090815260408083209387168352929052205460ff165b156101b3575060006101b8565b506000545b92915050565b61271090565b6001546001600160a01b03163314610212576040805162461bcd60e51b815260206004820152600c60248201526b155b985d5d1a1bdc9a5e995960a21b604482015290519081900360640190fd5b60ff811661023f576001600160a01b0383166000908152600260205260409020805460ff191690556102f4565b8060ff1660011415610270576001600160a01b0382166000908152600360205260409020805460ff191690556102f4565b8060ff16600214156102ae576001600160a01b038084166000908152600460209081526040808320938616835292905220805460ff191690556102f4565b6040805162461bcd60e51b8152602060048201526016602482015275496e76616c69642077686974656c697374207479706560501b604482015290519081900360640190fd5b816001600160a01b0316836001600160a01b03167ff9b1324241ee77da060935d471699a820a8722d973fdb72497acb76f5acff76f83604051808260ff16815260200191505060405180910390a3505050565b6001546001600160a01b03163314610395576040805162461bcd60e51b815260206004820152600c60248201526b155b985d5d1a1bdc9a5e995960a21b604482015290519081900360640190fd5b6113888111156103da576040805162461bcd60e51b815260206004820152600b60248201526a46656520746f6f2062696760a81b604482015290519081900360640190fd5b60008190556040805182815290517fdb5aafdb29539329e37d4e3ee869bc4031941fd55a5dfc92824fbe34b204e30d9181900360200190a150565b6001546001600160a01b03163314610463576040805162461bcd60e51b815260206004820152600c60248201526b155b985d5d1a1bdc9a5e995960a21b604482015290519081900360640190fd5b60ff8116610493576001600160a01b0383166000908152600260205260409020805460ff19166001179055610504565b8060ff16600114156104c7576001600160a01b0382166000908152600360205260409020805460ff19166001179055610504565b8060ff16600214156102ae576001600160a01b038084166000908152600460209081526040808320938616835292905220805460ff191660011790555b816001600160a01b0316836001600160a01b03167f513cc11a45103a961fcc343a03aa02b5007ce6254e9eabd68071858445b2c4c583604051808260ff16815260200191505060405180910390a350505056fea26469706673582212202437f601a26abfd67583c7945fef0602d6b213d2d2e8c7184925fb1a9f6d0b0664736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c80631e3a07721461005c578063331d19a91461009c57806370bae203146100a4578063787dce3d146100e05780639684f775146100fd575b600080fd5b61008a6004803603604081101561007257600080fd5b506001600160a01b0381358116916020013516610137565b60408051918252519081900360200190f35b61008a6101be565b6100de600480360360608110156100ba57600080fd5b5080356001600160a01b03908116916020810135909116906040013560ff166101c4565b005b6100de600480360360208110156100f657600080fd5b5035610347565b6100de6004803603606081101561011357600080fd5b5080356001600160a01b03908116916020810135909116906040013560ff16610415565b6001600160a01b03811660009081526002602052604081205460ff168061017657506001600160a01b03831660009081526003602052604090205460ff165b806101a657506001600160a01b0380831660009081526004602090815260408083209387168352929052205460ff165b156101b3575060006101b8565b506000545b92915050565b61271090565b6001546001600160a01b03163314610212576040805162461bcd60e51b815260206004820152600c60248201526b155b985d5d1a1bdc9a5e995960a21b604482015290519081900360640190fd5b60ff811661023f576001600160a01b0383166000908152600260205260409020805460ff191690556102f4565b8060ff1660011415610270576001600160a01b0382166000908152600360205260409020805460ff191690556102f4565b8060ff16600214156102ae576001600160a01b038084166000908152600460209081526040808320938616835292905220805460ff191690556102f4565b6040805162461bcd60e51b8152602060048201526016602482015275496e76616c69642077686974656c697374207479706560501b604482015290519081900360640190fd5b816001600160a01b0316836001600160a01b03167ff9b1324241ee77da060935d471699a820a8722d973fdb72497acb76f5acff76f83604051808260ff16815260200191505060405180910390a3505050565b6001546001600160a01b03163314610395576040805162461bcd60e51b815260206004820152600c60248201526b155b985d5d1a1bdc9a5e995960a21b604482015290519081900360640190fd5b6113888111156103da576040805162461bcd60e51b815260206004820152600b60248201526a46656520746f6f2062696760a81b604482015290519081900360640190fd5b60008190556040805182815290517fdb5aafdb29539329e37d4e3ee869bc4031941fd55a5dfc92824fbe34b204e30d9181900360200190a150565b6001546001600160a01b03163314610463576040805162461bcd60e51b815260206004820152600c60248201526b155b985d5d1a1bdc9a5e995960a21b604482015290519081900360640190fd5b60ff8116610493576001600160a01b0383166000908152600260205260409020805460ff19166001179055610504565b8060ff16600114156104c7576001600160a01b0382166000908152600360205260409020805460ff19166001179055610504565b8060ff16600214156102ae576001600160a01b038084166000908152600460209081526040808320938616835292905220805460ff191660011790555b816001600160a01b0316836001600160a01b03167f513cc11a45103a961fcc343a03aa02b5007ce6254e9eabd68071858445b2c4c583604051808260ff16815260200191505060405180910390a350505056fea26469706673582212202437f601a26abfd67583c7945fef0602d6b213d2d2e8c7184925fb1a9f6d0b0664736f6c634300060c0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 2797,
+        "contract": "contracts/mocks/MockDaoStaking.sol:DaoStaking",
+        "label": "FEE",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 2799,
+        "contract": "contracts/mocks/MockDaoStaking.sol:DaoStaking",
+        "label": "owner",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 2823,
+        "contract": "contracts/mocks/MockDaoStaking.sol:DaoStaking",
+        "label": "userWhitelist",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 2827,
+        "contract": "contracts/mocks/MockDaoStaking.sol:DaoStaking",
+        "label": "vaultWhitelist",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 2833,
+        "contract": "contracts/mocks/MockDaoStaking.sol:DaoStaking",
+        "label": "userVaultWhitelist",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_bool))"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_bool)"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

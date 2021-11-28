@@ -1,0 +1,267 @@
+{
+  "address": "0x94841425485917067Cef962c5308704b9d2dB076",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_wdgld",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_weth",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_ethAggregator",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_xauAggregator",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_derivative",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_derivativeAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "calcUnderlyingValues",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "underlyings_",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "underlyingAmounts_",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "calcWdgldToXauRate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "wdgldToXauRate_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getDerivativePriceFeedDeployTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getEthAggregator",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "ethAggregatorAddress_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getWdgld",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "wdgld_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getWeth",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "weth_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getXauAggregator",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "xauAggregatorAddress_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_asset",
+          "type": "address"
+        }
+      ],
+      "name": "isSupportedAsset",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isSupported_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xc0fe41cf7b8fbab242d4ddbe9cf76d7c3639dfdf92076a620281d217c711df39",
+  "receipt": {
+    "to": null,
+    "from": "0x5a43993587dD57d58c16bbEbdf23b9F6D279176f",
+    "contractAddress": "0x94841425485917067Cef962c5308704b9d2dB076",
+    "transactionIndex": 81,
+    "gasUsed": "504282",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x89adf8792450c4d31d235a0e0fdb913cd96573d03c2ae463e6fd11e2b7e656af",
+    "transactionHash": "0xc0fe41cf7b8fbab242d4ddbe9cf76d7c3639dfdf92076a620281d217c711df39",
+    "logs": [],
+    "blockNumber": 13522521,
+    "cumulativeGasUsed": "5143816",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x123151402076fc819B7564510989e475c9cD93CA",
+    "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
+    "0x214eD9Da11D2fbe465a6fc601a91E62EbEc1a0D6"
+  ],
+  "solcInputHash": "34b1516e615d6cbcdbaf9542624efee9",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_wdgld\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_weth\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_ethAggregator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_xauAggregator\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_derivative\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_derivativeAmount\",\"type\":\"uint256\"}],\"name\":\"calcUnderlyingValues\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"underlyings_\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"underlyingAmounts_\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"calcWdgldToXauRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"wdgldToXauRate_\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDerivativePriceFeedDeployTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEthAggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"ethAggregatorAddress_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getWdgld\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"wdgld_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getWeth\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"weth_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getXauAggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"xauAggregatorAddress_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\"}],\"name\":\"isSupportedAsset\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isSupported_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Enzyme Council <security@enzyme.finance>\",\"kind\":\"dev\",\"methods\":{\"calcUnderlyingValues(address,uint256)\":{\"params\":{\"_derivative\":\"The derivative to convert\",\"_derivativeAmount\":\"The amount of the derivative to convert\"},\"returns\":{\"underlyingAmounts_\":\"The amount of each underlying asset for the equivalent derivative amount\",\"underlyings_\":\"The underlying assets for the _derivative\"}},\"calcWdgldToXauRate()\":{\"details\":\"Full formula available <https://dgld.ch/assets/documents/dgld-whitepaper.pdf>\",\"returns\":{\"wdgldToXauRate_\":\"The current rate of WDGLD to XAU\"}},\"getEthAggregator()\":{\"returns\":{\"ethAggregatorAddress_\":\"The `ETH_AGGREGATOR` address\"}},\"getWdgld()\":{\"returns\":{\"wdgld_\":\"The `WDGLD` token address\"}},\"getWeth()\":{\"returns\":{\"weth_\":\"The `WETH` token address\"}},\"getXauAggregator()\":{\"returns\":{\"xauAggregatorAddress_\":\"The `XAU_AGGREGATOR` address\"}},\"isSupportedAsset(address)\":{\"params\":{\"_asset\":\"The asset to check\"},\"returns\":{\"isSupported_\":\"True if supported\"}}},\"title\":\"WdgldPriceFeed Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"calcUnderlyingValues(address,uint256)\":{\"notice\":\"Converts a given amount of a derivative to its underlying asset values\"},\"calcWdgldToXauRate()\":{\"notice\":\"Calculates the rate of WDGLD to XAU.\"},\"getEthAggregator()\":{\"notice\":\"Gets the `ETH_AGGREGATOR` address\"},\"getWdgld()\":{\"notice\":\"Gets the `WDGLD` token address\"},\"getWeth()\":{\"notice\":\"Gets the `WETH` token address\"},\"getXauAggregator()\":{\"notice\":\"Gets the `XAU_AGGREGATOR` address\"},\"isSupportedAsset(address)\":{\"notice\":\"Checks if an asset is supported by this price feed\"}},\"notice\":\"Price source oracle for WDGLD <https://dgld.ch/>\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/release/infrastructure/price-feeds/derivatives/feeds/WdgldPriceFeed.sol\":\"WdgldPriceFeed\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\n * checks.\\n *\\n * Arithmetic operations in Solidity wrap on overflow. This can easily result\\n * in bugs, because programmers usually assume that an overflow raises an\\n * error, which is the standard behavior in high level programming languages.\\n * `SafeMath` restores this intuition by reverting the transaction when an\\n * operation overflows.\\n *\\n * Using this library instead of the unchecked operations eliminates an entire\\n * class of bugs, so it's recommended to use it always.\\n */\\nlibrary SafeMath {\\n    /**\\n     * @dev Returns the addition of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        uint256 c = a + b;\\n        if (c < a) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the substraction of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b > a) return (false, 0);\\n        return (true, a - b);\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\n        // benefit is lost if 'b' is also tested.\\n        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522\\n        if (a == 0) return (true, 0);\\n        uint256 c = a * b;\\n        if (c / a != b) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the division of two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a / b);\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a % b);\\n    }\\n\\n    /**\\n     * @dev Returns the addition of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `+` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Addition cannot overflow.\\n     */\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\n        uint256 c = a + b;\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting on\\n     * overflow (when the result is negative).\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b <= a, \\\"SafeMath: subtraction overflow\\\");\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `*` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Multiplication cannot overflow.\\n     */\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\n        if (a == 0) return 0;\\n        uint256 c = a * b;\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: division by zero\\\");\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting when dividing by zero.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: modulo by zero\\\");\\n        return a % b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on\\n     * overflow (when the result is negative).\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {trySub}.\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b <= a, errorMessage);\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting with custom message on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryDiv}.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting with custom message when dividing by zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryMod}.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a % b;\\n    }\\n}\\n\",\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\"},\"contracts/release/infrastructure/price-feeds/derivatives/IDerivativePriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IDerivativePriceFeed Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Simple interface for derivative price source oracle implementations\\ninterface IDerivativePriceFeed {\\n    function calcUnderlyingValues(address, uint256)\\n        external\\n        returns (address[] memory, uint256[] memory);\\n\\n    function isSupportedAsset(address) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x5abbc57ccbf28b2c27a0ee496f0a949a0039912975e8f9a65312d884edd05332\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/feeds/WdgldPriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\nimport \\\"../../../../interfaces/IChainlinkAggregator.sol\\\";\\nimport \\\"../../../../utils/MakerDaoMath.sol\\\";\\nimport \\\"../IDerivativePriceFeed.sol\\\";\\nimport \\\"./utils/DerivativePriceFeedBase.sol\\\";\\n\\n/// @title WdgldPriceFeed Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Price source oracle for WDGLD <https://dgld.ch/>\\ncontract WdgldPriceFeed is IDerivativePriceFeed, MakerDaoMath, DerivativePriceFeedBase {\\n    using SafeMath for uint256;\\n\\n    address private immutable XAU_AGGREGATOR;\\n    address private immutable ETH_AGGREGATOR;\\n\\n    address private immutable WDGLD;\\n    address private immutable WETH;\\n\\n    // GTR_CONSTANT aggregates all the invariants in the GTR formula to save gas\\n    uint256 private constant GTR_CONSTANT = 999990821653213975346065101;\\n    uint256 private constant GTR_PRECISION = 10**27;\\n    uint256 private constant WDGLD_GENESIS_TIMESTAMP = 1568700000;\\n\\n    constructor(\\n        address _wdgld,\\n        address _weth,\\n        address _ethAggregator,\\n        address _xauAggregator\\n    ) public {\\n        WDGLD = _wdgld;\\n        WETH = _weth;\\n        ETH_AGGREGATOR = _ethAggregator;\\n        XAU_AGGREGATOR = _xauAggregator;\\n    }\\n\\n    /// @notice Converts a given amount of a derivative to its underlying asset values\\n    /// @param _derivative The derivative to convert\\n    /// @param _derivativeAmount The amount of the derivative to convert\\n    /// @return underlyings_ The underlying assets for the _derivative\\n    /// @return underlyingAmounts_ The amount of each underlying asset for the equivalent derivative amount\\n    function calcUnderlyingValues(address _derivative, uint256 _derivativeAmount)\\n        external\\n        override\\n        returns (address[] memory underlyings_, uint256[] memory underlyingAmounts_)\\n    {\\n        require(isSupportedAsset(_derivative), \\\"calcUnderlyingValues: Only WDGLD is supported\\\");\\n\\n        underlyings_ = new address[](1);\\n        underlyings_[0] = WETH;\\n        underlyingAmounts_ = new uint256[](1);\\n\\n        // Get price rates from xau and eth aggregators\\n        int256 xauToUsdRate = IChainlinkAggregator(XAU_AGGREGATOR).latestAnswer();\\n        int256 ethToUsdRate = IChainlinkAggregator(ETH_AGGREGATOR).latestAnswer();\\n        require(xauToUsdRate > 0 && ethToUsdRate > 0, \\\"calcUnderlyingValues: rate invalid\\\");\\n\\n        uint256 wdgldToXauRate = calcWdgldToXauRate();\\n\\n        // 10**17 is a combination of ETH_UNIT / WDGLD_UNIT * GTR_PRECISION\\n        underlyingAmounts_[0] = _derivativeAmount\\n            .mul(wdgldToXauRate)\\n            .mul(uint256(xauToUsdRate))\\n            .div(uint256(ethToUsdRate))\\n            .div(10**17);\\n\\n        return (underlyings_, underlyingAmounts_);\\n    }\\n\\n    /// @notice Calculates the rate of WDGLD to XAU.\\n    /// @return wdgldToXauRate_ The current rate of WDGLD to XAU\\n    /// @dev Full formula available <https://dgld.ch/assets/documents/dgld-whitepaper.pdf>\\n    function calcWdgldToXauRate() public view returns (uint256 wdgldToXauRate_) {\\n        return\\n            __rpow(\\n                GTR_CONSTANT,\\n                ((block.timestamp).sub(WDGLD_GENESIS_TIMESTAMP)).div(28800), // 60 * 60 * 8 (8 hour periods)\\n                GTR_PRECISION\\n            )\\n                .div(10);\\n    }\\n\\n    /// @notice Checks if an asset is supported by this price feed\\n    /// @param _asset The asset to check\\n    /// @return isSupported_ True if supported\\n    function isSupportedAsset(address _asset) public view override returns (bool isSupported_) {\\n        return _asset == WDGLD;\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `ETH_AGGREGATOR` address\\n    /// @return ethAggregatorAddress_ The `ETH_AGGREGATOR` address\\n    function getEthAggregator() external view returns (address ethAggregatorAddress_) {\\n        return ETH_AGGREGATOR;\\n    }\\n\\n    /// @notice Gets the `WDGLD` token address\\n    /// @return wdgld_ The `WDGLD` token address\\n    function getWdgld() external view returns (address wdgld_) {\\n        return WDGLD;\\n    }\\n\\n    /// @notice Gets the `WETH` token address\\n    /// @return weth_ The `WETH` token address\\n    function getWeth() external view returns (address weth_) {\\n        return WETH;\\n    }\\n\\n    /// @notice Gets the `XAU_AGGREGATOR` address\\n    /// @return xauAggregatorAddress_ The `XAU_AGGREGATOR` address\\n    function getXauAggregator() external view returns (address xauAggregatorAddress_) {\\n        return XAU_AGGREGATOR;\\n    }\\n}\\n\",\"keccak256\":\"0x4c7607341528d6dd2b5119267838f77fa4599229abb055118947f1c16c55740e\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/feeds/utils/DerivativePriceFeedBase.sol\":{\"content\":\"pragma solidity 0.6.12;\\n\\nabstract contract DerivativePriceFeedBase {\\n    uint256 internal immutable DERIVATIVE_PRICE_FEED_DEPLOY_TIMESTAMP;\\n\\n    constructor() public {\\n        DERIVATIVE_PRICE_FEED_DEPLOY_TIMESTAMP = block.timestamp;\\n    }\\n\\n    function getDerivativePriceFeedDeployTimestamp() external view returns (uint256) {\\n        return DERIVATIVE_PRICE_FEED_DEPLOY_TIMESTAMP;\\n    }\\n}\",\"keccak256\":\"0x5ece6eae80f6a4fddc13b70fcc1913b35209e41ed931af30b6aadeff3fb10f88\"},\"contracts/release/interfaces/IChainlinkAggregator.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IChainlinkAggregator Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IChainlinkAggregator {\\n    function latestAnswer() external view returns (int256);\\n\\n    function latestTimestamp() external view returns (uint256);\\n}\\n\",\"keccak256\":\"0x1608e74fc697911b572cab453017ece1d1b2559db4311d5ad130ced515d5bdb5\",\"license\":\"GPL-3.0\"},\"contracts/release/utils/MakerDaoMath.sol\":{\"content\":\"// SPDX-License-Identifier: AGPL-3.0-or-later\\n\\n// Copyright (C) 2018 Rain <rainbreak@riseup.net>\\n//\\n// This program is free software: you can redistribute it and/or modify\\n// it under the terms of the GNU Affero General Public License as published by\\n// the Free Software Foundation, either version 3 of the License, or\\n// (at your option) any later version.\\n//\\n// This program is distributed in the hope that it will be useful,\\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\\n// GNU Affero General Public License for more details.\\n//\\n// You should have received a copy of the GNU Affero General Public License\\n// along with this program.  If not, see <https://www.gnu.org/licenses/>.\\n\\npragma solidity 0.6.12;\\n\\n/// @title MakerDaoMath Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Helper functions for math operations adapted from MakerDao contracts\\nabstract contract MakerDaoMath {\\n    /// @dev Performs scaled, fixed-point exponentiation.\\n    /// Verbatim code, adapted to our style guide for variable naming only, see:\\n    /// https://github.com/makerdao/dss/blob/master/src/pot.sol#L83-L105\\n    // prettier-ignore\\n    function __rpow(uint256 _x, uint256 _n, uint256 _base) internal pure returns (uint256 z_) {\\n        assembly {\\n            switch _x case 0 {switch _n case 0 {z_ := _base} default {z_ := 0}}\\n            default {\\n                switch mod(_n, 2) case 0 { z_ := _base } default { z_ := _x }\\n                let half := div(_base, 2)\\n                for { _n := div(_n, 2) } _n { _n := div(_n,2) } {\\n                    let xx := mul(_x, _x)\\n                    if iszero(eq(div(xx, _x), _x)) { revert(0,0) }\\n                    let xxRound := add(xx, half)\\n                    if lt(xxRound, xx) { revert(0,0) }\\n                    _x := div(xxRound, _base)\\n                    if mod(_n,2) {\\n                        let zx := mul(z_, _x)\\n                        if and(iszero(iszero(_x)), iszero(eq(div(zx, _x), z_))) { revert(0,0) }\\n                        let zxRound := add(zx, half)\\n                        if lt(zxRound, zx) { revert(0,0) }\\n                        z_ := div(zxRound, _base)\\n                    }\\n                }\\n            }\\n        }\\n\\n        return z_;\\n    }\\n}\\n\",\"keccak256\":\"0x4bee0614f0164208a5a65a371f8853976e236db1ad25e75aec4357ef96b32dcb\",\"license\":\"AGPL-3.0-or-later\"}},\"version\":1}",
+  "bytecode": "0x61012060405234801561001157600080fd5b506040516108f53803806108f58339818101604052608081101561003457600080fd5b50805160208201516040830151606093840151426080526001600160601b031993851b841660e05291841b831661010052831b821660c05290911b1660a05260805160a05160601c60c05160601c60e05160601c6101005160601c6108236100d2600039806101ec528061029b5250806104bc52806105205250806103a45280610576525080610210528061030152508061055252506108236000f3fe608060405234801561001057600080fd5b50600436106100885760003560e01c80639921eddd1161005b5780639921eddd146101865780639be918e6146101a0578063ba4906b8146101da578063c8e850ff146101e257610088565b8063107c279f1461008d5780631aeb88db146100b1578063727212f6146100b957806383eb692d1461017e575b600080fd5b6100956101ea565b604080516001600160a01b039092168252519081900360200190f35b61009561020e565b6100e5600480360360408110156100cf57600080fd5b506001600160a01b038135169060200135610232565b604051808060200180602001838103835285818151815260200191508051906020019060200280838360005b83811015610129578181015183820152602001610111565b50505050905001838103825284818151815260200191508051906020019060200280838360005b83811015610168578181015183820152602001610150565b5050505090500194505050505060405180910390f35b6100956104ba565b61018e6104de565b60408051918252519081900360200190f35b6101c6600480360360208110156101b657600080fd5b50356001600160a01b031661051e565b604080519115158252519081900360200190f35b61018e610550565b610095610574565b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b60608061023e8461051e565b6102795760405162461bcd60e51b815260040180806020018281038252602d81526020018061077e602d913960400191505060405180910390fd5b60408051600180825281830190925290602080830190803683370190505091507f0000000000000000000000000000000000000000000000000000000000000000826000815181106102c757fe5b6001600160a01b039290921660209283029190910182015260408051600180825281830190925291828101908036833701905050905060007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b15801561035857600080fd5b505afa15801561036c573d6000803e3d6000fd5b505050506040513d602081101561038257600080fd5b5051604080516350d25bcd60e01b815290519192506000916001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016916350d25bcd916004808301926020929190829003018186803b1580156103ea57600080fd5b505afa1580156103fe573d6000803e3d6000fd5b505050506040513d602081101561041457600080fd5b505190506000821380156104285750600081135b6104635760405162461bcd60e51b81526004018080602001828103825260228152602001806107cc6022913960400191505060405180910390fd5b600061046d6104de565b905061049767016345785d8a000061049184818761048b8c88610598565b90610598565b906105fa565b846000815181106104a457fe5b6020026020010181815250505050509250929050565b7f000000000000000000000000000000000000000000000000000000000000000090565b6000610519600a6104916b033b2c4b10aa53505c46aecd6105076170808342635d807660610661565b6b033b2e3c9fd0803ce80000006106be565b905090565b7f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0390811691161490565b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b6000826105a7575060006105f4565b828202828482816105b457fe5b04146105f15760405162461bcd60e51b81526004018080602001828103825260218152602001806107ab6021913960400191505060405180910390fd5b90505b92915050565b6000808211610650576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b81838161065957fe5b049392505050565b6000828211156106b8576040805162461bcd60e51b815260206004820152601e60248201527f536166654d6174683a207375627472616374696f6e206f766572666c6f770000604482015290519081900360640190fd5b50900390565b600083801561075f576001841680156106d9578592506106dd565b8392505b50600283046002850494505b841561075957858602868782041461070057600080fd5b8181018181101561071057600080fd5b8581049750600287061561074c57878502858982041415891515161561073557600080fd5b8381018181101561074557600080fd5b8790049550505b50506002850494506106e9565b50610775565b83801561076f5760009250610773565b8392505b505b50939250505056fe63616c63556e6465726c79696e6756616c7565733a204f6e6c79205744474c4420697320737570706f72746564536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f7763616c63556e6465726c79696e6756616c7565733a207261746520696e76616c6964a26469706673582212201dedda31123a99ecd5fc37ec6f990b60fd8bbe79064f3d05f43610db973b36d664736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100885760003560e01c80639921eddd1161005b5780639921eddd146101865780639be918e6146101a0578063ba4906b8146101da578063c8e850ff146101e257610088565b8063107c279f1461008d5780631aeb88db146100b1578063727212f6146100b957806383eb692d1461017e575b600080fd5b6100956101ea565b604080516001600160a01b039092168252519081900360200190f35b61009561020e565b6100e5600480360360408110156100cf57600080fd5b506001600160a01b038135169060200135610232565b604051808060200180602001838103835285818151815260200191508051906020019060200280838360005b83811015610129578181015183820152602001610111565b50505050905001838103825284818151815260200191508051906020019060200280838360005b83811015610168578181015183820152602001610150565b5050505090500194505050505060405180910390f35b6100956104ba565b61018e6104de565b60408051918252519081900360200190f35b6101c6600480360360208110156101b657600080fd5b50356001600160a01b031661051e565b604080519115158252519081900360200190f35b61018e610550565b610095610574565b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b60608061023e8461051e565b6102795760405162461bcd60e51b815260040180806020018281038252602d81526020018061077e602d913960400191505060405180910390fd5b60408051600180825281830190925290602080830190803683370190505091507f0000000000000000000000000000000000000000000000000000000000000000826000815181106102c757fe5b6001600160a01b039290921660209283029190910182015260408051600180825281830190925291828101908036833701905050905060007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b15801561035857600080fd5b505afa15801561036c573d6000803e3d6000fd5b505050506040513d602081101561038257600080fd5b5051604080516350d25bcd60e01b815290519192506000916001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016916350d25bcd916004808301926020929190829003018186803b1580156103ea57600080fd5b505afa1580156103fe573d6000803e3d6000fd5b505050506040513d602081101561041457600080fd5b505190506000821380156104285750600081135b6104635760405162461bcd60e51b81526004018080602001828103825260228152602001806107cc6022913960400191505060405180910390fd5b600061046d6104de565b905061049767016345785d8a000061049184818761048b8c88610598565b90610598565b906105fa565b846000815181106104a457fe5b6020026020010181815250505050509250929050565b7f000000000000000000000000000000000000000000000000000000000000000090565b6000610519600a6104916b033b2c4b10aa53505c46aecd6105076170808342635d807660610661565b6b033b2e3c9fd0803ce80000006106be565b905090565b7f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0390811691161490565b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b6000826105a7575060006105f4565b828202828482816105b457fe5b04146105f15760405162461bcd60e51b81526004018080602001828103825260218152602001806107ab6021913960400191505060405180910390fd5b90505b92915050565b6000808211610650576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b81838161065957fe5b049392505050565b6000828211156106b8576040805162461bcd60e51b815260206004820152601e60248201527f536166654d6174683a207375627472616374696f6e206f766572666c6f770000604482015290519081900360640190fd5b50900390565b600083801561075f576001841680156106d9578592506106dd565b8392505b50600283046002850494505b841561075957858602868782041461070057600080fd5b8181018181101561071057600080fd5b8581049750600287061561074c57878502858982041415891515161561073557600080fd5b8381018181101561074557600080fd5b8790049550505b50506002850494506106e9565b50610775565b83801561076f5760009250610773565b8392505b505b50939250505056fe63616c63556e6465726c79696e6756616c7565733a204f6e6c79205744474c4420697320737570706f72746564536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f7763616c63556e6465726c79696e6756616c7565733a207261746520696e76616c6964a26469706673582212201dedda31123a99ecd5fc37ec6f990b60fd8bbe79064f3d05f43610db973b36d664736f6c634300060c0033",
+  "devdoc": {
+    "author": "Enzyme Council <security@enzyme.finance>",
+    "kind": "dev",
+    "methods": {
+      "calcUnderlyingValues(address,uint256)": {
+        "params": {
+          "_derivative": "The derivative to convert",
+          "_derivativeAmount": "The amount of the derivative to convert"
+        },
+        "returns": {
+          "underlyingAmounts_": "The amount of each underlying asset for the equivalent derivative amount",
+          "underlyings_": "The underlying assets for the _derivative"
+        }
+      },
+      "calcWdgldToXauRate()": {
+        "details": "Full formula available <https://dgld.ch/assets/documents/dgld-whitepaper.pdf>",
+        "returns": {
+          "wdgldToXauRate_": "The current rate of WDGLD to XAU"
+        }
+      },
+      "getEthAggregator()": {
+        "returns": {
+          "ethAggregatorAddress_": "The `ETH_AGGREGATOR` address"
+        }
+      },
+      "getWdgld()": {
+        "returns": {
+          "wdgld_": "The `WDGLD` token address"
+        }
+      },
+      "getWeth()": {
+        "returns": {
+          "weth_": "The `WETH` token address"
+        }
+      },
+      "getXauAggregator()": {
+        "returns": {
+          "xauAggregatorAddress_": "The `XAU_AGGREGATOR` address"
+        }
+      },
+      "isSupportedAsset(address)": {
+        "params": {
+          "_asset": "The asset to check"
+        },
+        "returns": {
+          "isSupported_": "True if supported"
+        }
+      }
+    },
+    "title": "WdgldPriceFeed Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "calcUnderlyingValues(address,uint256)": {
+        "notice": "Converts a given amount of a derivative to its underlying asset values"
+      },
+      "calcWdgldToXauRate()": {
+        "notice": "Calculates the rate of WDGLD to XAU."
+      },
+      "getEthAggregator()": {
+        "notice": "Gets the `ETH_AGGREGATOR` address"
+      },
+      "getWdgld()": {
+        "notice": "Gets the `WDGLD` token address"
+      },
+      "getWeth()": {
+        "notice": "Gets the `WETH` token address"
+      },
+      "getXauAggregator()": {
+        "notice": "Gets the `XAU_AGGREGATOR` address"
+      },
+      "isSupportedAsset(address)": {
+        "notice": "Checks if an asset is supported by this price feed"
+      }
+    },
+    "notice": "Price source oracle for WDGLD <https://dgld.ch/>",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

@@ -1,0 +1,775 @@
+{
+  "address": "0x73A064974e0B97c251fDc0c0E627F2518dfAeBEd",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fundDeployer",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "policy",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "identifier",
+          "type": "string"
+        }
+      ],
+      "name": "PolicyDeregistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "policy",
+          "type": "address"
+        }
+      ],
+      "name": "PolicyDisabledForFund",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "policy",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "settingsData",
+          "type": "bytes"
+        }
+      ],
+      "name": "PolicyEnabledForFund",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "policy",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "identifier",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum IPolicyManager.PolicyHook[]",
+          "name": "implementedHooks",
+          "type": "uint8[]"
+        }
+      ],
+      "name": "PolicyRegistered",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "_isMigratedFund",
+          "type": "bool"
+        }
+      ],
+      "name": "activateForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deactivateForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_policies",
+          "type": "address[]"
+        }
+      ],
+      "name": "deregisterPolicies",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_policy",
+          "type": "address"
+        }
+      ],
+      "name": "disablePolicyForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_policy",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_settingsData",
+          "type": "bytes"
+        }
+      ],
+      "name": "enablePolicyForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        }
+      ],
+      "name": "getEnabledPoliciesForFund",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "enabledPolicies_",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getExtensionDeployTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFundDeployer",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "fundDeployer_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getRegisteredPolicies",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "registeredPoliciesArray_",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        }
+      ],
+      "name": "getVaultProxyForFund",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "vaultProxy_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_policy",
+          "type": "address"
+        },
+        {
+          "internalType": "enum IPolicyManager.PolicyHook",
+          "name": "_hook",
+          "type": "uint8"
+        }
+      ],
+      "name": "policyImplementsHook",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "implementsHook_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_policy",
+          "type": "address"
+        }
+      ],
+      "name": "policyIsEnabledForFund",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isEnabled_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_policy",
+          "type": "address"
+        }
+      ],
+      "name": "policyIsRegistered",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isRegistered_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "receiveCallFromComptroller",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_policies",
+          "type": "address[]"
+        }
+      ],
+      "name": "registerPolicies",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_configData",
+          "type": "bytes"
+        }
+      ],
+      "name": "setConfigForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_policy",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_settingsData",
+          "type": "bytes"
+        }
+      ],
+      "name": "updatePolicySettingsForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "enum IPolicyManager.PolicyHook",
+          "name": "_hook",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_validationData",
+          "type": "bytes"
+        }
+      ],
+      "name": "validatePolicies",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x2955ca7e49fdc3ff798c39a9468d3b37f1c0c0069aad5852f80618790f93748f",
+  "receipt": {
+    "to": null,
+    "from": "0x5a43993587dD57d58c16bbEbdf23b9F6D279176f",
+    "contractAddress": "0x73A064974e0B97c251fDc0c0E627F2518dfAeBEd",
+    "transactionIndex": 229,
+    "gasUsed": "2134357",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xb8a12279873bf23bcd7dd3d47eda312cc4806260114b38050390605a4c407101",
+    "transactionHash": "0x2955ca7e49fdc3ff798c39a9468d3b37f1c0c0069aad5852f80618790f93748f",
+    "logs": [],
+    "blockNumber": 13522702,
+    "cumulativeGasUsed": "14312428",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x217912B16c8A00C2D9F2fDFCA94127ca37cFe948"
+  ],
+  "solcInputHash": "34b1516e615d6cbcdbaf9542624efee9",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fundDeployer\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"policy\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"string\",\"name\":\"identifier\",\"type\":\"string\"}],\"name\":\"PolicyDeregistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptrollerProxy\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"policy\",\"type\":\"address\"}],\"name\":\"PolicyDisabledForFund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptrollerProxy\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"policy\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"settingsData\",\"type\":\"bytes\"}],\"name\":\"PolicyEnabledForFund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"policy\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"string\",\"name\":\"identifier\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"enum IPolicyManager.PolicyHook[]\",\"name\":\"implementedHooks\",\"type\":\"uint8[]\"}],\"name\":\"PolicyRegistered\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_isMigratedFund\",\"type\":\"bool\"}],\"name\":\"activateForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deactivateForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_policies\",\"type\":\"address[]\"}],\"name\":\"deregisterPolicies\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_policy\",\"type\":\"address\"}],\"name\":\"disablePolicyForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_policy\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_settingsData\",\"type\":\"bytes\"}],\"name\":\"enablePolicyForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"}],\"name\":\"getEnabledPoliciesForFund\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"enabledPolicies_\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getExtensionDeployTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFundDeployer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"fundDeployer_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getRegisteredPolicies\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"registeredPoliciesArray_\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"}],\"name\":\"getVaultProxyForFund\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"vaultProxy_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_policy\",\"type\":\"address\"},{\"internalType\":\"enum IPolicyManager.PolicyHook\",\"name\":\"_hook\",\"type\":\"uint8\"}],\"name\":\"policyImplementsHook\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"implementsHook_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_policy\",\"type\":\"address\"}],\"name\":\"policyIsEnabledForFund\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isEnabled_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_policy\",\"type\":\"address\"}],\"name\":\"policyIsRegistered\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isRegistered_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"receiveCallFromComptroller\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_policies\",\"type\":\"address[]\"}],\"name\":\"registerPolicies\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_configData\",\"type\":\"bytes\"}],\"name\":\"setConfigForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_policy\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_settingsData\",\"type\":\"bytes\"}],\"name\":\"updatePolicySettingsForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"},{\"internalType\":\"enum IPolicyManager.PolicyHook\",\"name\":\"_hook\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"_validationData\",\"type\":\"bytes\"}],\"name\":\"validatePolicies\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Enzyme Council <security@enzyme.finance>\",\"kind\":\"dev\",\"methods\":{\"activateForFund(bool)\":{\"details\":\"Caller is expected to be a valid ComptrollerProxy, but there isn't a need to validate.\",\"params\":{\"_isMigratedFund\":\"True if the fund is migrating to this release\"}},\"deregisterPolicies(address[])\":{\"params\":{\"_policies\":\"Addresses of policies to be registered\"}},\"disablePolicyForFund(address,address)\":{\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund\",\"_policy\":\"The policy address to disable\"}},\"enablePolicyForFund(address,address,bytes)\":{\"details\":\"Disabling a policy does not delete fund config on the policy, so if a policy is disabled and then enabled again, its initial state will be the previous config. It is the policy's job to determine how to merge that config with the _settingsData param in this function.\",\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund\",\"_policy\":\"The policy address to enable\",\"_settingsData\":\"The encoded settings data with which to configure the policy\"}},\"getEnabledPoliciesForFund(address)\":{\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund\"},\"returns\":{\"enabledPolicies_\":\"An array of enabled policy addresses\"}},\"getFundDeployer()\":{\"returns\":{\"fundDeployer_\":\"The `FUND_DEPLOYER` variable value\"}},\"getOwner()\":{\"details\":\"Ownership is deferred to the owner of the FundDeployer contract\",\"returns\":{\"owner_\":\"The owner\"}},\"getRegisteredPolicies()\":{\"returns\":{\"registeredPoliciesArray_\":\"A list of all registered policy addresses\"}},\"getVaultProxyForFund(address)\":{\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund\"},\"returns\":{\"vaultProxy_\":\"The VaultProxy of the fund\"}},\"policyImplementsHook(address,uint8)\":{\"params\":{\"_hook\":\"The PolicyHook to check\",\"_policy\":\"The address of the policy to check\"},\"returns\":{\"implementsHook_\":\"True if the policy implements the hook\"}},\"policyIsEnabledForFund(address,address)\":{\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund to check\",\"_policy\":\"The address of the policy to check\"},\"returns\":{\"isEnabled_\":\"True if the policy is enabled for the fund\"}},\"policyIsRegistered(address)\":{\"params\":{\"_policy\":\"The address of the policy to check\"},\"returns\":{\"isRegistered_\":\"True if the policy is registered\"}},\"receiveCallFromComptroller(address,uint256,bytes)\":{\"details\":\"Unimplemented by default, may be overridden.\"},\"registerPolicies(address[])\":{\"params\":{\"_policies\":\"Addresses of policies to be registered\"}},\"setConfigForFund(bytes)\":{\"details\":\"Only called during init() on ComptrollerProxy deployment\",\"params\":{\"_configData\":\"Encoded config data\"}},\"updatePolicySettingsForFund(address,address,bytes)\":{\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund\",\"_policy\":\"The Policy contract to update\",\"_settingsData\":\"The encoded settings data with which to update the policy config\"}},\"validatePolicies(address,uint8,bytes)\":{\"params\":{\"_comptrollerProxy\":\"The ComptrollerProxy of the fund\",\"_hook\":\"The PolicyHook for which to validate policies\",\"_validationData\":\"The encoded data with which to validate the filtered policies\"}}},\"title\":\"PolicyManager Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"activateForFund(bool)\":{\"notice\":\"Validates and initializes policies as necessary prior to fund activation\"},\"deactivateForFund()\":{\"notice\":\"Deactivates policies for a fund by destroying storage\"},\"deregisterPolicies(address[])\":{\"notice\":\"Remove policies from the list of registered policies\"},\"disablePolicyForFund(address,address)\":{\"notice\":\"Disables a policy for a fund\"},\"enablePolicyForFund(address,address,bytes)\":{\"notice\":\"Enables a policy for a fund\"},\"getEnabledPoliciesForFund(address)\":{\"notice\":\"Get a list of enabled policies for a given fund\"},\"getFundDeployer()\":{\"notice\":\"Gets the `FUND_DEPLOYER` variable\"},\"getOwner()\":{\"notice\":\"Gets the owner of this contract\"},\"getRegisteredPolicies()\":{\"notice\":\"Get all registered policies\"},\"getVaultProxyForFund(address)\":{\"notice\":\"Gets the verified VaultProxy for a given ComptrollerProxy\"},\"policyImplementsHook(address,uint8)\":{\"notice\":\"Checks if a policy implements a particular hook\"},\"policyIsEnabledForFund(address,address)\":{\"notice\":\"Check if a policy is enabled for the fund\"},\"policyIsRegistered(address)\":{\"notice\":\"Check whether a policy is registered\"},\"receiveCallFromComptroller(address,uint256,bytes)\":{\"notice\":\"Receives calls from ComptrollerLib.callOnExtension() and dispatches the appropriate action\"},\"registerPolicies(address[])\":{\"notice\":\"Add policies to the list of registered policies\"},\"setConfigForFund(bytes)\":{\"notice\":\"Enable policies for use in a fund\"},\"updatePolicySettingsForFund(address,address,bytes)\":{\"notice\":\"Updates policy settings for a fund\"},\"validatePolicies(address,uint8,bytes)\":{\"notice\":\"Validates all policies that apply to a given hook for a fund\"}},\"notice\":\"Manages policies for funds\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/release/extensions/policy-manager/PolicyManager.sol\":\"PolicyManager\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/utils/EnumerableSet.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Library for managing\\n * https://en.wikipedia.org/wiki/Set_(abstract_data_type)[sets] of primitive\\n * types.\\n *\\n * Sets have the following properties:\\n *\\n * - Elements are added, removed, and checked for existence in constant time\\n * (O(1)).\\n * - Elements are enumerated in O(n). No guarantees are made on the ordering.\\n *\\n * ```\\n * contract Example {\\n *     // Add the library methods\\n *     using EnumerableSet for EnumerableSet.AddressSet;\\n *\\n *     // Declare a set state variable\\n *     EnumerableSet.AddressSet private mySet;\\n * }\\n * ```\\n *\\n * As of v3.3.0, sets of type `bytes32` (`Bytes32Set`), `address` (`AddressSet`)\\n * and `uint256` (`UintSet`) are supported.\\n */\\nlibrary EnumerableSet {\\n    // To implement this library for multiple types with as little code\\n    // repetition as possible, we write it in terms of a generic Set type with\\n    // bytes32 values.\\n    // The Set implementation uses private functions, and user-facing\\n    // implementations (such as AddressSet) are just wrappers around the\\n    // underlying Set.\\n    // This means that we can only create new EnumerableSets for types that fit\\n    // in bytes32.\\n\\n    struct Set {\\n        // Storage of set values\\n        bytes32[] _values;\\n\\n        // Position of the value in the `values` array, plus 1 because index 0\\n        // means a value is not in the set.\\n        mapping (bytes32 => uint256) _indexes;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function _add(Set storage set, bytes32 value) private returns (bool) {\\n        if (!_contains(set, value)) {\\n            set._values.push(value);\\n            // The value is stored at length-1, but we add 1 to all indexes\\n            // and use 0 as a sentinel value\\n            set._indexes[value] = set._values.length;\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function _remove(Set storage set, bytes32 value) private returns (bool) {\\n        // We read and store the value's index to prevent multiple reads from the same storage slot\\n        uint256 valueIndex = set._indexes[value];\\n\\n        if (valueIndex != 0) { // Equivalent to contains(set, value)\\n            // To delete an element from the _values array in O(1), we swap the element to delete with the last one in\\n            // the array, and then remove the last element (sometimes called as 'swap and pop').\\n            // This modifies the order of the array, as noted in {at}.\\n\\n            uint256 toDeleteIndex = valueIndex - 1;\\n            uint256 lastIndex = set._values.length - 1;\\n\\n            // When the value to delete is the last one, the swap operation is unnecessary. However, since this occurs\\n            // so rarely, we still do the swap anyway to avoid the gas cost of adding an 'if' statement.\\n\\n            bytes32 lastvalue = set._values[lastIndex];\\n\\n            // Move the last value to the index where the value to delete is\\n            set._values[toDeleteIndex] = lastvalue;\\n            // Update the index for the moved value\\n            set._indexes[lastvalue] = toDeleteIndex + 1; // All indexes are 1-based\\n\\n            // Delete the slot where the moved value was stored\\n            set._values.pop();\\n\\n            // Delete the index for the deleted slot\\n            delete set._indexes[value];\\n\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function _contains(Set storage set, bytes32 value) private view returns (bool) {\\n        return set._indexes[value] != 0;\\n    }\\n\\n    /**\\n     * @dev Returns the number of values on the set. O(1).\\n     */\\n    function _length(Set storage set) private view returns (uint256) {\\n        return set._values.length;\\n    }\\n\\n   /**\\n    * @dev Returns the value stored at position `index` in the set. O(1).\\n    *\\n    * Note that there are no guarantees on the ordering of values inside the\\n    * array, and it may change when more values are added or removed.\\n    *\\n    * Requirements:\\n    *\\n    * - `index` must be strictly less than {length}.\\n    */\\n    function _at(Set storage set, uint256 index) private view returns (bytes32) {\\n        require(set._values.length > index, \\\"EnumerableSet: index out of bounds\\\");\\n        return set._values[index];\\n    }\\n\\n    // Bytes32Set\\n\\n    struct Bytes32Set {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _add(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _remove(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(Bytes32Set storage set, bytes32 value) internal view returns (bool) {\\n        return _contains(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(Bytes32Set storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n   /**\\n    * @dev Returns the value stored at position `index` in the set. O(1).\\n    *\\n    * Note that there are no guarantees on the ordering of values inside the\\n    * array, and it may change when more values are added or removed.\\n    *\\n    * Requirements:\\n    *\\n    * - `index` must be strictly less than {length}.\\n    */\\n    function at(Bytes32Set storage set, uint256 index) internal view returns (bytes32) {\\n        return _at(set._inner, index);\\n    }\\n\\n    // AddressSet\\n\\n    struct AddressSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(AddressSet storage set, address value) internal returns (bool) {\\n        return _add(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(AddressSet storage set, address value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(AddressSet storage set, address value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(AddressSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n   /**\\n    * @dev Returns the value stored at position `index` in the set. O(1).\\n    *\\n    * Note that there are no guarantees on the ordering of values inside the\\n    * array, and it may change when more values are added or removed.\\n    *\\n    * Requirements:\\n    *\\n    * - `index` must be strictly less than {length}.\\n    */\\n    function at(AddressSet storage set, uint256 index) internal view returns (address) {\\n        return address(uint160(uint256(_at(set._inner, index))));\\n    }\\n\\n\\n    // UintSet\\n\\n    struct UintSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _add(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(UintSet storage set, uint256 value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values on the set. O(1).\\n     */\\n    function length(UintSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n   /**\\n    * @dev Returns the value stored at position `index` in the set. O(1).\\n    *\\n    * Note that there are no guarantees on the ordering of values inside the\\n    * array, and it may change when more values are added or removed.\\n    *\\n    * Requirements:\\n    *\\n    * - `index` must be strictly less than {length}.\\n    */\\n    function at(UintSet storage set, uint256 index) internal view returns (uint256) {\\n        return uint256(_at(set._inner, index));\\n    }\\n}\\n\",\"keccak256\":\"0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164\",\"license\":\"MIT\"},\"contracts/persistent/utils/IMigratableVault.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IMigratableVault Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @dev DO NOT EDIT CONTRACT\\ninterface IMigratableVault {\\n    function canMigrate(address _who) external view returns (bool canMigrate_);\\n\\n    function init(\\n        address _owner,\\n        address _accessor,\\n        string calldata _fundName\\n    ) external;\\n\\n    function setAccessor(address _nextAccessor) external;\\n\\n    function setVaultLib(address _nextVaultLib) external;\\n}\\n\",\"keccak256\":\"0x8e1355a7efa8ec2172f5c9b532071def392b86ab1e5534d2fc73417a6e9f7238\",\"license\":\"GPL-3.0\"},\"contracts/release/core/fund-deployer/IFundDeployer.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IFundDeployer Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IFundDeployer {\\n    enum ReleaseStatus {PreLaunch, Live, Paused}\\n\\n    function getOwner() external view returns (address);\\n\\n    function getBuybackVault() external view returns (address);\\n\\n    function getReleaseStatus() external view returns (ReleaseStatus);\\n\\n    function isRegisteredVaultCall(address, bytes4) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xe5d28ccc67b68ed61a36eac1e3dfda4230b3669c71e2169ec190ec243bd78742\",\"license\":\"GPL-3.0\"},\"contracts/release/core/fund/comptroller/IComptroller.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IComptroller Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IComptroller {\\n    enum VaultAction {\\n        None,\\n        BurnShares,\\n        MintShares,\\n        TransferShares,\\n        ApproveAssetSpender,\\n        WithdrawAssetTo,\\n        AddTrackedAsset,\\n        RemoveTrackedAsset\\n    }\\n\\n    function activate(address, bool) external;\\n\\n    function calcGav(bool) external returns (uint256, bool);\\n\\n    function calcGrossShareValue(bool) external returns (uint256, bool);\\n\\n    function callOnExtension(\\n        address,\\n        uint256,\\n        bytes calldata\\n    ) external;\\n\\n    function redeemShares() external returns (address[] memory payoutAssets_, uint256[] memory payoutAmounts_);\\n\\n    function configureExtensions(bytes calldata, bytes calldata) external;\\n\\n    function destruct() external;\\n\\n    function getDenominationAsset() external view returns (address);\\n\\n    function getVaultProxy() external view returns (address);\\n\\n    function init(address, uint256) external;\\n\\n    function buyShares(address[] calldata _buyers, uint256[] calldata _investmentAmounts, uint256[] calldata _minSharesQuantities) external returns (uint256[] memory sharesReceivedAmounts_);\\n\\n    function permissionedVaultAction(VaultAction, bytes calldata) external;\\n}\\n\",\"keccak256\":\"0x2622e70a159a074de87c23f44ea268e844b35d6032d243431209981e62023987\",\"license\":\"GPL-3.0\"},\"contracts/release/core/fund/vault/IVault.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../../../persistent/utils/IMigratableVault.sol\\\";\\n\\n/// @title IVault Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IVault is IMigratableVault {\\n    function addTrackedAsset(address) external;\\n\\n    function approveAssetSpender(\\n        address,\\n        address,\\n        uint256\\n    ) external;\\n\\n    function burnShares(address, uint256) external;\\n\\n    function callOnContract(address, bytes calldata) external;\\n\\n    function getAccessor() external view returns (address);\\n\\n    function getOwner() external view returns (address);\\n\\n    function getTrackedAssets() external view returns (address[] memory);\\n\\n    function getTrackedAssetsLength() external view returns (uint256);\\n\\n    function isTrackedAsset(address) external view returns (bool);\\n\\n    function mintShares(address, uint256) external;\\n\\n    function removeTrackedAsset(address) external;\\n\\n    function transferShares(\\n        address,\\n        address,\\n        uint256\\n    ) external;\\n\\n    function withdrawAssetTo(\\n        address,\\n        address,\\n        uint256\\n    ) external;\\n}\\n\",\"keccak256\":\"0xdf4113aa774441ea569313fc0eaf6efe87d22a2bb77857d6a170aa3209f13219\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/IExtension.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IExtension Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for all extensions\\ninterface IExtension {\\n    function activateForFund(bool _isMigration) external;\\n\\n    function deactivateForFund() external;\\n\\n    function receiveCallFromComptroller(\\n        address _comptrollerProxy,\\n        uint256 _actionId,\\n        bytes calldata _callArgs\\n    ) external;\\n\\n    function setConfigForFund(bytes calldata _configData) external;\\n}\\n\",\"keccak256\":\"0x7fcbf884a27aca97ce8660cf5af9e52b436896bed8ceff1dd8e570a9358e6432\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/policy-manager/IPolicy.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"./IPolicyManager.sol\\\";\\n\\n/// @title Policy Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IPolicy {\\n    function activateForFund(address _comptrollerProxy, address _vaultProxy) external;\\n\\n    function addFundSettings(address _comptrollerProxy, bytes calldata _encodedSettings) external;\\n\\n    function identifier() external pure returns (string memory identifier_);\\n\\n    function implementedHooks()\\n        external\\n        view\\n        returns (IPolicyManager.PolicyHook[] memory implementedHooks_);\\n\\n    function updateFundSettings(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        bytes calldata _encodedSettings\\n    ) external;\\n\\n    function validateRule(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        IPolicyManager.PolicyHook _hook,\\n        bytes calldata _encodedArgs\\n    ) external returns (bool isValid_);\\n}\\n\",\"keccak256\":\"0x0e2e8a653f8c136c50e9b8642bd57744fe581d005e1ee787476a86f3ef40551f\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/policy-manager/IPolicyManager.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\npragma experimental ABIEncoderV2;\\n\\n/// @title PolicyManager Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for the PolicyManager\\ninterface IPolicyManager {\\n    enum PolicyHook {\\n        BuySharesSetup,\\n        PreBuyShares,\\n        PostBuyShares,\\n        BuySharesCompleted,\\n        PreCallOnIntegration,\\n        PostCallOnIntegration\\n    }\\n\\n    function validatePolicies(\\n        address,\\n        PolicyHook,\\n        bytes calldata\\n    ) external;\\n}\\n\",\"keccak256\":\"0xedf25295ad42998e2651b3828c2be4a6aeef1176e0c669781074394e3d181732\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/policy-manager/PolicyManager.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\npragma experimental ABIEncoderV2;\\n\\nimport \\\"@openzeppelin/contracts/utils/EnumerableSet.sol\\\";\\nimport \\\"../../core/fund/vault/IVault.sol\\\";\\nimport \\\"../utils/ExtensionBase.sol\\\";\\nimport \\\"../utils/FundDeployerOwnerMixin.sol\\\";\\nimport \\\"./IPolicy.sol\\\";\\nimport \\\"./IPolicyManager.sol\\\";\\n\\n/// @title PolicyManager Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Manages policies for funds\\ncontract PolicyManager is IPolicyManager, ExtensionBase, FundDeployerOwnerMixin {\\n    using EnumerableSet for EnumerableSet.AddressSet;\\n\\n    event PolicyDeregistered(address indexed policy, string indexed identifier);\\n\\n    event PolicyDisabledForFund(address indexed comptrollerProxy, address indexed policy);\\n\\n    event PolicyEnabledForFund(\\n        address indexed comptrollerProxy,\\n        address indexed policy,\\n        bytes settingsData\\n    );\\n\\n    event PolicyRegistered(\\n        address indexed policy,\\n        string indexed identifier,\\n        PolicyHook[] implementedHooks\\n    );\\n\\n    EnumerableSet.AddressSet private registeredPolicies;\\n    mapping(address => mapping(PolicyHook => bool)) private policyToHookToIsImplemented;\\n    mapping(address => EnumerableSet.AddressSet) private comptrollerProxyToPolicies;\\n\\n    modifier onlyBuySharesHooks(address _policy) {\\n        require(\\n            !policyImplementsHook(_policy, PolicyHook.PreCallOnIntegration) &&\\n                !policyImplementsHook(_policy, PolicyHook.PostCallOnIntegration),\\n            \\\"onlyBuySharesHooks: Disallowed hook\\\"\\n        );\\n        _;\\n    }\\n\\n    modifier onlyEnabledPolicyForFund(address _comptrollerProxy, address _policy) {\\n        require(\\n            policyIsEnabledForFund(_comptrollerProxy, _policy),\\n            \\\"onlyEnabledPolicyForFund: Policy not enabled\\\"\\n        );\\n        _;\\n    }\\n\\n    constructor(address _fundDeployer) public FundDeployerOwnerMixin(_fundDeployer) {}\\n\\n    // EXTERNAL FUNCTIONS\\n\\n    /// @notice Validates and initializes policies as necessary prior to fund activation\\n    /// @param _isMigratedFund True if the fund is migrating to this release\\n    /// @dev Caller is expected to be a valid ComptrollerProxy, but there isn't a need to validate.\\n    function activateForFund(bool _isMigratedFund) external override {\\n        address vaultProxy = __setValidatedVaultProxy(msg.sender);\\n\\n        // Policies must assert that they are congruent with migrated vault state\\n        if (_isMigratedFund) {\\n            address[] memory enabledPolicies = getEnabledPoliciesForFund(msg.sender);\\n            for (uint256 i; i < enabledPolicies.length; i++) {\\n                __activatePolicyForFund(msg.sender, vaultProxy, enabledPolicies[i]);\\n            }\\n        }\\n    }\\n\\n    /// @notice Deactivates policies for a fund by destroying storage\\n    function deactivateForFund() external override {\\n        delete comptrollerProxyToVaultProxy[msg.sender];\\n\\n        for (uint256 i = comptrollerProxyToPolicies[msg.sender].length(); i > 0; i--) {\\n            comptrollerProxyToPolicies[msg.sender].remove(\\n                comptrollerProxyToPolicies[msg.sender].at(i - 1)\\n            );\\n        }\\n    }\\n\\n    /// @notice Disables a policy for a fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _policy The policy address to disable\\n    function disablePolicyForFund(address _comptrollerProxy, address _policy)\\n        external\\n        onlyBuySharesHooks(_policy)\\n        onlyEnabledPolicyForFund(_comptrollerProxy, _policy)\\n    {\\n        __validateIsFundOwner(getVaultProxyForFund(_comptrollerProxy), msg.sender);\\n\\n        comptrollerProxyToPolicies[_comptrollerProxy].remove(_policy);\\n\\n        emit PolicyDisabledForFund(_comptrollerProxy, _policy);\\n    }\\n\\n    /// @notice Enables a policy for a fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _policy The policy address to enable\\n    /// @param _settingsData The encoded settings data with which to configure the policy\\n    /// @dev Disabling a policy does not delete fund config on the policy, so if a policy is\\n    /// disabled and then enabled again, its initial state will be the previous config. It is the\\n    /// policy's job to determine how to merge that config with the _settingsData param in this function.\\n    function enablePolicyForFund(\\n        address _comptrollerProxy,\\n        address _policy,\\n        bytes calldata _settingsData\\n    ) external onlyBuySharesHooks(_policy) {\\n        address vaultProxy = getVaultProxyForFund(_comptrollerProxy);\\n        __validateIsFundOwner(vaultProxy, msg.sender);\\n\\n        __enablePolicyForFund(_comptrollerProxy, _policy, _settingsData);\\n\\n        __activatePolicyForFund(_comptrollerProxy, vaultProxy, _policy);\\n    }\\n\\n    /// @notice Enable policies for use in a fund\\n    /// @param _configData Encoded config data\\n    /// @dev Only called during init() on ComptrollerProxy deployment\\n    function setConfigForFund(bytes calldata _configData) external override {\\n        (address[] memory policies, bytes[] memory settingsData) = abi.decode(\\n            _configData,\\n            (address[], bytes[])\\n        );\\n\\n        // Sanity check\\n        require(\\n            policies.length == settingsData.length,\\n            \\\"setConfigForFund: policies and settingsData array lengths unequal\\\"\\n        );\\n\\n        // Enable each policy with settings\\n        for (uint256 i; i < policies.length; i++) {\\n            __enablePolicyForFund(msg.sender, policies[i], settingsData[i]);\\n        }\\n    }\\n\\n    /// @notice Updates policy settings for a fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _policy The Policy contract to update\\n    /// @param _settingsData The encoded settings data with which to update the policy config\\n    function updatePolicySettingsForFund(\\n        address _comptrollerProxy,\\n        address _policy,\\n        bytes calldata _settingsData\\n    ) external onlyBuySharesHooks(_policy) onlyEnabledPolicyForFund(_comptrollerProxy, _policy) {\\n        address vaultProxy = getVaultProxyForFund(_comptrollerProxy);\\n        __validateIsFundOwner(vaultProxy, msg.sender);\\n\\n        IPolicy(_policy).updateFundSettings(_comptrollerProxy, vaultProxy, _settingsData);\\n    }\\n\\n    /// @notice Validates all policies that apply to a given hook for a fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @param _hook The PolicyHook for which to validate policies\\n    /// @param _validationData The encoded data with which to validate the filtered policies\\n    function validatePolicies(\\n        address _comptrollerProxy,\\n        PolicyHook _hook,\\n        bytes calldata _validationData\\n    ) external override {\\n        address vaultProxy = getVaultProxyForFund(_comptrollerProxy);\\n        address[] memory policies = getEnabledPoliciesForFund(_comptrollerProxy);\\n        for (uint256 i; i < policies.length; i++) {\\n            if (!policyImplementsHook(policies[i], _hook)) {\\n                continue;\\n            }\\n\\n            require(\\n                IPolicy(policies[i]).validateRule(\\n                    _comptrollerProxy,\\n                    vaultProxy,\\n                    _hook,\\n                    _validationData\\n                ),\\n                string(\\n                    abi.encodePacked(\\n                        \\\"Rule evaluated to false: \\\",\\n                        IPolicy(policies[i]).identifier()\\n                    )\\n                )\\n            );\\n        }\\n    }\\n\\n    // PRIVATE FUNCTIONS\\n\\n    /// @dev Helper to activate a policy for a fund\\n    function __activatePolicyForFund(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        address _policy\\n    ) private {\\n        IPolicy(_policy).activateForFund(_comptrollerProxy, _vaultProxy);\\n    }\\n\\n    /// @dev Helper to set config and enable policies for a fund\\n    function __enablePolicyForFund(\\n        address _comptrollerProxy,\\n        address _policy,\\n        bytes memory _settingsData\\n    ) private {\\n        require(\\n            !policyIsEnabledForFund(_comptrollerProxy, _policy),\\n            \\\"__enablePolicyForFund: policy already enabled\\\"\\n        );\\n        require(policyIsRegistered(_policy), \\\"__enablePolicyForFund: Policy is not registered\\\");\\n\\n        // Set fund config on policy\\n        if (_settingsData.length > 0) {\\n            IPolicy(_policy).addFundSettings(_comptrollerProxy, _settingsData);\\n        }\\n\\n        // Add policy\\n        comptrollerProxyToPolicies[_comptrollerProxy].add(_policy);\\n\\n        emit PolicyEnabledForFund(_comptrollerProxy, _policy, _settingsData);\\n    }\\n\\n    /// @dev Helper to validate fund owner.\\n    /// Preferred to a modifier because allows gas savings if re-using _vaultProxy.\\n    function __validateIsFundOwner(address _vaultProxy, address _who) private view {\\n        require(\\n            _who == IVault(_vaultProxy).getOwner(),\\n            \\\"Only the fund owner can call this function\\\"\\n        );\\n    }\\n\\n    ///////////////////////\\n    // POLICIES REGISTRY //\\n    ///////////////////////\\n\\n    /// @notice Remove policies from the list of registered policies\\n    /// @param _policies Addresses of policies to be registered\\n    function deregisterPolicies(address[] calldata _policies) external onlyFundDeployerOwner {\\n        require(_policies.length > 0, \\\"deregisterPolicies: _policies cannot be empty\\\");\\n\\n        for (uint256 i; i < _policies.length; i++) {\\n            require(\\n                policyIsRegistered(_policies[i]),\\n                \\\"deregisterPolicies: policy is not registered\\\"\\n            );\\n\\n            registeredPolicies.remove(_policies[i]);\\n\\n            emit PolicyDeregistered(_policies[i], IPolicy(_policies[i]).identifier());\\n        }\\n    }\\n\\n    /// @notice Add policies to the list of registered policies\\n    /// @param _policies Addresses of policies to be registered\\n    function registerPolicies(address[] calldata _policies) external onlyFundDeployerOwner {\\n        require(_policies.length > 0, \\\"registerPolicies: _policies cannot be empty\\\");\\n\\n        for (uint256 i; i < _policies.length; i++) {\\n            require(\\n                !policyIsRegistered(_policies[i]),\\n                \\\"registerPolicies: policy already registered\\\"\\n            );\\n\\n            registeredPolicies.add(_policies[i]);\\n\\n            // Store the hooks that a policy implements for later use.\\n            // Fronts the gas for calls to check if a hook is implemented, and guarantees\\n            // that the implementsHooks return value does not change post-registration.\\n            IPolicy policyContract = IPolicy(_policies[i]);\\n            PolicyHook[] memory implementedHooks = policyContract.implementedHooks();\\n            for (uint256 j; j < implementedHooks.length; j++) {\\n                policyToHookToIsImplemented[_policies[i]][implementedHooks[j]] = true;\\n            }\\n\\n            emit PolicyRegistered(_policies[i], policyContract.identifier(), implementedHooks);\\n        }\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Get all registered policies\\n    /// @return registeredPoliciesArray_ A list of all registered policy addresses\\n    function getRegisteredPolicies()\\n        external\\n        view\\n        returns (address[] memory registeredPoliciesArray_)\\n    {\\n        registeredPoliciesArray_ = new address[](registeredPolicies.length());\\n        for (uint256 i; i < registeredPoliciesArray_.length; i++) {\\n            registeredPoliciesArray_[i] = registeredPolicies.at(i);\\n        }\\n    }\\n\\n    /// @notice Get a list of enabled policies for a given fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @return enabledPolicies_ An array of enabled policy addresses\\n    function getEnabledPoliciesForFund(address _comptrollerProxy)\\n        public\\n        view\\n        returns (address[] memory enabledPolicies_)\\n    {\\n        enabledPolicies_ = new address[](comptrollerProxyToPolicies[_comptrollerProxy].length());\\n        for (uint256 i; i < enabledPolicies_.length; i++) {\\n            enabledPolicies_[i] = comptrollerProxyToPolicies[_comptrollerProxy].at(i);\\n        }\\n    }\\n\\n    /// @notice Checks if a policy implements a particular hook\\n    /// @param _policy The address of the policy to check\\n    /// @param _hook The PolicyHook to check\\n    /// @return implementsHook_ True if the policy implements the hook\\n    function policyImplementsHook(address _policy, PolicyHook _hook)\\n        public\\n        view\\n        returns (bool implementsHook_)\\n    {\\n        return policyToHookToIsImplemented[_policy][_hook];\\n    }\\n\\n    /// @notice Check if a policy is enabled for the fund\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund to check\\n    /// @param _policy The address of the policy to check\\n    /// @return isEnabled_ True if the policy is enabled for the fund\\n    function policyIsEnabledForFund(address _comptrollerProxy, address _policy)\\n        public\\n        view\\n        returns (bool isEnabled_)\\n    {\\n        return comptrollerProxyToPolicies[_comptrollerProxy].contains(_policy);\\n    }\\n\\n    /// @notice Check whether a policy is registered\\n    /// @param _policy The address of the policy to check\\n    /// @return isRegistered_ True if the policy is registered\\n    function policyIsRegistered(address _policy) public view returns (bool isRegistered_) {\\n        return registeredPolicies.contains(_policy);\\n    }\\n}\\n\",\"keccak256\":\"0x5faf98de9081734851197873755c0159b203527c74d1b83bc116900b9fe62f10\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/utils/ExtensionBase.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../core/fund/comptroller/IComptroller.sol\\\";\\nimport \\\"../../core/fund/vault/IVault.sol\\\";\\nimport \\\"../IExtension.sol\\\";\\n\\n/// @title ExtensionBase Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Base class for an extension\\nabstract contract ExtensionBase is IExtension {\\n    mapping(address => address) internal comptrollerProxyToVaultProxy;\\n\\n    uint256 internal immutable EXTENSION_DEPLOY_TIMESTAMP;\\n\\n    constructor() public {\\n        EXTENSION_DEPLOY_TIMESTAMP = block.timestamp;\\n    }\\n\\n    /// @notice Allows extension to run logic during fund activation\\n    /// @dev Unimplemented by default, may be overridden.\\n    function activateForFund(bool) external virtual override {\\n        return;\\n    }\\n\\n    /// @notice Allows extension to run logic during fund deactivation (destruct)\\n    /// @dev Unimplemented by default, may be overridden.\\n    function deactivateForFund() external virtual override {\\n        return;\\n    }\\n\\n    /// @notice Receives calls from ComptrollerLib.callOnExtension()\\n    /// and dispatches the appropriate action\\n    /// @dev Unimplemented by default, may be overridden.\\n    function receiveCallFromComptroller(\\n        address,\\n        uint256,\\n        bytes calldata\\n    ) external virtual override {\\n        revert(\\\"receiveCallFromComptroller: Unimplemented for Extension\\\");\\n    }\\n\\n    /// @notice Allows extension to run logic during fund configuration\\n    /// @dev Unimplemented by default, may be overridden.\\n    function setConfigForFund(bytes calldata) external virtual override {\\n        return;\\n    }\\n\\n    /// @dev Helper to validate a ComptrollerProxy-VaultProxy relation, which we store for both\\n    /// gas savings and to guarantee a spoofed ComptrollerProxy does not change getVaultProxy().\\n    /// Will revert without reason if the expected interfaces do not exist.\\n    function __setValidatedVaultProxy(address _comptrollerProxy)\\n        internal\\n        returns (address vaultProxy_)\\n    {\\n        require(\\n            comptrollerProxyToVaultProxy[_comptrollerProxy] == address(0),\\n            \\\"__setValidatedVaultProxy: Already set\\\"\\n        );\\n\\n        vaultProxy_ = IComptroller(_comptrollerProxy).getVaultProxy();\\n        require(vaultProxy_ != address(0), \\\"__setValidatedVaultProxy: Missing vaultProxy\\\");\\n\\n        require(\\n            _comptrollerProxy == IVault(vaultProxy_).getAccessor(),\\n            \\\"__setValidatedVaultProxy: Not the VaultProxy accessor\\\"\\n        );\\n\\n        comptrollerProxyToVaultProxy[_comptrollerProxy] = vaultProxy_;\\n\\n        return vaultProxy_;\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the verified VaultProxy for a given ComptrollerProxy\\n    /// @param _comptrollerProxy The ComptrollerProxy of the fund\\n    /// @return vaultProxy_ The VaultProxy of the fund\\n    function getVaultProxyForFund(address _comptrollerProxy)\\n        public\\n        view\\n        returns (address vaultProxy_)\\n    {\\n        return comptrollerProxyToVaultProxy[_comptrollerProxy];\\n    }\\n\\n    function getExtensionDeployTimestamp() external view returns (uint256) {\\n        return EXTENSION_DEPLOY_TIMESTAMP;\\n    }\\n}\\n\",\"keccak256\":\"0xc918787924701e97a509a91ee389db0076df207dd3278f83c8f94e3c869ded42\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/utils/FundDeployerOwnerMixin.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../core/fund-deployer/IFundDeployer.sol\\\";\\n\\n/// @title FundDeployerOwnerMixin Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A mixin contract that defers ownership to the owner of FundDeployer\\nabstract contract FundDeployerOwnerMixin {\\n    address internal immutable FUND_DEPLOYER;\\n\\n    modifier onlyFundDeployerOwner() {\\n        require(\\n            msg.sender == getOwner(),\\n            \\\"onlyFundDeployerOwner: Only the FundDeployer owner can call this function\\\"\\n        );\\n        _;\\n    }\\n\\n    constructor(address _fundDeployer) public {\\n        FUND_DEPLOYER = _fundDeployer;\\n    }\\n\\n    /// @notice Gets the owner of this contract\\n    /// @return owner_ The owner\\n    /// @dev Ownership is deferred to the owner of the FundDeployer contract\\n    function getOwner() public view returns (address owner_) {\\n        return IFundDeployer(FUND_DEPLOYER).getOwner();\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `FUND_DEPLOYER` variable\\n    /// @return fundDeployer_ The `FUND_DEPLOYER` variable value\\n    function getFundDeployer() external view returns (address fundDeployer_) {\\n        return FUND_DEPLOYER;\\n    }\\n}\\n\",\"keccak256\":\"0xae16a22807bc31d46654889122b8db7ee55b731efc8d6feb4c978d13fee3336d\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x60c06040523480156200001157600080fd5b506040516200267e3803806200267e833981016040819052620000349162000061565b4260805260601b6001600160601b03191660a052620000b6565b80516200005b816200009c565b92915050565b6000602082840312156200007457600080fd5b60006200008284846200004e565b949350505050565b60006001600160a01b0382166200005b565b620000a7816200008a565b8114620000b357600080fd5b50565b60805160a05160601c61259c620000e26000398061076652806109d7525080610dad525061259c6000f3fe608060405234801561001057600080fd5b50600436106101215760003560e01c80638af6d89e116100ad578063bd8e959a11610071578063bd8e959a14610241578063e87e9cf514610249578063e8cf4d431461025e578063ee37ebcf14610271578063fa5d06e31461028457610121565b80638af6d89e146101de578063961363d9146101fe57806397c0ac87146102065780639c532bac1461020e578063a5c6e2b81461022157610121565b806348f35209116100f457806348f352091461018a5780634ed28b3f1461019d57806380d57063146101b0578063893d20e8146101c357806389cbe1d0146101cb57610121565b80630442bad5146101265780631bee801e1461013b57806345d582e71461014e5780634679034614610161575b600080fd5b610139610134366004611944565b610297565b005b610139610149366004611977565b61045d565b61013961015c366004611873565b610475565b61017461016f36600461182f565b610556565b604051610181919061221d565b60405180910390f35b6101396101983660046118ad565b610577565b6101396101ab3660046118ad565b61061f565b6101396101be366004611a7c565b610709565b610174610762565b6101396101d9366004611ab8565b6107fa565b6101f16101ec36600461182f565b61087a565b60405161018191906122e4565b6101f1610940565b6101746109d5565b61013961021c3660046119aa565b6109f9565b61023461022f366004611873565b610d06565b6040516101819190612306565b610139610d31565b610251610dab565b6040516101819190612425565b61023461026c366004611914565b610dcf565b61013961027f3660046119aa565b610e1a565b61023461029236600461182f565b610fda565b60006102a285610556565b905060606102af8661087a565b905060005b8151811015610454576102da8282815181106102cc57fe5b602002602001015187610dcf565b6102e35761044c565b8181815181106102ef57fe5b60200260200101516001600160a01b0316635b8f1c5a88858989896040518663ffffffff1660e01b815260040161032a95949392919061227e565b602060405180830381600087803b15801561034457600080fd5b505af1158015610358573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061037c9190611a9a565b82828151811061038857fe5b60200260200101516001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b1580156103c857600080fd5b505afa1580156103dc573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526104049190810190611aed565b6040516020016104149190612206565b6040516020818303038152906040529061044a5760405162461bcd60e51b81526004016104419190612314565b60405180910390fd5b505b6001016102b4565b50505050505050565b60405162461bcd60e51b8152600401610441906123d5565b80610481816004610dcf565b1580156104965750610494816005610dcf565b155b6104b25760405162461bcd60e51b8152600401610441906123b5565b82826104be8282610d06565b6104da5760405162461bcd60e51b815260040161044190612415565b6104ec6104e686610556565b33610fe7565b6001600160a01b038516600090815260046020526040902061050e9085611088565b50836001600160a01b0316856001600160a01b03167fd7b03d2e8be34a451c0a51c07755427856dd05d0343003f8a7ab0f1af52e96c560405160405180910390a35050505050565b6001600160a01b03808216600090815260208190526040902054165b919050565b82610583816004610dcf565b1580156105985750610596816005610dcf565b155b6105b45760405162461bcd60e51b8152600401610441906123b5565b60006105bf86610556565b90506105cb8133610fe7565b61060c868686868080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525061109d92505050565b6106178682876111c4565b505050505050565b8261062b816004610dcf565b158015610640575061063e816005610dcf565b155b61065c5760405162461bcd60e51b8152600401610441906123b5565b84846106688282610d06565b6106845760405162461bcd60e51b815260040161044190612415565b600061068f88610556565b905061069b8133610fe7565b6040516308945f1960e41b81526001600160a01b03881690638945f190906106cd908b9085908b908b90600401612246565b600060405180830381600087803b1580156106e757600080fd5b505af11580156106fb573d6000803e3d6000fd5b505050505050505050505050565b600061071433611220565b9050811561075e5760606107273361087a565b905060005b815181101561075b57610753338484848151811061074657fe5b60200260200101516111c4565b60010161072c565b50505b5050565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b1580156107bd57600080fd5b505afa1580156107d1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107f59190611855565b905090565b606080610809838501856119eb565b91509150805182511461082e5760405162461bcd60e51b815260040161044190612395565b60005b82518110156108735761086b3384838151811061084a57fe5b602002602001015184848151811061085e57fe5b602002602001015161109d565b600101610831565b5050505050565b6001600160a01b038116600090815260046020526040902060609061089e906113c6565b6001600160401b03811180156108b357600080fd5b506040519080825280602002602001820160405280156108dd578160200160208202803683370190505b50905060005b815181101561093a576001600160a01b038316600090815260046020526040902061090e90826113d1565b82828151811061091a57fe5b6001600160a01b03909216602092830291909101909101526001016108e3565b50919050565b606061094c60016113c6565b6001600160401b038111801561096157600080fd5b5060405190808252806020026020018201604052801561098b578160200160208202803683370190505b50905060005b81518110156109d1576109a56001826113d1565b8282815181106109b157fe5b6001600160a01b0390921660209283029190910190910152600101610991565b5090565b7f000000000000000000000000000000000000000000000000000000000000000090565b610a01610762565b6001600160a01b0316336001600160a01b031614610a315760405162461bcd60e51b815260040161044190612365565b80610a4e5760405162461bcd60e51b815260040161044190612385565b60005b81811015610d0157610a7d838383818110610a6857fe5b9050602002016020810190610292919061182f565b15610a9a5760405162461bcd60e51b815260040161044190612355565b610ac6838383818110610aa957fe5b9050602002016020810190610abe919061182f565b6001906113dd565b506000838383818110610ad557fe5b9050602002016020810190610aea919061182f565b90506060816001600160a01b031663cbf54bb26040518163ffffffff1660e01b815260040160006040518083038186803b158015610b2757600080fd5b505afa158015610b3b573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610b639190810190611a48565b905060005b8151811015610c0b57600160036000888888818110610b8357fe5b9050602002016020810190610b98919061182f565b6001600160a01b03166001600160a01b031681526020019081526020016000206000848481518110610bc657fe5b60200260200101516005811115610bd957fe5b6005811115610be457fe5b81526020810191909152604001600020805460ff1916911515919091179055600101610b68565b50816001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b158015610c4557600080fd5b505afa158015610c59573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610c819190810190611aed565b604051610c8e91906121f3565b6040518091039020858585818110610ca257fe5b9050602002016020810190610cb7919061182f565b6001600160a01b03167f7fc39bd4ad1acc50e51318d02e8590c304ae9c0060c220cc780ea18720745c5283604051610cef91906122f5565b60405180910390a35050600101610a51565b505050565b6001600160a01b0382166000908152600460205260408120610d2890836113f2565b90505b92915050565b3360009081526020818152604080832080546001600160a01b031916905560049091528120610d5f906113c6565b90505b8015610da857336000908152600460205260409020610d9e90610d899060001984016113d1565b33600090815260046020526040902090611088565b5060001901610d62565b50565b7f000000000000000000000000000000000000000000000000000000000000000090565b6001600160a01b038216600090815260036020526040812081836005811115610df457fe5b6005811115610dff57fe5b815260208101919091526040016000205460ff169392505050565b610e22610762565b6001600160a01b0316336001600160a01b031614610e525760405162461bcd60e51b815260040161044190612365565b80610e6f5760405162461bcd60e51b8152600401610441906123a5565b60005b81811015610d0157610e89838383818110610a6857fe5b610ea55760405162461bcd60e51b815260040161044190612345565b610ed1838383818110610eb457fe5b9050602002016020810190610ec9919061182f565b600190611088565b50828282818110610ede57fe5b9050602002016020810190610ef3919061182f565b6001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b158015610f2b57600080fd5b505afa158015610f3f573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610f679190810190611aed565b604051610f7491906121f3565b6040518091039020838383818110610f8857fe5b9050602002016020810190610f9d919061182f565b6001600160a01b03167f538f684b60a142c0b72b895be785c0aef10b373c6c5c4e8a7eb49baa244f64d360405160405180910390a3600101610e72565b6000610d2b6001836113f2565b816001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561102057600080fd5b505afa158015611034573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906110589190611855565b6001600160a01b0316816001600160a01b03161461075e5760405162461bcd60e51b8152600401610441906123e5565b6000610d28836001600160a01b038416611407565b6110a78383610d06565b156110c45760405162461bcd60e51b8152600401610441906123f5565b6110cd82610fda565b6110e95760405162461bcd60e51b815260040161044190612405565b80511561115157604051630f5f6b4f60e01b81526001600160a01b03831690630f5f6b4f9061111e90869085906004016122c4565b600060405180830381600087803b15801561113857600080fd5b505af115801561114c573d6000803e3d6000fd5b505050505b6001600160a01b038316600090815260046020526040902061117390836113dd565b50816001600160a01b0316836001600160a01b03167faa4df4fe117c520783cfff01c11283496ff2999c77c2a9b800808251a9a0332a836040516111b79190612314565b60405180910390a3505050565b604051630628da0b60e31b81526001600160a01b03821690633146d058906111f2908690869060040161222b565b600060405180830381600087803b15801561120c57600080fd5b505af1158015610454573d6000803e3d6000fd5b6001600160a01b038181166000908152602081905260408120549091161561125a5760405162461bcd60e51b815260040161044190612335565b816001600160a01b031663c98091876040518163ffffffff1660e01b815260040160206040518083038186803b15801561129357600080fd5b505afa1580156112a7573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906112cb9190611855565b90506001600160a01b0381166112f35760405162461bcd60e51b815260040161044190612375565b806001600160a01b0316635a53e3486040518163ffffffff1660e01b815260040160206040518083038186803b15801561132c57600080fd5b505afa158015611340573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906113649190611855565b6001600160a01b0316826001600160a01b0316146113945760405162461bcd60e51b8152600401610441906123c5565b6001600160a01b03918216600090815260208190526040902080546001600160a01b0319169282169290921790915590565b6000610d2b826114cd565b6000610d2883836114d1565b6000610d28836001600160a01b038416611516565b6000610d28836001600160a01b038416611560565b600081815260018301602052604081205480156114c3578354600019808301919081019060009087908390811061143a57fe5b906000526020600020015490508087600001848154811061145757fe5b60009182526020808320909101929092558281526001898101909252604090209084019055865487908061148757fe5b60019003818190600052602060002001600090559055866001016000878152602001908152602001600020600090556001945050505050610d2b565b6000915050610d2b565b5490565b815460009082106114f45760405162461bcd60e51b815260040161044190612325565b82600001828154811061150357fe5b9060005260206000200154905092915050565b60006115228383611560565b61155857508154600181810184556000848152602080822090930184905584548482528286019093526040902091909155610d2b565b506000610d2b565b60009081526001919091016020526040902054151590565b8035610d2b81612533565b8051610d2b81612533565b60008083601f8401126115a057600080fd5b5081356001600160401b038111156115b757600080fd5b6020830191508360208202830111156115cf57600080fd5b9250929050565b600082601f8301126115e757600080fd5b81356115fa6115f582612459565b612433565b9150818183526020840193506020810190508385602084028201111561161f57600080fd5b60005b8381101561164b57816116358882611578565b8452506020928301929190910190600101611622565b5050505092915050565b600082601f83011261166657600080fd5b81356116746115f582612459565b81815260209384019390925082018360005b8381101561164b578135860161169c8882611779565b8452506020928301929190910190600101611686565b600082601f8301126116c357600080fd5b81516116d16115f582612459565b915081818352602084019350602081019050838560208402820111156116f657600080fd5b60005b8381101561164b578161170c88826117d3565b84525060209283019291909101906001016116f9565b8035610d2b81612547565b8051610d2b81612547565b60008083601f84011261174a57600080fd5b5081356001600160401b0381111561176157600080fd5b6020830191508360018202830111156115cf57600080fd5b600082601f83011261178a57600080fd5b81356117986115f582612479565b915080825260208301602083018583830111156117b457600080fd5b6117bf8382846124e7565b50505092915050565b8035610d2b81612550565b8051610d2b81612550565b600082601f8301126117ef57600080fd5b81516117fd6115f582612479565b9150808252602083016020830185838301111561181957600080fd5b6117bf8382846124f3565b8035610d2b8161255d565b60006020828403121561184157600080fd5b600061184d8484611578565b949350505050565b60006020828403121561186757600080fd5b600061184d8484611583565b6000806040838503121561188657600080fd5b60006118928585611578565b92505060206118a385828601611578565b9150509250929050565b600080600080606085870312156118c357600080fd5b60006118cf8787611578565b94505060206118e087828801611578565b93505060408501356001600160401b038111156118fc57600080fd5b61190887828801611738565b95989497509550505050565b6000806040838503121561192757600080fd5b60006119338585611578565b92505060206118a3858286016117c8565b6000806000806060858703121561195a57600080fd5b60006119668787611578565b94505060206118e0878288016117c8565b6000806000806060858703121561198d57600080fd5b60006119998787611578565b94505060206118e087828801611824565b600080602083850312156119bd57600080fd5b82356001600160401b038111156119d357600080fd5b6119df8582860161158e565b92509250509250929050565b600080604083850312156119fe57600080fd5b82356001600160401b03811115611a1457600080fd5b611a20858286016115d6565b92505060208301356001600160401b03811115611a3c57600080fd5b6118a385828601611655565b600060208284031215611a5a57600080fd5b81516001600160401b03811115611a7057600080fd5b61184d848285016116b2565b600060208284031215611a8e57600080fd5b600061184d8484611722565b600060208284031215611aac57600080fd5b600061184d848461172d565b60008060208385031215611acb57600080fd5b82356001600160401b03811115611ae157600080fd5b6119df85828601611738565b600060208284031215611aff57600080fd5b81516001600160401b03811115611b1557600080fd5b61184d848285016117de565b6000611b2d8383611b41565b505060200190565b6000611b2d8383611c5a565b611b4a816124b3565b82525050565b6000611b5b826124a6565b611b6581856124aa565b9350611b70836124a0565b8060005b83811015611b9e578151611b888882611b21565b9750611b93836124a0565b925050600101611b74565b509495945050505050565b6000611bb4826124a6565b611bbe81856124aa565b9350611bc9836124a0565b8060005b83811015611b9e578151611be18882611b35565b9750611bec836124a0565b925050600101611bcd565b611b4a816124be565b6000611c0c83856124aa565b9350611c198385846124e7565b611c228361251f565b9093019392505050565b6000611c37826124a6565b611c4181856124aa565b9350611c518185602086016124f3565b611c228161251f565b611b4a816124dc565b6000611c6e826124a6565b611c788185610572565b9350611c888185602086016124f3565b9290920192915050565b6000611c9f6022836124aa565b7f456e756d657261626c655365743a20696e646578206f7574206f6620626f756e815261647360f01b602082015260400192915050565b6000611ce36025836124aa565b7f5f5f73657456616c6964617465645661756c7450726f78793a20416c726561648152641e481cd95d60da1b602082015260400192915050565b6000611d2a602c836124aa565b7f64657265676973746572506f6c69636965733a20706f6c696379206973206e6f81526b1d081c9959da5cdd195c995960a21b602082015260400192915050565b6000611d78602b836124aa565b7f7265676973746572506f6c69636965733a20706f6c69637920616c726561647981526a081c9959da5cdd195c995960aa1b602082015260400192915050565b6000611dc56049836124aa565b7f6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652081527f46756e644465706c6f796572206f776e65722063616e2063616c6c207468697360208201526810333ab731ba34b7b760b91b604082015260600192915050565b6000611e36602c836124aa565b7f5f5f73657456616c6964617465645661756c7450726f78793a204d697373696e81526b67207661756c7450726f787960a01b602082015260400192915050565b6000611e84602b836124aa565b7f7265676973746572506f6c69636965733a205f706f6c69636965732063616e6e81526a6f7420626520656d70747960a81b602082015260400192915050565b6000611ed16041836124aa565b7f736574436f6e666967466f7246756e643a20706f6c696369657320616e64207381527f657474696e677344617461206172726179206c656e6774687320756e657175616020820152601b60fa1b604082015260600192915050565b6000611f3a602d836124aa565b7f64657265676973746572506f6c69636965733a205f706f6c696369657320636181526c6e6e6f7420626520656d70747960981b602082015260400192915050565b6000611f896023836124aa565b7f6f6e6c79427579536861726573486f6f6b733a20446973616c6c6f77656420688152626f6f6b60e81b602082015260400192915050565b6000611fce601983610572565b7f52756c65206576616c756174656420746f2066616c73653a2000000000000000815260190192915050565b60006120076035836124aa565b7f5f5f73657456616c6964617465645661756c7450726f78793a204e6f7420746881527432902b30bab63a283937bc3c9030b1b1b2b9b9b7b960591b602082015260400192915050565b600061205e6037836124aa565b7f7265636569766543616c6c46726f6d436f6d7074726f6c6c65723a20556e696d81527f706c656d656e74656420666f7220457874656e73696f6e000000000000000000602082015260400192915050565b60006120bd602a836124aa565b7f4f6e6c79207468652066756e64206f776e65722063616e2063616c6c207468698152693990333ab731ba34b7b760b11b602082015260400192915050565b6000612109602d836124aa565b7f5f5f656e61626c65506f6c696379466f7246756e643a20706f6c69637920616c81526c1c9958591e48195b98589b1959609a1b602082015260400192915050565b6000612158602f836124aa565b7f5f5f656e61626c65506f6c696379466f7246756e643a20506f6c69637920697381526e081b9bdd081c9959da5cdd195c9959608a1b602082015260400192915050565b60006121a9602c836124aa565b7f6f6e6c79456e61626c6564506f6c696379466f7246756e643a20506f6c69637981526b081b9bdd08195b98589b195960a21b602082015260400192915050565b611b4a816124d9565b60006121ff8284611c63565b9392505050565b600061221182611fc1565b91506121ff8284611c63565b60208101610d2b8284611b41565b604081016122398285611b41565b6121ff6020830184611b41565b606081016122548287611b41565b6122616020830186611b41565b8181036040830152612274818486611c00565b9695505050505050565b6080810161228c8288611b41565b6122996020830187611b41565b6122a66040830186611c5a565b81810360608301526122b9818486611c00565b979650505050505050565b604081016122d28285611b41565b818103602083015261184d8184611c2c565b60208082528101610d288184611b50565b60208082528101610d288184611ba9565b60208101610d2b8284611bf7565b60208082528101610d288184611c2c565b60208082528101610d2b81611c92565b60208082528101610d2b81611cd6565b60208082528101610d2b81611d1d565b60208082528101610d2b81611d6b565b60208082528101610d2b81611db8565b60208082528101610d2b81611e29565b60208082528101610d2b81611e77565b60208082528101610d2b81611ec4565b60208082528101610d2b81611f2d565b60208082528101610d2b81611f7c565b60208082528101610d2b81611ffa565b60208082528101610d2b81612051565b60208082528101610d2b816120b0565b60208082528101610d2b816120fc565b60208082528101610d2b8161214b565b60208082528101610d2b8161219c565b60208101610d2b82846121ea565b6040518181016001600160401b038111828210171561245157600080fd5b604052919050565b60006001600160401b0382111561246f57600080fd5b5060209081020190565b60006001600160401b0382111561248f57600080fd5b506020601f91909101601f19160190565b60200190565b5190565b90815260200190565b6000610d2b826124cd565b151590565b8061057281612529565b6001600160a01b031690565b90565b6000610d2b826124c3565b82818337506000910152565b60005b8381101561250e5781810151838201526020016124f6565b8381111561075b5750506000910152565b601f01601f191690565b60068110610da857fe5b61253c816124b3565b8114610da857600080fd5b61253c816124be565b60068110610da857600080fd5b61253c816124d956fea2646970667358221220b09af2ac4568ab0f8fe0aae20aea65e8a3113605c67d7fd28d691e32a2c42bed64736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101215760003560e01c80638af6d89e116100ad578063bd8e959a11610071578063bd8e959a14610241578063e87e9cf514610249578063e8cf4d431461025e578063ee37ebcf14610271578063fa5d06e31461028457610121565b80638af6d89e146101de578063961363d9146101fe57806397c0ac87146102065780639c532bac1461020e578063a5c6e2b81461022157610121565b806348f35209116100f457806348f352091461018a5780634ed28b3f1461019d57806380d57063146101b0578063893d20e8146101c357806389cbe1d0146101cb57610121565b80630442bad5146101265780631bee801e1461013b57806345d582e71461014e5780634679034614610161575b600080fd5b610139610134366004611944565b610297565b005b610139610149366004611977565b61045d565b61013961015c366004611873565b610475565b61017461016f36600461182f565b610556565b604051610181919061221d565b60405180910390f35b6101396101983660046118ad565b610577565b6101396101ab3660046118ad565b61061f565b6101396101be366004611a7c565b610709565b610174610762565b6101396101d9366004611ab8565b6107fa565b6101f16101ec36600461182f565b61087a565b60405161018191906122e4565b6101f1610940565b6101746109d5565b61013961021c3660046119aa565b6109f9565b61023461022f366004611873565b610d06565b6040516101819190612306565b610139610d31565b610251610dab565b6040516101819190612425565b61023461026c366004611914565b610dcf565b61013961027f3660046119aa565b610e1a565b61023461029236600461182f565b610fda565b60006102a285610556565b905060606102af8661087a565b905060005b8151811015610454576102da8282815181106102cc57fe5b602002602001015187610dcf565b6102e35761044c565b8181815181106102ef57fe5b60200260200101516001600160a01b0316635b8f1c5a88858989896040518663ffffffff1660e01b815260040161032a95949392919061227e565b602060405180830381600087803b15801561034457600080fd5b505af1158015610358573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061037c9190611a9a565b82828151811061038857fe5b60200260200101516001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b1580156103c857600080fd5b505afa1580156103dc573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526104049190810190611aed565b6040516020016104149190612206565b6040516020818303038152906040529061044a5760405162461bcd60e51b81526004016104419190612314565b60405180910390fd5b505b6001016102b4565b50505050505050565b60405162461bcd60e51b8152600401610441906123d5565b80610481816004610dcf565b1580156104965750610494816005610dcf565b155b6104b25760405162461bcd60e51b8152600401610441906123b5565b82826104be8282610d06565b6104da5760405162461bcd60e51b815260040161044190612415565b6104ec6104e686610556565b33610fe7565b6001600160a01b038516600090815260046020526040902061050e9085611088565b50836001600160a01b0316856001600160a01b03167fd7b03d2e8be34a451c0a51c07755427856dd05d0343003f8a7ab0f1af52e96c560405160405180910390a35050505050565b6001600160a01b03808216600090815260208190526040902054165b919050565b82610583816004610dcf565b1580156105985750610596816005610dcf565b155b6105b45760405162461bcd60e51b8152600401610441906123b5565b60006105bf86610556565b90506105cb8133610fe7565b61060c868686868080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525061109d92505050565b6106178682876111c4565b505050505050565b8261062b816004610dcf565b158015610640575061063e816005610dcf565b155b61065c5760405162461bcd60e51b8152600401610441906123b5565b84846106688282610d06565b6106845760405162461bcd60e51b815260040161044190612415565b600061068f88610556565b905061069b8133610fe7565b6040516308945f1960e41b81526001600160a01b03881690638945f190906106cd908b9085908b908b90600401612246565b600060405180830381600087803b1580156106e757600080fd5b505af11580156106fb573d6000803e3d6000fd5b505050505050505050505050565b600061071433611220565b9050811561075e5760606107273361087a565b905060005b815181101561075b57610753338484848151811061074657fe5b60200260200101516111c4565b60010161072c565b50505b5050565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b1580156107bd57600080fd5b505afa1580156107d1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107f59190611855565b905090565b606080610809838501856119eb565b91509150805182511461082e5760405162461bcd60e51b815260040161044190612395565b60005b82518110156108735761086b3384838151811061084a57fe5b602002602001015184848151811061085e57fe5b602002602001015161109d565b600101610831565b5050505050565b6001600160a01b038116600090815260046020526040902060609061089e906113c6565b6001600160401b03811180156108b357600080fd5b506040519080825280602002602001820160405280156108dd578160200160208202803683370190505b50905060005b815181101561093a576001600160a01b038316600090815260046020526040902061090e90826113d1565b82828151811061091a57fe5b6001600160a01b03909216602092830291909101909101526001016108e3565b50919050565b606061094c60016113c6565b6001600160401b038111801561096157600080fd5b5060405190808252806020026020018201604052801561098b578160200160208202803683370190505b50905060005b81518110156109d1576109a56001826113d1565b8282815181106109b157fe5b6001600160a01b0390921660209283029190910190910152600101610991565b5090565b7f000000000000000000000000000000000000000000000000000000000000000090565b610a01610762565b6001600160a01b0316336001600160a01b031614610a315760405162461bcd60e51b815260040161044190612365565b80610a4e5760405162461bcd60e51b815260040161044190612385565b60005b81811015610d0157610a7d838383818110610a6857fe5b9050602002016020810190610292919061182f565b15610a9a5760405162461bcd60e51b815260040161044190612355565b610ac6838383818110610aa957fe5b9050602002016020810190610abe919061182f565b6001906113dd565b506000838383818110610ad557fe5b9050602002016020810190610aea919061182f565b90506060816001600160a01b031663cbf54bb26040518163ffffffff1660e01b815260040160006040518083038186803b158015610b2757600080fd5b505afa158015610b3b573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610b639190810190611a48565b905060005b8151811015610c0b57600160036000888888818110610b8357fe5b9050602002016020810190610b98919061182f565b6001600160a01b03166001600160a01b031681526020019081526020016000206000848481518110610bc657fe5b60200260200101516005811115610bd957fe5b6005811115610be457fe5b81526020810191909152604001600020805460ff1916911515919091179055600101610b68565b50816001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b158015610c4557600080fd5b505afa158015610c59573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610c819190810190611aed565b604051610c8e91906121f3565b6040518091039020858585818110610ca257fe5b9050602002016020810190610cb7919061182f565b6001600160a01b03167f7fc39bd4ad1acc50e51318d02e8590c304ae9c0060c220cc780ea18720745c5283604051610cef91906122f5565b60405180910390a35050600101610a51565b505050565b6001600160a01b0382166000908152600460205260408120610d2890836113f2565b90505b92915050565b3360009081526020818152604080832080546001600160a01b031916905560049091528120610d5f906113c6565b90505b8015610da857336000908152600460205260409020610d9e90610d899060001984016113d1565b33600090815260046020526040902090611088565b5060001901610d62565b50565b7f000000000000000000000000000000000000000000000000000000000000000090565b6001600160a01b038216600090815260036020526040812081836005811115610df457fe5b6005811115610dff57fe5b815260208101919091526040016000205460ff169392505050565b610e22610762565b6001600160a01b0316336001600160a01b031614610e525760405162461bcd60e51b815260040161044190612365565b80610e6f5760405162461bcd60e51b8152600401610441906123a5565b60005b81811015610d0157610e89838383818110610a6857fe5b610ea55760405162461bcd60e51b815260040161044190612345565b610ed1838383818110610eb457fe5b9050602002016020810190610ec9919061182f565b600190611088565b50828282818110610ede57fe5b9050602002016020810190610ef3919061182f565b6001600160a01b0316637998a1c46040518163ffffffff1660e01b815260040160006040518083038186803b158015610f2b57600080fd5b505afa158015610f3f573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610f679190810190611aed565b604051610f7491906121f3565b6040518091039020838383818110610f8857fe5b9050602002016020810190610f9d919061182f565b6001600160a01b03167f538f684b60a142c0b72b895be785c0aef10b373c6c5c4e8a7eb49baa244f64d360405160405180910390a3600101610e72565b6000610d2b6001836113f2565b816001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561102057600080fd5b505afa158015611034573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906110589190611855565b6001600160a01b0316816001600160a01b03161461075e5760405162461bcd60e51b8152600401610441906123e5565b6000610d28836001600160a01b038416611407565b6110a78383610d06565b156110c45760405162461bcd60e51b8152600401610441906123f5565b6110cd82610fda565b6110e95760405162461bcd60e51b815260040161044190612405565b80511561115157604051630f5f6b4f60e01b81526001600160a01b03831690630f5f6b4f9061111e90869085906004016122c4565b600060405180830381600087803b15801561113857600080fd5b505af115801561114c573d6000803e3d6000fd5b505050505b6001600160a01b038316600090815260046020526040902061117390836113dd565b50816001600160a01b0316836001600160a01b03167faa4df4fe117c520783cfff01c11283496ff2999c77c2a9b800808251a9a0332a836040516111b79190612314565b60405180910390a3505050565b604051630628da0b60e31b81526001600160a01b03821690633146d058906111f2908690869060040161222b565b600060405180830381600087803b15801561120c57600080fd5b505af1158015610454573d6000803e3d6000fd5b6001600160a01b038181166000908152602081905260408120549091161561125a5760405162461bcd60e51b815260040161044190612335565b816001600160a01b031663c98091876040518163ffffffff1660e01b815260040160206040518083038186803b15801561129357600080fd5b505afa1580156112a7573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906112cb9190611855565b90506001600160a01b0381166112f35760405162461bcd60e51b815260040161044190612375565b806001600160a01b0316635a53e3486040518163ffffffff1660e01b815260040160206040518083038186803b15801561132c57600080fd5b505afa158015611340573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906113649190611855565b6001600160a01b0316826001600160a01b0316146113945760405162461bcd60e51b8152600401610441906123c5565b6001600160a01b03918216600090815260208190526040902080546001600160a01b0319169282169290921790915590565b6000610d2b826114cd565b6000610d2883836114d1565b6000610d28836001600160a01b038416611516565b6000610d28836001600160a01b038416611560565b600081815260018301602052604081205480156114c3578354600019808301919081019060009087908390811061143a57fe5b906000526020600020015490508087600001848154811061145757fe5b60009182526020808320909101929092558281526001898101909252604090209084019055865487908061148757fe5b60019003818190600052602060002001600090559055866001016000878152602001908152602001600020600090556001945050505050610d2b565b6000915050610d2b565b5490565b815460009082106114f45760405162461bcd60e51b815260040161044190612325565b82600001828154811061150357fe5b9060005260206000200154905092915050565b60006115228383611560565b61155857508154600181810184556000848152602080822090930184905584548482528286019093526040902091909155610d2b565b506000610d2b565b60009081526001919091016020526040902054151590565b8035610d2b81612533565b8051610d2b81612533565b60008083601f8401126115a057600080fd5b5081356001600160401b038111156115b757600080fd5b6020830191508360208202830111156115cf57600080fd5b9250929050565b600082601f8301126115e757600080fd5b81356115fa6115f582612459565b612433565b9150818183526020840193506020810190508385602084028201111561161f57600080fd5b60005b8381101561164b57816116358882611578565b8452506020928301929190910190600101611622565b5050505092915050565b600082601f83011261166657600080fd5b81356116746115f582612459565b81815260209384019390925082018360005b8381101561164b578135860161169c8882611779565b8452506020928301929190910190600101611686565b600082601f8301126116c357600080fd5b81516116d16115f582612459565b915081818352602084019350602081019050838560208402820111156116f657600080fd5b60005b8381101561164b578161170c88826117d3565b84525060209283019291909101906001016116f9565b8035610d2b81612547565b8051610d2b81612547565b60008083601f84011261174a57600080fd5b5081356001600160401b0381111561176157600080fd5b6020830191508360018202830111156115cf57600080fd5b600082601f83011261178a57600080fd5b81356117986115f582612479565b915080825260208301602083018583830111156117b457600080fd5b6117bf8382846124e7565b50505092915050565b8035610d2b81612550565b8051610d2b81612550565b600082601f8301126117ef57600080fd5b81516117fd6115f582612479565b9150808252602083016020830185838301111561181957600080fd5b6117bf8382846124f3565b8035610d2b8161255d565b60006020828403121561184157600080fd5b600061184d8484611578565b949350505050565b60006020828403121561186757600080fd5b600061184d8484611583565b6000806040838503121561188657600080fd5b60006118928585611578565b92505060206118a385828601611578565b9150509250929050565b600080600080606085870312156118c357600080fd5b60006118cf8787611578565b94505060206118e087828801611578565b93505060408501356001600160401b038111156118fc57600080fd5b61190887828801611738565b95989497509550505050565b6000806040838503121561192757600080fd5b60006119338585611578565b92505060206118a3858286016117c8565b6000806000806060858703121561195a57600080fd5b60006119668787611578565b94505060206118e0878288016117c8565b6000806000806060858703121561198d57600080fd5b60006119998787611578565b94505060206118e087828801611824565b600080602083850312156119bd57600080fd5b82356001600160401b038111156119d357600080fd5b6119df8582860161158e565b92509250509250929050565b600080604083850312156119fe57600080fd5b82356001600160401b03811115611a1457600080fd5b611a20858286016115d6565b92505060208301356001600160401b03811115611a3c57600080fd5b6118a385828601611655565b600060208284031215611a5a57600080fd5b81516001600160401b03811115611a7057600080fd5b61184d848285016116b2565b600060208284031215611a8e57600080fd5b600061184d8484611722565b600060208284031215611aac57600080fd5b600061184d848461172d565b60008060208385031215611acb57600080fd5b82356001600160401b03811115611ae157600080fd5b6119df85828601611738565b600060208284031215611aff57600080fd5b81516001600160401b03811115611b1557600080fd5b61184d848285016117de565b6000611b2d8383611b41565b505060200190565b6000611b2d8383611c5a565b611b4a816124b3565b82525050565b6000611b5b826124a6565b611b6581856124aa565b9350611b70836124a0565b8060005b83811015611b9e578151611b888882611b21565b9750611b93836124a0565b925050600101611b74565b509495945050505050565b6000611bb4826124a6565b611bbe81856124aa565b9350611bc9836124a0565b8060005b83811015611b9e578151611be18882611b35565b9750611bec836124a0565b925050600101611bcd565b611b4a816124be565b6000611c0c83856124aa565b9350611c198385846124e7565b611c228361251f565b9093019392505050565b6000611c37826124a6565b611c4181856124aa565b9350611c518185602086016124f3565b611c228161251f565b611b4a816124dc565b6000611c6e826124a6565b611c788185610572565b9350611c888185602086016124f3565b9290920192915050565b6000611c9f6022836124aa565b7f456e756d657261626c655365743a20696e646578206f7574206f6620626f756e815261647360f01b602082015260400192915050565b6000611ce36025836124aa565b7f5f5f73657456616c6964617465645661756c7450726f78793a20416c726561648152641e481cd95d60da1b602082015260400192915050565b6000611d2a602c836124aa565b7f64657265676973746572506f6c69636965733a20706f6c696379206973206e6f81526b1d081c9959da5cdd195c995960a21b602082015260400192915050565b6000611d78602b836124aa565b7f7265676973746572506f6c69636965733a20706f6c69637920616c726561647981526a081c9959da5cdd195c995960aa1b602082015260400192915050565b6000611dc56049836124aa565b7f6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652081527f46756e644465706c6f796572206f776e65722063616e2063616c6c207468697360208201526810333ab731ba34b7b760b91b604082015260600192915050565b6000611e36602c836124aa565b7f5f5f73657456616c6964617465645661756c7450726f78793a204d697373696e81526b67207661756c7450726f787960a01b602082015260400192915050565b6000611e84602b836124aa565b7f7265676973746572506f6c69636965733a205f706f6c69636965732063616e6e81526a6f7420626520656d70747960a81b602082015260400192915050565b6000611ed16041836124aa565b7f736574436f6e666967466f7246756e643a20706f6c696369657320616e64207381527f657474696e677344617461206172726179206c656e6774687320756e657175616020820152601b60fa1b604082015260600192915050565b6000611f3a602d836124aa565b7f64657265676973746572506f6c69636965733a205f706f6c696369657320636181526c6e6e6f7420626520656d70747960981b602082015260400192915050565b6000611f896023836124aa565b7f6f6e6c79427579536861726573486f6f6b733a20446973616c6c6f77656420688152626f6f6b60e81b602082015260400192915050565b6000611fce601983610572565b7f52756c65206576616c756174656420746f2066616c73653a2000000000000000815260190192915050565b60006120076035836124aa565b7f5f5f73657456616c6964617465645661756c7450726f78793a204e6f7420746881527432902b30bab63a283937bc3c9030b1b1b2b9b9b7b960591b602082015260400192915050565b600061205e6037836124aa565b7f7265636569766543616c6c46726f6d436f6d7074726f6c6c65723a20556e696d81527f706c656d656e74656420666f7220457874656e73696f6e000000000000000000602082015260400192915050565b60006120bd602a836124aa565b7f4f6e6c79207468652066756e64206f776e65722063616e2063616c6c207468698152693990333ab731ba34b7b760b11b602082015260400192915050565b6000612109602d836124aa565b7f5f5f656e61626c65506f6c696379466f7246756e643a20706f6c69637920616c81526c1c9958591e48195b98589b1959609a1b602082015260400192915050565b6000612158602f836124aa565b7f5f5f656e61626c65506f6c696379466f7246756e643a20506f6c69637920697381526e081b9bdd081c9959da5cdd195c9959608a1b602082015260400192915050565b60006121a9602c836124aa565b7f6f6e6c79456e61626c6564506f6c696379466f7246756e643a20506f6c69637981526b081b9bdd08195b98589b195960a21b602082015260400192915050565b611b4a816124d9565b60006121ff8284611c63565b9392505050565b600061221182611fc1565b91506121ff8284611c63565b60208101610d2b8284611b41565b604081016122398285611b41565b6121ff6020830184611b41565b606081016122548287611b41565b6122616020830186611b41565b8181036040830152612274818486611c00565b9695505050505050565b6080810161228c8288611b41565b6122996020830187611b41565b6122a66040830186611c5a565b81810360608301526122b9818486611c00565b979650505050505050565b604081016122d28285611b41565b818103602083015261184d8184611c2c565b60208082528101610d288184611b50565b60208082528101610d288184611ba9565b60208101610d2b8284611bf7565b60208082528101610d288184611c2c565b60208082528101610d2b81611c92565b60208082528101610d2b81611cd6565b60208082528101610d2b81611d1d565b60208082528101610d2b81611d6b565b60208082528101610d2b81611db8565b60208082528101610d2b81611e29565b60208082528101610d2b81611e77565b60208082528101610d2b81611ec4565b60208082528101610d2b81611f2d565b60208082528101610d2b81611f7c565b60208082528101610d2b81611ffa565b60208082528101610d2b81612051565b60208082528101610d2b816120b0565b60208082528101610d2b816120fc565b60208082528101610d2b8161214b565b60208082528101610d2b8161219c565b60208101610d2b82846121ea565b6040518181016001600160401b038111828210171561245157600080fd5b604052919050565b60006001600160401b0382111561246f57600080fd5b5060209081020190565b60006001600160401b0382111561248f57600080fd5b506020601f91909101601f19160190565b60200190565b5190565b90815260200190565b6000610d2b826124cd565b151590565b8061057281612529565b6001600160a01b031690565b90565b6000610d2b826124c3565b82818337506000910152565b60005b8381101561250e5781810151838201526020016124f6565b8381111561075b5750506000910152565b601f01601f191690565b60068110610da857fe5b61253c816124b3565b8114610da857600080fd5b61253c816124be565b60068110610da857600080fd5b61253c816124d956fea2646970667358221220b09af2ac4568ab0f8fe0aae20aea65e8a3113605c67d7fd28d691e32a2c42bed64736f6c634300060c0033",
+  "devdoc": {
+    "author": "Enzyme Council <security@enzyme.finance>",
+    "kind": "dev",
+    "methods": {
+      "activateForFund(bool)": {
+        "details": "Caller is expected to be a valid ComptrollerProxy, but there isn't a need to validate.",
+        "params": {
+          "_isMigratedFund": "True if the fund is migrating to this release"
+        }
+      },
+      "deregisterPolicies(address[])": {
+        "params": {
+          "_policies": "Addresses of policies to be registered"
+        }
+      },
+      "disablePolicyForFund(address,address)": {
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund",
+          "_policy": "The policy address to disable"
+        }
+      },
+      "enablePolicyForFund(address,address,bytes)": {
+        "details": "Disabling a policy does not delete fund config on the policy, so if a policy is disabled and then enabled again, its initial state will be the previous config. It is the policy's job to determine how to merge that config with the _settingsData param in this function.",
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund",
+          "_policy": "The policy address to enable",
+          "_settingsData": "The encoded settings data with which to configure the policy"
+        }
+      },
+      "getEnabledPoliciesForFund(address)": {
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund"
+        },
+        "returns": {
+          "enabledPolicies_": "An array of enabled policy addresses"
+        }
+      },
+      "getFundDeployer()": {
+        "returns": {
+          "fundDeployer_": "The `FUND_DEPLOYER` variable value"
+        }
+      },
+      "getOwner()": {
+        "details": "Ownership is deferred to the owner of the FundDeployer contract",
+        "returns": {
+          "owner_": "The owner"
+        }
+      },
+      "getRegisteredPolicies()": {
+        "returns": {
+          "registeredPoliciesArray_": "A list of all registered policy addresses"
+        }
+      },
+      "getVaultProxyForFund(address)": {
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund"
+        },
+        "returns": {
+          "vaultProxy_": "The VaultProxy of the fund"
+        }
+      },
+      "policyImplementsHook(address,uint8)": {
+        "params": {
+          "_hook": "The PolicyHook to check",
+          "_policy": "The address of the policy to check"
+        },
+        "returns": {
+          "implementsHook_": "True if the policy implements the hook"
+        }
+      },
+      "policyIsEnabledForFund(address,address)": {
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund to check",
+          "_policy": "The address of the policy to check"
+        },
+        "returns": {
+          "isEnabled_": "True if the policy is enabled for the fund"
+        }
+      },
+      "policyIsRegistered(address)": {
+        "params": {
+          "_policy": "The address of the policy to check"
+        },
+        "returns": {
+          "isRegistered_": "True if the policy is registered"
+        }
+      },
+      "receiveCallFromComptroller(address,uint256,bytes)": {
+        "details": "Unimplemented by default, may be overridden."
+      },
+      "registerPolicies(address[])": {
+        "params": {
+          "_policies": "Addresses of policies to be registered"
+        }
+      },
+      "setConfigForFund(bytes)": {
+        "details": "Only called during init() on ComptrollerProxy deployment",
+        "params": {
+          "_configData": "Encoded config data"
+        }
+      },
+      "updatePolicySettingsForFund(address,address,bytes)": {
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund",
+          "_policy": "The Policy contract to update",
+          "_settingsData": "The encoded settings data with which to update the policy config"
+        }
+      },
+      "validatePolicies(address,uint8,bytes)": {
+        "params": {
+          "_comptrollerProxy": "The ComptrollerProxy of the fund",
+          "_hook": "The PolicyHook for which to validate policies",
+          "_validationData": "The encoded data with which to validate the filtered policies"
+        }
+      }
+    },
+    "title": "PolicyManager Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "activateForFund(bool)": {
+        "notice": "Validates and initializes policies as necessary prior to fund activation"
+      },
+      "deactivateForFund()": {
+        "notice": "Deactivates policies for a fund by destroying storage"
+      },
+      "deregisterPolicies(address[])": {
+        "notice": "Remove policies from the list of registered policies"
+      },
+      "disablePolicyForFund(address,address)": {
+        "notice": "Disables a policy for a fund"
+      },
+      "enablePolicyForFund(address,address,bytes)": {
+        "notice": "Enables a policy for a fund"
+      },
+      "getEnabledPoliciesForFund(address)": {
+        "notice": "Get a list of enabled policies for a given fund"
+      },
+      "getFundDeployer()": {
+        "notice": "Gets the `FUND_DEPLOYER` variable"
+      },
+      "getOwner()": {
+        "notice": "Gets the owner of this contract"
+      },
+      "getRegisteredPolicies()": {
+        "notice": "Get all registered policies"
+      },
+      "getVaultProxyForFund(address)": {
+        "notice": "Gets the verified VaultProxy for a given ComptrollerProxy"
+      },
+      "policyImplementsHook(address,uint8)": {
+        "notice": "Checks if a policy implements a particular hook"
+      },
+      "policyIsEnabledForFund(address,address)": {
+        "notice": "Check if a policy is enabled for the fund"
+      },
+      "policyIsRegistered(address)": {
+        "notice": "Check whether a policy is registered"
+      },
+      "receiveCallFromComptroller(address,uint256,bytes)": {
+        "notice": "Receives calls from ComptrollerLib.callOnExtension() and dispatches the appropriate action"
+      },
+      "registerPolicies(address[])": {
+        "notice": "Add policies to the list of registered policies"
+      },
+      "setConfigForFund(bytes)": {
+        "notice": "Enable policies for use in a fund"
+      },
+      "updatePolicySettingsForFund(address,address,bytes)": {
+        "notice": "Updates policy settings for a fund"
+      },
+      "validatePolicies(address,uint8,bytes)": {
+        "notice": "Validates all policies that apply to a given hook for a fund"
+      }
+    },
+    "notice": "Manages policies for funds",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 39659,
+        "contract": "contracts/release/extensions/policy-manager/PolicyManager.sol:PolicyManager",
+        "label": "comptrollerProxyToVaultProxy",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_address)"
+      },
+      {
+        "astId": 36428,
+        "contract": "contracts/release/extensions/policy-manager/PolicyManager.sol:PolicyManager",
+        "label": "registeredPolicies",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_struct(AddressSet)2091_storage"
+      },
+      {
+        "astId": 36434,
+        "contract": "contracts/release/extensions/policy-manager/PolicyManager.sol:PolicyManager",
+        "label": "policyToHookToIsImplemented",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_mapping(t_enum(PolicyHook)36368,t_bool))"
+      },
+      {
+        "astId": 36438,
+        "contract": "contracts/release/extensions/policy-manager/PolicyManager.sol:PolicyManager",
+        "label": "comptrollerProxyToPolicies",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_struct(AddressSet)2091_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_bytes32)dyn_storage": {
+        "base": "t_bytes32",
+        "encoding": "dynamic_array",
+        "label": "bytes32[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_enum(PolicyHook)36368": {
+        "encoding": "inplace",
+        "label": "enum IPolicyManager.PolicyHook",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_address)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_address,t_mapping(t_enum(PolicyHook)36368,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(enum IPolicyManager.PolicyHook => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_enum(PolicyHook)36368,t_bool)"
+      },
+      "t_mapping(t_address,t_struct(AddressSet)2091_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct EnumerableSet.AddressSet)",
+        "numberOfBytes": "32",
+        "value": "t_struct(AddressSet)2091_storage"
+      },
+      "t_mapping(t_bytes32,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_enum(PolicyHook)36368,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_enum(PolicyHook)36368",
+        "label": "mapping(enum IPolicyManager.PolicyHook => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_struct(AddressSet)2091_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.AddressSet",
+        "members": [
+          {
+            "astId": 2090,
+            "contract": "contracts/release/extensions/policy-manager/PolicyManager.sol:PolicyManager",
+            "label": "_inner",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_struct(Set)1826_storage"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_struct(Set)1826_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.Set",
+        "members": [
+          {
+            "astId": 1821,
+            "contract": "contracts/release/extensions/policy-manager/PolicyManager.sol:PolicyManager",
+            "label": "_values",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_array(t_bytes32)dyn_storage"
+          },
+          {
+            "astId": 1825,
+            "contract": "contracts/release/extensions/policy-manager/PolicyManager.sol:PolicyManager",
+            "label": "_indexes",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_bytes32,t_uint256)"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

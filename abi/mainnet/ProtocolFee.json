@@ -1,0 +1,524 @@
+{
+  "address": "0xB71028Dd29491C7544e379cCEcCae81351B64251",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_feeManager",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_fundDeployer",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_stakingDao",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "payer",
+          "type": "address"
+        }
+      ],
+      "name": "PayerWhitelistAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "payer",
+          "type": "address"
+        }
+      ],
+      "name": "PayerWhitelistRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "payer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "sharesQuantity",
+          "type": "uint256"
+        }
+      ],
+      "name": "Settled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newStakingDao",
+          "type": "address"
+        }
+      ],
+      "name": "StakingDaoUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "activateForFund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_settingsData",
+          "type": "bytes"
+        }
+      ],
+      "name": "addFundSettings",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_payer",
+          "type": "address"
+        }
+      ],
+      "name": "addPayerWhitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFeeActivationTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFeeManager",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "feeManager_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFundDeployer",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "fundDeployer_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStakingDao",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "identifier",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "identifier_",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "implementedHooks",
+      "outputs": [
+        {
+          "internalType": "enum IFeeManager.FeeHook[]",
+          "name": "implementedHooksForSettle_",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "enum IFeeManager.FeeHook[]",
+          "name": "implementedHooksForUpdate_",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "bool",
+          "name": "usesGavOnSettle_",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "usesGavOnUpdate_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_payer",
+          "type": "address"
+        }
+      ],
+      "name": "isPayerWhitelisted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "payout",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_payer",
+          "type": "address"
+        }
+      ],
+      "name": "removePayerWhitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_comptrollerProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_vaultProxy",
+          "type": "address"
+        },
+        {
+          "internalType": "enum IFeeManager.FeeHook",
+          "name": "",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_settlementData",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "settle",
+      "outputs": [
+        {
+          "internalType": "enum IFeeManager.SettlementType",
+          "name": "settlementType_",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "payer_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "sharesDue_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "enum IFeeManager.FeeHook",
+          "name": "",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "update",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_newStaking",
+          "type": "address"
+        }
+      ],
+      "name": "updateStakingDao",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xb0024ce89b54a781f083b5a330e34202d5534d5a566acf0fde56657de23e3126",
+  "receipt": {
+    "to": null,
+    "from": "0x5a43993587dD57d58c16bbEbdf23b9F6D279176f",
+    "contractAddress": "0xB71028Dd29491C7544e379cCEcCae81351B64251",
+    "transactionIndex": 286,
+    "gasUsed": "848136",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x27d1a8c018b84a7f3371269dccdb05809222c7cacec437d687ccc5055b60c1a0",
+    "transactionHash": "0xb0024ce89b54a781f083b5a330e34202d5534d5a566acf0fde56657de23e3126",
+    "logs": [],
+    "blockNumber": 13523013,
+    "cumulativeGasUsed": "22224233",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x0546043FFf4533A8EEA5279034e1bF6362ec20D1",
+    "0x217912B16c8A00C2D9F2fDFCA94127ca37cFe948",
+    "0xd1239ebe4C1da18C919EB4b1aE61C2905E8B3a98"
+  ],
+  "linkedData": {
+    "FEE_buybackWhitelist": true
+  },
+  "solcInputHash": "34b1516e615d6cbcdbaf9542624efee9",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_feeManager\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_fundDeployer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_stakingDao\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"payer\",\"type\":\"address\"}],\"name\":\"PayerWhitelistAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"payer\",\"type\":\"address\"}],\"name\":\"PayerWhitelistRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptrollerProxy\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"payer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"sharesQuantity\",\"type\":\"uint256\"}],\"name\":\"Settled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newStakingDao\",\"type\":\"address\"}],\"name\":\"StakingDaoUpdated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"activateForFund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_settingsData\",\"type\":\"bytes\"}],\"name\":\"addFundSettings\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_payer\",\"type\":\"address\"}],\"name\":\"addPayerWhitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFeeActivationTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFeeManager\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"feeManager_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFundDeployer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"fundDeployer_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStakingDao\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"identifier\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"identifier_\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"implementedHooks\",\"outputs\":[{\"internalType\":\"enum IFeeManager.FeeHook[]\",\"name\":\"implementedHooksForSettle_\",\"type\":\"uint8[]\"},{\"internalType\":\"enum IFeeManager.FeeHook[]\",\"name\":\"implementedHooksForUpdate_\",\"type\":\"uint8[]\"},{\"internalType\":\"bool\",\"name\":\"usesGavOnSettle_\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"usesGavOnUpdate_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_payer\",\"type\":\"address\"}],\"name\":\"isPayerWhitelisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"payout\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_payer\",\"type\":\"address\"}],\"name\":\"removePayerWhitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_comptrollerProxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_vaultProxy\",\"type\":\"address\"},{\"internalType\":\"enum IFeeManager.FeeHook\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"_settlementData\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"settle\",\"outputs\":[{\"internalType\":\"enum IFeeManager.SettlementType\",\"name\":\"settlementType_\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"payer_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"sharesDue_\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"enum IFeeManager.FeeHook\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newStaking\",\"type\":\"address\"}],\"name\":\"updateStakingDao\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"activateForFund(address,address)\":{\"details\":\"Unimplemented by default, may be overrode.\"},\"getFeeManager()\":{\"returns\":{\"feeManager_\":\"The `FEE_MANAGER` variable value\"}},\"getFundDeployer()\":{\"returns\":{\"fundDeployer_\":\"The `FUND_DEPLOYER` variable value\"}},\"getOwner()\":{\"details\":\"Ownership is deferred to the owner of the FundDeployer contract\",\"returns\":{\"owner_\":\"The owner\"}},\"payout(address,address)\":{\"details\":\"Returns false by default, can be overridden by fee\"},\"update(address,address,uint8,bytes,uint256)\":{\"details\":\"Unimplemented by default, can be overridden by fee\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"activateForFund(address,address)\":{\"notice\":\"Allows Fee to run logic during fund activation\"},\"getFeeManager()\":{\"notice\":\"Gets the `FEE_MANAGER` variable\"},\"getFundDeployer()\":{\"notice\":\"Gets the `FUND_DEPLOYER` variable\"},\"getOwner()\":{\"notice\":\"Gets the owner of this contract\"},\"payout(address,address)\":{\"notice\":\"Runs payout logic for a fee that utilizes shares outstanding as its settlement type\"},\"update(address,address,uint8,bytes,uint256)\":{\"notice\":\"Update fee state after all settlement has occurred during a given fee hook\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/release/extensions/fee-manager/fees/ProtocolFee.sol\":\"ProtocolFee\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\n * checks.\\n *\\n * Arithmetic operations in Solidity wrap on overflow. This can easily result\\n * in bugs, because programmers usually assume that an overflow raises an\\n * error, which is the standard behavior in high level programming languages.\\n * `SafeMath` restores this intuition by reverting the transaction when an\\n * operation overflows.\\n *\\n * Using this library instead of the unchecked operations eliminates an entire\\n * class of bugs, so it's recommended to use it always.\\n */\\nlibrary SafeMath {\\n    /**\\n     * @dev Returns the addition of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        uint256 c = a + b;\\n        if (c < a) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the substraction of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b > a) return (false, 0);\\n        return (true, a - b);\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\n        // benefit is lost if 'b' is also tested.\\n        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522\\n        if (a == 0) return (true, 0);\\n        uint256 c = a * b;\\n        if (c / a != b) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the division of two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a / b);\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a % b);\\n    }\\n\\n    /**\\n     * @dev Returns the addition of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `+` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Addition cannot overflow.\\n     */\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\n        uint256 c = a + b;\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting on\\n     * overflow (when the result is negative).\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b <= a, \\\"SafeMath: subtraction overflow\\\");\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `*` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Multiplication cannot overflow.\\n     */\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\n        if (a == 0) return 0;\\n        uint256 c = a * b;\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: division by zero\\\");\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting when dividing by zero.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: modulo by zero\\\");\\n        return a % b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on\\n     * overflow (when the result is negative).\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {trySub}.\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b <= a, errorMessage);\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting with custom message on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryDiv}.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting with custom message when dividing by zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryMod}.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a % b;\\n    }\\n}\\n\",\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\"},\"contracts/persistent/dao-staking/IDaoStaking.sol\":{\"content\":\"pragma solidity 0.6.12;\\n\\ninterface IDaoStaking {\\n    function getExitFee(address _vaultProxy, address _user) external view returns (uint256);\\n\\n    function getFeeDivisor() external view returns (uint256);\\n}\",\"keccak256\":\"0x3d031f03c23207100af06e622d8f3f534a7547e6ac6664d52904b2ca4d3521b3\"},\"contracts/release/core/fund-deployer/IFundDeployer.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IFundDeployer Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IFundDeployer {\\n    enum ReleaseStatus {PreLaunch, Live, Paused}\\n\\n    function getOwner() external view returns (address);\\n\\n    function getBuybackVault() external view returns (address);\\n\\n    function getReleaseStatus() external view returns (ReleaseStatus);\\n\\n    function isRegisteredVaultCall(address, bytes4) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xe5d28ccc67b68ed61a36eac1e3dfda4230b3669c71e2169ec190ec243bd78742\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/fee-manager/IFee.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"./IFeeManager.sol\\\";\\n\\n/// @title Fee Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for all fees\\ninterface IFee {\\n    function activateForFund(address _comptrollerProxy, address _vaultProxy) external;\\n\\n    function addFundSettings(address _comptrollerProxy, bytes calldata _settingsData) external;\\n\\n    function identifier() external pure returns (string memory identifier_);\\n\\n    function isPayerWhitelisted(address _payer) external view returns (bool);\\n\\n    function implementedHooks()\\n        external\\n        view\\n        returns (\\n            IFeeManager.FeeHook[] memory implementedHooksForSettle_,\\n            IFeeManager.FeeHook[] memory implementedHooksForUpdate_,\\n            bool usesGavOnSettle_,\\n            bool usesGavOnUpdate_\\n        );\\n\\n    function payout(address _comptrollerProxy, address _vaultProxy)\\n        external\\n        returns (bool isPayable_);\\n\\n    function settle(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        IFeeManager.FeeHook _hook,\\n        bytes calldata _settlementData,\\n        uint256 _gav\\n    )\\n        external\\n        returns (\\n            IFeeManager.SettlementType settlementType_,\\n            address payer_,\\n            uint256 sharesDue_\\n        );\\n\\n    function update(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        IFeeManager.FeeHook _hook,\\n        bytes calldata _settlementData,\\n        uint256 _gav\\n    ) external;\\n\\n    function addPayerWhitelist(address _payer) external;\\n\\n    function removePayerWhitelist(address _payer) external;\\n}\\n\",\"keccak256\":\"0x84e1d7789be0ceb0026c9294fcfd81b77a53ac42be033a23e081e18ae532f0c4\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/fee-manager/IFeeManager.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\npragma experimental ABIEncoderV2;\\n\\n/// @title FeeManager Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for the FeeManager\\ninterface IFeeManager {\\n    // No fees for the current release are implemented post-redeemShares\\n    enum FeeHook {\\n        Continuous,\\n        BuySharesSetup,\\n        PreBuyShares,\\n        PostBuyShares,\\n        BuySharesCompleted,\\n        PreRedeemShares\\n    }\\n    enum SettlementType {None, Direct, Mint, Burn, MintSharesOutstanding, BurnSharesOutstanding, MintBuyback}\\n\\n    function invokeHook(\\n        FeeHook,\\n        bytes calldata,\\n        uint256\\n    ) external;\\n\\n    function invokeHookProtocolFee(\\n        FeeHook,\\n        bytes calldata,\\n        uint256\\n    ) external returns (bool, uint256);\\n\\n    function updateProtocolFee(address) external;\\n\\n    function addUserFeeWhitelist(address[] calldata fees, address user) external;\\n\\n    function removeUserFeeWhitelist(address[] calldata fees, address user) external;\\n}\\n\",\"keccak256\":\"0xc0bbcfc8c6476521e2acd54fd2c2a179b5059ccfe8b01d4b70077cd8b1f5ea6f\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/fee-manager/fees/ProtocolFee.sol\":{\"content\":\"pragma solidity 0.6.12;\\n\\nimport \\\"./utils/FeeBase.sol\\\";\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\nimport \\\"../../utils/FundDeployerOwnerMixin.sol\\\";\\nimport \\\"../../../../persistent/dao-staking/IDaoStaking.sol\\\";\\n\\ncontract ProtocolFee is FeeBase, FundDeployerOwnerMixin {\\n    using SafeMath for uint256;\\n\\n    address private STAKING_DAO;\\n\\n    event StakingDaoUpdated(address indexed newStakingDao);\\n\\n    event Settled(address indexed comptrollerProxy, address indexed payer, uint256 sharesQuantity);\\n\\n    constructor(\\n    address _feeManager,\\n    address _fundDeployer,\\n    address _stakingDao)\\n    public FeeBase(_feeManager) FundDeployerOwnerMixin(_fundDeployer) {\\n        STAKING_DAO = _stakingDao;\\n    }\\n\\n    function addFundSettings(address _comptrollerProxy, bytes calldata _settingsData)\\n        external\\n        override\\n        onlyFeeManager\\n    {\\n        return;\\n    }\\n\\n    function implementedHooks()\\n        external\\n        view\\n        override\\n        returns (\\n            IFeeManager.FeeHook[] memory implementedHooksForSettle_,\\n            IFeeManager.FeeHook[] memory implementedHooksForUpdate_,\\n            bool usesGavOnSettle_,\\n            bool usesGavOnUpdate_\\n        )\\n    {\\n        implementedHooksForSettle_ = new IFeeManager.FeeHook[](1);\\n        implementedHooksForSettle_[0] = IFeeManager.FeeHook.PreRedeemShares;\\n\\n        return (implementedHooksForSettle_, new IFeeManager.FeeHook[](0), false, false);\\n    }\\n\\n    function settle(\\n        address _comptrollerProxy,\\n        address _vaultProxy,\\n        IFeeManager.FeeHook,\\n        bytes calldata _settlementData,\\n        uint256\\n    )\\n        external\\n        override\\n        onlyFeeManager\\n        returns (\\n            IFeeManager.SettlementType settlementType_,\\n            address payer_,\\n            uint256 sharesDue_\\n        )\\n    {\\n\\n        uint256 redeemSharesBeforeFee;\\n        (payer_, redeemSharesBeforeFee) = __decodePreRedeemSharesSettlementData(_settlementData);\\n\\n        if (STAKING_DAO == address(0) || payerWhitelist[payer_]) {\\n            return (IFeeManager.SettlementType.None, address(0), 0);\\n        }\\n\\n        uint256 rate = IDaoStaking(STAKING_DAO).getExitFee(_vaultProxy, payer_);\\n        uint256 rateDiv = IDaoStaking(STAKING_DAO).getFeeDivisor();\\n        sharesDue_ = redeemSharesBeforeFee.mul(rate).div(rateDiv);\\n\\n        if (sharesDue_ == 0) {\\n            return (IFeeManager.SettlementType.None, address(0), 0);\\n        }\\n\\n        emit Settled(_comptrollerProxy, payer_, sharesDue_);\\n\\n        return (IFeeManager.SettlementType.MintBuyback, payer_, sharesDue_);\\n    }\\n\\n    function identifier() external pure override returns (string memory identifier_) {\\n        return \\\"PROTOCOL_FEE\\\";\\n    }\\n\\n    function getStakingDao() external view returns (address) {\\n        return STAKING_DAO;\\n    }\\n\\n    function updateStakingDao(address _newStaking) external onlyFundDeployerOwner returns (address) {\\n        STAKING_DAO = _newStaking;\\n\\n        emit StakingDaoUpdated(_newStaking);\\n    }\\n}\",\"keccak256\":\"0x4bd5a3f800b28dfd0aaaba338bc6cad649f3d8bc9a37bd53152662ac37237ea8\"},\"contracts/release/extensions/fee-manager/fees/utils/FeeBase.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../IFee.sol\\\";\\n\\n/// @title FeeBase Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Abstract base contract for all fees\\nabstract contract FeeBase is IFee {\\n    address internal immutable FEE_MANAGER;\\n    uint256 internal immutable FEE_ACTIVATION_TIMESTAMP;\\n\\n    mapping(address => bool) internal payerWhitelist;\\n\\n    event PayerWhitelistAdded(address indexed payer);\\n    event PayerWhitelistRemoved(address indexed payer);\\n\\n    modifier onlyFeeManager {\\n        require(msg.sender == FEE_MANAGER, \\\"Only the FeeManger can make this call\\\");\\n        _;\\n    }\\n\\n    constructor(address _feeManager) public {\\n        FEE_MANAGER = _feeManager;\\n        FEE_ACTIVATION_TIMESTAMP = block.timestamp;\\n    }\\n\\n    /// @notice Allows Fee to run logic during fund activation\\n    /// @dev Unimplemented by default, may be overrode.\\n    function activateForFund(address, address) external virtual override {\\n        return;\\n    }\\n\\n    /// @notice Runs payout logic for a fee that utilizes shares outstanding as its settlement type\\n    /// @dev Returns false by default, can be overridden by fee\\n    function payout(address, address) external virtual override returns (bool) {\\n        return false;\\n    }\\n\\n    /// @notice Update fee state after all settlement has occurred during a given fee hook\\n    /// @dev Unimplemented by default, can be overridden by fee\\n    function update(\\n        address,\\n        address,\\n        IFeeManager.FeeHook,\\n        bytes calldata,\\n        uint256\\n    ) external virtual override {\\n        return;\\n    }\\n\\n    function addPayerWhitelist(address _payer) external override onlyFeeManager {\\n        payerWhitelist[_payer] = true;\\n\\n        emit PayerWhitelistAdded(_payer);\\n    }\\n\\n    function removePayerWhitelist(address _payer) external override onlyFeeManager {\\n        payerWhitelist[_payer] = false;\\n\\n        emit PayerWhitelistRemoved(_payer);\\n    }\\n\\n    /// @notice Helper to parse settlement arguments from encoded data for PreBuyShares fee hook\\n    function __decodePreBuySharesSettlementData(bytes memory _settlementData)\\n        internal\\n        pure\\n        returns (\\n            address buyer_,\\n            uint256 investmentAmount_,\\n            uint256 minSharesQuantity_\\n        )\\n    {\\n        return abi.decode(_settlementData, (address, uint256, uint256));\\n    }\\n\\n    /// @notice Helper to parse settlement arguments from encoded data for PreRedeemShares fee hook\\n    function __decodePreRedeemSharesSettlementData(bytes memory _settlementData)\\n        internal\\n        pure\\n        returns (address redeemer_, uint256 sharesQuantity_)\\n    {\\n        return abi.decode(_settlementData, (address, uint256));\\n    }\\n\\n    /// @notice Helper to parse settlement arguments from encoded data for PostBuyShares fee hook\\n    function __decodePostBuySharesSettlementData(bytes memory _settlementData)\\n        internal\\n        pure\\n        returns (\\n            address buyer_,\\n            uint256 investmentAmount_,\\n            uint256 sharesBought_\\n        )\\n    {\\n        return abi.decode(_settlementData, (address, uint256, uint256));\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `FEE_MANAGER` variable\\n    /// @return feeManager_ The `FEE_MANAGER` variable value\\n    function getFeeManager() external view returns (address feeManager_) {\\n        return FEE_MANAGER;\\n    }\\n\\n    function getFeeActivationTimestamp() external view returns (uint256) {\\n        return FEE_ACTIVATION_TIMESTAMP;\\n    }\\n\\n    function isPayerWhitelisted(address _payer) external override view returns (bool) {\\n        return payerWhitelist[_payer];\\n    }\\n}\\n\",\"keccak256\":\"0x0ed1e9e85b170a5cba662991334ef46612c77c4b6c3fc9a68aedd1ab4afcded5\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/utils/FundDeployerOwnerMixin.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../core/fund-deployer/IFundDeployer.sol\\\";\\n\\n/// @title FundDeployerOwnerMixin Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A mixin contract that defers ownership to the owner of FundDeployer\\nabstract contract FundDeployerOwnerMixin {\\n    address internal immutable FUND_DEPLOYER;\\n\\n    modifier onlyFundDeployerOwner() {\\n        require(\\n            msg.sender == getOwner(),\\n            \\\"onlyFundDeployerOwner: Only the FundDeployer owner can call this function\\\"\\n        );\\n        _;\\n    }\\n\\n    constructor(address _fundDeployer) public {\\n        FUND_DEPLOYER = _fundDeployer;\\n    }\\n\\n    /// @notice Gets the owner of this contract\\n    /// @return owner_ The owner\\n    /// @dev Ownership is deferred to the owner of the FundDeployer contract\\n    function getOwner() public view returns (address owner_) {\\n        return IFundDeployer(FUND_DEPLOYER).getOwner();\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `FUND_DEPLOYER` variable\\n    /// @return fundDeployer_ The `FUND_DEPLOYER` variable value\\n    function getFundDeployer() external view returns (address fundDeployer_) {\\n        return FUND_DEPLOYER;\\n    }\\n}\\n\",\"keccak256\":\"0xae16a22807bc31d46654889122b8db7ee55b731efc8d6feb4c978d13fee3336d\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x60e060405234801561001057600080fd5b50604051610eb7380380610eb78339818101604052606081101561003357600080fd5b5080516020820151604090920151606082811b6001600160601b03199081166080524260a08190529185901b1660c052600180546001600160a01b0319166001600160a01b039384161790559181169216610df76100c060003980610a1c5280610b56525080610b7a52508061059c5280610618528061094a5280610aaf5280610c1e5250610df76000f3fe608060405234801561001057600080fd5b50600436106101005760003560e01c80637998a1c4116100975780639a786662116100665780639a78666214610470578063b78b48131461048a578063cbf54bb2146104b8578063f2d638261461056b57610100565b80637998a1c4146103bd578063893d20e81461043a5780639714574c1461044257806397c0ac871461046857610100565b806341892d7e116100d357806341892d7e146102825780635e058d0f1461034d5780636a1ddbb11461038f5780636a29d94e1461039757610100565b80630b065be0146101055780630f5f6b4f1461013f578063233faf5f146101c15780633146d05814610254575b600080fd5b61012b6004803603602081101561011b57600080fd5b50356001600160a01b0316610573565b604080519115158252519081900360200190f35b6101bf6004803603604081101561015557600080fd5b6001600160a01b03823516919081019060408101602082013564010000000081111561018057600080fd5b82018360208201111561019257600080fd5b803590602001918460018302840111640100000000831117156101b457600080fd5b509092509050610591565b005b6101bf600480360360a08110156101d757600080fd5b6001600160a01b03823581169260208101359091169160ff604083013516919081019060808101606082013564010000000081111561021557600080fd5b82018360208201111561022757600080fd5b8035906020019184600183028401116401000000008311171561024957600080fd5b9193509150356105fd565b6101bf6004803603604081101561026a57600080fd5b506001600160a01b0381358116916020013516610605565b610315600480360360a081101561029857600080fd5b6001600160a01b03823581169260208101359091169160ff60408301351691908101906080810160608201356401000000008111156102d657600080fd5b8201836020820111156102e857600080fd5b8035906020019184600183028401116401000000008311171561030a57600080fd5b919350915035610609565b6040518084600681111561032557fe5b8152602001836001600160a01b03168152602001828152602001935050505060405180910390f35b6103736004803603602081101561036357600080fd5b50356001600160a01b031661088b565b604080516001600160a01b039092168252519081900360200190f35b610373610930565b6101bf600480360360208110156103ad57600080fd5b50356001600160a01b031661093f565b6103c56109f2565b6040805160208082528351818301528351919283929083019185019080838360005b838110156103ff5781810151838201526020016103e7565b50505050905090810190601f16801561042c5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b610373610a18565b6101bf6004803603602081101561045857600080fd5b50356001600160a01b0316610aa4565b610373610b54565b610478610b78565b60408051918252519081900360200190f35b61012b600480360360408110156104a057600080fd5b506001600160a01b0381358116916020013516610b9c565b6104c0610ba5565b60405180806020018060200185151581526020018415158152602001838103835287818151815260200191508051906020019060200280838360005b838110156105145781810151838201526020016104fc565b50505050905001838103825286818151815260200191508051906020019060200280838360005b8381101561055357818101518382015260200161053b565b50505050905001965050505050505060405180910390f35b610373610c1c565b6001600160a01b031660009081526020819052604090205460ff1690565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146105f85760405162461bcd60e51b8152600401808060200182810382526025815260200180610d7c6025913960400191505060405180910390fd5b505050565b505050505050565b5050565b60008080336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146106745760405162461bcd60e51b8152600401808060200182810382526025815260200180610d7c6025913960400191505060405180910390fd5b60006106b587878080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250610c4092505050565b60015491945091506001600160a01b031615806106ea57506001600160a01b03831660009081526020819052604090205460ff165b156107005760008060009350935093505061087f565b60015460408051630f1d03b960e11b81526001600160a01b038c81166004830152868116602483015291516000939290921691631e3a077291604480820192602092909190829003018186803b15801561075957600080fd5b505afa15801561076d573d6000803e3d6000fd5b505050506040513d602081101561078357600080fd5b50516001546040805163331d19a960e01b815290519293506000926001600160a01b039092169163331d19a991600480820192602092909190829003018186803b1580156107d057600080fd5b505afa1580156107e4573d6000803e3d6000fd5b505050506040513d60208110156107fa57600080fd5b505190506108128161080c8585610c6b565b90610ccb565b93508361082c57600080600095509550955050505061087f565b846001600160a01b03168c6001600160a01b03167f7e79a2206061184e05985ae0578dec52f817756a441996f984cdc817efc25a68866040518082815260200191505060405180910390a3600695505050505b96509650969350505050565b6000610895610a18565b6001600160a01b0316336001600160a01b0316146108e45760405162461bcd60e51b8152600401808060200182810382526049815260200180610d336049913960600191505060405180910390fd5b600180546001600160a01b0319166001600160a01b0384169081179091556040517f82367bd1654c1f34ba80f85c5d9d167e60d6d52bef209a9c4f06688ab5bc7d3590600090a2919050565b6001546001600160a01b031690565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146109a65760405162461bcd60e51b8152600401808060200182810382526025815260200180610d7c6025913960400191505060405180910390fd5b6001600160a01b038116600081815260208190526040808220805460ff19166001179055517faa0e9100f973660a79dca7e4920e97aa3d552337b468b83ef5f54bc2f823530d9190a250565b60408051808201909152600c81526b50524f544f434f4c5f46454560a01b602082015290565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b158015610a7357600080fd5b505afa158015610a87573d6000803e3d6000fd5b505050506040513d6020811015610a9d57600080fd5b5051905090565b336001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001614610b0b5760405162461bcd60e51b8152600401808060200182810382526025815260200180610d7c6025913960400191505060405180910390fd5b6001600160a01b038116600081815260208190526040808220805460ff19169055517fd51e82eaff33a5c5fb421b48653be389552281a56dda3ba08b32b1e5985511a09190a250565b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b60005b92915050565b604080516001808252818301909252606091829160009182919060208083019080368337019050509350600584600081518110610bde57fe5b60200260200101906005811115610bf157fe5b90816005811115610bfe57fe5b90525050604080516000808252602082019092529394909250829150565b7f000000000000000000000000000000000000000000000000000000000000000090565b600080828060200190516040811015610c5857600080fd5b5080516020909101519092509050915091565b600082610c7a57506000610b9f565b82820282848281610c8757fe5b0414610cc45760405162461bcd60e51b8152600401808060200182810382526021815260200180610da16021913960400191505060405180910390fd5b9392505050565b6000808211610d21576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b818381610d2a57fe5b04939250505056fe6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652046756e644465706c6f796572206f776e65722063616e2063616c6c20746869732066756e6374696f6e4f6e6c7920746865204665654d616e6765722063616e206d616b6520746869732063616c6c536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f77a2646970667358221220f31d092eb91adf16a4b4628fe06e8b5d84fce4bd40fcb2ceedf7f4f283bcf83f64736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101005760003560e01c80637998a1c4116100975780639a786662116100665780639a78666214610470578063b78b48131461048a578063cbf54bb2146104b8578063f2d638261461056b57610100565b80637998a1c4146103bd578063893d20e81461043a5780639714574c1461044257806397c0ac871461046857610100565b806341892d7e116100d357806341892d7e146102825780635e058d0f1461034d5780636a1ddbb11461038f5780636a29d94e1461039757610100565b80630b065be0146101055780630f5f6b4f1461013f578063233faf5f146101c15780633146d05814610254575b600080fd5b61012b6004803603602081101561011b57600080fd5b50356001600160a01b0316610573565b604080519115158252519081900360200190f35b6101bf6004803603604081101561015557600080fd5b6001600160a01b03823516919081019060408101602082013564010000000081111561018057600080fd5b82018360208201111561019257600080fd5b803590602001918460018302840111640100000000831117156101b457600080fd5b509092509050610591565b005b6101bf600480360360a08110156101d757600080fd5b6001600160a01b03823581169260208101359091169160ff604083013516919081019060808101606082013564010000000081111561021557600080fd5b82018360208201111561022757600080fd5b8035906020019184600183028401116401000000008311171561024957600080fd5b9193509150356105fd565b6101bf6004803603604081101561026a57600080fd5b506001600160a01b0381358116916020013516610605565b610315600480360360a081101561029857600080fd5b6001600160a01b03823581169260208101359091169160ff60408301351691908101906080810160608201356401000000008111156102d657600080fd5b8201836020820111156102e857600080fd5b8035906020019184600183028401116401000000008311171561030a57600080fd5b919350915035610609565b6040518084600681111561032557fe5b8152602001836001600160a01b03168152602001828152602001935050505060405180910390f35b6103736004803603602081101561036357600080fd5b50356001600160a01b031661088b565b604080516001600160a01b039092168252519081900360200190f35b610373610930565b6101bf600480360360208110156103ad57600080fd5b50356001600160a01b031661093f565b6103c56109f2565b6040805160208082528351818301528351919283929083019185019080838360005b838110156103ff5781810151838201526020016103e7565b50505050905090810190601f16801561042c5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b610373610a18565b6101bf6004803603602081101561045857600080fd5b50356001600160a01b0316610aa4565b610373610b54565b610478610b78565b60408051918252519081900360200190f35b61012b600480360360408110156104a057600080fd5b506001600160a01b0381358116916020013516610b9c565b6104c0610ba5565b60405180806020018060200185151581526020018415158152602001838103835287818151815260200191508051906020019060200280838360005b838110156105145781810151838201526020016104fc565b50505050905001838103825286818151815260200191508051906020019060200280838360005b8381101561055357818101518382015260200161053b565b50505050905001965050505050505060405180910390f35b610373610c1c565b6001600160a01b031660009081526020819052604090205460ff1690565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146105f85760405162461bcd60e51b8152600401808060200182810382526025815260200180610d7c6025913960400191505060405180910390fd5b505050565b505050505050565b5050565b60008080336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146106745760405162461bcd60e51b8152600401808060200182810382526025815260200180610d7c6025913960400191505060405180910390fd5b60006106b587878080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250610c4092505050565b60015491945091506001600160a01b031615806106ea57506001600160a01b03831660009081526020819052604090205460ff165b156107005760008060009350935093505061087f565b60015460408051630f1d03b960e11b81526001600160a01b038c81166004830152868116602483015291516000939290921691631e3a077291604480820192602092909190829003018186803b15801561075957600080fd5b505afa15801561076d573d6000803e3d6000fd5b505050506040513d602081101561078357600080fd5b50516001546040805163331d19a960e01b815290519293506000926001600160a01b039092169163331d19a991600480820192602092909190829003018186803b1580156107d057600080fd5b505afa1580156107e4573d6000803e3d6000fd5b505050506040513d60208110156107fa57600080fd5b505190506108128161080c8585610c6b565b90610ccb565b93508361082c57600080600095509550955050505061087f565b846001600160a01b03168c6001600160a01b03167f7e79a2206061184e05985ae0578dec52f817756a441996f984cdc817efc25a68866040518082815260200191505060405180910390a3600695505050505b96509650969350505050565b6000610895610a18565b6001600160a01b0316336001600160a01b0316146108e45760405162461bcd60e51b8152600401808060200182810382526049815260200180610d336049913960600191505060405180910390fd5b600180546001600160a01b0319166001600160a01b0384169081179091556040517f82367bd1654c1f34ba80f85c5d9d167e60d6d52bef209a9c4f06688ab5bc7d3590600090a2919050565b6001546001600160a01b031690565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146109a65760405162461bcd60e51b8152600401808060200182810382526025815260200180610d7c6025913960400191505060405180910390fd5b6001600160a01b038116600081815260208190526040808220805460ff19166001179055517faa0e9100f973660a79dca7e4920e97aa3d552337b468b83ef5f54bc2f823530d9190a250565b60408051808201909152600c81526b50524f544f434f4c5f46454560a01b602082015290565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b158015610a7357600080fd5b505afa158015610a87573d6000803e3d6000fd5b505050506040513d6020811015610a9d57600080fd5b5051905090565b336001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001614610b0b5760405162461bcd60e51b8152600401808060200182810382526025815260200180610d7c6025913960400191505060405180910390fd5b6001600160a01b038116600081815260208190526040808220805460ff19169055517fd51e82eaff33a5c5fb421b48653be389552281a56dda3ba08b32b1e5985511a09190a250565b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b60005b92915050565b604080516001808252818301909252606091829160009182919060208083019080368337019050509350600584600081518110610bde57fe5b60200260200101906005811115610bf157fe5b90816005811115610bfe57fe5b90525050604080516000808252602082019092529394909250829150565b7f000000000000000000000000000000000000000000000000000000000000000090565b600080828060200190516040811015610c5857600080fd5b5080516020909101519092509050915091565b600082610c7a57506000610b9f565b82820282848281610c8757fe5b0414610cc45760405162461bcd60e51b8152600401808060200182810382526021815260200180610da16021913960400191505060405180910390fd5b9392505050565b6000808211610d21576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b818381610d2a57fe5b04939250505056fe6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652046756e644465706c6f796572206f776e65722063616e2063616c6c20746869732066756e6374696f6e4f6e6c7920746865204665654d616e6765722063616e206d616b6520746869732063616c6c536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f77a2646970667358221220f31d092eb91adf16a4b4628fe06e8b5d84fce4bd40fcb2ceedf7f4f283bcf83f64736f6c634300060c0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "activateForFund(address,address)": {
+        "details": "Unimplemented by default, may be overrode."
+      },
+      "getFeeManager()": {
+        "returns": {
+          "feeManager_": "The `FEE_MANAGER` variable value"
+        }
+      },
+      "getFundDeployer()": {
+        "returns": {
+          "fundDeployer_": "The `FUND_DEPLOYER` variable value"
+        }
+      },
+      "getOwner()": {
+        "details": "Ownership is deferred to the owner of the FundDeployer contract",
+        "returns": {
+          "owner_": "The owner"
+        }
+      },
+      "payout(address,address)": {
+        "details": "Returns false by default, can be overridden by fee"
+      },
+      "update(address,address,uint8,bytes,uint256)": {
+        "details": "Unimplemented by default, can be overridden by fee"
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "activateForFund(address,address)": {
+        "notice": "Allows Fee to run logic during fund activation"
+      },
+      "getFeeManager()": {
+        "notice": "Gets the `FEE_MANAGER` variable"
+      },
+      "getFundDeployer()": {
+        "notice": "Gets the `FUND_DEPLOYER` variable"
+      },
+      "getOwner()": {
+        "notice": "Gets the owner of this contract"
+      },
+      "payout(address,address)": {
+        "notice": "Runs payout logic for a fee that utilizes shares outstanding as its settlement type"
+      },
+      "update(address,address,uint8,bytes,uint256)": {
+        "notice": "Update fee state after all settlement has occurred during a given fee hook"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 18344,
+        "contract": "contracts/release/extensions/fee-manager/fees/ProtocolFee.sol:ProtocolFee",
+        "label": "payerWhitelist",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 17832,
+        "contract": "contracts/release/extensions/fee-manager/fees/ProtocolFee.sol:ProtocolFee",
+        "label": "STAKING_DAO",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      }
+    }
+  }
+}

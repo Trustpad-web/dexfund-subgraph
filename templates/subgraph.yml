@@ -1,6 +1,6 @@
 specVersion: 0.0.2
-description: Radar Finance
-repository: https://github.com/trust0212/radar_graph
+description: Dexify Finance
+repository: https://github.com/trust0212/dexfund-subgraph.git
 schema:
   file: ./schema.graphql
 # graft:

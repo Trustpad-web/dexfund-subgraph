@@ -1,0 +1,1612 @@
+{
+  "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fundDeployer",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_wethToken",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_ethUsdAggregator",
+          "type": "address"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_primitives",
+          "type": "address[]"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_aggregators",
+          "type": "address[]"
+        },
+        {
+          "internalType": "enum ChainlinkPriceFeed.RateAsset[]",
+          "name": "_rateAssets",
+          "type": "uint8[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "prevEthUsdAggregator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "nextEthUsdAggregator",
+          "type": "address"
+        }
+      ],
+      "name": "EthUsdAggregatorSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "primitive",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "aggregator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum ChainlinkPriceFeed.RateAsset",
+          "name": "rateAsset",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "unit",
+          "type": "uint256"
+        }
+      ],
+      "name": "PrimitiveAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "primitive",
+          "type": "address"
+        }
+      ],
+      "name": "PrimitiveRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "primitive",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "prevAggregator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "nextAggregator",
+          "type": "address"
+        }
+      ],
+      "name": "PrimitiveUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "primitive",
+          "type": "address"
+        }
+      ],
+      "name": "StalePrimitiveRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "prevStaleRateThreshold",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "nextStaleRateThreshold",
+          "type": "uint256"
+        }
+      ],
+      "name": "StaleRateThresholdSet",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_primitives",
+          "type": "address[]"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_aggregators",
+          "type": "address[]"
+        },
+        {
+          "internalType": "enum ChainlinkPriceFeed.RateAsset[]",
+          "name": "_rateAssets",
+          "type": "uint8[]"
+        }
+      ],
+      "name": "addPrimitives",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_baseAsset",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_baseAssetAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_quoteAsset",
+          "type": "address"
+        }
+      ],
+      "name": "calcCanonicalValue",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "quoteAssetAmount_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isValid_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_baseAsset",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_baseAssetAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_quoteAsset",
+          "type": "address"
+        }
+      ],
+      "name": "calcLiveValue",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "quoteAssetAmount_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isValid_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_primitive",
+          "type": "address"
+        }
+      ],
+      "name": "getAggregatorInfoForPrimitive",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "aggregator",
+              "type": "address"
+            },
+            {
+              "internalType": "enum ChainlinkPriceFeed.RateAsset",
+              "name": "rateAsset",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct ChainlinkPriceFeed.AggregatorInfo",
+          "name": "aggregatorInfo_",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getEthUsdAggregator",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "ethUsdAggregator_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFundDeployer",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "fundDeployer_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPricefeedDeployTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_primitive",
+          "type": "address"
+        }
+      ],
+      "name": "getRateAssetForPrimitive",
+      "outputs": [
+        {
+          "internalType": "enum ChainlinkPriceFeed.RateAsset",
+          "name": "rateAsset_",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStaleRateThreshold",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "staleRateThreshold_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_primitive",
+          "type": "address"
+        }
+      ],
+      "name": "getUnitForPrimitive",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "unit_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getWethToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "wethToken_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_asset",
+          "type": "address"
+        }
+      ],
+      "name": "isSupportedAsset",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isSupported_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_aggregator",
+          "type": "address"
+        }
+      ],
+      "name": "rateIsStale",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "rateIsStale_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_primitives",
+          "type": "address[]"
+        }
+      ],
+      "name": "removePrimitives",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_primitives",
+          "type": "address[]"
+        }
+      ],
+      "name": "removeStalePrimitives",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_nextEthUsdAggregator",
+          "type": "address"
+        }
+      ],
+      "name": "setEthUsdAggregator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_nextStaleRateThreshold",
+          "type": "uint256"
+        }
+      ],
+      "name": "setStaleRateThreshold",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_primitives",
+          "type": "address[]"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_aggregators",
+          "type": "address[]"
+        }
+      ],
+      "name": "updatePrimitives",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+  "receipt": {
+    "to": null,
+    "from": "0x5a43993587dD57d58c16bbEbdf23b9F6D279176f",
+    "contractAddress": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+    "transactionIndex": 142,
+    "gasUsed": "5824517",
+    "logsBloom": "0x000218050000400400002000200020022000a0120000000400000040000000408028000002000000000842250000020000004040000040080c0008000000080001000000000000000000020004000000000002000008205000300080000000002800800004100010000040800000000100002028540010000a0000000002002000004000000000000020000000020012000000b0000080010010021400000040000050042000000004011000000000000000004200000000008180100001006411040880410041800600400000104080000000020404200810880202080000658034000000090044000000000800000584002010010000102000000008208040",
+    "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1",
+    "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+    "logs": [
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x98b60a60ba6130248e985ae4140dc3109d9c2980c7e435fed385e2756bc94461"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000005f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+        "logIndex": 405,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000111111111117dc0aa78b770fa6a738034120c302"
+        ],
+        "data": "0x00000000000000000000000072afaecf99c9d9c8215ff44c77b94b99c28741e800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 406,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000007fc66500c84a76ad7e9c93437bfc5ac33e2ddae9"
+        ],
+        "data": "0x0000000000000000000000006df09e975c830ecae5bd4ed9d90f3a95a4f8801200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 407,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000ade00c28244d5ce17d72e40330b1c318cd12b7c3"
+        ],
+        "data": "0x000000000000000000000000231e764b44b2c1b7ca171fa8021a24ed520cde1000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 408,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000a1faa113cbe53436df28ff0aee54275c13b40975"
+        ],
+        "data": "0x00000000000000000000000089c7926c7c15fd5bfdb1edcff7e7fc8283b578f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 409,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000a117000000f279d81a1d3cc75430faa017fa5a2e"
+        ],
+        "data": "0x0000000000000000000000008f83670260f8f7708143b836a2a6f11ef0abac0100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 410,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000003472a5a71965499acd81997a54bba8d852c6e53d"
+        ],
+        "data": "0x00000000000000000000000058921ac140522867bf50b9e009599da0ca4a237900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 411,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000ba100000625a3754423978a60c9317c58a424e3d"
+        ],
+        "data": "0x000000000000000000000000c1438aa3823a6ba0c159cfa8d98df5a994ba120b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 412,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000ba11d00c5f74255f56a5e366f4f77f5a186d7f55"
+        ],
+        "data": "0x000000000000000000000000919c77acc7373d000b329c1276c76586ed2dd19f00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 413,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000000d8775f648430679a709e98d2b0cb6250d2887ef"
+        ],
+        "data": "0x0000000000000000000000000d16d4528239e9ee52fa531af613acdb23d88c9400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 414,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000b8c77482e45f1f44de1745f52c74426c631bdd52"
+        ],
+        "data": "0x00000000000000000000000014e613ac84a31f709eadbdf89c6cc390fdc9540a00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 415,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000001f573d6fb3f13d689ff844b4ce37794d79a7ff1c"
+        ],
+        "data": "0x000000000000000000000000cf61d1841b178fe82c8895fe60c2edda0831441600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 416,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000004fabb145d64652a948d72533023f6e7a623c7c53"
+        ],
+        "data": "0x000000000000000000000000614715d2af89e6ec99a233818275142ce88d1cfd00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 417,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x00000000000000000000000056d811088235f11c8920698a204a5010a788f4b3"
+        ],
+        "data": "0x0000000000000000000000008f7c7181ed1a2ba41cfc3f5d064ef91b67daef6600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 418,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000c00e94cb662c3520282e6f5717214004a7f26888"
+        ],
+        "data": "0x0000000000000000000000001b39ee86ec5979ba5c322b826b3ecb8c7999169900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 419,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000a0b73e1ff0b80914ab6fe0444e65848c4c34450b"
+        ],
+        "data": "0x000000000000000000000000ca696a9eb93b81adfe6435759a29ab4cf2991a9600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005f5e100",
+        "logIndex": 420,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000d533a949740bb3306d119cc777fa900ba034cd52"
+        ],
+        "data": "0x0000000000000000000000008a12be339b0cd1829b91adc01977caa5e9ac121e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 421,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000006b175474e89094c44da98b954eedeac495271d0f"
+        ],
+        "data": "0x000000000000000000000000773616e4d11a78f511299002da57a0a94577f1f400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 422,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000001494ca1f11d487c2bbe4543e90080aeba4ba3c2b"
+        ],
+        "data": "0x000000000000000000000000029849bbc0b1d93b85a8b6190e979fd38f5760e200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 423,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000f629cbd94d3791c9250152bd8dfbdf380e2a3b9c"
+        ],
+        "data": "0x00000000000000000000000024d9ab51950f3d62e9144fdc2f3135daa6ce8d1b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 424,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000c944e90c64b2c07662a292be6244bdf05cda44a7"
+        ],
+        "data": "0x00000000000000000000000017d054ecac33d91f7340645341efb5de9009f1c100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 425,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000584bc13c7d411c00c01a62e8019472de68768430"
+        ],
+        "data": "0x000000000000000000000000bfc189ac214e6a4a35ebc281ad15669619b7553400000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 426,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000dd974d5c2e2928dea5f71b9825b8b646686bd200"
+        ],
+        "data": "0x000000000000000000000000656c0544ef4c98a6a98491833a89204abb045d6b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 427,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000defa4e8a7bcba345f687a2f1456f5edd9ce97202"
+        ],
+        "data": "0x000000000000000000000000656c0544ef4c98a6a98491833a89204abb045d6b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 428,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000514910771af9ca656af840dff83e8264ecf986ca"
+        ],
+        "data": "0x000000000000000000000000dc530d9457755926550b59e8eccdae762418155700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 429,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000bbbbca6a901c926f240b89eacb641d8aec7aeafd"
+        ],
+        "data": "0x000000000000000000000000160ac928a16c93ed4895c2de6f81ecce9a7eb7b400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 430,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000000f5d2fb29fb7d3cfee444a200298f468908cc942"
+        ],
+        "data": "0x00000000000000000000000082a44d92d6c329826dc557c5e1be6ebec5d5feb900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 431,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000009f8f72aa9304c8b593d555f12ef6589cc3a579a2"
+        ],
+        "data": "0x00000000000000000000000024551a8fb2a7211a25a17b1481f043a8a8adc7f200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 432,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000ec67005c4e498ec7f55e092bd1d35cbc47c91892"
+        ],
+        "data": "0x000000000000000000000000daea8386611a157b08829ed4997a8a62b557014c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 433,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000001776e1f26f98b1a5df9cd347953a26dd3cb46671"
+        ],
+        "data": "0x0000000000000000000000009cb2a01a7e64992d32a34db7ceea4c919c391f6a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 434,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000008207c1ffc5b6804f6024322ccf34f29c3541ae26"
+        ],
+        "data": "0x0000000000000000000000002c881b6f3f6b5ff6c975813f87a4dad0b241c15b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 435,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000000258f474786ddfd37abce6df6bbb1dd5dfc4434a"
+        ],
+        "data": "0x000000000000000000000000ba9b2a360eb8abdb677d6d7f27e12de11aa052ef00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005f5e100",
+        "logIndex": 436,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000004575f41308ec1483f3d399aa9a2826d74da13deb"
+        ],
+        "data": "0x000000000000000000000000d75aaae4af0c398ca13e2667be57af2cca8b5de600000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 437,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000bc396689893d065f41bc2c6ecbee5e0085233447"
+        ],
+        "data": "0x0000000000000000000000003b41d5571468904d4e53b6a8d93a6bac43f02dc900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 438,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000408e41876cccdc0f92210600ef50372656052a38"
+        ],
+        "data": "0x0000000000000000000000003147d7203354dc06d9fd350c7a2437bca92387a400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 439,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000221657776846890989a759ba2973e427dff5c9bb"
+        ],
+        "data": "0x000000000000000000000000d4ce430c3b67b3e2f7026d86e7128588629e245500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 440,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000607f4c5bb672230e8672085532f7e901544a7375"
+        ],
+        "data": "0x0000000000000000000000004cba1e1fdc738d0fe8db3ee07728e2bc4da676c60000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003b9aca00",
+        "logIndex": 441,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000003155ba85d5f96b2d030a4966af206230e46849cb"
+        ],
+        "data": "0x000000000000000000000000875d60c44cfbc38baa4eb2ddb76a767deb91b97e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 442,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000c011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f"
+        ],
+        "data": "0x00000000000000000000000079291a9d692df95334b1a0b3b4ae6bc606782f8c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 443,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x00000000000000000000000057ab1ec28d129707052df4df418d58a2d46d5f51"
+        ],
+        "data": "0x0000000000000000000000008e0b7e6062272b5ef4524250bfff8e5bd349775700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 444,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe2"
+        ],
+        "data": "0x000000000000000000000000e572cef69f43c2e488b33924af04bdace19079cf00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 445,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000008ce9137d39326ad0cd6491fb5cc0cba0e089b6a9"
+        ],
+        "data": "0x000000000000000000000000fb0cfd6c19e25db4a08d8a204a387cea48cc138f00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 446,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x00000000000000000000000004fa0d235c4abf4bcf4787af4cf447de572ef828"
+        ],
+        "data": "0x000000000000000000000000f817b69ea583caff291e287cae00ea329d22765c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 447,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000001f9840a85d5af5bf1d1762f925bdaddc4201f984"
+        ],
+        "data": "0x000000000000000000000000d6aa3d25116d8da79ea0246c4826eb951872e02e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 448,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "data": "0x000000000000000000000000986b5e1e1755e3c2440e960477f25201b0a8bbd4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f4240",
+        "logIndex": 449,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "data": "0x000000000000000000000000ee9f2375b4bdf6387aa8265dd4fb8f16512a1d46000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f4240",
+        "logIndex": 450,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c599"
+        ],
+        "data": "0x000000000000000000000000deb288f737066589598e9214e782fa5a8ed689e800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005f5e100",
+        "logIndex": 451,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000000d438f3b5175bebc262bf23753c1e53d03432bde"
+        ],
+        "data": "0x000000000000000000000000e5dc0a609ab8bcf15d3f35cfaa1ff40f521173ea00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 452,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x0000000000000000000000000bc529c00c6401aef6d220be8c6ea1667f6ad93e"
+        ],
+        "data": "0x0000000000000000000000007c5d4f8345e66f68099581db340cd65b078c41f400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 453,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      },
+      {
+        "transactionIndex": 142,
+        "blockNumber": 13522193,
+        "transactionHash": "0xf36a0d344c20b35a5d1dc6caa47156103def66f38b45407c4dc4e1c9f90d6ead",
+        "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+        "topics": [
+          "0x742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02",
+          "0x000000000000000000000000e41d2489571d322189246dafa5ebde1f4699f498"
+        ],
+        "data": "0x0000000000000000000000002da4983a622a8498bb1a21fae9d8f6c66493996200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "logIndex": 454,
+        "blockHash": "0xe1c2e922095fc9f69b8cd1a939be034e5a16fd3daa8411ba7c8f19da3c9f7fd1"
+      }
+    ],
+    "blockNumber": 13522193,
+    "cumulativeGasUsed": "24360396",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x217912B16c8A00C2D9F2fDFCA94127ca37cFe948",
+    "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
+    [
+      "0x111111111117dc0aa78b770fa6a738034120c302",
+      "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+      "0xade00c28244d5ce17d72e40330b1c318cd12b7c3",
+      "0xa1faa113cbe53436df28ff0aee54275c13b40975",
+      "0xa117000000f279d81a1d3cc75430faa017fa5a2e",
+      "0x3472a5a71965499acd81997a54bba8d852c6e53d",
+      "0xba100000625a3754423978a60c9317c58a424e3d",
+      "0xba11d00c5f74255f56a5e366f4f77f5a186d7f55",
+      "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+      "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+      "0x1f573d6fb3f13d689ff844b4ce37794d79a7ff1c",
+      "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+      "0x56d811088235f11c8920698a204a5010a788f4b3",
+      "0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
+      "0xd533a949740bb3306d119cc777fa900ba034cd52",
+      "0x6b175474e89094c44da98b954eedeac495271d0f",
+      "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
+      "0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c",
+      "0xc944e90c64b2c07662a292be6244bdf05cda44a7",
+      "0x584bc13c7d411c00c01a62e8019472de68768430",
+      "0xdd974d5c2e2928dea5f71b9825b8b646686bd200",
+      "0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202",
+      "0x514910771af9ca656af840dff83e8264ecf986ca",
+      "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd",
+      "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
+      "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+      "0xec67005c4e498ec7f55e092bd1d35cbc47c91892",
+      "0x1776e1f26f98b1a5df9cd347953a26dd3cb46671",
+      "0x8207c1ffc5b6804f6024322ccf34f29c3541ae26",
+      "0x0258f474786ddfd37abce6df6bbb1dd5dfc4434a",
+      "0x4575f41308ec1483f3d399aa9a2826d74da13deb",
+      "0xbc396689893d065f41bc2c6ecbee5e0085233447",
+      "0x408e41876cccdc0f92210600ef50372656052a38",
+      "0x221657776846890989a759ba2973e427dff5c9bb",
+      "0x607f4c5bb672230e8672085532f7e901544a7375",
+      "0x3155ba85d5f96b2d030a4966af206230e46849cb",
+      "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+      "0x57ab1ec28d129707052df4df418d58a2d46d5f51",
+      "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
+      "0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9",
+      "0x04fa0d235c4abf4bcf4787af4cf447de572ef828",
+      "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "0x0d438f3b5175bebc262bf23753c1e53d03432bde",
+      "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+      "0xe41d2489571d322189246dafa5ebde1f4699f498"
+    ],
+    [
+      "0x72afaecf99c9d9c8215ff44c77b94b99c28741e8",
+      "0x6df09e975c830ecae5bd4ed9d90f3a95a4f88012",
+      "0x231e764b44b2c1b7ca171fa8021a24ed520cde10",
+      "0x89c7926c7c15fd5bfdb1edcff7e7fc8283b578f6",
+      "0x8f83670260f8f7708143b836a2a6f11ef0abac01",
+      "0x58921ac140522867bf50b9e009599da0ca4a2379",
+      "0xc1438aa3823a6ba0c159cfa8d98df5a994ba120b",
+      "0x919c77acc7373d000b329c1276c76586ed2dd19f",
+      "0x0d16d4528239e9ee52fa531af613acdb23d88c94",
+      "0x14e613ac84a31f709eadbdf89c6cc390fdc9540a",
+      "0xcf61d1841b178fe82c8895fe60c2edda08314416",
+      "0x614715d2af89e6ec99a233818275142ce88d1cfd",
+      "0x8f7c7181ed1a2ba41cfc3f5d064ef91b67daef66",
+      "0x1b39ee86ec5979ba5c322b826b3ecb8c79991699",
+      "0xca696a9eb93b81adfe6435759a29ab4cf2991a96",
+      "0x8a12be339b0cd1829b91adc01977caa5e9ac121e",
+      "0x773616e4d11a78f511299002da57a0a94577f1f4",
+      "0x029849bbc0b1d93b85a8b6190e979fd38f5760e2",
+      "0x24d9ab51950f3d62e9144fdc2f3135daa6ce8d1b",
+      "0x17d054ecac33d91f7340645341efb5de9009f1c1",
+      "0xbfc189ac214e6a4a35ebc281ad15669619b75534",
+      "0x656c0544ef4c98a6a98491833a89204abb045d6b",
+      "0x656c0544ef4c98a6a98491833a89204abb045d6b",
+      "0xdc530d9457755926550b59e8eccdae7624181557",
+      "0x160ac928a16c93ed4895c2de6f81ecce9a7eb7b4",
+      "0x82a44d92d6c329826dc557c5e1be6ebec5d5feb9",
+      "0x24551a8fb2a7211a25a17b1481f043a8a8adc7f2",
+      "0xdaea8386611a157b08829ed4997a8a62b557014c",
+      "0x9cb2a01a7e64992d32a34db7ceea4c919c391f6a",
+      "0x2c881b6f3f6b5ff6c975813f87a4dad0b241c15b",
+      "0xba9b2a360eb8abdb677d6d7f27e12de11aa052ef",
+      "0xd75aaae4af0c398ca13e2667be57af2cca8b5de6",
+      "0x3b41d5571468904d4e53b6a8d93a6bac43f02dc9",
+      "0x3147d7203354dc06d9fd350c7a2437bca92387a4",
+      "0xd4ce430c3b67b3e2f7026d86e7128588629e2455",
+      "0x4cba1e1fdc738d0fe8db3ee07728e2bc4da676c6",
+      "0x875d60c44cfbc38baa4eb2ddb76a767deb91b97e",
+      "0x79291a9d692df95334b1a0b3b4ae6bc606782f8c",
+      "0x8e0b7e6062272b5ef4524250bfff8e5bd3497757",
+      "0xe572cef69f43c2e488b33924af04bdace19079cf",
+      "0xfb0cfd6c19e25db4a08d8a204a387cea48cc138f",
+      "0xf817b69ea583caff291e287cae00ea329d22765c",
+      "0xd6aa3d25116d8da79ea0246c4826eb951872e02e",
+      "0x986b5e1e1755e3c2440e960477f25201b0a8bbd4",
+      "0xee9f2375b4bdf6387aa8265dd4fb8f16512a1d46",
+      "0xdeb288f737066589598e9214e782fa5a8ed689e8",
+      "0xe5dc0a609ab8bcf15d3f35cfaa1ff40f521173ea",
+      "0x7c5d4f8345e66f68099581db340cd65b078c41f4",
+      "0x2da4983a622a8498bb1a21fae9d8f6c664939962"
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "solcInputHash": "34b1516e615d6cbcdbaf9542624efee9",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fundDeployer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_wethToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_ethUsdAggregator\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"_primitives\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"_aggregators\",\"type\":\"address[]\"},{\"internalType\":\"enum ChainlinkPriceFeed.RateAsset[]\",\"name\":\"_rateAssets\",\"type\":\"uint8[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"prevEthUsdAggregator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nextEthUsdAggregator\",\"type\":\"address\"}],\"name\":\"EthUsdAggregatorSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"primitive\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"aggregator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enum ChainlinkPriceFeed.RateAsset\",\"name\":\"rateAsset\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"unit\",\"type\":\"uint256\"}],\"name\":\"PrimitiveAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"primitive\",\"type\":\"address\"}],\"name\":\"PrimitiveRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"primitive\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"prevAggregator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nextAggregator\",\"type\":\"address\"}],\"name\":\"PrimitiveUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"primitive\",\"type\":\"address\"}],\"name\":\"StalePrimitiveRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"prevStaleRateThreshold\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nextStaleRateThreshold\",\"type\":\"uint256\"}],\"name\":\"StaleRateThresholdSet\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_primitives\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"_aggregators\",\"type\":\"address[]\"},{\"internalType\":\"enum ChainlinkPriceFeed.RateAsset[]\",\"name\":\"_rateAssets\",\"type\":\"uint8[]\"}],\"name\":\"addPrimitives\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_baseAsset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_baseAssetAmount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_quoteAsset\",\"type\":\"address\"}],\"name\":\"calcCanonicalValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"quoteAssetAmount_\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isValid_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_baseAsset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_baseAssetAmount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_quoteAsset\",\"type\":\"address\"}],\"name\":\"calcLiveValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"quoteAssetAmount_\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isValid_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_primitive\",\"type\":\"address\"}],\"name\":\"getAggregatorInfoForPrimitive\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"aggregator\",\"type\":\"address\"},{\"internalType\":\"enum ChainlinkPriceFeed.RateAsset\",\"name\":\"rateAsset\",\"type\":\"uint8\"}],\"internalType\":\"struct ChainlinkPriceFeed.AggregatorInfo\",\"name\":\"aggregatorInfo_\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEthUsdAggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"ethUsdAggregator_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFundDeployer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"fundDeployer_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPricefeedDeployTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_primitive\",\"type\":\"address\"}],\"name\":\"getRateAssetForPrimitive\",\"outputs\":[{\"internalType\":\"enum ChainlinkPriceFeed.RateAsset\",\"name\":\"rateAsset_\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStaleRateThreshold\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"staleRateThreshold_\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_primitive\",\"type\":\"address\"}],\"name\":\"getUnitForPrimitive\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"unit_\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getWethToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"wethToken_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\"}],\"name\":\"isSupportedAsset\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isSupported_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_aggregator\",\"type\":\"address\"}],\"name\":\"rateIsStale\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"rateIsStale_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_primitives\",\"type\":\"address[]\"}],\"name\":\"removePrimitives\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_primitives\",\"type\":\"address[]\"}],\"name\":\"removeStalePrimitives\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_nextEthUsdAggregator\",\"type\":\"address\"}],\"name\":\"setEthUsdAggregator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_nextStaleRateThreshold\",\"type\":\"uint256\"}],\"name\":\"setStaleRateThreshold\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_primitives\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"_aggregators\",\"type\":\"address[]\"}],\"name\":\"updatePrimitives\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Enzyme Council <security@enzyme.finance>\",\"kind\":\"dev\",\"methods\":{\"addPrimitives(address[],address[],uint8[])\":{\"params\":{\"_aggregators\":\"The ordered aggregators corresponding to the list of _primitives\",\"_primitives\":\"The primitives to add\",\"_rateAssets\":\"The ordered rate assets corresponding to the list of _primitives\"}},\"calcCanonicalValue(address,uint256,address)\":{\"params\":{\"_baseAsset\":\"The base asset\",\"_baseAssetAmount\":\"The base asset amount to convert\",\"_quoteAsset\":\"The quote asset\"},\"returns\":{\"isValid_\":\"True if the rates used in calculations are deemed valid\",\"quoteAssetAmount_\":\"The equivalent quote asset amount\"}},\"calcLiveValue(address,uint256,address)\":{\"details\":\"Live and canonical values are the same for Chainlink\",\"params\":{\"_baseAsset\":\"The base asset\",\"_baseAssetAmount\":\"The base asset amount to convert\",\"_quoteAsset\":\"The quote asset\"},\"returns\":{\"isValid_\":\"True if the rates used in calculations are deemed valid\",\"quoteAssetAmount_\":\"The equivalent quote asset amount\"}},\"getAggregatorInfoForPrimitive(address)\":{\"params\":{\"_primitive\":\"The primitive asset for which to get the aggregatorInfo value\"},\"returns\":{\"aggregatorInfo_\":\"The aggregatorInfo value\"}},\"getEthUsdAggregator()\":{\"returns\":{\"ethUsdAggregator_\":\"The `ethUsdAggregator` variable value\"}},\"getFundDeployer()\":{\"returns\":{\"fundDeployer_\":\"The `FUND_DEPLOYER` variable value\"}},\"getOwner()\":{\"details\":\"Ownership is deferred to the owner of the FundDeployer contract\",\"returns\":{\"owner_\":\"The owner\"}},\"getRateAssetForPrimitive(address)\":{\"details\":\"This isn't strictly necessary as WETH_TOKEN will be undefined and thus the RateAsset will be the 0-position of the enum (i.e. ETH), but it makes the behavior more explicit\",\"returns\":{\"rateAsset_\":\"The rateAsset variable value\"}},\"getStaleRateThreshold()\":{\"returns\":{\"staleRateThreshold_\":\"The `staleRateThreshold` variable value\"}},\"getUnitForPrimitive(address)\":{\"returns\":{\"unit_\":\"The unit variable value\"}},\"getWethToken()\":{\"returns\":{\"wethToken_\":\"The `WETH_TOKEN` variable value\"}},\"isSupportedAsset(address)\":{\"params\":{\"_asset\":\"The asset to check\"},\"returns\":{\"isSupported_\":\"True if the asset is a supported primitive\"}},\"rateIsStale(address)\":{\"params\":{\"_aggregator\":\"The Chainlink aggregator of which to check staleness\"},\"returns\":{\"rateIsStale_\":\"True if the rate is considered stale\"}},\"removePrimitives(address[])\":{\"params\":{\"_primitives\":\"The primitives to remove\"}},\"removeStalePrimitives(address[])\":{\"details\":\"Callable by anybody\",\"params\":{\"_primitives\":\"The stale primitives to remove\"}},\"setEthUsdAggregator(address)\":{\"params\":{\"_nextEthUsdAggregator\":\"The `ehUsdAggregator` value to set\"}},\"setStaleRateThreshold(uint256)\":{\"params\":{\"_nextStaleRateThreshold\":\"The next `staleRateThreshold` value\"}},\"updatePrimitives(address[],address[])\":{\"params\":{\"_aggregators\":\"The ordered aggregators corresponding to the list of _primitives\",\"_primitives\":\"The primitives to update\"}}},\"title\":\"ChainlinkPriceFeed Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"addPrimitives(address[],address[],uint8[])\":{\"notice\":\"Adds a list of primitives with the given aggregator and rateAsset values\"},\"calcCanonicalValue(address,uint256,address)\":{\"notice\":\"Calculates the value of a base asset in terms of a quote asset (using a canonical rate)\"},\"calcLiveValue(address,uint256,address)\":{\"notice\":\"Calculates the value of a base asset in terms of a quote asset (using a live rate)\"},\"getAggregatorInfoForPrimitive(address)\":{\"notice\":\"Gets the aggregatorInfo variable value for a primitive\"},\"getEthUsdAggregator()\":{\"notice\":\"Gets the `ethUsdAggregator` variable value\"},\"getFundDeployer()\":{\"notice\":\"Gets the `FUND_DEPLOYER` variable\"},\"getOwner()\":{\"notice\":\"Gets the owner of this contract\"},\"getRateAssetForPrimitive(address)\":{\"notice\":\"Gets the rateAsset variable value for a primitive\"},\"getStaleRateThreshold()\":{\"notice\":\"Gets the `staleRateThreshold` variable value\"},\"getUnitForPrimitive(address)\":{\"notice\":\"Gets the unit variable value for a primitive\"},\"getWethToken()\":{\"notice\":\"Gets the `WETH_TOKEN` variable value\"},\"isSupportedAsset(address)\":{\"notice\":\"Checks whether an asset is a supported primitive of the price feed\"},\"rateIsStale(address)\":{\"notice\":\"Checks whether the current rate is considered stale for the specified aggregator\"},\"removePrimitives(address[])\":{\"notice\":\"Removes a list of primitives from the feed\"},\"removeStalePrimitives(address[])\":{\"notice\":\"Removes stale primitives from the feed\"},\"setEthUsdAggregator(address)\":{\"notice\":\"Sets the `ehUsdAggregator` variable value\"},\"setStaleRateThreshold(uint256)\":{\"notice\":\"Sets the `staleRateThreshold` variable\"},\"updatePrimitives(address[],address[])\":{\"notice\":\"Updates the aggregators for given primitives\"}},\"notice\":\"A price feed that uses Chainlink oracles as price sources\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/release/infrastructure/price-feeds/primitives/ChainlinkPriceFeed.sol\":\"ChainlinkPriceFeed\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\n * checks.\\n *\\n * Arithmetic operations in Solidity wrap on overflow. This can easily result\\n * in bugs, because programmers usually assume that an overflow raises an\\n * error, which is the standard behavior in high level programming languages.\\n * `SafeMath` restores this intuition by reverting the transaction when an\\n * operation overflows.\\n *\\n * Using this library instead of the unchecked operations eliminates an entire\\n * class of bugs, so it's recommended to use it always.\\n */\\nlibrary SafeMath {\\n    /**\\n     * @dev Returns the addition of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        uint256 c = a + b;\\n        if (c < a) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the substraction of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b > a) return (false, 0);\\n        return (true, a - b);\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\n        // benefit is lost if 'b' is also tested.\\n        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522\\n        if (a == 0) return (true, 0);\\n        uint256 c = a * b;\\n        if (c / a != b) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the division of two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a / b);\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a % b);\\n    }\\n\\n    /**\\n     * @dev Returns the addition of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `+` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Addition cannot overflow.\\n     */\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\n        uint256 c = a + b;\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting on\\n     * overflow (when the result is negative).\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b <= a, \\\"SafeMath: subtraction overflow\\\");\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `*` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Multiplication cannot overflow.\\n     */\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\n        if (a == 0) return 0;\\n        uint256 c = a * b;\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: division by zero\\\");\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting when dividing by zero.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: modulo by zero\\\");\\n        return a % b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on\\n     * overflow (when the result is negative).\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {trySub}.\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b <= a, errorMessage);\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting with custom message on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryDiv}.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting with custom message when dividing by zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryMod}.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a % b;\\n    }\\n}\\n\",\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\nimport \\\"../../utils/Context.sol\\\";\\nimport \\\"./IERC20.sol\\\";\\nimport \\\"../../math/SafeMath.sol\\\";\\n\\n/**\\n * @dev Implementation of the {IERC20} interface.\\n *\\n * This implementation is agnostic to the way tokens are created. This means\\n * that a supply mechanism has to be added in a derived contract using {_mint}.\\n * For a generic mechanism see {ERC20PresetMinterPauser}.\\n *\\n * TIP: For a detailed writeup see our guide\\n * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How\\n * to implement supply mechanisms].\\n *\\n * We have followed general OpenZeppelin guidelines: functions revert instead\\n * of returning `false` on failure. This behavior is nonetheless conventional\\n * and does not conflict with the expectations of ERC20 applications.\\n *\\n * Additionally, an {Approval} event is emitted on calls to {transferFrom}.\\n * This allows applications to reconstruct the allowance for all accounts just\\n * by listening to said events. Other implementations of the EIP may not emit\\n * these events, as it isn't required by the specification.\\n *\\n * Finally, the non-standard {decreaseAllowance} and {increaseAllowance}\\n * functions have been added to mitigate the well-known issues around setting\\n * allowances. See {IERC20-approve}.\\n */\\ncontract ERC20 is Context, IERC20 {\\n    using SafeMath for uint256;\\n\\n    mapping (address => uint256) private _balances;\\n\\n    mapping (address => mapping (address => uint256)) private _allowances;\\n\\n    uint256 private _totalSupply;\\n\\n    string private _name;\\n    string private _symbol;\\n    uint8 private _decimals;\\n\\n    /**\\n     * @dev Sets the values for {name} and {symbol}, initializes {decimals} with\\n     * a default value of 18.\\n     *\\n     * To select a different value for {decimals}, use {_setupDecimals}.\\n     *\\n     * All three of these values are immutable: they can only be set once during\\n     * construction.\\n     */\\n    constructor (string memory name_, string memory symbol_) public {\\n        _name = name_;\\n        _symbol = symbol_;\\n        _decimals = 18;\\n    }\\n\\n    /**\\n     * @dev Returns the name of the token.\\n     */\\n    function name() public view virtual returns (string memory) {\\n        return _name;\\n    }\\n\\n    /**\\n     * @dev Returns the symbol of the token, usually a shorter version of the\\n     * name.\\n     */\\n    function symbol() public view virtual returns (string memory) {\\n        return _symbol;\\n    }\\n\\n    /**\\n     * @dev Returns the number of decimals used to get its user representation.\\n     * For example, if `decimals` equals `2`, a balance of `505` tokens should\\n     * be displayed to a user as `5,05` (`505 / 10 ** 2`).\\n     *\\n     * Tokens usually opt for a value of 18, imitating the relationship between\\n     * Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is\\n     * called.\\n     *\\n     * NOTE: This information is only used for _display_ purposes: it in\\n     * no way affects any of the arithmetic of the contract, including\\n     * {IERC20-balanceOf} and {IERC20-transfer}.\\n     */\\n    function decimals() public view virtual returns (uint8) {\\n        return _decimals;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-totalSupply}.\\n     */\\n    function totalSupply() public view virtual override returns (uint256) {\\n        return _totalSupply;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-balanceOf}.\\n     */\\n    function balanceOf(address account) public view virtual override returns (uint256) {\\n        return _balances[account];\\n    }\\n\\n    /**\\n     * @dev See {IERC20-transfer}.\\n     *\\n     * Requirements:\\n     *\\n     * - `recipient` cannot be the zero address.\\n     * - the caller must have a balance of at least `amount`.\\n     */\\n    function transfer(address recipient, uint256 amount) public virtual override returns (bool) {\\n        _transfer(_msgSender(), recipient, amount);\\n        return true;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-allowance}.\\n     */\\n    function allowance(address owner, address spender) public view virtual override returns (uint256) {\\n        return _allowances[owner][spender];\\n    }\\n\\n    /**\\n     * @dev See {IERC20-approve}.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     */\\n    function approve(address spender, uint256 amount) public virtual override returns (bool) {\\n        _approve(_msgSender(), spender, amount);\\n        return true;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-transferFrom}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance. This is not\\n     * required by the EIP. See the note at the beginning of {ERC20}.\\n     *\\n     * Requirements:\\n     *\\n     * - `sender` and `recipient` cannot be the zero address.\\n     * - `sender` must have a balance of at least `amount`.\\n     * - the caller must have allowance for ``sender``'s tokens of at least\\n     * `amount`.\\n     */\\n    function transferFrom(address sender, address recipient, uint256 amount) public virtual override returns (bool) {\\n        _transfer(sender, recipient, amount);\\n        _approve(sender, _msgSender(), _allowances[sender][_msgSender()].sub(amount, \\\"ERC20: transfer amount exceeds allowance\\\"));\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Atomically increases the allowance granted to `spender` by the caller.\\n     *\\n     * This is an alternative to {approve} that can be used as a mitigation for\\n     * problems described in {IERC20-approve}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     */\\n    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {\\n        _approve(_msgSender(), spender, _allowances[_msgSender()][spender].add(addedValue));\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Atomically decreases the allowance granted to `spender` by the caller.\\n     *\\n     * This is an alternative to {approve} that can be used as a mitigation for\\n     * problems described in {IERC20-approve}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     * - `spender` must have allowance for the caller of at least\\n     * `subtractedValue`.\\n     */\\n    function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {\\n        _approve(_msgSender(), spender, _allowances[_msgSender()][spender].sub(subtractedValue, \\\"ERC20: decreased allowance below zero\\\"));\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Moves tokens `amount` from `sender` to `recipient`.\\n     *\\n     * This is internal function is equivalent to {transfer}, and can be used to\\n     * e.g. implement automatic token fees, slashing mechanisms, etc.\\n     *\\n     * Emits a {Transfer} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `sender` cannot be the zero address.\\n     * - `recipient` cannot be the zero address.\\n     * - `sender` must have a balance of at least `amount`.\\n     */\\n    function _transfer(address sender, address recipient, uint256 amount) internal virtual {\\n        require(sender != address(0), \\\"ERC20: transfer from the zero address\\\");\\n        require(recipient != address(0), \\\"ERC20: transfer to the zero address\\\");\\n\\n        _beforeTokenTransfer(sender, recipient, amount);\\n\\n        _balances[sender] = _balances[sender].sub(amount, \\\"ERC20: transfer amount exceeds balance\\\");\\n        _balances[recipient] = _balances[recipient].add(amount);\\n        emit Transfer(sender, recipient, amount);\\n    }\\n\\n    /** @dev Creates `amount` tokens and assigns them to `account`, increasing\\n     * the total supply.\\n     *\\n     * Emits a {Transfer} event with `from` set to the zero address.\\n     *\\n     * Requirements:\\n     *\\n     * - `to` cannot be the zero address.\\n     */\\n    function _mint(address account, uint256 amount) internal virtual {\\n        require(account != address(0), \\\"ERC20: mint to the zero address\\\");\\n\\n        _beforeTokenTransfer(address(0), account, amount);\\n\\n        _totalSupply = _totalSupply.add(amount);\\n        _balances[account] = _balances[account].add(amount);\\n        emit Transfer(address(0), account, amount);\\n    }\\n\\n    /**\\n     * @dev Destroys `amount` tokens from `account`, reducing the\\n     * total supply.\\n     *\\n     * Emits a {Transfer} event with `to` set to the zero address.\\n     *\\n     * Requirements:\\n     *\\n     * - `account` cannot be the zero address.\\n     * - `account` must have at least `amount` tokens.\\n     */\\n    function _burn(address account, uint256 amount) internal virtual {\\n        require(account != address(0), \\\"ERC20: burn from the zero address\\\");\\n\\n        _beforeTokenTransfer(account, address(0), amount);\\n\\n        _balances[account] = _balances[account].sub(amount, \\\"ERC20: burn amount exceeds balance\\\");\\n        _totalSupply = _totalSupply.sub(amount);\\n        emit Transfer(account, address(0), amount);\\n    }\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the `owner` s tokens.\\n     *\\n     * This internal function is equivalent to `approve`, and can be used to\\n     * e.g. set automatic allowances for certain subsystems, etc.\\n     *\\n     * Emits an {Approval} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `owner` cannot be the zero address.\\n     * - `spender` cannot be the zero address.\\n     */\\n    function _approve(address owner, address spender, uint256 amount) internal virtual {\\n        require(owner != address(0), \\\"ERC20: approve from the zero address\\\");\\n        require(spender != address(0), \\\"ERC20: approve to the zero address\\\");\\n\\n        _allowances[owner][spender] = amount;\\n        emit Approval(owner, spender, amount);\\n    }\\n\\n    /**\\n     * @dev Sets {decimals} to a value other than the default one of 18.\\n     *\\n     * WARNING: This function should only be called from the constructor. Most\\n     * applications that interact with token contracts will not expect\\n     * {decimals} to ever change, and may work incorrectly if it does.\\n     */\\n    function _setupDecimals(uint8 decimals_) internal virtual {\\n        _decimals = decimals_;\\n    }\\n\\n    /**\\n     * @dev Hook that is called before any transfer of tokens. This includes\\n     * minting and burning.\\n     *\\n     * Calling conditions:\\n     *\\n     * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens\\n     * will be to transferred to `to`.\\n     * - when `from` is zero, `amount` tokens will be minted for `to`.\\n     * - when `to` is zero, `amount` of ``from``'s tokens will be burned.\\n     * - `from` and `to` are never both zero.\\n     *\\n     * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].\\n     */\\n    function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }\\n}\\n\",\"keccak256\":\"0xca0c2396dbeb3503b51abf4248ebf77a1461edad513c01529df51850a012bee3\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `recipient`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address recipient, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `sender` to `recipient` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n}\\n\",\"keccak256\":\"0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/*\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with GSN meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address payable) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes memory) {\\n        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691\\n        return msg.data;\\n    }\\n}\\n\",\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\"},\"contracts/release/core/fund-deployer/IFundDeployer.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IFundDeployer Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IFundDeployer {\\n    enum ReleaseStatus {PreLaunch, Live, Paused}\\n\\n    function getOwner() external view returns (address);\\n\\n    function getBuybackVault() external view returns (address);\\n\\n    function getReleaseStatus() external view returns (ReleaseStatus);\\n\\n    function isRegisteredVaultCall(address, bytes4) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xe5d28ccc67b68ed61a36eac1e3dfda4230b3669c71e2169ec190ec243bd78742\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/utils/FundDeployerOwnerMixin.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../core/fund-deployer/IFundDeployer.sol\\\";\\n\\n/// @title FundDeployerOwnerMixin Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A mixin contract that defers ownership to the owner of FundDeployer\\nabstract contract FundDeployerOwnerMixin {\\n    address internal immutable FUND_DEPLOYER;\\n\\n    modifier onlyFundDeployerOwner() {\\n        require(\\n            msg.sender == getOwner(),\\n            \\\"onlyFundDeployerOwner: Only the FundDeployer owner can call this function\\\"\\n        );\\n        _;\\n    }\\n\\n    constructor(address _fundDeployer) public {\\n        FUND_DEPLOYER = _fundDeployer;\\n    }\\n\\n    /// @notice Gets the owner of this contract\\n    /// @return owner_ The owner\\n    /// @dev Ownership is deferred to the owner of the FundDeployer contract\\n    function getOwner() public view returns (address owner_) {\\n        return IFundDeployer(FUND_DEPLOYER).getOwner();\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `FUND_DEPLOYER` variable\\n    /// @return fundDeployer_ The `FUND_DEPLOYER` variable value\\n    function getFundDeployer() external view returns (address fundDeployer_) {\\n        return FUND_DEPLOYER;\\n    }\\n}\\n\",\"keccak256\":\"0xae16a22807bc31d46654889122b8db7ee55b731efc8d6feb4c978d13fee3336d\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/primitives/ChainlinkPriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\npragma experimental ABIEncoderV2;\\n\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\nimport \\\"@openzeppelin/contracts/token/ERC20/ERC20.sol\\\";\\nimport \\\"../../../extensions/utils/FundDeployerOwnerMixin.sol\\\";\\nimport \\\"../../../interfaces/IChainlinkAggregator.sol\\\";\\nimport \\\"./IPrimitivePriceFeed.sol\\\";\\n\\n/// @title ChainlinkPriceFeed Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A price feed that uses Chainlink oracles as price sources\\ncontract ChainlinkPriceFeed is IPrimitivePriceFeed, FundDeployerOwnerMixin {\\n    using SafeMath for uint256;\\n\\n    event EthUsdAggregatorSet(address prevEthUsdAggregator, address nextEthUsdAggregator);\\n\\n    event PrimitiveAdded(\\n        address indexed primitive,\\n        address aggregator,\\n        RateAsset rateAsset,\\n        uint256 unit\\n    );\\n\\n    event PrimitiveRemoved(address indexed primitive);\\n\\n    event PrimitiveUpdated(\\n        address indexed primitive,\\n        address prevAggregator,\\n        address nextAggregator\\n    );\\n\\n    event StalePrimitiveRemoved(address indexed primitive);\\n\\n    event StaleRateThresholdSet(uint256 prevStaleRateThreshold, uint256 nextStaleRateThreshold);\\n\\n    enum RateAsset {ETH, USD}\\n\\n    struct AggregatorInfo {\\n        address aggregator;\\n        RateAsset rateAsset;\\n    }\\n\\n    uint256 private constant ETH_UNIT = 10**18;\\n    address private immutable WETH_TOKEN;\\n    uint256 private immutable CHAINLINK_PRICEFEED_DEPLOY_TIMESTAMP;\\n\\n    address private ethUsdAggregator;\\n    uint256 private staleRateThreshold;\\n    mapping(address => AggregatorInfo) private primitiveToAggregatorInfo;\\n    mapping(address => uint256) private primitiveToUnit;\\n\\n    constructor(\\n        address _fundDeployer,\\n        address _wethToken,\\n        address _ethUsdAggregator,\\n        address[] memory _primitives,\\n        address[] memory _aggregators,\\n        RateAsset[] memory _rateAssets\\n    ) public FundDeployerOwnerMixin(_fundDeployer) {\\n        WETH_TOKEN = _wethToken;\\n        CHAINLINK_PRICEFEED_DEPLOY_TIMESTAMP = block.timestamp;\\n        staleRateThreshold = 25 hours; // 24 hour heartbeat + 1hr buffer\\n        __setEthUsdAggregator(_ethUsdAggregator);\\n        if (_primitives.length > 0) {\\n            __addPrimitives(_primitives, _aggregators, _rateAssets);\\n        }\\n    }\\n\\n    // EXTERNAL FUNCTIONS\\n\\n    /// @notice Calculates the value of a base asset in terms of a quote asset (using a canonical rate)\\n    /// @param _baseAsset The base asset\\n    /// @param _baseAssetAmount The base asset amount to convert\\n    /// @param _quoteAsset The quote asset\\n    /// @return quoteAssetAmount_ The equivalent quote asset amount\\n    /// @return isValid_ True if the rates used in calculations are deemed valid\\n    function calcCanonicalValue(\\n        address _baseAsset,\\n        uint256 _baseAssetAmount,\\n        address _quoteAsset\\n    ) public view override returns (uint256 quoteAssetAmount_, bool isValid_) {\\n        // Case where _baseAsset == _quoteAsset is handled by ValueInterpreter\\n\\n        int256 baseAssetRate = __getLatestRateData(_baseAsset);\\n        if (baseAssetRate <= 0) {\\n            return (0, false);\\n        }\\n\\n        int256 quoteAssetRate = __getLatestRateData(_quoteAsset);\\n        if (quoteAssetRate <= 0) {\\n            return (0, false);\\n        }\\n\\n        (quoteAssetAmount_, isValid_) = __calcConversionAmount(\\n            _baseAsset,\\n            _baseAssetAmount,\\n            uint256(baseAssetRate),\\n            _quoteAsset,\\n            uint256(quoteAssetRate)\\n        );\\n\\n        return (quoteAssetAmount_, isValid_);\\n    }\\n\\n    /// @notice Calculates the value of a base asset in terms of a quote asset (using a live rate)\\n    /// @param _baseAsset The base asset\\n    /// @param _baseAssetAmount The base asset amount to convert\\n    /// @param _quoteAsset The quote asset\\n    /// @return quoteAssetAmount_ The equivalent quote asset amount\\n    /// @return isValid_ True if the rates used in calculations are deemed valid\\n    /// @dev Live and canonical values are the same for Chainlink\\n    function calcLiveValue(\\n        address _baseAsset,\\n        uint256 _baseAssetAmount,\\n        address _quoteAsset\\n    ) external view override returns (uint256 quoteAssetAmount_, bool isValid_) {\\n        return calcCanonicalValue(_baseAsset, _baseAssetAmount, _quoteAsset);\\n    }\\n\\n    /// @notice Checks whether an asset is a supported primitive of the price feed\\n    /// @param _asset The asset to check\\n    /// @return isSupported_ True if the asset is a supported primitive\\n    function isSupportedAsset(address _asset) external view override returns (bool isSupported_) {\\n        return _asset == WETH_TOKEN || primitiveToAggregatorInfo[_asset].aggregator != address(0);\\n    }\\n\\n    /// @notice Sets the `ehUsdAggregator` variable value\\n    /// @param _nextEthUsdAggregator The `ehUsdAggregator` value to set\\n    function setEthUsdAggregator(address _nextEthUsdAggregator) external onlyFundDeployerOwner {\\n        __setEthUsdAggregator(_nextEthUsdAggregator);\\n    }\\n\\n    // PRIVATE FUNCTIONS\\n\\n    /// @dev Helper to convert an amount from a _baseAsset to a _quoteAsset\\n    function __calcConversionAmount(\\n        address _baseAsset,\\n        uint256 _baseAssetAmount,\\n        uint256 _baseAssetRate,\\n        address _quoteAsset,\\n        uint256 _quoteAssetRate\\n    ) private view returns (uint256 quoteAssetAmount_, bool isValid_) {\\n        RateAsset baseAssetRateAsset = getRateAssetForPrimitive(_baseAsset);\\n        RateAsset quoteAssetRateAsset = getRateAssetForPrimitive(_quoteAsset);\\n        uint256 baseAssetUnit = getUnitForPrimitive(_baseAsset);\\n        uint256 quoteAssetUnit = getUnitForPrimitive(_quoteAsset);\\n\\n        // If rates are both in ETH or both in USD\\n        if (baseAssetRateAsset == quoteAssetRateAsset) {\\n            return (\\n                __calcConversionAmountSameRateAsset(\\n                    _baseAssetAmount,\\n                    baseAssetUnit,\\n                    _baseAssetRate,\\n                    quoteAssetUnit,\\n                    _quoteAssetRate\\n                ),\\n                true\\n            );\\n        }\\n\\n        int256 ethPerUsdRate = IChainlinkAggregator(ethUsdAggregator).latestAnswer();\\n        if (ethPerUsdRate <= 0) {\\n            return (0, false);\\n        }\\n\\n        // If _baseAsset's rate is in ETH and _quoteAsset's rate is in USD\\n        if (baseAssetRateAsset == RateAsset.ETH) {\\n            return (\\n                __calcConversionAmountEthRateAssetToUsdRateAsset(\\n                    _baseAssetAmount,\\n                    baseAssetUnit,\\n                    _baseAssetRate,\\n                    quoteAssetUnit,\\n                    _quoteAssetRate,\\n                    uint256(ethPerUsdRate)\\n                ),\\n                true\\n            );\\n        }\\n\\n        // If _baseAsset's rate is in USD and _quoteAsset's rate is in ETH\\n        return (\\n            __calcConversionAmountUsdRateAssetToEthRateAsset(\\n                _baseAssetAmount,\\n                baseAssetUnit,\\n                _baseAssetRate,\\n                quoteAssetUnit,\\n                _quoteAssetRate,\\n                uint256(ethPerUsdRate)\\n            ),\\n            true\\n        );\\n    }\\n\\n    /// @dev Helper to convert amounts where the base asset has an ETH rate and the quote asset has a USD rate\\n    function __calcConversionAmountEthRateAssetToUsdRateAsset(\\n        uint256 _baseAssetAmount,\\n        uint256 _baseAssetUnit,\\n        uint256 _baseAssetRate,\\n        uint256 _quoteAssetUnit,\\n        uint256 _quoteAssetRate,\\n        uint256 _ethPerUsdRate\\n    ) private pure returns (uint256 quoteAssetAmount_) {\\n        // Only allows two consecutive multiplication operations to avoid potential overflow.\\n        // Intermediate step needed to resolve stack-too-deep error.\\n        uint256 intermediateStep = _baseAssetAmount.mul(_baseAssetRate).mul(_ethPerUsdRate).div(\\n            ETH_UNIT\\n        );\\n\\n        return intermediateStep.mul(_quoteAssetUnit).div(_baseAssetUnit).div(_quoteAssetRate);\\n    }\\n\\n    /// @dev Helper to convert amounts where base and quote assets both have ETH rates or both have USD rates\\n    function __calcConversionAmountSameRateAsset(\\n        uint256 _baseAssetAmount,\\n        uint256 _baseAssetUnit,\\n        uint256 _baseAssetRate,\\n        uint256 _quoteAssetUnit,\\n        uint256 _quoteAssetRate\\n    ) private pure returns (uint256 quoteAssetAmount_) {\\n        // Only allows two consecutive multiplication operations to avoid potential overflow\\n        return\\n            _baseAssetAmount.mul(_baseAssetRate).mul(_quoteAssetUnit).div(\\n                _baseAssetUnit.mul(_quoteAssetRate)\\n            );\\n    }\\n\\n    /// @dev Helper to convert amounts where the base asset has a USD rate and the quote asset has an ETH rate\\n    function __calcConversionAmountUsdRateAssetToEthRateAsset(\\n        uint256 _baseAssetAmount,\\n        uint256 _baseAssetUnit,\\n        uint256 _baseAssetRate,\\n        uint256 _quoteAssetUnit,\\n        uint256 _quoteAssetRate,\\n        uint256 _ethPerUsdRate\\n    ) private pure returns (uint256 quoteAssetAmount_) {\\n        // Only allows two consecutive multiplication operations to avoid potential overflow\\n        // Intermediate step needed to resolve stack-too-deep error.\\n        uint256 intermediateStep = _baseAssetAmount.mul(_baseAssetRate).mul(_quoteAssetUnit).div(\\n            _ethPerUsdRate\\n        );\\n\\n        return intermediateStep.mul(ETH_UNIT).div(_baseAssetUnit).div(_quoteAssetRate);\\n    }\\n\\n    /// @dev Helper to get the latest rate for a given primitive\\n    function __getLatestRateData(address _primitive) private view returns (int256 rate_) {\\n        if (_primitive == WETH_TOKEN) {\\n            return int256(ETH_UNIT);\\n        }\\n\\n        address aggregator = primitiveToAggregatorInfo[_primitive].aggregator;\\n        require(aggregator != address(0), \\\"__getLatestRateData: Primitive does not exist\\\");\\n\\n        return IChainlinkAggregator(aggregator).latestAnswer();\\n    }\\n\\n    /// @dev Helper to set the `ethUsdAggregator` value\\n    function __setEthUsdAggregator(address _nextEthUsdAggregator) private {\\n        address prevEthUsdAggregator = ethUsdAggregator;\\n        require(\\n            _nextEthUsdAggregator != prevEthUsdAggregator,\\n            \\\"__setEthUsdAggregator: Value already set\\\"\\n        );\\n\\n        __validateAggregator(_nextEthUsdAggregator);\\n\\n        ethUsdAggregator = _nextEthUsdAggregator;\\n\\n        emit EthUsdAggregatorSet(prevEthUsdAggregator, _nextEthUsdAggregator);\\n    }\\n\\n    /////////////////////////\\n    // PRIMITIVES REGISTRY //\\n    /////////////////////////\\n\\n    /// @notice Adds a list of primitives with the given aggregator and rateAsset values\\n    /// @param _primitives The primitives to add\\n    /// @param _aggregators The ordered aggregators corresponding to the list of _primitives\\n    /// @param _rateAssets The ordered rate assets corresponding to the list of _primitives\\n    function addPrimitives(\\n        address[] calldata _primitives,\\n        address[] calldata _aggregators,\\n        RateAsset[] calldata _rateAssets\\n    ) external onlyFundDeployerOwner {\\n        require(_primitives.length > 0, \\\"addPrimitives: _primitives cannot be empty\\\");\\n\\n        __addPrimitives(_primitives, _aggregators, _rateAssets);\\n    }\\n\\n    /// @notice Removes a list of primitives from the feed\\n    /// @param _primitives The primitives to remove\\n    function removePrimitives(address[] calldata _primitives) external onlyFundDeployerOwner {\\n        require(_primitives.length > 0, \\\"removePrimitives: _primitives cannot be empty\\\");\\n\\n        for (uint256 i; i < _primitives.length; i++) {\\n            require(\\n                primitiveToAggregatorInfo[_primitives[i]].aggregator != address(0),\\n                \\\"removePrimitives: Primitive not yet added\\\"\\n            );\\n\\n            delete primitiveToAggregatorInfo[_primitives[i]];\\n            delete primitiveToUnit[_primitives[i]];\\n\\n            emit PrimitiveRemoved(_primitives[i]);\\n        }\\n    }\\n\\n    /// @notice Removes stale primitives from the feed\\n    /// @param _primitives The stale primitives to remove\\n    /// @dev Callable by anybody\\n    function removeStalePrimitives(address[] calldata _primitives) external {\\n        require(_primitives.length > 0, \\\"removeStalePrimitives: _primitives cannot be empty\\\");\\n\\n        for (uint256 i; i < _primitives.length; i++) {\\n            address aggregatorAddress = primitiveToAggregatorInfo[_primitives[i]].aggregator;\\n            require(aggregatorAddress != address(0), \\\"removeStalePrimitives: Invalid primitive\\\");\\n            require(rateIsStale(aggregatorAddress), \\\"removeStalePrimitives: Rate is not stale\\\");\\n\\n            delete primitiveToAggregatorInfo[_primitives[i]];\\n            delete primitiveToUnit[_primitives[i]];\\n\\n            emit StalePrimitiveRemoved(_primitives[i]);\\n        }\\n    }\\n\\n    /// @notice Sets the `staleRateThreshold` variable\\n    /// @param _nextStaleRateThreshold The next `staleRateThreshold` value\\n    function setStaleRateThreshold(uint256 _nextStaleRateThreshold)\\n        external\\n        onlyFundDeployerOwner\\n    {\\n        uint256 prevStaleRateThreshold = staleRateThreshold;\\n        require(\\n            _nextStaleRateThreshold != prevStaleRateThreshold,\\n            \\\"__setStaleRateThreshold: Value already set\\\"\\n        );\\n\\n        staleRateThreshold = _nextStaleRateThreshold;\\n\\n        emit StaleRateThresholdSet(prevStaleRateThreshold, _nextStaleRateThreshold);\\n    }\\n\\n    /// @notice Updates the aggregators for given primitives\\n    /// @param _primitives The primitives to update\\n    /// @param _aggregators The ordered aggregators corresponding to the list of _primitives\\n    function updatePrimitives(address[] calldata _primitives, address[] calldata _aggregators)\\n        external\\n        onlyFundDeployerOwner\\n    {\\n        require(_primitives.length > 0, \\\"updatePrimitives: _primitives cannot be empty\\\");\\n        require(\\n            _primitives.length == _aggregators.length,\\n            \\\"updatePrimitives: Unequal _primitives and _aggregators array lengths\\\"\\n        );\\n\\n        for (uint256 i; i < _primitives.length; i++) {\\n            address prevAggregator = primitiveToAggregatorInfo[_primitives[i]].aggregator;\\n            require(prevAggregator != address(0), \\\"updatePrimitives: Primitive not yet added\\\");\\n            require(_aggregators[i] != prevAggregator, \\\"updatePrimitives: Value already set\\\");\\n\\n            __validateAggregator(_aggregators[i]);\\n\\n            primitiveToAggregatorInfo[_primitives[i]].aggregator = _aggregators[i];\\n\\n            emit PrimitiveUpdated(_primitives[i], prevAggregator, _aggregators[i]);\\n        }\\n    }\\n\\n    /// @notice Checks whether the current rate is considered stale for the specified aggregator\\n    /// @param _aggregator The Chainlink aggregator of which to check staleness\\n    /// @return rateIsStale_ True if the rate is considered stale\\n    function rateIsStale(address _aggregator) public view returns (bool rateIsStale_) {\\n        return\\n            IChainlinkAggregator(_aggregator).latestTimestamp() <\\n            block.timestamp.sub(staleRateThreshold);\\n    }\\n\\n    /// @dev Helper to add primitives to the feed\\n    function __addPrimitives(\\n        address[] memory _primitives,\\n        address[] memory _aggregators,\\n        RateAsset[] memory _rateAssets\\n    ) private {\\n        require(\\n            _primitives.length == _aggregators.length,\\n            \\\"__addPrimitives: Unequal _primitives and _aggregators array lengths\\\"\\n        );\\n        require(\\n            _primitives.length == _rateAssets.length,\\n            \\\"__addPrimitives: Unequal _primitives and _rateAssets array lengths\\\"\\n        );\\n\\n        for (uint256 i = 0; i < _primitives.length; i++) {\\n            require(\\n                primitiveToAggregatorInfo[_primitives[i]].aggregator == address(0),\\n                \\\"__addPrimitives: Value already set\\\"\\n            );\\n\\n            __validateAggregator(_aggregators[i]);\\n\\n            primitiveToAggregatorInfo[_primitives[i]] = AggregatorInfo({\\n                aggregator: _aggregators[i],\\n                rateAsset: _rateAssets[i]\\n            });\\n\\n            // Store the amount that makes up 1 unit given the asset's decimals\\n            uint256 unit = 10**uint256(ERC20(_primitives[i]).decimals());\\n            primitiveToUnit[_primitives[i]] = unit;\\n\\n            emit PrimitiveAdded(_primitives[i], _aggregators[i], _rateAssets[i], unit);\\n        }\\n    }\\n\\n    /// @dev Helper to validate an aggregator by checking its return values for the expected interface\\n    function __validateAggregator(address _aggregator) private view {\\n        require(_aggregator != address(0), \\\"__validateAggregator: Empty _aggregator\\\");\\n\\n        require(\\n            IChainlinkAggregator(_aggregator).latestAnswer() > 0,\\n            \\\"__validateAggregator: No rate detected\\\"\\n        );\\n        require(!rateIsStale(_aggregator), \\\"__validateAggregator: Stale rate detected\\\");\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the aggregatorInfo variable value for a primitive\\n    /// @param _primitive The primitive asset for which to get the aggregatorInfo value\\n    /// @return aggregatorInfo_ The aggregatorInfo value\\n    function getAggregatorInfoForPrimitive(address _primitive)\\n        external\\n        view\\n        returns (AggregatorInfo memory aggregatorInfo_)\\n    {\\n        return primitiveToAggregatorInfo[_primitive];\\n    }\\n\\n    /// @notice Gets the `ethUsdAggregator` variable value\\n    /// @return ethUsdAggregator_ The `ethUsdAggregator` variable value\\n    function getEthUsdAggregator() external view returns (address ethUsdAggregator_) {\\n        return ethUsdAggregator;\\n    }\\n\\n    /// @notice Gets the `staleRateThreshold` variable value\\n    /// @return staleRateThreshold_ The `staleRateThreshold` variable value\\n    function getStaleRateThreshold() external view returns (uint256 staleRateThreshold_) {\\n        return staleRateThreshold;\\n    }\\n\\n    /// @notice Gets the `WETH_TOKEN` variable value\\n    /// @return wethToken_ The `WETH_TOKEN` variable value\\n    function getWethToken() external view returns (address wethToken_) {\\n        return WETH_TOKEN;\\n    }\\n\\n    /// @notice Gets the rateAsset variable value for a primitive\\n    /// @return rateAsset_ The rateAsset variable value\\n    /// @dev This isn't strictly necessary as WETH_TOKEN will be undefined and thus\\n    /// the RateAsset will be the 0-position of the enum (i.e. ETH), but it makes the\\n    /// behavior more explicit\\n    function getRateAssetForPrimitive(address _primitive)\\n        public\\n        view\\n        returns (RateAsset rateAsset_)\\n    {\\n        if (_primitive == WETH_TOKEN) {\\n            return RateAsset.ETH;\\n        }\\n\\n        return primitiveToAggregatorInfo[_primitive].rateAsset;\\n    }\\n\\n    /// @notice Gets the unit variable value for a primitive\\n    /// @return unit_ The unit variable value\\n    function getUnitForPrimitive(address _primitive) public view returns (uint256 unit_) {\\n        if (_primitive == WETH_TOKEN) {\\n            return ETH_UNIT;\\n        }\\n\\n        return primitiveToUnit[_primitive];\\n    }\\n\\n    function getPricefeedDeployTimestamp() external view returns (uint256) {\\n        return CHAINLINK_PRICEFEED_DEPLOY_TIMESTAMP;\\n    }\\n}\\n\",\"keccak256\":\"0xd46c52c388258bf770ffe12f6ab25baea53068afc23f82fd0fc15ddfd803d5fe\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/primitives/IPrimitivePriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IPrimitivePriceFeed Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for primitive price feeds\\ninterface IPrimitivePriceFeed {\\n    function calcCanonicalValue(\\n        address,\\n        uint256,\\n        address\\n    ) external view returns (uint256, bool);\\n\\n    function calcLiveValue(\\n        address,\\n        uint256,\\n        address\\n    ) external view returns (uint256, bool);\\n\\n    function isSupportedAsset(address) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xd7bd5b75d56c4856f0dacee41240e7efaea3e25beca2c8010f085c7d35c4702e\",\"license\":\"GPL-3.0\"},\"contracts/release/interfaces/IChainlinkAggregator.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IChainlinkAggregator Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IChainlinkAggregator {\\n    function latestAnswer() external view returns (int256);\\n\\n    function latestTimestamp() external view returns (uint256);\\n}\\n\",\"keccak256\":\"0x1608e74fc697911b572cab453017ece1d1b2559db4311d5ad130ced515d5bdb5\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x60e06040523480156200001157600080fd5b5060405162002ff738038062002ff7833981016040819052620000349162000723565b6001600160601b0319606087811b821660805286901b1660a0524260c05262015f90600155620000648462000085565b82511562000079576200007983838362000127565b50505050505062000c8c565b6000546001600160a01b03908116908216811415620000c15760405162461bcd60e51b8152600401620000b89062000b2a565b60405180910390fd5b620000cc8262000433565b600080546001600160a01b0319166001600160a01b0384161790556040517f98b60a60ba6130248e985ae4140dc3109d9c2980c7e435fed385e2756bc94461906200011b908390859062000ad6565b60405180910390a15050565b81518351146200014b5760405162461bcd60e51b8152600401620000b89062000b96565b80518351146200016f5760405162461bcd60e51b8152600401620000b89062000b60565b60005b83518110156200042d5760006001600160a01b0316600260008684815181106200019857fe5b6020908102919091018101516001600160a01b03908116835290820192909252604001600020541614620001e05760405162461bcd60e51b8152600401620000b89062000ba8565b62000205838281518110620001f157fe5b60200260200101516200043360201b60201c565b60405180604001604052808483815181106200021d57fe5b60200260200101516001600160a01b031681526020018383815181106200024057fe5b602002602001015160018111156200025457fe5b815250600260008684815181106200026857fe5b6020908102919091018101516001600160a01b039081168352828201939093526040909101600020835181546001600160a01b0319169316929092178083559083015190829060ff60a01b1916600160a01b836001811115620002c757fe5b02179055509050506000848281518110620002de57fe5b60200260200101516001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b1580156200031f57600080fd5b505afa15801562000334573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906200035a919062000828565b60ff16600a0a905080600360008785815181106200037457fe5b60200260200101516001600160a01b03166001600160a01b0316815260200190815260200160002081905550848281518110620003ad57fe5b60200260200101516001600160a01b03167f742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c02858481518110620003ec57fe5b60200260200101518585815181106200040157fe5b6020026020010151846040516200041b9392919062000afc565b60405180910390a25060010162000172565b50505050565b6001600160a01b0381166200045c5760405162461bcd60e51b8152600401620000b89062000b3c565b6000816001600160a01b03166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b1580156200049857600080fd5b505afa158015620004ad573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620004d39190620007ff565b13620004f35760405162461bcd60e51b8152600401620000b89062000b84565b620004fe8162000521565b156200051e5760405162461bcd60e51b8152600401620000b89062000b72565b50565b60006200053f60015442620005bd60201b62000e111790919060201c565b826001600160a01b0316638205bf6a6040518163ffffffff1660e01b815260040160206040518083038186803b1580156200057957600080fd5b505afa1580156200058e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620005b49190620007ff565b1090505b919050565b600082821115620005e25760405162461bcd60e51b8152600401620000b89062000b4e565b508082035b92915050565b8051620005e78162000c51565b600082601f8301126200060c57600080fd5b8151620006236200061d8262000be1565b62000bba565b915081818352602084019350602081019050838560208402820111156200064957600080fd5b60005b83811015620006795781620006628882620005ed565b84525060209283019291909101906001016200064c565b5050505092915050565b600082601f8301126200069557600080fd5b8151620006a66200061d8262000be1565b91508181835260208401935060208101905083856020840282011115620006cc57600080fd5b60005b83811015620006795781620006e58882620006fc565b8452506020928301929190910190600101620006cf565b8051620005e78162000c68565b8051620005e78162000c76565b8051620005e78162000c81565b60008060008060008060c087890312156200073d57600080fd5b60006200074b8989620005ed565b96505060206200075e89828a01620005ed565b95505060406200077189828a01620005ed565b94505060608701516001600160401b038111156200078e57600080fd5b6200079c89828a01620005fa565b93505060808701516001600160401b03811115620007b957600080fd5b620007c789828a01620005fa565b92505060a08701516001600160401b03811115620007e457600080fd5b620007f289828a0162000683565b9150509295509295509295565b6000602082840312156200081257600080fd5b600062000820848462000709565b949350505050565b6000602082840312156200083b57600080fd5b600062000820848462000716565b620008548162000c0b565b82525050565b620008548162000c39565b60006200087460288362000c02565b7f5f5f73657445746855736441676772656761746f723a2056616c756520616c728152671958591e481cd95d60c21b602082015260400192915050565b6000620008c060278362000c02565b7f5f5f76616c696461746541676772656761746f723a20456d707479205f6167678152663932b3b0ba37b960c91b602082015260400192915050565b60006200090b601e8362000c02565b7f536166654d6174683a207375627472616374696f6e206f766572666c6f770000815260200192915050565b60006200094660428362000c02565b60008051602062002fd783398151915281527f6976657320616e64205f72617465417373657473206172726179206c656e6774602082015261687360f01b604082015260600192915050565b6000620009a160298362000c02565b7f5f5f76616c696461746541676772656761746f723a205374616c6520726174658152680819195d1958dd195960ba1b602082015260400192915050565b6000620009ee60268362000c02565b7f5f5f76616c696461746541676772656761746f723a204e6f20726174652064658152651d1958dd195960d21b602082015260400192915050565b600062000a3860438362000c02565b60008051602062002fd783398151915281527f6976657320616e64205f61676772656761746f7273206172726179206c656e6760208201526274687360e81b604082015260600192915050565b600062000a9460228362000c02565b7f5f5f6164645072696d6974697665733a2056616c756520616c72656164792073815261195d60f21b602082015260400192915050565b620008548162000c24565b6040810162000ae6828562000849565b62000af5602083018462000849565b9392505050565b6060810162000b0c828662000849565b62000b1b60208301856200085a565b62000820604083018462000acb565b60208082528101620005e78162000865565b60208082528101620005e781620008b1565b60208082528101620005e781620008fc565b60208082528101620005e78162000937565b60208082528101620005e78162000992565b60208082528101620005e781620009df565b60208082528101620005e78162000a29565b60208082528101620005e78162000a85565b6040518181016001600160401b038111828210171562000bd957600080fd5b604052919050565b60006001600160401b0382111562000bf857600080fd5b5060209081020190565b90815260200190565b6000620005e78262000c27565b80620005b88162000c46565b90565b6001600160a01b031690565b60ff1690565b6000620005e78262000c18565b600281106200051e57fe5b62000c5c8162000c0b565b81146200051e57600080fd5b600281106200051e57600080fd5b62000c5c8162000c24565b62000c5c8162000c33565b60805160601c60a05160601c60c0516122ff62000cd8600039806102a95250806105e852806106ac52806107e95280610dab5280610e3d52508061071352806107c352506122ff6000f3fe608060405234801561001057600080fd5b50600436106101215760003560e01c8063893d20e8116100ad578063a98acadc11610071578063a98acadc14610246578063b54fbdaa14610259578063cf0399c814610261578063e106264f14610274578063e35e318e1461028757610121565b8063893d20e8146101fd5780638a2755391461020557806397c0ac87146102185780639be918e614610220578063a8527ea81461023357610121565b806332d95e6c116100f457806332d95e6c1461018d5780634c252f91146101ad578063587fe0b2146101c257806374626f87146101e2578063787f2568146101ea57610121565b806308a6d7691461012657806309157f9514610144578063149b83e6146101595780631b9548f81461016c575b600080fd5b61012e6102a7565b60405161013b9190612212565b60405180910390f35b610157610152366004611884565b6102cb565b005b610157610167366004611713565b610372565b61017f61017a3660046116c6565b61051c565b60405161013b929190612220565b6101a061019b366004611682565b610581565b60405161013b9190612204565b6101b56105e6565b60405161013b9190612027565b6101d56101d0366004611682565b61060a565b60405161013b9190612078565b6101b5610699565b61012e6101f8366004611682565b6106a8565b6101b561070f565b61017f6102133660046116c6565b6107a7565b6101b56107c1565b6101d561022e366004611682565b6107e5565b610157610241366004611755565b610846565b610157610254366004611682565b610aad565b61012e610af1565b61015761026f3660046117c5565b610af7565b610157610282366004611713565b610bf2565b61029a610295366004611682565b610da7565b60405161013b9190612086565b7f000000000000000000000000000000000000000000000000000000000000000090565b6102d361070f565b6001600160a01b0316336001600160a01b03161461030c5760405162461bcd60e51b8152600401610303906120c4565b60405180910390fd5b6001548181141561032f5760405162461bcd60e51b815260040161030390612194565b60018290556040517f97f8e271e60eea593a857fceac8dc84e2ebf697b2771f3ca4dabf8255ee55fde90610366908390859061223b565b60405180910390a15050565b8061038f5760405162461bcd60e51b8152600401610303906120f4565b60005b81811015610517576000600260008585858181106103ac57fe5b90506020020160208101906103c19190611682565b6001600160a01b039081168252602082019290925260400160002054169050806103fd5760405162461bcd60e51b8152600401610303906120d4565b6104068161060a565b6104225760405162461bcd60e51b815260040161030390612164565b6002600085858581811061043257fe5b90506020020160208101906104479190611682565b6001600160a01b031681526020810191909152604001600090812080546001600160a81b031916905560039085858581811061047f57fe5b90506020020160208101906104949190611682565b6001600160a01b03166001600160a01b03168152602001908152602001600020600090558383838181106104c457fe5b90506020020160208101906104d99190611682565b6001600160a01b03167ff4a60a74fb565dfd083c5755117b74c21251de3a0e0ed2c0e4f23461a413309060405160405180910390a250600101610392565b505050565b600080600061052a86610e39565b905060008113610541576000809250925050610579565b600061054c85610e39565b90506000811361056457600080935093505050610579565b6105718787848885610f34565b909450925050505b935093915050565b6105896115eb565b6001600160a01b03828116600090815260026020908152604091829020825180840190935280549384168352919290830190600160a01b900460ff1660018111156105d057fe5b60018111156105db57fe5b90525090505b919050565b7f000000000000000000000000000000000000000000000000000000000000000090565b600061062160015442610e1190919063ffffffff16565b826001600160a01b0316638205bf6a6040518163ffffffff1660e01b815260040160206040518083038186803b15801561065a57600080fd5b505afa15801561066e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906106929190611866565b1092915050565b6000546001600160a01b031690565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b031614156106f35750670de0b6b3a76400006105e1565b506001600160a01b031660009081526003602052604090205490565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561076a57600080fd5b505afa15801561077e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107a291906116a8565b905090565b6000806107b585858561051c565b91509150935093915050565b7f000000000000000000000000000000000000000000000000000000000000000090565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b0316148061084057506001600160a01b038281166000908152600260205260409020541615155b92915050565b61084e61070f565b6001600160a01b0316336001600160a01b03161461087e5760405162461bcd60e51b8152600401610303906120c4565b8261089b5760405162461bcd60e51b8152600401610303906121d4565b8281146108ba5760405162461bcd60e51b8152600401610303906120a4565b60005b83811015610aa6576000600260008787858181106108d757fe5b90506020020160208101906108ec9190611682565b6001600160a01b039081168252602082019290925260400160002054169050806109285760405162461bcd60e51b8152600401610303906121b4565b806001600160a01b031684848481811061093e57fe5b90506020020160208101906109539190611682565b6001600160a01b0316141561097a5760405162461bcd60e51b815260040161030390612134565b6109a384848481811061098957fe5b905060200201602081019061099e9190611682565b61109d565b8383838181106109af57fe5b90506020020160208101906109c49190611682565b600260008888868181106109d457fe5b90506020020160208101906109e99190611682565b6001600160a01b039081168252602082019290925260400160002080546001600160a01b03191692909116919091179055858583818110610a2657fe5b9050602002016020810190610a3b9190611682565b6001600160a01b03167fea132160c6ec74553a52c5ce52a096299236ff4da86ca7d4ef18da8b70b4559382868686818110610a7257fe5b9050602002016020810190610a879190611682565b604051610a95929190612035565b60405180910390a2506001016108bd565b5050505050565b610ab561070f565b6001600160a01b0316336001600160a01b031614610ae55760405162461bcd60e51b8152600401610303906120c4565b610aee81611179565b50565b60015490565b610aff61070f565b6001600160a01b0316336001600160a01b031614610b2f5760405162461bcd60e51b8152600401610303906120c4565b84610b4c5760405162461bcd60e51b815260040161030390612104565b610bea86868080602002602001604051908101604052809392919081815260200183836020028082843760009201919091525050604080516020808a02828101820190935289825290935089925088918291850190849080828437600092019190915250506040805160208089028281018201909352888252909350889250879182918501908490808284376000920191909152506111ff92505050565b505050505050565b610bfa61070f565b6001600160a01b0316336001600160a01b031614610c2a5760405162461bcd60e51b8152600401610303906120c4565b80610c475760405162461bcd60e51b815260040161030390612144565b60005b81811015610517576000600281858585818110610c6357fe5b9050602002016020810190610c789190611682565b6001600160a01b039081168252602082019290925260400160002054161415610cb35760405162461bcd60e51b8152600401610303906121e4565b60026000848484818110610cc357fe5b9050602002016020810190610cd89190611682565b6001600160a01b031681526020810191909152604001600090812080546001600160a81b0319169055600390848484818110610d1057fe5b9050602002016020810190610d259190611682565b6001600160a01b03166001600160a01b0316815260200190815260200160002060009055828282818110610d5557fe5b9050602002016020810190610d6a9190611682565b6001600160a01b03167fb100e8178a081ba9130260173ee2ebe0db3a6c3b6751a7801111ab3017df0e9760405160405180910390a2600101610c4a565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b03161415610deb575060006105e1565b506001600160a01b0316600090815260026020526040902054600160a01b900460ff1690565b600082821115610e335760405162461bcd60e51b815260040161030390612114565b50900390565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b03161415610e845750670de0b6b3a76400006105e1565b6001600160a01b038083166000908152600260205260409020541680610ebc5760405162461bcd60e51b8152600401610303906120b4565b806001600160a01b03166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b158015610ef557600080fd5b505afa158015610f09573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f2d9190611866565b9392505050565b6000806000610f4288610da7565b90506000610f4f86610da7565b90506000610f5c8a6106a8565b90506000610f69886106a8565b9050826001811115610f7757fe5b846001811115610f8357fe5b1415610fa557610f968a838b848b6114e6565b60019550955050505050611093565b60008060009054906101000a90046001600160a01b03166001600160a01b03166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b158015610ff457600080fd5b505afa158015611008573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061102c9190611866565b90506000811361104757600080965096505050505050611093565b600085600181111561105557fe5b1415611079576110698b848c858c86611519565b6001965096505050505050611093565b6110878b848c858c86611554565b60019650965050505050505b9550959350505050565b6001600160a01b0381166110c35760405162461bcd60e51b8152600401610303906120e4565b6000816001600160a01b03166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b1580156110fe57600080fd5b505afa158015611112573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906111369190611866565b136111535760405162461bcd60e51b8152600401610303906121a4565b61115c8161060a565b15610aee5760405162461bcd60e51b815260040161030390612184565b6000546001600160a01b039081169082168114156111a95760405162461bcd60e51b815260040161030390612094565b6111b28261109d565b600080546001600160a01b0319166001600160a01b0384161790556040517f98b60a60ba6130248e985ae4140dc3109d9c2980c7e435fed385e2756bc94461906103669083908590612035565b81518351146112205760405162461bcd60e51b8152600401610303906121c4565b80518351146112415760405162461bcd60e51b815260040161030390612154565b60005b83518110156114e05760006001600160a01b03166002600086848151811061126857fe5b6020908102919091018101516001600160a01b039081168352908201929092526040016000205416146112ad5760405162461bcd60e51b8152600401610303906121f4565b6112c98382815181106112bc57fe5b602002602001015161109d565b60405180604001604052808483815181106112e057fe5b60200260200101516001600160a01b0316815260200183838151811061130257fe5b6020026020010151600181111561131557fe5b8152506002600086848151811061132857fe5b6020908102919091018101516001600160a01b039081168352828201939093526040909101600020835181546001600160a01b0319169316929092178083559083015190829060ff60a01b1916600160a01b83600181111561138657fe5b0217905550905050600084828151811061139c57fe5b60200260200101516001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b1580156113dc57600080fd5b505afa1580156113f0573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061141491906118a2565b60ff16600a0a9050806003600087858151811061142d57fe5b60200260200101516001600160a01b03166001600160a01b031681526020019081526020016000208190555084828151811061146557fe5b60200260200101516001600160a01b03167f742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c028584815181106114a357fe5b60200260200101518585815181106114b757fe5b6020026020010151846040516114cf93929190612050565b60405180910390a250600101611244565b50505050565b600061150f6114f5868461157f565b611509856115038a8961157f565b9061157f565b906115b9565b9695505050505050565b600080611536670de0b6b3a7640000611509856115038c8b61157f565b9050611548846115098981858a61157f565b98975050505050505050565b60008061156983611509876115038c8b61157f565b905061154884611509898185670de0b6b3a76400005b60008261158e57506000610840565b8282028284828161159b57fe5b0414610f2d5760405162461bcd60e51b815260040161030390612174565b60008082116115da5760405162461bcd60e51b815260040161030390612124565b8183816115e357fe5b049392505050565b604080518082019091526000808252602082015290565b8035610840816122a3565b8051610840816122a3565b60008083601f84011261162a57600080fd5b50813567ffffffffffffffff81111561164257600080fd5b60208301915083602082028301111561165a57600080fd5b9250929050565b8051610840816122b7565b8035610840816122b7565b8051610840816122c0565b60006020828403121561169457600080fd5b60006116a08484611602565b949350505050565b6000602082840312156116ba57600080fd5b60006116a0848461160d565b6000806000606084860312156116db57600080fd5b60006116e78686611602565b93505060206116f88682870161166c565b925050604061170986828701611602565b9150509250925092565b6000806020838503121561172657600080fd5b823567ffffffffffffffff81111561173d57600080fd5b61174985828601611618565b92509250509250929050565b6000806000806040858703121561176b57600080fd5b843567ffffffffffffffff81111561178257600080fd5b61178e87828801611618565b9450945050602085013567ffffffffffffffff8111156117ad57600080fd5b6117b987828801611618565b95989497509550505050565b600080600080600080606087890312156117de57600080fd5b863567ffffffffffffffff8111156117f557600080fd5b61180189828a01611618565b9650965050602087013567ffffffffffffffff81111561182057600080fd5b61182c89828a01611618565b9450945050604087013567ffffffffffffffff81111561184b57600080fd5b61185789828a01611618565b92509250509295509295509295565b60006020828403121561187857600080fd5b60006116a08484611661565b60006020828403121561189657600080fd5b60006116a0848461166c565b6000602082840312156118b457600080fd5b60006116a08484611677565b6118c98161225f565b82525050565b6118c98161226a565b6118c98161228e565b60006118ee602883612256565b7f5f5f73657445746855736441676772656761746f723a2056616c756520616c728152671958591e481cd95d60c21b602082015260400192915050565b6000611938604483612256565b7f7570646174655072696d6974697665733a20556e657175616c205f7072696d6981527f746976657320616e64205f61676772656761746f7273206172726179206c656e6020820152636774687360e01b604082015260600192915050565b60006119a4602d83612256565b7f5f5f6765744c617465737452617465446174613a205072696d6974697665206481526c1bd95cc81b9bdd08195e1a5cdd609a1b602082015260400192915050565b60006119f3604983612256565b7f6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652081527f46756e644465706c6f796572206f776e65722063616e2063616c6c207468697360208201526810333ab731ba34b7b760b91b604082015260600192915050565b6000611a64602883612256565b7f72656d6f76655374616c655072696d6974697665733a20496e76616c6964207081526772696d697469766560c01b602082015260400192915050565b6000611aae602783612256565b7f5f5f76616c696461746541676772656761746f723a20456d707479205f6167678152663932b3b0ba37b960c91b602082015260400192915050565b6000611af7603283612256565b7f72656d6f76655374616c655072696d6974697665733a205f7072696d6974697681527165732063616e6e6f7420626520656d70747960701b602082015260400192915050565b6000611b4b602a83612256565b7f6164645072696d6974697665733a205f7072696d6974697665732063616e6e6f8152697420626520656d70747960b01b602082015260400192915050565b6000611b97601e83612256565b7f536166654d6174683a207375627472616374696f6e206f766572666c6f770000815260200192915050565b6000611bd0601a83612256565b7f536166654d6174683a206469766973696f6e206279207a65726f000000000000815260200192915050565b6000611c09602383612256565b7f7570646174655072696d6974697665733a2056616c756520616c7265616479208152621cd95d60ea1b602082015260400192915050565b6000611c4e602d83612256565b7f72656d6f76655072696d6974697665733a205f7072696d69746976657320636181526c6e6e6f7420626520656d70747960981b602082015260400192915050565b6000611c9d604283612256565b7f5f5f6164645072696d6974697665733a20556e657175616c205f7072696d697481527f6976657320616e64205f72617465417373657473206172726179206c656e6774602082015261687360f01b604082015260600192915050565b6000611d07602883612256565b7f72656d6f76655374616c655072696d6974697665733a2052617465206973206e8152676f74207374616c6560c01b602082015260400192915050565b6000611d51602183612256565b7f536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f8152607760f81b602082015260400192915050565b6000611d94602983612256565b7f5f5f76616c696461746541676772656761746f723a205374616c6520726174658152680819195d1958dd195960ba1b602082015260400192915050565b6000611ddf602a83612256565b7f5f5f7365745374616c65526174655468726573686f6c643a2056616c756520618152691b1c9958591e481cd95d60b21b602082015260400192915050565b6000611e2b602683612256565b7f5f5f76616c696461746541676772656761746f723a204e6f20726174652064658152651d1958dd195960d21b602082015260400192915050565b6000611e73602983612256565b7f7570646174655072696d6974697665733a205072696d6974697665206e6f74208152681e595d08185919195960ba1b602082015260400192915050565b6000611ebe604383612256565b7f5f5f6164645072696d6974697665733a20556e657175616c205f7072696d697481527f6976657320616e64205f61676772656761746f7273206172726179206c656e6760208201526274687360e81b604082015260600192915050565b6000611f29602d83612256565b7f7570646174655072696d6974697665733a205f7072696d69746976657320636181526c6e6e6f7420626520656d70747960981b602082015260400192915050565b6000611f78602983612256565b7f72656d6f76655072696d6974697665733a205072696d6974697665206e6f74208152681e595d08185919195960ba1b602082015260400192915050565b6000611fc3602283612256565b7f5f5f6164645072696d6974697665733a2056616c756520616c72656164792073815261195d60f21b602082015260400192915050565b8051604083019061200b84826118c0565b5060208201516114e060208501826118d8565b6118c981612279565b6020810161084082846118c0565b6040810161204382856118c0565b610f2d60208301846118c0565b6060810161205e82866118c0565b61206b60208301856118d8565b6116a0604083018461201e565b6020810161084082846118cf565b6020810161084082846118d8565b60208082528101610840816118e1565b602080825281016108408161192b565b6020808252810161084081611997565b60208082528101610840816119e6565b6020808252810161084081611a57565b6020808252810161084081611aa1565b6020808252810161084081611aea565b6020808252810161084081611b3e565b6020808252810161084081611b8a565b6020808252810161084081611bc3565b6020808252810161084081611bfc565b6020808252810161084081611c41565b6020808252810161084081611c90565b6020808252810161084081611cfa565b6020808252810161084081611d44565b6020808252810161084081611d87565b6020808252810161084081611dd2565b6020808252810161084081611e1e565b6020808252810161084081611e66565b6020808252810161084081611eb1565b6020808252810161084081611f1c565b6020808252810161084081611f6b565b6020808252810161084081611fb6565b604081016108408284611ffa565b60208101610840828461201e565b6040810161222e828561201e565b610f2d60208301846118cf565b60408101612249828561201e565b610f2d602083018461201e565b90815260200190565b60006108408261227c565b151590565b806105e181612299565b90565b6001600160a01b031690565b60ff1690565b60006108408261226f565b60028110610aee57fe5b6122ac8161225f565b8114610aee57600080fd5b6122ac81612279565b6122ac8161228856fea2646970667358221220b2f4873be44e5b5457bcc2c2280b97dd4098c09cdb13788d4d008f7c3f7bccb564736f6c634300060c00335f5f6164645072696d6974697665733a20556e657175616c205f7072696d6974",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101215760003560e01c8063893d20e8116100ad578063a98acadc11610071578063a98acadc14610246578063b54fbdaa14610259578063cf0399c814610261578063e106264f14610274578063e35e318e1461028757610121565b8063893d20e8146101fd5780638a2755391461020557806397c0ac87146102185780639be918e614610220578063a8527ea81461023357610121565b806332d95e6c116100f457806332d95e6c1461018d5780634c252f91146101ad578063587fe0b2146101c257806374626f87146101e2578063787f2568146101ea57610121565b806308a6d7691461012657806309157f9514610144578063149b83e6146101595780631b9548f81461016c575b600080fd5b61012e6102a7565b60405161013b9190612212565b60405180910390f35b610157610152366004611884565b6102cb565b005b610157610167366004611713565b610372565b61017f61017a3660046116c6565b61051c565b60405161013b929190612220565b6101a061019b366004611682565b610581565b60405161013b9190612204565b6101b56105e6565b60405161013b9190612027565b6101d56101d0366004611682565b61060a565b60405161013b9190612078565b6101b5610699565b61012e6101f8366004611682565b6106a8565b6101b561070f565b61017f6102133660046116c6565b6107a7565b6101b56107c1565b6101d561022e366004611682565b6107e5565b610157610241366004611755565b610846565b610157610254366004611682565b610aad565b61012e610af1565b61015761026f3660046117c5565b610af7565b610157610282366004611713565b610bf2565b61029a610295366004611682565b610da7565b60405161013b9190612086565b7f000000000000000000000000000000000000000000000000000000000000000090565b6102d361070f565b6001600160a01b0316336001600160a01b03161461030c5760405162461bcd60e51b8152600401610303906120c4565b60405180910390fd5b6001548181141561032f5760405162461bcd60e51b815260040161030390612194565b60018290556040517f97f8e271e60eea593a857fceac8dc84e2ebf697b2771f3ca4dabf8255ee55fde90610366908390859061223b565b60405180910390a15050565b8061038f5760405162461bcd60e51b8152600401610303906120f4565b60005b81811015610517576000600260008585858181106103ac57fe5b90506020020160208101906103c19190611682565b6001600160a01b039081168252602082019290925260400160002054169050806103fd5760405162461bcd60e51b8152600401610303906120d4565b6104068161060a565b6104225760405162461bcd60e51b815260040161030390612164565b6002600085858581811061043257fe5b90506020020160208101906104479190611682565b6001600160a01b031681526020810191909152604001600090812080546001600160a81b031916905560039085858581811061047f57fe5b90506020020160208101906104949190611682565b6001600160a01b03166001600160a01b03168152602001908152602001600020600090558383838181106104c457fe5b90506020020160208101906104d99190611682565b6001600160a01b03167ff4a60a74fb565dfd083c5755117b74c21251de3a0e0ed2c0e4f23461a413309060405160405180910390a250600101610392565b505050565b600080600061052a86610e39565b905060008113610541576000809250925050610579565b600061054c85610e39565b90506000811361056457600080935093505050610579565b6105718787848885610f34565b909450925050505b935093915050565b6105896115eb565b6001600160a01b03828116600090815260026020908152604091829020825180840190935280549384168352919290830190600160a01b900460ff1660018111156105d057fe5b60018111156105db57fe5b90525090505b919050565b7f000000000000000000000000000000000000000000000000000000000000000090565b600061062160015442610e1190919063ffffffff16565b826001600160a01b0316638205bf6a6040518163ffffffff1660e01b815260040160206040518083038186803b15801561065a57600080fd5b505afa15801561066e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906106929190611866565b1092915050565b6000546001600160a01b031690565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b031614156106f35750670de0b6b3a76400006105e1565b506001600160a01b031660009081526003602052604090205490565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b15801561076a57600080fd5b505afa15801561077e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107a291906116a8565b905090565b6000806107b585858561051c565b91509150935093915050565b7f000000000000000000000000000000000000000000000000000000000000000090565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b0316148061084057506001600160a01b038281166000908152600260205260409020541615155b92915050565b61084e61070f565b6001600160a01b0316336001600160a01b03161461087e5760405162461bcd60e51b8152600401610303906120c4565b8261089b5760405162461bcd60e51b8152600401610303906121d4565b8281146108ba5760405162461bcd60e51b8152600401610303906120a4565b60005b83811015610aa6576000600260008787858181106108d757fe5b90506020020160208101906108ec9190611682565b6001600160a01b039081168252602082019290925260400160002054169050806109285760405162461bcd60e51b8152600401610303906121b4565b806001600160a01b031684848481811061093e57fe5b90506020020160208101906109539190611682565b6001600160a01b0316141561097a5760405162461bcd60e51b815260040161030390612134565b6109a384848481811061098957fe5b905060200201602081019061099e9190611682565b61109d565b8383838181106109af57fe5b90506020020160208101906109c49190611682565b600260008888868181106109d457fe5b90506020020160208101906109e99190611682565b6001600160a01b039081168252602082019290925260400160002080546001600160a01b03191692909116919091179055858583818110610a2657fe5b9050602002016020810190610a3b9190611682565b6001600160a01b03167fea132160c6ec74553a52c5ce52a096299236ff4da86ca7d4ef18da8b70b4559382868686818110610a7257fe5b9050602002016020810190610a879190611682565b604051610a95929190612035565b60405180910390a2506001016108bd565b5050505050565b610ab561070f565b6001600160a01b0316336001600160a01b031614610ae55760405162461bcd60e51b8152600401610303906120c4565b610aee81611179565b50565b60015490565b610aff61070f565b6001600160a01b0316336001600160a01b031614610b2f5760405162461bcd60e51b8152600401610303906120c4565b84610b4c5760405162461bcd60e51b815260040161030390612104565b610bea86868080602002602001604051908101604052809392919081815260200183836020028082843760009201919091525050604080516020808a02828101820190935289825290935089925088918291850190849080828437600092019190915250506040805160208089028281018201909352888252909350889250879182918501908490808284376000920191909152506111ff92505050565b505050505050565b610bfa61070f565b6001600160a01b0316336001600160a01b031614610c2a5760405162461bcd60e51b8152600401610303906120c4565b80610c475760405162461bcd60e51b815260040161030390612144565b60005b81811015610517576000600281858585818110610c6357fe5b9050602002016020810190610c789190611682565b6001600160a01b039081168252602082019290925260400160002054161415610cb35760405162461bcd60e51b8152600401610303906121e4565b60026000848484818110610cc357fe5b9050602002016020810190610cd89190611682565b6001600160a01b031681526020810191909152604001600090812080546001600160a81b0319169055600390848484818110610d1057fe5b9050602002016020810190610d259190611682565b6001600160a01b03166001600160a01b0316815260200190815260200160002060009055828282818110610d5557fe5b9050602002016020810190610d6a9190611682565b6001600160a01b03167fb100e8178a081ba9130260173ee2ebe0db3a6c3b6751a7801111ab3017df0e9760405160405180910390a2600101610c4a565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b03161415610deb575060006105e1565b506001600160a01b0316600090815260026020526040902054600160a01b900460ff1690565b600082821115610e335760405162461bcd60e51b815260040161030390612114565b50900390565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316826001600160a01b03161415610e845750670de0b6b3a76400006105e1565b6001600160a01b038083166000908152600260205260409020541680610ebc5760405162461bcd60e51b8152600401610303906120b4565b806001600160a01b03166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b158015610ef557600080fd5b505afa158015610f09573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f2d9190611866565b9392505050565b6000806000610f4288610da7565b90506000610f4f86610da7565b90506000610f5c8a6106a8565b90506000610f69886106a8565b9050826001811115610f7757fe5b846001811115610f8357fe5b1415610fa557610f968a838b848b6114e6565b60019550955050505050611093565b60008060009054906101000a90046001600160a01b03166001600160a01b03166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b158015610ff457600080fd5b505afa158015611008573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061102c9190611866565b90506000811361104757600080965096505050505050611093565b600085600181111561105557fe5b1415611079576110698b848c858c86611519565b6001965096505050505050611093565b6110878b848c858c86611554565b60019650965050505050505b9550959350505050565b6001600160a01b0381166110c35760405162461bcd60e51b8152600401610303906120e4565b6000816001600160a01b03166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b1580156110fe57600080fd5b505afa158015611112573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906111369190611866565b136111535760405162461bcd60e51b8152600401610303906121a4565b61115c8161060a565b15610aee5760405162461bcd60e51b815260040161030390612184565b6000546001600160a01b039081169082168114156111a95760405162461bcd60e51b815260040161030390612094565b6111b28261109d565b600080546001600160a01b0319166001600160a01b0384161790556040517f98b60a60ba6130248e985ae4140dc3109d9c2980c7e435fed385e2756bc94461906103669083908590612035565b81518351146112205760405162461bcd60e51b8152600401610303906121c4565b80518351146112415760405162461bcd60e51b815260040161030390612154565b60005b83518110156114e05760006001600160a01b03166002600086848151811061126857fe5b6020908102919091018101516001600160a01b039081168352908201929092526040016000205416146112ad5760405162461bcd60e51b8152600401610303906121f4565b6112c98382815181106112bc57fe5b602002602001015161109d565b60405180604001604052808483815181106112e057fe5b60200260200101516001600160a01b0316815260200183838151811061130257fe5b6020026020010151600181111561131557fe5b8152506002600086848151811061132857fe5b6020908102919091018101516001600160a01b039081168352828201939093526040909101600020835181546001600160a01b0319169316929092178083559083015190829060ff60a01b1916600160a01b83600181111561138657fe5b0217905550905050600084828151811061139c57fe5b60200260200101516001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b1580156113dc57600080fd5b505afa1580156113f0573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061141491906118a2565b60ff16600a0a9050806003600087858151811061142d57fe5b60200260200101516001600160a01b03166001600160a01b031681526020019081526020016000208190555084828151811061146557fe5b60200260200101516001600160a01b03167f742bdf00da3d8f16c0fab93ce38eb6a536a019c9e283888dd44c3a08c0148c028584815181106114a357fe5b60200260200101518585815181106114b757fe5b6020026020010151846040516114cf93929190612050565b60405180910390a250600101611244565b50505050565b600061150f6114f5868461157f565b611509856115038a8961157f565b9061157f565b906115b9565b9695505050505050565b600080611536670de0b6b3a7640000611509856115038c8b61157f565b9050611548846115098981858a61157f565b98975050505050505050565b60008061156983611509876115038c8b61157f565b905061154884611509898185670de0b6b3a76400005b60008261158e57506000610840565b8282028284828161159b57fe5b0414610f2d5760405162461bcd60e51b815260040161030390612174565b60008082116115da5760405162461bcd60e51b815260040161030390612124565b8183816115e357fe5b049392505050565b604080518082019091526000808252602082015290565b8035610840816122a3565b8051610840816122a3565b60008083601f84011261162a57600080fd5b50813567ffffffffffffffff81111561164257600080fd5b60208301915083602082028301111561165a57600080fd5b9250929050565b8051610840816122b7565b8035610840816122b7565b8051610840816122c0565b60006020828403121561169457600080fd5b60006116a08484611602565b949350505050565b6000602082840312156116ba57600080fd5b60006116a0848461160d565b6000806000606084860312156116db57600080fd5b60006116e78686611602565b93505060206116f88682870161166c565b925050604061170986828701611602565b9150509250925092565b6000806020838503121561172657600080fd5b823567ffffffffffffffff81111561173d57600080fd5b61174985828601611618565b92509250509250929050565b6000806000806040858703121561176b57600080fd5b843567ffffffffffffffff81111561178257600080fd5b61178e87828801611618565b9450945050602085013567ffffffffffffffff8111156117ad57600080fd5b6117b987828801611618565b95989497509550505050565b600080600080600080606087890312156117de57600080fd5b863567ffffffffffffffff8111156117f557600080fd5b61180189828a01611618565b9650965050602087013567ffffffffffffffff81111561182057600080fd5b61182c89828a01611618565b9450945050604087013567ffffffffffffffff81111561184b57600080fd5b61185789828a01611618565b92509250509295509295509295565b60006020828403121561187857600080fd5b60006116a08484611661565b60006020828403121561189657600080fd5b60006116a0848461166c565b6000602082840312156118b457600080fd5b60006116a08484611677565b6118c98161225f565b82525050565b6118c98161226a565b6118c98161228e565b60006118ee602883612256565b7f5f5f73657445746855736441676772656761746f723a2056616c756520616c728152671958591e481cd95d60c21b602082015260400192915050565b6000611938604483612256565b7f7570646174655072696d6974697665733a20556e657175616c205f7072696d6981527f746976657320616e64205f61676772656761746f7273206172726179206c656e6020820152636774687360e01b604082015260600192915050565b60006119a4602d83612256565b7f5f5f6765744c617465737452617465446174613a205072696d6974697665206481526c1bd95cc81b9bdd08195e1a5cdd609a1b602082015260400192915050565b60006119f3604983612256565b7f6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652081527f46756e644465706c6f796572206f776e65722063616e2063616c6c207468697360208201526810333ab731ba34b7b760b91b604082015260600192915050565b6000611a64602883612256565b7f72656d6f76655374616c655072696d6974697665733a20496e76616c6964207081526772696d697469766560c01b602082015260400192915050565b6000611aae602783612256565b7f5f5f76616c696461746541676772656761746f723a20456d707479205f6167678152663932b3b0ba37b960c91b602082015260400192915050565b6000611af7603283612256565b7f72656d6f76655374616c655072696d6974697665733a205f7072696d6974697681527165732063616e6e6f7420626520656d70747960701b602082015260400192915050565b6000611b4b602a83612256565b7f6164645072696d6974697665733a205f7072696d6974697665732063616e6e6f8152697420626520656d70747960b01b602082015260400192915050565b6000611b97601e83612256565b7f536166654d6174683a207375627472616374696f6e206f766572666c6f770000815260200192915050565b6000611bd0601a83612256565b7f536166654d6174683a206469766973696f6e206279207a65726f000000000000815260200192915050565b6000611c09602383612256565b7f7570646174655072696d6974697665733a2056616c756520616c7265616479208152621cd95d60ea1b602082015260400192915050565b6000611c4e602d83612256565b7f72656d6f76655072696d6974697665733a205f7072696d69746976657320636181526c6e6e6f7420626520656d70747960981b602082015260400192915050565b6000611c9d604283612256565b7f5f5f6164645072696d6974697665733a20556e657175616c205f7072696d697481527f6976657320616e64205f72617465417373657473206172726179206c656e6774602082015261687360f01b604082015260600192915050565b6000611d07602883612256565b7f72656d6f76655374616c655072696d6974697665733a2052617465206973206e8152676f74207374616c6560c01b602082015260400192915050565b6000611d51602183612256565b7f536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f8152607760f81b602082015260400192915050565b6000611d94602983612256565b7f5f5f76616c696461746541676772656761746f723a205374616c6520726174658152680819195d1958dd195960ba1b602082015260400192915050565b6000611ddf602a83612256565b7f5f5f7365745374616c65526174655468726573686f6c643a2056616c756520618152691b1c9958591e481cd95d60b21b602082015260400192915050565b6000611e2b602683612256565b7f5f5f76616c696461746541676772656761746f723a204e6f20726174652064658152651d1958dd195960d21b602082015260400192915050565b6000611e73602983612256565b7f7570646174655072696d6974697665733a205072696d6974697665206e6f74208152681e595d08185919195960ba1b602082015260400192915050565b6000611ebe604383612256565b7f5f5f6164645072696d6974697665733a20556e657175616c205f7072696d697481527f6976657320616e64205f61676772656761746f7273206172726179206c656e6760208201526274687360e81b604082015260600192915050565b6000611f29602d83612256565b7f7570646174655072696d6974697665733a205f7072696d69746976657320636181526c6e6e6f7420626520656d70747960981b602082015260400192915050565b6000611f78602983612256565b7f72656d6f76655072696d6974697665733a205072696d6974697665206e6f74208152681e595d08185919195960ba1b602082015260400192915050565b6000611fc3602283612256565b7f5f5f6164645072696d6974697665733a2056616c756520616c72656164792073815261195d60f21b602082015260400192915050565b8051604083019061200b84826118c0565b5060208201516114e060208501826118d8565b6118c981612279565b6020810161084082846118c0565b6040810161204382856118c0565b610f2d60208301846118c0565b6060810161205e82866118c0565b61206b60208301856118d8565b6116a0604083018461201e565b6020810161084082846118cf565b6020810161084082846118d8565b60208082528101610840816118e1565b602080825281016108408161192b565b6020808252810161084081611997565b60208082528101610840816119e6565b6020808252810161084081611a57565b6020808252810161084081611aa1565b6020808252810161084081611aea565b6020808252810161084081611b3e565b6020808252810161084081611b8a565b6020808252810161084081611bc3565b6020808252810161084081611bfc565b6020808252810161084081611c41565b6020808252810161084081611c90565b6020808252810161084081611cfa565b6020808252810161084081611d44565b6020808252810161084081611d87565b6020808252810161084081611dd2565b6020808252810161084081611e1e565b6020808252810161084081611e66565b6020808252810161084081611eb1565b6020808252810161084081611f1c565b6020808252810161084081611f6b565b6020808252810161084081611fb6565b604081016108408284611ffa565b60208101610840828461201e565b6040810161222e828561201e565b610f2d60208301846118cf565b60408101612249828561201e565b610f2d602083018461201e565b90815260200190565b60006108408261227c565b151590565b806105e181612299565b90565b6001600160a01b031690565b60ff1690565b60006108408261226f565b60028110610aee57fe5b6122ac8161225f565b8114610aee57600080fd5b6122ac81612279565b6122ac8161228856fea2646970667358221220b2f4873be44e5b5457bcc2c2280b97dd4098c09cdb13788d4d008f7c3f7bccb564736f6c634300060c0033",
+  "devdoc": {
+    "author": "Enzyme Council <security@enzyme.finance>",
+    "kind": "dev",
+    "methods": {
+      "addPrimitives(address[],address[],uint8[])": {
+        "params": {
+          "_aggregators": "The ordered aggregators corresponding to the list of _primitives",
+          "_primitives": "The primitives to add",
+          "_rateAssets": "The ordered rate assets corresponding to the list of _primitives"
+        }
+      },
+      "calcCanonicalValue(address,uint256,address)": {
+        "params": {
+          "_baseAsset": "The base asset",
+          "_baseAssetAmount": "The base asset amount to convert",
+          "_quoteAsset": "The quote asset"
+        },
+        "returns": {
+          "isValid_": "True if the rates used in calculations are deemed valid",
+          "quoteAssetAmount_": "The equivalent quote asset amount"
+        }
+      },
+      "calcLiveValue(address,uint256,address)": {
+        "details": "Live and canonical values are the same for Chainlink",
+        "params": {
+          "_baseAsset": "The base asset",
+          "_baseAssetAmount": "The base asset amount to convert",
+          "_quoteAsset": "The quote asset"
+        },
+        "returns": {
+          "isValid_": "True if the rates used in calculations are deemed valid",
+          "quoteAssetAmount_": "The equivalent quote asset amount"
+        }
+      },
+      "getAggregatorInfoForPrimitive(address)": {
+        "params": {
+          "_primitive": "The primitive asset for which to get the aggregatorInfo value"
+        },
+        "returns": {
+          "aggregatorInfo_": "The aggregatorInfo value"
+        }
+      },
+      "getEthUsdAggregator()": {
+        "returns": {
+          "ethUsdAggregator_": "The `ethUsdAggregator` variable value"
+        }
+      },
+      "getFundDeployer()": {
+        "returns": {
+          "fundDeployer_": "The `FUND_DEPLOYER` variable value"
+        }
+      },
+      "getOwner()": {
+        "details": "Ownership is deferred to the owner of the FundDeployer contract",
+        "returns": {
+          "owner_": "The owner"
+        }
+      },
+      "getRateAssetForPrimitive(address)": {
+        "details": "This isn't strictly necessary as WETH_TOKEN will be undefined and thus the RateAsset will be the 0-position of the enum (i.e. ETH), but it makes the behavior more explicit",
+        "returns": {
+          "rateAsset_": "The rateAsset variable value"
+        }
+      },
+      "getStaleRateThreshold()": {
+        "returns": {
+          "staleRateThreshold_": "The `staleRateThreshold` variable value"
+        }
+      },
+      "getUnitForPrimitive(address)": {
+        "returns": {
+          "unit_": "The unit variable value"
+        }
+      },
+      "getWethToken()": {
+        "returns": {
+          "wethToken_": "The `WETH_TOKEN` variable value"
+        }
+      },
+      "isSupportedAsset(address)": {
+        "params": {
+          "_asset": "The asset to check"
+        },
+        "returns": {
+          "isSupported_": "True if the asset is a supported primitive"
+        }
+      },
+      "rateIsStale(address)": {
+        "params": {
+          "_aggregator": "The Chainlink aggregator of which to check staleness"
+        },
+        "returns": {
+          "rateIsStale_": "True if the rate is considered stale"
+        }
+      },
+      "removePrimitives(address[])": {
+        "params": {
+          "_primitives": "The primitives to remove"
+        }
+      },
+      "removeStalePrimitives(address[])": {
+        "details": "Callable by anybody",
+        "params": {
+          "_primitives": "The stale primitives to remove"
+        }
+      },
+      "setEthUsdAggregator(address)": {
+        "params": {
+          "_nextEthUsdAggregator": "The `ehUsdAggregator` value to set"
+        }
+      },
+      "setStaleRateThreshold(uint256)": {
+        "params": {
+          "_nextStaleRateThreshold": "The next `staleRateThreshold` value"
+        }
+      },
+      "updatePrimitives(address[],address[])": {
+        "params": {
+          "_aggregators": "The ordered aggregators corresponding to the list of _primitives",
+          "_primitives": "The primitives to update"
+        }
+      }
+    },
+    "title": "ChainlinkPriceFeed Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "addPrimitives(address[],address[],uint8[])": {
+        "notice": "Adds a list of primitives with the given aggregator and rateAsset values"
+      },
+      "calcCanonicalValue(address,uint256,address)": {
+        "notice": "Calculates the value of a base asset in terms of a quote asset (using a canonical rate)"
+      },
+      "calcLiveValue(address,uint256,address)": {
+        "notice": "Calculates the value of a base asset in terms of a quote asset (using a live rate)"
+      },
+      "getAggregatorInfoForPrimitive(address)": {
+        "notice": "Gets the aggregatorInfo variable value for a primitive"
+      },
+      "getEthUsdAggregator()": {
+        "notice": "Gets the `ethUsdAggregator` variable value"
+      },
+      "getFundDeployer()": {
+        "notice": "Gets the `FUND_DEPLOYER` variable"
+      },
+      "getOwner()": {
+        "notice": "Gets the owner of this contract"
+      },
+      "getRateAssetForPrimitive(address)": {
+        "notice": "Gets the rateAsset variable value for a primitive"
+      },
+      "getStaleRateThreshold()": {
+        "notice": "Gets the `staleRateThreshold` variable value"
+      },
+      "getUnitForPrimitive(address)": {
+        "notice": "Gets the unit variable value for a primitive"
+      },
+      "getWethToken()": {
+        "notice": "Gets the `WETH_TOKEN` variable value"
+      },
+      "isSupportedAsset(address)": {
+        "notice": "Checks whether an asset is a supported primitive of the price feed"
+      },
+      "rateIsStale(address)": {
+        "notice": "Checks whether the current rate is considered stale for the specified aggregator"
+      },
+      "removePrimitives(address[])": {
+        "notice": "Removes a list of primitives from the feed"
+      },
+      "removeStalePrimitives(address[])": {
+        "notice": "Removes stale primitives from the feed"
+      },
+      "setEthUsdAggregator(address)": {
+        "notice": "Sets the `ehUsdAggregator` variable value"
+      },
+      "setStaleRateThreshold(uint256)": {
+        "notice": "Sets the `staleRateThreshold` variable"
+      },
+      "updatePrimitives(address[],address[])": {
+        "notice": "Updates the aggregators for given primitives"
+      }
+    },
+    "notice": "A price feed that uses Chainlink oracles as price sources",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 43716,
+        "contract": "contracts/release/infrastructure/price-feeds/primitives/ChainlinkPriceFeed.sol:ChainlinkPriceFeed",
+        "label": "ethUsdAggregator",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 43718,
+        "contract": "contracts/release/infrastructure/price-feeds/primitives/ChainlinkPriceFeed.sol:ChainlinkPriceFeed",
+        "label": "staleRateThreshold",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 43722,
+        "contract": "contracts/release/infrastructure/price-feeds/primitives/ChainlinkPriceFeed.sol:ChainlinkPriceFeed",
+        "label": "primitiveToAggregatorInfo",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_struct(AggregatorInfo)43705_storage)"
+      },
+      {
+        "astId": 43726,
+        "contract": "contracts/release/infrastructure/price-feeds/primitives/ChainlinkPriceFeed.sol:ChainlinkPriceFeed",
+        "label": "primitiveToUnit",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_enum(RateAsset)43700": {
+        "encoding": "inplace",
+        "label": "enum ChainlinkPriceFeed.RateAsset",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_struct(AggregatorInfo)43705_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct ChainlinkPriceFeed.AggregatorInfo)",
+        "numberOfBytes": "32",
+        "value": "t_struct(AggregatorInfo)43705_storage"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_struct(AggregatorInfo)43705_storage": {
+        "encoding": "inplace",
+        "label": "struct ChainlinkPriceFeed.AggregatorInfo",
+        "members": [
+          {
+            "astId": 43702,
+            "contract": "contracts/release/infrastructure/price-feeds/primitives/ChainlinkPriceFeed.sol:ChainlinkPriceFeed",
+            "label": "aggregator",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 43704,
+            "contract": "contracts/release/infrastructure/price-feeds/primitives/ChainlinkPriceFeed.sol:ChainlinkPriceFeed",
+            "label": "rateAsset",
+            "offset": 20,
+            "slot": "0",
+            "type": "t_enum(RateAsset)43700"
+          }
+        ],
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

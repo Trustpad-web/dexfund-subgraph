@@ -1,0 +1,1160 @@
+{
+  "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_fundDeployer",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_derivativePriceFeed",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_primitivePriceFeed",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_valueInterpreter",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_factory",
+          "type": "address"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_poolTokens",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "poolToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "token0",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "token1",
+          "type": "address"
+        }
+      ],
+      "name": "PoolTokenAdded",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_poolTokens",
+          "type": "address[]"
+        }
+      ],
+      "name": "addPoolTokens",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_derivative",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_derivativeAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "calcUnderlyingValues",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "underlyings_",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "underlyingAmounts_",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getDerivativePriceFeed",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "derivativePriceFeed_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getDerivativePriceFeedDeployTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFactory",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "factory_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFundDeployer",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "fundDeployer_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_poolToken",
+          "type": "address"
+        }
+      ],
+      "name": "getPoolTokenInfo",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "token0",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "token1",
+              "type": "address"
+            },
+            {
+              "internalType": "uint8",
+              "name": "token0Decimals",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "token1Decimals",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct UniswapV2PoolPriceFeed.PoolTokenInfo",
+          "name": "poolTokenInfo_",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_poolToken",
+          "type": "address"
+        }
+      ],
+      "name": "getPoolTokenUnderlyings",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "token0_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "token1_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPrimitivePriceFeed",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "primitivePriceFeed_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getValueInterpreter",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "valueInterpreter_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_asset",
+          "type": "address"
+        }
+      ],
+      "name": "isSupportedAsset",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isSupported_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+  "receipt": {
+    "to": null,
+    "from": "0x5a43993587dD57d58c16bbEbdf23b9F6D279176f",
+    "contractAddress": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+    "transactionIndex": 183,
+    "gasUsed": "4923373",
+    "logsBloom": "0x108004408000200000000022004d0000000000003000020000000000240001105400006104a00000400000000000020010002000180000000028002000404000000120000202400000080000000000004000400000100000400000c0034800000002580030400000004000800000050000080000000000804000000800008080108000800000000000000420100010000040200000001000400000000a00110001010000004100021c000001080100000030000000210400000000002002000060000082000000002a70020000400404004280801000000002000408000000081008080040020000000400010020000820000040000080000004000012000000",
+    "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30",
+    "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+    "logs": [
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x00000000000000000000000026aad2da94c59524ac0d93f6d6cbf9071d7086f2"
+        ],
+        "data": "0x000000000000000000000000111111111117dc0aa78b770fa6a738034120c302000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 192,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000dfc14d2af169b0d36c4eff567ada9b2e0cae044f"
+        ],
+        "data": "0x0000000000000000000000007fc66500c84a76ad7e9c93437bfc5ac33e2ddae9000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 193,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000d3772a963790fede65646cfdae08734a17cd0f47"
+        ],
+        "data": "0x000000000000000000000000ade00c28244d5ce17d72e40330b1c318cd12b7c3000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 194,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000009def9511fec79f83afcbffe4776b1d817dc775ae"
+        ],
+        "data": "0x000000000000000000000000a117000000f279d81a1d3cc75430faa017fa5a2e000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 195,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000a70d458a4d9bc0e6571565faee18a48da5c0d593"
+        ],
+        "data": "0x000000000000000000000000ba100000625a3754423978a60c9317c58a424e3d000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 196,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000f421c3f2e695c2d4c0765379ccace8ade4a480d9"
+        ],
+        "data": "0x000000000000000000000000ba11d00c5f74255f56a5e366f4f77f5a186d7f55000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 197,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000b6909b960dbbe7392d405429eb2b3649752b4838"
+        ],
+        "data": "0x0000000000000000000000000d8775f648430679a709e98d2b0cb6250d2887ef000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 198,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000003fd4cf9303c4bc9e13772618828712c8eac7dd2f"
+        ],
+        "data": "0x0000000000000000000000001f573d6fb3f13d689ff844b4ce37794d79a7ff1c000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 199,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000524847c615639e76fe7d0fe0b16be8c4eac9cf3c"
+        ],
+        "data": "0x0000000000000000000000004fabb145d64652a948d72533023f6e7a623c7c53000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "logIndex": 200,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000a0abda1f980e03d7eadb78aed8fc1f2dd0fe83dd"
+        ],
+        "data": "0x0000000000000000000000004fabb145d64652a948d72533023f6e7a623c7c53000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7",
+        "logIndex": 201,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000b9b752f7f4a4680eeb327ffe728f46666763a796"
+        ],
+        "data": "0x00000000000000000000000056d811088235f11c8920698a204a5010a788f4b3000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 202,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000cffdded873554f362ac02f8fb1f02e5ada10516f"
+        ],
+        "data": "0x000000000000000000000000c00e94cb662c3520282e6f5717214004a7f26888000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 203,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x00000000000000000000000090704ac59e7e54632b0cc9d22573aecd7eb094ad"
+        ],
+        "data": "0x000000000000000000000000a0b73e1ff0b80914ab6fe0444e65848c4c34450b000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 204,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000ae461ca67b15dc8dc81ce7615e0320da1a9ab8d5"
+        ],
+        "data": "0x0000000000000000000000006b175474e89094c44da98b954eedeac495271d0f000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "logIndex": 205,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000b20bd5d04be54f870d5c0d3ca85d82b34b836405"
+        ],
+        "data": "0x0000000000000000000000006b175474e89094c44da98b954eedeac495271d0f000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7",
+        "logIndex": 206,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000a478c2975ab1ea89e8196811f51a7b7ade33eb11"
+        ],
+        "data": "0x0000000000000000000000006b175474e89094c44da98b954eedeac495271d0f000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 207,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000001273ad5d8f3596a7a39efdb5a4b8f82e8f003fc3"
+        ],
+        "data": "0x000000000000000000000000584bc13c7d411c00c01a62e8019472de68768430000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 208,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000a2107fa5b38d9bbd2c461d6edf11b11a50f6b974"
+        ],
+        "data": "0x000000000000000000000000514910771af9ca656af840dff83e8264ecf986ca000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 209,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000008878df9e1a7c87dcbf6d3999d997f262c05d8c70"
+        ],
+        "data": "0x000000000000000000000000bbbbca6a901c926f240b89eacb641d8aec7aeafd000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 210,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x00000000000000000000000011b1f53204d03e5529f09eb3091939e4fd8c9cf3"
+        ],
+        "data": "0x0000000000000000000000000f5d2fb29fb7d3cfee444a200298f468908cc942000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 211,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000c2adda861f89bbb333c90c492cb837741916a225"
+        ],
+        "data": "0x0000000000000000000000009f8f72aa9304c8b593d555f12ef6589cc3a579a2000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 212,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000b784ced6994c928170b417bbd052a096c6fb17e2"
+        ],
+        "data": "0x0000000000000000000000001776e1f26f98b1a5df9cd347953a26dd3cb46671000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 213,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000ce2cc0513634cef3a7c9c257e294ef5e3092f185"
+        ],
+        "data": "0x0000000000000000000000008207c1ffc5b6804f6024322ccf34f29c3541ae26000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 214,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000006c8b0dee9e90ea9f790da5daf6f5b20d23b39689"
+        ],
+        "data": "0x0000000000000000000000000258f474786ddfd37abce6df6bbb1dd5dfc4434a000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 215,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000009b533f1ceaa5ceb7e5b8994ef16499e47a66312d"
+        ],
+        "data": "0x0000000000000000000000004575f41308ec1483f3d399aa9a2826d74da13deb000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 216,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000008bd1661da98ebdd3bd080f0be4e6d9be8ce9858c"
+        ],
+        "data": "0x000000000000000000000000408e41876cccdc0f92210600ef50372656052a38000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 217,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000008979a3ef9d540480342ac0f56e9d4c88807b1cba"
+        ],
+        "data": "0x000000000000000000000000221657776846890989a759ba2973e427dff5c9bb000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 218,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000006d57a53a45343187905aad6ad8ed532d105697c1"
+        ],
+        "data": "0x000000000000000000000000607f4c5bb672230e8672085532f7e901544a7375000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 219,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x00000000000000000000000043ae24960e5534731fc831386c07755a2dc33d47"
+        ],
+        "data": "0x000000000000000000000000c011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 220,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000f80758ab42c3b07da84053fd88804bcb6baa4b5c"
+        ],
+        "data": "0x00000000000000000000000057ab1ec28d129707052df4df418d58a2d46d5f51000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 221,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000ce84867c3c02b05dc570d0135103d3fb9cc19433"
+        ],
+        "data": "0x0000000000000000000000006b3595068778dd592e39a122f4f5a5cf09c90fe2000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 222,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000ac317d14738a454ff20b191ba3504aa97173045b"
+        ],
+        "data": "0x0000000000000000000000008ce9137d39326ad0cd6491fb5cc0cba0e089b6a9000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 223,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x00000000000000000000000088d97d199b9ed37c29d846d00d443de980832a22"
+        ],
+        "data": "0x00000000000000000000000004fa0d235c4abf4bcf4787af4cf447de572ef828000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 224,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000d3d2e2692501a5c9ca623199d38826e513033a17"
+        ],
+        "data": "0x0000000000000000000000001f9840a85d5af5bf1d1762f925bdaddc4201f984000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 225,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000003041cbd36888becc7bbcbc0045e3b1f144466f5f"
+        ],
+        "data": "0x000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7",
+        "logIndex": 226,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000b4e16d0168e52d35cacd2c6185b44281ec28c9dc"
+        ],
+        "data": "0x000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 227,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000004375dff511095cc5a197a54140a24efef3a416"
+        ],
+        "data": "0x0000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c599000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "logIndex": 228,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000bb2b8038a1640196fbe3e38816f3e67cba72d940"
+        ],
+        "data": "0x0000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c599000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 229,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000003da1313ae46132a397d90d95b1424a9a7e3e0fce"
+        ],
+        "data": "0x000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000d533a949740bb3306d119cc777fa900ba034cd52",
+        "logIndex": 230,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000e56c60b5f9f7b5fc70de0eb79c6ee7d00efa2625"
+        ],
+        "data": "0x000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000f629cbd94d3791c9250152bd8dfbdf380e2a3b9c",
+        "logIndex": 231,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000f49c43ae0faf37217bdcb00df478cf793edd6687"
+        ],
+        "data": "0x000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000dd974d5c2e2928dea5f71b9825b8b646686bd200",
+        "logIndex": 232,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x00000000000000000000000015ab0333985fd1e289adf4fbbe19261454776642"
+        ],
+        "data": "0x000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000ec67005c4e498ec7f55e092bd1d35cbc47c91892",
+        "logIndex": 233,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000448a0a42f55142971bb3ea45e64528d3e4114f9e"
+        ],
+        "data": "0x000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000dfe66b14d37c77f4e9b180ceb433d1b164f0281d",
+        "logIndex": 234,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000000d4a11d5eeaac28ec3f61d100daf4d40471f1852"
+        ],
+        "data": "0x000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7",
+        "logIndex": 235,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x000000000000000000000000c6f348dd3b91a56d117ec0071c1e9b83c0996de4"
+        ],
+        "data": "0x000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000e41d2489571d322189246dafa5ebde1f4699f498",
+        "logIndex": 236,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x00000000000000000000000023bff8ca20aac06efdf23cee3b8ae296a30dfd27"
+        ],
+        "data": "0x0000000000000000000000000d438f3b5175bebc262bf23753c1e53d03432bde000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 237,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      },
+      {
+        "transactionIndex": 183,
+        "blockNumber": 13526085,
+        "transactionHash": "0xd6bbb88f75b4764a03b88836b6997643ab0990f1182cae7e6c7d1975dbaacbcf",
+        "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
+        "topics": [
+          "0x2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf",
+          "0x0000000000000000000000002fdbadf3c4d5a8666bc06645b8358ab803996e28"
+        ],
+        "data": "0x0000000000000000000000000bc529c00c6401aef6d220be8c6ea1667f6ad93e000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "logIndex": 238,
+        "blockHash": "0x0b900f5bc12cb3897b34eb5c73058fa618a0793d73f2420dc4923d9a1fcfce30"
+      }
+    ],
+    "blockNumber": 13526085,
+    "cumulativeGasUsed": "15221948",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x217912B16c8A00C2D9F2fDFCA94127ca37cFe948",
+    "0x5642D3380320aC106816b921c998758D61a224f2",
+    "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
+    "0xA0B9298aAe86f4BFdcB07cc6dCac40049bb8dFb0",
+    "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+    [
+      "0x26aad2da94c59524ac0d93f6d6cbf9071d7086f2",
+      "0xdfc14d2af169b0d36c4eff567ada9b2e0cae044f",
+      "0xd3772a963790fede65646cfdae08734a17cd0f47",
+      "0x9def9511fec79f83afcbffe4776b1d817dc775ae",
+      "0xa70d458a4d9bc0e6571565faee18a48da5c0d593",
+      "0xf421c3f2e695c2d4c0765379ccace8ade4a480d9",
+      "0xb6909b960dbbe7392d405429eb2b3649752b4838",
+      "0x3fd4cf9303c4bc9e13772618828712c8eac7dd2f",
+      "0x524847c615639e76fe7d0fe0b16be8c4eac9cf3c",
+      "0xa0abda1f980e03d7eadb78aed8fc1f2dd0fe83dd",
+      "0xb9b752f7f4a4680eeb327ffe728f46666763a796",
+      "0xcffdded873554f362ac02f8fb1f02e5ada10516f",
+      "0x90704ac59e7e54632b0cc9d22573aecd7eb094ad",
+      "0xae461ca67b15dc8dc81ce7615e0320da1a9ab8d5",
+      "0xb20bd5d04be54f870d5c0d3ca85d82b34b836405",
+      "0xa478c2975ab1ea89e8196811f51a7b7ade33eb11",
+      "0x1273ad5d8f3596a7a39efdb5a4b8f82e8f003fc3",
+      "0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974",
+      "0x8878df9e1a7c87dcbf6d3999d997f262c05d8c70",
+      "0x11b1f53204d03e5529f09eb3091939e4fd8c9cf3",
+      "0xc2adda861f89bbb333c90c492cb837741916a225",
+      "0xb784ced6994c928170b417bbd052a096c6fb17e2",
+      "0xce2cc0513634cef3a7c9c257e294ef5e3092f185",
+      "0x6c8b0dee9e90ea9f790da5daf6f5b20d23b39689",
+      "0x9b533f1ceaa5ceb7e5b8994ef16499e47a66312d",
+      "0x8bd1661da98ebdd3bd080f0be4e6d9be8ce9858c",
+      "0x8979a3ef9d540480342ac0f56e9d4c88807b1cba",
+      "0x6d57a53a45343187905aad6ad8ed532d105697c1",
+      "0x43ae24960e5534731fc831386c07755a2dc33d47",
+      "0xf80758ab42c3b07da84053fd88804bcb6baa4b5c",
+      "0xce84867c3c02b05dc570d0135103d3fb9cc19433",
+      "0xac317d14738a454ff20b191ba3504aa97173045b",
+      "0x88d97d199b9ed37c29d846d00d443de980832a22",
+      "0xd3d2e2692501a5c9ca623199d38826e513033a17",
+      "0x3041cbd36888becc7bbcbc0045e3b1f144466f5f",
+      "0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc",
+      "0x004375dff511095cc5a197a54140a24efef3a416",
+      "0xbb2b8038a1640196fbe3e38816f3e67cba72d940",
+      "0x3da1313ae46132a397d90d95b1424a9a7e3e0fce",
+      "0xe56c60b5f9f7b5fc70de0eb79c6ee7d00efa2625",
+      "0xf49c43ae0faf37217bdcb00df478cf793edd6687",
+      "0x15ab0333985fd1e289adf4fbbe19261454776642",
+      "0x448a0a42f55142971bb3ea45e64528d3e4114f9e",
+      "0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852",
+      "0xc6f348dd3b91a56d117ec0071c1e9b83c0996de4",
+      "0x23bff8ca20aac06efdf23cee3b8ae296a30dfd27",
+      "0x2fdbadf3c4d5a8666bc06645b8358ab803996e28"
+    ]
+  ],
+  "solcInputHash": "34b1516e615d6cbcdbaf9542624efee9",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fundDeployer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_derivativePriceFeed\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_primitivePriceFeed\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_valueInterpreter\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_factory\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"_poolTokens\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"poolToken\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token0\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token1\",\"type\":\"address\"}],\"name\":\"PoolTokenAdded\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_poolTokens\",\"type\":\"address[]\"}],\"name\":\"addPoolTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_derivative\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_derivativeAmount\",\"type\":\"uint256\"}],\"name\":\"calcUnderlyingValues\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"underlyings_\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"underlyingAmounts_\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDerivativePriceFeed\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"derivativePriceFeed_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDerivativePriceFeedDeployTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFactory\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"factory_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFundDeployer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"fundDeployer_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_poolToken\",\"type\":\"address\"}],\"name\":\"getPoolTokenInfo\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"token0\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token1\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"token0Decimals\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"token1Decimals\",\"type\":\"uint8\"}],\"internalType\":\"struct UniswapV2PoolPriceFeed.PoolTokenInfo\",\"name\":\"poolTokenInfo_\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_poolToken\",\"type\":\"address\"}],\"name\":\"getPoolTokenUnderlyings\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"token0_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token1_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPrimitivePriceFeed\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"primitivePriceFeed_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getValueInterpreter\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"valueInterpreter_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\"}],\"name\":\"isSupportedAsset\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isSupported_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Enzyme Council <security@enzyme.finance>\",\"kind\":\"dev\",\"methods\":{\"addPoolTokens(address[])\":{\"params\":{\"_poolTokens\":\"Uniswap pool tokens to add\"}},\"calcUnderlyingValues(address,uint256)\":{\"params\":{\"_derivative\":\"The derivative to convert\",\"_derivativeAmount\":\"The amount of the derivative to convert\"},\"returns\":{\"underlyingAmounts_\":\"The amount of each underlying asset for the equivalent derivative amount\",\"underlyings_\":\"The underlying assets for the _derivative\"}},\"getDerivativePriceFeed()\":{\"returns\":{\"derivativePriceFeed_\":\"The `DERIVATIVE_PRICE_FEED` variable value\"}},\"getFactory()\":{\"returns\":{\"factory_\":\"The `FACTORY` variable value\"}},\"getFundDeployer()\":{\"returns\":{\"fundDeployer_\":\"The `FUND_DEPLOYER` variable value\"}},\"getOwner()\":{\"details\":\"Ownership is deferred to the owner of the FundDeployer contract\",\"returns\":{\"owner_\":\"The owner\"}},\"getPoolTokenInfo(address)\":{\"params\":{\"_poolToken\":\"The pool token for which to get the `PoolTokenInfo`\"},\"returns\":{\"poolTokenInfo_\":\"The `PoolTokenInfo` value\"}},\"getPoolTokenUnderlyings(address)\":{\"params\":{\"_poolToken\":\"The pool token for which to get its underlyings\"},\"returns\":{\"token0_\":\"The UniswapV2Pair.token0 value\",\"token1_\":\"The UniswapV2Pair.token1 value\"}},\"getPrimitivePriceFeed()\":{\"returns\":{\"primitivePriceFeed_\":\"The `PRIMITIVE_PRICE_FEED` variable value\"}},\"getValueInterpreter()\":{\"returns\":{\"valueInterpreter_\":\"The `VALUE_INTERPRETER` variable value\"}},\"isSupportedAsset(address)\":{\"params\":{\"_asset\":\"The asset to check\"},\"returns\":{\"isSupported_\":\"True if the asset is supported\"}}},\"title\":\"UniswapV2PoolPriceFeed Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"addPoolTokens(address[])\":{\"notice\":\"Adds Uniswap pool tokens to the price feed\"},\"calcUnderlyingValues(address,uint256)\":{\"notice\":\"Converts a given amount of a derivative to its underlying asset values\"},\"getDerivativePriceFeed()\":{\"notice\":\"Gets the `DERIVATIVE_PRICE_FEED` variable value\"},\"getFactory()\":{\"notice\":\"Gets the `FACTORY` variable value\"},\"getFundDeployer()\":{\"notice\":\"Gets the `FUND_DEPLOYER` variable\"},\"getOwner()\":{\"notice\":\"Gets the owner of this contract\"},\"getPoolTokenInfo(address)\":{\"notice\":\"Gets the `PoolTokenInfo` for a given pool token\"},\"getPoolTokenUnderlyings(address)\":{\"notice\":\"Gets the underlyings for a given pool token\"},\"getPrimitivePriceFeed()\":{\"notice\":\"Gets the `PRIMITIVE_PRICE_FEED` variable value\"},\"getValueInterpreter()\":{\"notice\":\"Gets the `VALUE_INTERPRETER` variable value\"},\"isSupportedAsset(address)\":{\"notice\":\"Checks if an asset is supported by the price feed\"}},\"notice\":\"Price feed for Uniswap lending pool tokens\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/release/infrastructure/price-feeds/derivatives/feeds/UniswapV2PoolPriceFeed.sol\":\"UniswapV2PoolPriceFeed\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\n * checks.\\n *\\n * Arithmetic operations in Solidity wrap on overflow. This can easily result\\n * in bugs, because programmers usually assume that an overflow raises an\\n * error, which is the standard behavior in high level programming languages.\\n * `SafeMath` restores this intuition by reverting the transaction when an\\n * operation overflows.\\n *\\n * Using this library instead of the unchecked operations eliminates an entire\\n * class of bugs, so it's recommended to use it always.\\n */\\nlibrary SafeMath {\\n    /**\\n     * @dev Returns the addition of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        uint256 c = a + b;\\n        if (c < a) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the substraction of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b > a) return (false, 0);\\n        return (true, a - b);\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\n        // benefit is lost if 'b' is also tested.\\n        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522\\n        if (a == 0) return (true, 0);\\n        uint256 c = a * b;\\n        if (c / a != b) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the division of two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a / b);\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a % b);\\n    }\\n\\n    /**\\n     * @dev Returns the addition of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `+` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Addition cannot overflow.\\n     */\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\n        uint256 c = a + b;\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting on\\n     * overflow (when the result is negative).\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b <= a, \\\"SafeMath: subtraction overflow\\\");\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `*` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Multiplication cannot overflow.\\n     */\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\n        if (a == 0) return 0;\\n        uint256 c = a * b;\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: division by zero\\\");\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting when dividing by zero.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: modulo by zero\\\");\\n        return a % b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on\\n     * overflow (when the result is negative).\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {trySub}.\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b <= a, errorMessage);\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting with custom message on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryDiv}.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting with custom message when dividing by zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryMod}.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a % b;\\n    }\\n}\\n\",\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\nimport \\\"../../utils/Context.sol\\\";\\nimport \\\"./IERC20.sol\\\";\\nimport \\\"../../math/SafeMath.sol\\\";\\n\\n/**\\n * @dev Implementation of the {IERC20} interface.\\n *\\n * This implementation is agnostic to the way tokens are created. This means\\n * that a supply mechanism has to be added in a derived contract using {_mint}.\\n * For a generic mechanism see {ERC20PresetMinterPauser}.\\n *\\n * TIP: For a detailed writeup see our guide\\n * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How\\n * to implement supply mechanisms].\\n *\\n * We have followed general OpenZeppelin guidelines: functions revert instead\\n * of returning `false` on failure. This behavior is nonetheless conventional\\n * and does not conflict with the expectations of ERC20 applications.\\n *\\n * Additionally, an {Approval} event is emitted on calls to {transferFrom}.\\n * This allows applications to reconstruct the allowance for all accounts just\\n * by listening to said events. Other implementations of the EIP may not emit\\n * these events, as it isn't required by the specification.\\n *\\n * Finally, the non-standard {decreaseAllowance} and {increaseAllowance}\\n * functions have been added to mitigate the well-known issues around setting\\n * allowances. See {IERC20-approve}.\\n */\\ncontract ERC20 is Context, IERC20 {\\n    using SafeMath for uint256;\\n\\n    mapping (address => uint256) private _balances;\\n\\n    mapping (address => mapping (address => uint256)) private _allowances;\\n\\n    uint256 private _totalSupply;\\n\\n    string private _name;\\n    string private _symbol;\\n    uint8 private _decimals;\\n\\n    /**\\n     * @dev Sets the values for {name} and {symbol}, initializes {decimals} with\\n     * a default value of 18.\\n     *\\n     * To select a different value for {decimals}, use {_setupDecimals}.\\n     *\\n     * All three of these values are immutable: they can only be set once during\\n     * construction.\\n     */\\n    constructor (string memory name_, string memory symbol_) public {\\n        _name = name_;\\n        _symbol = symbol_;\\n        _decimals = 18;\\n    }\\n\\n    /**\\n     * @dev Returns the name of the token.\\n     */\\n    function name() public view virtual returns (string memory) {\\n        return _name;\\n    }\\n\\n    /**\\n     * @dev Returns the symbol of the token, usually a shorter version of the\\n     * name.\\n     */\\n    function symbol() public view virtual returns (string memory) {\\n        return _symbol;\\n    }\\n\\n    /**\\n     * @dev Returns the number of decimals used to get its user representation.\\n     * For example, if `decimals` equals `2`, a balance of `505` tokens should\\n     * be displayed to a user as `5,05` (`505 / 10 ** 2`).\\n     *\\n     * Tokens usually opt for a value of 18, imitating the relationship between\\n     * Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is\\n     * called.\\n     *\\n     * NOTE: This information is only used for _display_ purposes: it in\\n     * no way affects any of the arithmetic of the contract, including\\n     * {IERC20-balanceOf} and {IERC20-transfer}.\\n     */\\n    function decimals() public view virtual returns (uint8) {\\n        return _decimals;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-totalSupply}.\\n     */\\n    function totalSupply() public view virtual override returns (uint256) {\\n        return _totalSupply;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-balanceOf}.\\n     */\\n    function balanceOf(address account) public view virtual override returns (uint256) {\\n        return _balances[account];\\n    }\\n\\n    /**\\n     * @dev See {IERC20-transfer}.\\n     *\\n     * Requirements:\\n     *\\n     * - `recipient` cannot be the zero address.\\n     * - the caller must have a balance of at least `amount`.\\n     */\\n    function transfer(address recipient, uint256 amount) public virtual override returns (bool) {\\n        _transfer(_msgSender(), recipient, amount);\\n        return true;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-allowance}.\\n     */\\n    function allowance(address owner, address spender) public view virtual override returns (uint256) {\\n        return _allowances[owner][spender];\\n    }\\n\\n    /**\\n     * @dev See {IERC20-approve}.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     */\\n    function approve(address spender, uint256 amount) public virtual override returns (bool) {\\n        _approve(_msgSender(), spender, amount);\\n        return true;\\n    }\\n\\n    /**\\n     * @dev See {IERC20-transferFrom}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance. This is not\\n     * required by the EIP. See the note at the beginning of {ERC20}.\\n     *\\n     * Requirements:\\n     *\\n     * - `sender` and `recipient` cannot be the zero address.\\n     * - `sender` must have a balance of at least `amount`.\\n     * - the caller must have allowance for ``sender``'s tokens of at least\\n     * `amount`.\\n     */\\n    function transferFrom(address sender, address recipient, uint256 amount) public virtual override returns (bool) {\\n        _transfer(sender, recipient, amount);\\n        _approve(sender, _msgSender(), _allowances[sender][_msgSender()].sub(amount, \\\"ERC20: transfer amount exceeds allowance\\\"));\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Atomically increases the allowance granted to `spender` by the caller.\\n     *\\n     * This is an alternative to {approve} that can be used as a mitigation for\\n     * problems described in {IERC20-approve}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     */\\n    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {\\n        _approve(_msgSender(), spender, _allowances[_msgSender()][spender].add(addedValue));\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Atomically decreases the allowance granted to `spender` by the caller.\\n     *\\n     * This is an alternative to {approve} that can be used as a mitigation for\\n     * problems described in {IERC20-approve}.\\n     *\\n     * Emits an {Approval} event indicating the updated allowance.\\n     *\\n     * Requirements:\\n     *\\n     * - `spender` cannot be the zero address.\\n     * - `spender` must have allowance for the caller of at least\\n     * `subtractedValue`.\\n     */\\n    function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {\\n        _approve(_msgSender(), spender, _allowances[_msgSender()][spender].sub(subtractedValue, \\\"ERC20: decreased allowance below zero\\\"));\\n        return true;\\n    }\\n\\n    /**\\n     * @dev Moves tokens `amount` from `sender` to `recipient`.\\n     *\\n     * This is internal function is equivalent to {transfer}, and can be used to\\n     * e.g. implement automatic token fees, slashing mechanisms, etc.\\n     *\\n     * Emits a {Transfer} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `sender` cannot be the zero address.\\n     * - `recipient` cannot be the zero address.\\n     * - `sender` must have a balance of at least `amount`.\\n     */\\n    function _transfer(address sender, address recipient, uint256 amount) internal virtual {\\n        require(sender != address(0), \\\"ERC20: transfer from the zero address\\\");\\n        require(recipient != address(0), \\\"ERC20: transfer to the zero address\\\");\\n\\n        _beforeTokenTransfer(sender, recipient, amount);\\n\\n        _balances[sender] = _balances[sender].sub(amount, \\\"ERC20: transfer amount exceeds balance\\\");\\n        _balances[recipient] = _balances[recipient].add(amount);\\n        emit Transfer(sender, recipient, amount);\\n    }\\n\\n    /** @dev Creates `amount` tokens and assigns them to `account`, increasing\\n     * the total supply.\\n     *\\n     * Emits a {Transfer} event with `from` set to the zero address.\\n     *\\n     * Requirements:\\n     *\\n     * - `to` cannot be the zero address.\\n     */\\n    function _mint(address account, uint256 amount) internal virtual {\\n        require(account != address(0), \\\"ERC20: mint to the zero address\\\");\\n\\n        _beforeTokenTransfer(address(0), account, amount);\\n\\n        _totalSupply = _totalSupply.add(amount);\\n        _balances[account] = _balances[account].add(amount);\\n        emit Transfer(address(0), account, amount);\\n    }\\n\\n    /**\\n     * @dev Destroys `amount` tokens from `account`, reducing the\\n     * total supply.\\n     *\\n     * Emits a {Transfer} event with `to` set to the zero address.\\n     *\\n     * Requirements:\\n     *\\n     * - `account` cannot be the zero address.\\n     * - `account` must have at least `amount` tokens.\\n     */\\n    function _burn(address account, uint256 amount) internal virtual {\\n        require(account != address(0), \\\"ERC20: burn from the zero address\\\");\\n\\n        _beforeTokenTransfer(account, address(0), amount);\\n\\n        _balances[account] = _balances[account].sub(amount, \\\"ERC20: burn amount exceeds balance\\\");\\n        _totalSupply = _totalSupply.sub(amount);\\n        emit Transfer(account, address(0), amount);\\n    }\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the `owner` s tokens.\\n     *\\n     * This internal function is equivalent to `approve`, and can be used to\\n     * e.g. set automatic allowances for certain subsystems, etc.\\n     *\\n     * Emits an {Approval} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `owner` cannot be the zero address.\\n     * - `spender` cannot be the zero address.\\n     */\\n    function _approve(address owner, address spender, uint256 amount) internal virtual {\\n        require(owner != address(0), \\\"ERC20: approve from the zero address\\\");\\n        require(spender != address(0), \\\"ERC20: approve to the zero address\\\");\\n\\n        _allowances[owner][spender] = amount;\\n        emit Approval(owner, spender, amount);\\n    }\\n\\n    /**\\n     * @dev Sets {decimals} to a value other than the default one of 18.\\n     *\\n     * WARNING: This function should only be called from the constructor. Most\\n     * applications that interact with token contracts will not expect\\n     * {decimals} to ever change, and may work incorrectly if it does.\\n     */\\n    function _setupDecimals(uint8 decimals_) internal virtual {\\n        _decimals = decimals_;\\n    }\\n\\n    /**\\n     * @dev Hook that is called before any transfer of tokens. This includes\\n     * minting and burning.\\n     *\\n     * Calling conditions:\\n     *\\n     * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens\\n     * will be to transferred to `to`.\\n     * - when `from` is zero, `amount` tokens will be minted for `to`.\\n     * - when `to` is zero, `amount` of ``from``'s tokens will be burned.\\n     * - `from` and `to` are never both zero.\\n     *\\n     * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].\\n     */\\n    function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }\\n}\\n\",\"keccak256\":\"0xca0c2396dbeb3503b51abf4248ebf77a1461edad513c01529df51850a012bee3\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `recipient`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address recipient, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `sender` to `recipient` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n}\\n\",\"keccak256\":\"0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/*\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with GSN meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address payable) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes memory) {\\n        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691\\n        return msg.data;\\n    }\\n}\\n\",\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\"},\"contracts/release/core/fund-deployer/IFundDeployer.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IFundDeployer Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IFundDeployer {\\n    enum ReleaseStatus {PreLaunch, Live, Paused}\\n\\n    function getOwner() external view returns (address);\\n\\n    function getBuybackVault() external view returns (address);\\n\\n    function getReleaseStatus() external view returns (ReleaseStatus);\\n\\n    function isRegisteredVaultCall(address, bytes4) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xe5d28ccc67b68ed61a36eac1e3dfda4230b3669c71e2169ec190ec243bd78742\",\"license\":\"GPL-3.0\"},\"contracts/release/extensions/utils/FundDeployerOwnerMixin.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"../../core/fund-deployer/IFundDeployer.sol\\\";\\n\\n/// @title FundDeployerOwnerMixin Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice A mixin contract that defers ownership to the owner of FundDeployer\\nabstract contract FundDeployerOwnerMixin {\\n    address internal immutable FUND_DEPLOYER;\\n\\n    modifier onlyFundDeployerOwner() {\\n        require(\\n            msg.sender == getOwner(),\\n            \\\"onlyFundDeployerOwner: Only the FundDeployer owner can call this function\\\"\\n        );\\n        _;\\n    }\\n\\n    constructor(address _fundDeployer) public {\\n        FUND_DEPLOYER = _fundDeployer;\\n    }\\n\\n    /// @notice Gets the owner of this contract\\n    /// @return owner_ The owner\\n    /// @dev Ownership is deferred to the owner of the FundDeployer contract\\n    function getOwner() public view returns (address owner_) {\\n        return IFundDeployer(FUND_DEPLOYER).getOwner();\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `FUND_DEPLOYER` variable\\n    /// @return fundDeployer_ The `FUND_DEPLOYER` variable value\\n    function getFundDeployer() external view returns (address fundDeployer_) {\\n        return FUND_DEPLOYER;\\n    }\\n}\\n\",\"keccak256\":\"0xae16a22807bc31d46654889122b8db7ee55b731efc8d6feb4c978d13fee3336d\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/IAggregatedDerivativePriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"./IDerivativePriceFeed.sol\\\";\\n\\n/// @title IDerivativePriceFeed Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\ninterface IAggregatedDerivativePriceFeed is IDerivativePriceFeed {\\n    function getPriceFeedForDerivative(address) external view returns (address);\\n}\\n\",\"keccak256\":\"0xc093c607b46a435aaf152e0d220a4728a9169267c3278287f1513e54a7247c54\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/IDerivativePriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IDerivativePriceFeed Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Simple interface for derivative price source oracle implementations\\ninterface IDerivativePriceFeed {\\n    function calcUnderlyingValues(address, uint256)\\n        external\\n        returns (address[] memory, uint256[] memory);\\n\\n    function isSupportedAsset(address) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x5abbc57ccbf28b2c27a0ee496f0a949a0039912975e8f9a65312d884edd05332\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/feeds/UniswapV2PoolPriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\npragma experimental ABIEncoderV2;\\n\\nimport \\\"@openzeppelin/contracts/token/ERC20/ERC20.sol\\\";\\nimport \\\"../../../../extensions/utils/FundDeployerOwnerMixin.sol\\\";\\nimport \\\"../../../../interfaces/IUniswapV2Pair.sol\\\";\\nimport \\\"../../../../utils/MathHelpers.sol\\\";\\nimport \\\"../../../value-interpreter/ValueInterpreter.sol\\\";\\nimport \\\"../../primitives/IPrimitivePriceFeed.sol\\\";\\nimport \\\"../../utils/UniswapV2PoolTokenValueCalculator.sol\\\";\\nimport \\\"../IDerivativePriceFeed.sol\\\";\\nimport \\\"./utils/DerivativePriceFeedBase.sol\\\";\\n\\n/// @title UniswapV2PoolPriceFeed Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Price feed for Uniswap lending pool tokens\\ncontract UniswapV2PoolPriceFeed is\\n    IDerivativePriceFeed,\\n    FundDeployerOwnerMixin,\\n    MathHelpers,\\n    UniswapV2PoolTokenValueCalculator,\\n    DerivativePriceFeedBase\\n{\\n    event PoolTokenAdded(address indexed poolToken, address token0, address token1);\\n\\n    struct PoolTokenInfo {\\n        address token0;\\n        address token1;\\n        uint8 token0Decimals;\\n        uint8 token1Decimals;\\n    }\\n\\n    uint256 private constant POOL_TOKEN_UNIT = 10**18;\\n    address private immutable DERIVATIVE_PRICE_FEED;\\n    address private immutable FACTORY;\\n    address private immutable PRIMITIVE_PRICE_FEED;\\n    address private immutable VALUE_INTERPRETER;\\n\\n    mapping(address => PoolTokenInfo) private poolTokenToInfo;\\n\\n    constructor(\\n        address _fundDeployer,\\n        address _derivativePriceFeed,\\n        address _primitivePriceFeed,\\n        address _valueInterpreter,\\n        address _factory,\\n        address[] memory _poolTokens\\n    ) public FundDeployerOwnerMixin(_fundDeployer) {\\n        DERIVATIVE_PRICE_FEED = _derivativePriceFeed;\\n        FACTORY = _factory;\\n        PRIMITIVE_PRICE_FEED = _primitivePriceFeed;\\n        VALUE_INTERPRETER = _valueInterpreter;\\n\\n        __addPoolTokens(_poolTokens, _derivativePriceFeed, _primitivePriceFeed);\\n    }\\n\\n    /// @notice Converts a given amount of a derivative to its underlying asset values\\n    /// @param _derivative The derivative to convert\\n    /// @param _derivativeAmount The amount of the derivative to convert\\n    /// @return underlyings_ The underlying assets for the _derivative\\n    /// @return underlyingAmounts_ The amount of each underlying asset for the equivalent derivative amount\\n    function calcUnderlyingValues(address _derivative, uint256 _derivativeAmount)\\n        external\\n        override\\n        returns (address[] memory underlyings_, uint256[] memory underlyingAmounts_)\\n    {\\n        PoolTokenInfo memory poolTokenInfo = poolTokenToInfo[_derivative];\\n\\n        underlyings_ = new address[](2);\\n        underlyings_[0] = poolTokenInfo.token0;\\n        underlyings_[1] = poolTokenInfo.token1;\\n\\n        // Calculate the amounts underlying one unit of a pool token,\\n        // taking into account the known, trusted rate between the two underlyings\\n        (uint256 token0TrustedRateAmount, uint256 token1TrustedRateAmount) = __calcTrustedRate(\\n            poolTokenInfo.token0,\\n            poolTokenInfo.token1,\\n            poolTokenInfo.token0Decimals,\\n            poolTokenInfo.token1Decimals\\n        );\\n\\n        (\\n            uint256 token0DenormalizedRate,\\n            uint256 token1DenormalizedRate\\n        ) = __calcTrustedPoolTokenValue(\\n            FACTORY,\\n            _derivative,\\n            token0TrustedRateAmount,\\n            token1TrustedRateAmount\\n        );\\n\\n        // Define normalized rates for each underlying\\n        underlyingAmounts_ = new uint256[](2);\\n        underlyingAmounts_[0] = _derivativeAmount.mul(token0DenormalizedRate).div(POOL_TOKEN_UNIT);\\n        underlyingAmounts_[1] = _derivativeAmount.mul(token1DenormalizedRate).div(POOL_TOKEN_UNIT);\\n\\n        return (underlyings_, underlyingAmounts_);\\n    }\\n\\n    /// @notice Checks if an asset is supported by the price feed\\n    /// @param _asset The asset to check\\n    /// @return isSupported_ True if the asset is supported\\n    function isSupportedAsset(address _asset) public view override returns (bool isSupported_) {\\n        return poolTokenToInfo[_asset].token0 != address(0);\\n    }\\n\\n    // PRIVATE FUNCTIONS\\n\\n    /// @dev Calculates the trusted rate of two assets based on our price feeds.\\n    /// Uses the decimals-derived unit for whichever asset is used as the quote asset.\\n    function __calcTrustedRate(\\n        address _token0,\\n        address _token1,\\n        uint256 _token0Decimals,\\n        uint256 _token1Decimals\\n    ) private returns (uint256 token0RateAmount_, uint256 token1RateAmount_) {\\n        bool rateIsValid;\\n        // The quote asset of the value lookup must be a supported primitive asset,\\n        // so we cycle through the tokens until reaching a primitive.\\n        // If neither is a primitive, will revert at the ValueInterpreter\\n        if (IPrimitivePriceFeed(PRIMITIVE_PRICE_FEED).isSupportedAsset(_token0)) {\\n            token1RateAmount_ = 10**_token1Decimals;\\n            (token0RateAmount_, rateIsValid) = ValueInterpreter(VALUE_INTERPRETER)\\n                .calcCanonicalAssetValue(_token1, token1RateAmount_, _token0);\\n        } else {\\n            token0RateAmount_ = 10**_token0Decimals;\\n            (token1RateAmount_, rateIsValid) = ValueInterpreter(VALUE_INTERPRETER)\\n                .calcCanonicalAssetValue(_token0, token0RateAmount_, _token1);\\n        }\\n\\n        require(rateIsValid, \\\"__calcTrustedRate: Invalid rate\\\");\\n\\n        return (token0RateAmount_, token1RateAmount_);\\n    }\\n\\n    //////////////////////////\\n    // POOL TOKENS REGISTRY //\\n    //////////////////////////\\n\\n    /// @notice Adds Uniswap pool tokens to the price feed\\n    /// @param _poolTokens Uniswap pool tokens to add\\n    function addPoolTokens(address[] calldata _poolTokens) external onlyFundDeployerOwner {\\n        require(_poolTokens.length > 0, \\\"addPoolTokens: Empty _poolTokens\\\");\\n\\n        __addPoolTokens(_poolTokens, DERIVATIVE_PRICE_FEED, PRIMITIVE_PRICE_FEED);\\n    }\\n\\n    /// @dev Helper to add Uniswap pool tokens\\n    function __addPoolTokens(\\n        address[] memory _poolTokens,\\n        address _derivativePriceFeed,\\n        address _primitivePriceFeed\\n    ) private {\\n        for (uint256 i; i < _poolTokens.length; i++) {\\n            require(_poolTokens[i] != address(0), \\\"__addPoolTokens: Empty poolToken\\\");\\n            require(\\n                poolTokenToInfo[_poolTokens[i]].token0 == address(0),\\n                \\\"__addPoolTokens: Value already set\\\"\\n            );\\n\\n            IUniswapV2Pair uniswapV2Pair = IUniswapV2Pair(_poolTokens[i]);\\n            address token0 = uniswapV2Pair.token0();\\n            address token1 = uniswapV2Pair.token1();\\n\\n            require(\\n                __poolTokenIsSupportable(\\n                    _derivativePriceFeed,\\n                    _primitivePriceFeed,\\n                    token0,\\n                    token1\\n                ),\\n                \\\"__addPoolTokens: Unsupported pool token\\\"\\n            );\\n\\n            poolTokenToInfo[_poolTokens[i]] = PoolTokenInfo({\\n                token0: token0,\\n                token1: token1,\\n                token0Decimals: ERC20(token0).decimals(),\\n                token1Decimals: ERC20(token1).decimals()\\n            });\\n\\n            emit PoolTokenAdded(_poolTokens[i], token0, token1);\\n        }\\n    }\\n\\n    /// @dev Helper to determine if a pool token is supportable, based on whether price feeds are\\n    /// available for its underlying feeds. At least one of the underlying tokens must be\\n    /// a supported primitive asset, and the other must be a primitive or derivative.\\n    function __poolTokenIsSupportable(\\n        address _derivativePriceFeed,\\n        address _primitivePriceFeed,\\n        address _token0,\\n        address _token1\\n    ) private view returns (bool isSupportable_) {\\n        IDerivativePriceFeed derivativePriceFeedContract = IDerivativePriceFeed(\\n            _derivativePriceFeed\\n        );\\n        IPrimitivePriceFeed primitivePriceFeedContract = IPrimitivePriceFeed(_primitivePriceFeed);\\n\\n        if (primitivePriceFeedContract.isSupportedAsset(_token0)) {\\n            if (\\n                primitivePriceFeedContract.isSupportedAsset(_token1) ||\\n                derivativePriceFeedContract.isSupportedAsset(_token1)\\n            ) {\\n                return true;\\n            }\\n        } else if (\\n            derivativePriceFeedContract.isSupportedAsset(_token0) &&\\n            primitivePriceFeedContract.isSupportedAsset(_token1)\\n        ) {\\n            return true;\\n        }\\n\\n        return false;\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `DERIVATIVE_PRICE_FEED` variable value\\n    /// @return derivativePriceFeed_ The `DERIVATIVE_PRICE_FEED` variable value\\n    function getDerivativePriceFeed() external view returns (address derivativePriceFeed_) {\\n        return DERIVATIVE_PRICE_FEED;\\n    }\\n\\n    /// @notice Gets the `FACTORY` variable value\\n    /// @return factory_ The `FACTORY` variable value\\n    function getFactory() external view returns (address factory_) {\\n        return FACTORY;\\n    }\\n\\n    /// @notice Gets the `PoolTokenInfo` for a given pool token\\n    /// @param _poolToken The pool token for which to get the `PoolTokenInfo`\\n    /// @return poolTokenInfo_ The `PoolTokenInfo` value\\n    function getPoolTokenInfo(address _poolToken)\\n        external\\n        view\\n        returns (PoolTokenInfo memory poolTokenInfo_)\\n    {\\n        return poolTokenToInfo[_poolToken];\\n    }\\n\\n    /// @notice Gets the underlyings for a given pool token\\n    /// @param _poolToken The pool token for which to get its underlyings\\n    /// @return token0_ The UniswapV2Pair.token0 value\\n    /// @return token1_ The UniswapV2Pair.token1 value\\n    function getPoolTokenUnderlyings(address _poolToken)\\n        external\\n        view\\n        returns (address token0_, address token1_)\\n    {\\n        return (poolTokenToInfo[_poolToken].token0, poolTokenToInfo[_poolToken].token1);\\n    }\\n\\n    /// @notice Gets the `PRIMITIVE_PRICE_FEED` variable value\\n    /// @return primitivePriceFeed_ The `PRIMITIVE_PRICE_FEED` variable value\\n    function getPrimitivePriceFeed() external view returns (address primitivePriceFeed_) {\\n        return PRIMITIVE_PRICE_FEED;\\n    }\\n\\n    /// @notice Gets the `VALUE_INTERPRETER` variable value\\n    /// @return valueInterpreter_ The `VALUE_INTERPRETER` variable value\\n    function getValueInterpreter() external view returns (address valueInterpreter_) {\\n        return VALUE_INTERPRETER;\\n    }\\n}\\n\",\"keccak256\":\"0x5712b4892be05a48c3a4dbc275e17a764717393b482616e6514f9d10abbf8a0d\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/feeds/utils/DerivativePriceFeedBase.sol\":{\"content\":\"pragma solidity 0.6.12;\\n\\nabstract contract DerivativePriceFeedBase {\\n    uint256 internal immutable DERIVATIVE_PRICE_FEED_DEPLOY_TIMESTAMP;\\n\\n    constructor() public {\\n        DERIVATIVE_PRICE_FEED_DEPLOY_TIMESTAMP = block.timestamp;\\n    }\\n\\n    function getDerivativePriceFeedDeployTimestamp() external view returns (uint256) {\\n        return DERIVATIVE_PRICE_FEED_DEPLOY_TIMESTAMP;\\n    }\\n}\",\"keccak256\":\"0x5ece6eae80f6a4fddc13b70fcc1913b35209e41ed931af30b6aadeff3fb10f88\"},\"contracts/release/infrastructure/price-feeds/primitives/IPrimitivePriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IPrimitivePriceFeed Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for primitive price feeds\\ninterface IPrimitivePriceFeed {\\n    function calcCanonicalValue(\\n        address,\\n        uint256,\\n        address\\n    ) external view returns (uint256, bool);\\n\\n    function calcLiveValue(\\n        address,\\n        uint256,\\n        address\\n    ) external view returns (uint256, bool);\\n\\n    function isSupportedAsset(address) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xd7bd5b75d56c4856f0dacee41240e7efaea3e25beca2c8010f085c7d35c4702e\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/utils/UniswapV2PoolTokenValueCalculator.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\nimport \\\"../../../interfaces/IUniswapV2Factory.sol\\\";\\nimport \\\"../../../interfaces/IUniswapV2Pair.sol\\\";\\n\\n/// @title UniswapV2PoolTokenValueCalculator Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Abstract contract for computing the value of Uniswap liquidity pool tokens\\n/// @dev Unless otherwise noted, these functions are adapted to our needs and style guide from\\n/// an un-merged Uniswap branch:\\n/// https://github.com/Uniswap/uniswap-v2-periphery/blob/267ba44471f3357071a2fe2573fe4da42d5ad969/contracts/libraries/UniswapV2LiquidityMathLibrary.sol\\nabstract contract UniswapV2PoolTokenValueCalculator {\\n    using SafeMath for uint256;\\n\\n    uint256 private constant POOL_TOKEN_UNIT = 10**18;\\n\\n    // INTERNAL FUNCTIONS\\n\\n    /// @dev Given a Uniswap pool with token0 and token1 and their trusted rate,\\n    /// returns the value of one pool token unit in terms of token0 and token1.\\n    /// This is the only function used outside of this contract.\\n    function __calcTrustedPoolTokenValue(\\n        address _factory,\\n        address _pair,\\n        uint256 _token0TrustedRateAmount,\\n        uint256 _token1TrustedRateAmount\\n    ) internal view returns (uint256 token0Amount_, uint256 token1Amount_) {\\n        (uint256 reserve0, uint256 reserve1) = __calcReservesAfterArbitrage(\\n            _pair,\\n            _token0TrustedRateAmount,\\n            _token1TrustedRateAmount\\n        );\\n\\n        return __calcPoolTokenValue(_factory, _pair, reserve0, reserve1);\\n    }\\n\\n    // PRIVATE FUNCTIONS\\n\\n    /// @dev Computes liquidity value given all the parameters of the pair\\n    function __calcPoolTokenValue(\\n        address _factory,\\n        address _pair,\\n        uint256 _reserve0,\\n        uint256 _reserve1\\n    ) private view returns (uint256 token0Amount_, uint256 token1Amount_) {\\n        IUniswapV2Pair pairContract = IUniswapV2Pair(_pair);\\n        uint256 totalSupply = pairContract.totalSupply();\\n\\n        if (IUniswapV2Factory(_factory).feeTo() != address(0)) {\\n            uint256 kLast = pairContract.kLast();\\n            if (kLast > 0) {\\n                uint256 rootK = __uniswapSqrt(_reserve0.mul(_reserve1));\\n                uint256 rootKLast = __uniswapSqrt(kLast);\\n                if (rootK > rootKLast) {\\n                    uint256 numerator = totalSupply.mul(rootK.sub(rootKLast));\\n                    uint256 denominator = rootK.mul(5).add(rootKLast);\\n                    uint256 feeLiquidity = numerator.div(denominator);\\n                    totalSupply = totalSupply.add(feeLiquidity);\\n                }\\n            }\\n        }\\n        return (\\n            _reserve0.mul(POOL_TOKEN_UNIT).div(totalSupply),\\n            _reserve1.mul(POOL_TOKEN_UNIT).div(totalSupply)\\n        );\\n    }\\n\\n    /// @dev Calculates the direction and magnitude of the profit-maximizing trade\\n    function __calcProfitMaximizingTrade(\\n        uint256 _token0TrustedRateAmount,\\n        uint256 _token1TrustedRateAmount,\\n        uint256 _reserve0,\\n        uint256 _reserve1\\n    ) private pure returns (bool token0ToToken1_, uint256 amountIn_) {\\n        token0ToToken1_ =\\n            _reserve0.mul(_token1TrustedRateAmount).div(_reserve1) < _token0TrustedRateAmount;\\n\\n        uint256 leftSide;\\n        uint256 rightSide;\\n        if (token0ToToken1_) {\\n            leftSide = __uniswapSqrt(\\n                _reserve0.mul(_reserve1).mul(_token0TrustedRateAmount).mul(1000).div(\\n                    _token1TrustedRateAmount.mul(997)\\n                )\\n            );\\n            rightSide = _reserve0.mul(1000).div(997);\\n        } else {\\n            leftSide = __uniswapSqrt(\\n                _reserve0.mul(_reserve1).mul(_token1TrustedRateAmount).mul(1000).div(\\n                    _token0TrustedRateAmount.mul(997)\\n                )\\n            );\\n            rightSide = _reserve1.mul(1000).div(997);\\n        }\\n\\n        if (leftSide < rightSide) {\\n            return (false, 0);\\n        }\\n\\n        // Calculate the amount that must be sent to move the price to the profit-maximizing price\\n        amountIn_ = leftSide.sub(rightSide);\\n\\n        return (token0ToToken1_, amountIn_);\\n    }\\n\\n    /// @dev Calculates the pool reserves after an arbitrage moves the price to\\n    /// the profit-maximizing rate, given an externally-observed trusted rate\\n    /// between the two pooled assets\\n    function __calcReservesAfterArbitrage(\\n        address _pair,\\n        uint256 _token0TrustedRateAmount,\\n        uint256 _token1TrustedRateAmount\\n    ) private view returns (uint256 reserve0_, uint256 reserve1_) {\\n        (reserve0_, reserve1_, ) = IUniswapV2Pair(_pair).getReserves();\\n\\n        // Skip checking whether the reserve is 0, as this is extremely unlikely given how\\n        // initial pool liquidity is locked, and since we maintain a list of registered pool tokens\\n\\n        // Calculate how much to swap to arb to the trusted price\\n        (bool token0ToToken1, uint256 amountIn) = __calcProfitMaximizingTrade(\\n            _token0TrustedRateAmount,\\n            _token1TrustedRateAmount,\\n            reserve0_,\\n            reserve1_\\n        );\\n        if (amountIn == 0) {\\n            return (reserve0_, reserve1_);\\n        }\\n\\n        // Adjust the reserves to account for the arb trade to the trusted price\\n        if (token0ToToken1) {\\n            uint256 amountOut = __uniswapV2GetAmountOut(amountIn, reserve0_, reserve1_);\\n            reserve0_ = reserve0_.add(amountIn);\\n            reserve1_ = reserve1_.sub(amountOut);\\n        } else {\\n            uint256 amountOut = __uniswapV2GetAmountOut(amountIn, reserve1_, reserve0_);\\n            reserve1_ = reserve1_.add(amountIn);\\n            reserve0_ = reserve0_.sub(amountOut);\\n        }\\n\\n        return (reserve0_, reserve1_);\\n    }\\n\\n    /// @dev Uniswap square root function. See:\\n    /// https://github.com/Uniswap/uniswap-lib/blob/6ddfedd5716ba85b905bf34d7f1f3c659101a1bc/contracts/libraries/Babylonian.sol\\n    function __uniswapSqrt(uint256 _y) private pure returns (uint256 z_) {\\n        if (_y > 3) {\\n            z_ = _y;\\n            uint256 x = _y / 2 + 1;\\n            while (x < z_) {\\n                z_ = x;\\n                x = (_y / x + x) / 2;\\n            }\\n        } else if (_y != 0) {\\n            z_ = 1;\\n        }\\n        // else z_ = 0\\n\\n        return z_;\\n    }\\n\\n    /// @dev Simplified version of UniswapV2Library's getAmountOut() function. See:\\n    /// https://github.com/Uniswap/uniswap-v2-periphery/blob/87edfdcaf49ccc52591502993db4c8c08ea9eec0/contracts/libraries/UniswapV2Library.sol#L42-L50\\n    function __uniswapV2GetAmountOut(\\n        uint256 _amountIn,\\n        uint256 _reserveIn,\\n        uint256 _reserveOut\\n    ) private pure returns (uint256 amountOut_) {\\n        uint256 amountInWithFee = _amountIn.mul(997);\\n        uint256 numerator = amountInWithFee.mul(_reserveOut);\\n        uint256 denominator = _reserveIn.mul(1000).add(amountInWithFee);\\n\\n        return numerator.div(denominator);\\n    }\\n}\\n\",\"keccak256\":\"0x078a209ee2d4b856a2538f8f0a70fdc1a6cbecc14a0b0cb072e95776b82e254f\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/value-interpreter/IValueInterpreter.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IValueInterpreter interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interface for ValueInterpreter\\ninterface IValueInterpreter {\\n    function calcCanonicalAssetValue(\\n        address,\\n        uint256,\\n        address\\n    ) external returns (uint256, bool);\\n\\n    function calcCanonicalAssetsTotalValue(\\n        address[] calldata,\\n        uint256[] calldata,\\n        address\\n    ) external returns (uint256, bool);\\n\\n    function calcLiveAssetValue(\\n        address,\\n        uint256,\\n        address\\n    ) external returns (uint256, bool);\\n\\n    function calcLiveAssetsTotalValue(\\n        address[] calldata,\\n        uint256[] calldata,\\n        address\\n    ) external returns (uint256, bool);\\n}\\n\",\"keccak256\":\"0xcc0c5e93cfbcb2ac7094538eaeed1e3a1d8256fbf160ce0d9171346eb4be128e\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/value-interpreter/ValueInterpreter.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\nimport \\\"../price-feeds/derivatives/IAggregatedDerivativePriceFeed.sol\\\";\\nimport \\\"../price-feeds/derivatives/IDerivativePriceFeed.sol\\\";\\nimport \\\"../price-feeds/primitives/IPrimitivePriceFeed.sol\\\";\\nimport \\\"./IValueInterpreter.sol\\\";\\n\\n/// @title ValueInterpreter Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Interprets price feeds to provide covert value between asset pairs\\n/// @dev This contract contains several \\\"live\\\" value calculations, which for this release are simply\\n/// aliases to their \\\"canonical\\\" value counterparts since the only primitive price feed (Chainlink)\\n/// is immutable in this contract and only has one type of value. Including the \\\"live\\\" versions of\\n/// functions only serves as a placeholder for infrastructural components and plugins (e.g., policies)\\n/// to explicitly define the types of values that they should (and will) be using in a future release.\\ncontract ValueInterpreter is IValueInterpreter {\\n    using SafeMath for uint256;\\n\\n    address private immutable AGGREGATED_DERIVATIVE_PRICE_FEED;\\n    address private immutable PRIMITIVE_PRICE_FEED;\\n    uint256 private immutable VALUE_INTERPRETER_DEPLOY_TIMESTAMP;\\n\\n    constructor(address _primitivePriceFeed, address _aggregatedDerivativePriceFeed) public {\\n        AGGREGATED_DERIVATIVE_PRICE_FEED = _aggregatedDerivativePriceFeed;\\n        PRIMITIVE_PRICE_FEED = _primitivePriceFeed;\\n        VALUE_INTERPRETER_DEPLOY_TIMESTAMP = block.timestamp;\\n    }\\n\\n    // EXTERNAL FUNCTIONS\\n\\n    /// @notice An alias of calcCanonicalAssetsTotalValue\\n    function calcLiveAssetsTotalValue(\\n        address[] calldata _baseAssets,\\n        uint256[] calldata _amounts,\\n        address _quoteAsset\\n    ) external override returns (uint256 value_, bool isValid_) {\\n        return calcCanonicalAssetsTotalValue(_baseAssets, _amounts, _quoteAsset);\\n    }\\n\\n    /// @notice An alias of calcCanonicalAssetValue\\n    function calcLiveAssetValue(\\n        address _baseAsset,\\n        uint256 _amount,\\n        address _quoteAsset\\n    ) external override returns (uint256 value_, bool isValid_) {\\n        return calcCanonicalAssetValue(_baseAsset, _amount, _quoteAsset);\\n    }\\n\\n    // PUBLIC FUNCTIONS\\n\\n    /// @notice Calculates the total value of given amounts of assets in a single quote asset\\n    /// @param _baseAssets The assets to convert\\n    /// @param _amounts The amounts of the _baseAssets to convert\\n    /// @param _quoteAsset The asset to which to convert\\n    /// @return value_ The sum value of _baseAssets, denominated in the _quoteAsset\\n    /// @return isValid_ True if the price feed rates used to derive value are all valid\\n    /// @dev Does not alter protocol state,\\n    /// but not a view because calls to price feeds can potentially update third party state\\n    function calcCanonicalAssetsTotalValue(\\n        address[] memory _baseAssets,\\n        uint256[] memory _amounts,\\n        address _quoteAsset\\n    ) public override returns (uint256 value_, bool isValid_) {\\n        require(\\n            _baseAssets.length == _amounts.length,\\n            \\\"calcCanonicalAssetsTotalValue: Arrays unequal lengths\\\"\\n        );\\n        require(\\n            IPrimitivePriceFeed(PRIMITIVE_PRICE_FEED).isSupportedAsset(_quoteAsset),\\n            \\\"calcCanonicalAssetsTotalValue: Unsupported _quoteAsset\\\"\\n        );\\n\\n        isValid_ = true;\\n        for (uint256 i; i < _baseAssets.length; i++) {\\n            (uint256 assetValue, bool assetValueIsValid) = __calcAssetValue(\\n                _baseAssets[i],\\n                _amounts[i],\\n                _quoteAsset\\n            );\\n            value_ = value_.add(assetValue);\\n            if (!assetValueIsValid) {\\n                isValid_ = false;\\n            }\\n        }\\n\\n        return (value_, isValid_);\\n    }\\n\\n    /// @notice Calculates the value of a given amount of one asset in terms of another asset\\n    /// @param _baseAsset The asset from which to convert\\n    /// @param _amount The amount of the _baseAsset to convert\\n    /// @param _quoteAsset The asset to which to convert\\n    /// @return value_ The equivalent quantity in the _quoteAsset\\n    /// @return isValid_ True if the price feed rates used to derive value are all valid\\n    /// @dev Does not alter protocol state,\\n    /// but not a view because calls to price feeds can potentially update third party state\\n    function calcCanonicalAssetValue(\\n        address _baseAsset,\\n        uint256 _amount,\\n        address _quoteAsset\\n    ) public override returns (uint256 value_, bool isValid_) {\\n        if (_baseAsset == _quoteAsset || _amount == 0) {\\n            return (_amount, true);\\n        }\\n\\n        require(\\n            IPrimitivePriceFeed(PRIMITIVE_PRICE_FEED).isSupportedAsset(_quoteAsset),\\n            \\\"calcCanonicalAssetValue: Unsupported _quoteAsset\\\"\\n        );\\n\\n        return __calcAssetValue(_baseAsset, _amount, _quoteAsset);\\n    }\\n\\n    // PRIVATE FUNCTIONS\\n\\n    /// @dev Helper to differentially calculate an asset value\\n    /// based on if it is a primitive or derivative asset.\\n    function __calcAssetValue(\\n        address _baseAsset,\\n        uint256 _amount,\\n        address _quoteAsset\\n    ) private returns (uint256 value_, bool isValid_) {\\n        if (_baseAsset == _quoteAsset || _amount == 0) {\\n            return (_amount, true);\\n        }\\n\\n        // Handle case that asset is a primitive\\n        if (IPrimitivePriceFeed(PRIMITIVE_PRICE_FEED).isSupportedAsset(_baseAsset)) {\\n            return\\n                IPrimitivePriceFeed(PRIMITIVE_PRICE_FEED).calcCanonicalValue(\\n                    _baseAsset,\\n                    _amount,\\n                    _quoteAsset\\n                );\\n        }\\n\\n        // Handle case that asset is a derivative\\n        address derivativePriceFeed = IAggregatedDerivativePriceFeed(\\n            AGGREGATED_DERIVATIVE_PRICE_FEED\\n        )\\n            .getPriceFeedForDerivative(_baseAsset);\\n        if (derivativePriceFeed != address(0)) {\\n            return __calcDerivativeValue(derivativePriceFeed, _baseAsset, _amount, _quoteAsset);\\n        }\\n\\n        revert(\\\"__calcAssetValue: Unsupported _baseAsset\\\");\\n    }\\n\\n    /// @dev Helper to calculate the value of a derivative in an arbitrary asset.\\n    /// Handles multiple underlying assets (e.g., Uniswap and Balancer pool tokens).\\n    /// Handles underlying assets that are also derivatives (e.g., a cDAI-ETH LP)\\n    function __calcDerivativeValue(\\n        address _derivativePriceFeed,\\n        address _derivative,\\n        uint256 _amount,\\n        address _quoteAsset\\n    ) private returns (uint256 value_, bool isValid_) {\\n        (address[] memory underlyings, uint256[] memory underlyingAmounts) = IDerivativePriceFeed(\\n            _derivativePriceFeed\\n        )\\n            .calcUnderlyingValues(_derivative, _amount);\\n\\n        require(underlyings.length > 0, \\\"__calcDerivativeValue: No underlyings\\\");\\n        require(\\n            underlyings.length == underlyingAmounts.length,\\n            \\\"__calcDerivativeValue: Arrays unequal lengths\\\"\\n        );\\n\\n        // Let validity be negated if any of the underlying value calculations are invalid\\n        isValid_ = true;\\n        for (uint256 i = 0; i < underlyings.length; i++) {\\n            (uint256 underlyingValue, bool underlyingValueIsValid) = __calcAssetValue(\\n                underlyings[i],\\n                underlyingAmounts[i],\\n                _quoteAsset\\n            );\\n\\n            if (!underlyingValueIsValid) {\\n                isValid_ = false;\\n            }\\n            value_ = value_.add(underlyingValue);\\n        }\\n    }\\n\\n    ///////////////////\\n    // STATE GETTERS //\\n    ///////////////////\\n\\n    /// @notice Gets the `AGGREGATED_DERIVATIVE_PRICE_FEED` variable\\n    /// @return aggregatedDerivativePriceFeed_ The `AGGREGATED_DERIVATIVE_PRICE_FEED` variable value\\n    function getAggregatedDerivativePriceFeed()\\n        external\\n        view\\n        returns (address aggregatedDerivativePriceFeed_)\\n    {\\n        return AGGREGATED_DERIVATIVE_PRICE_FEED;\\n    }\\n\\n    /// @notice Gets the `PRIMITIVE_PRICE_FEED` variable\\n    /// @return primitivePriceFeed_ The `PRIMITIVE_PRICE_FEED` variable value\\n    function getPrimitivePriceFeed() external view returns (address primitivePriceFeed_) {\\n        return PRIMITIVE_PRICE_FEED;\\n    }\\n\\n    function getValueInterpreterDeployTimestamp() external view returns (uint256) {\\n        return VALUE_INTERPRETER_DEPLOY_TIMESTAMP;\\n    }\\n}\\n\",\"keccak256\":\"0x7e9769177fee8471b4a80b2963b391ffdaed311bae26def4fe4075001902a04f\",\"license\":\"GPL-3.0\"},\"contracts/release/interfaces/IUniswapV2Factory.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IUniswapV2Factory Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Minimal interface for our interactions with the Uniswap V2's Factory contract\\ninterface IUniswapV2Factory {\\n    function feeTo() external view returns (address);\\n\\n    function getPair(address, address) external view returns (address);\\n}\\n\",\"keccak256\":\"0x644fd15db1e38d724d81d3af48f5141698947fcfc36623f1270fe4d817c4dbef\",\"license\":\"GPL-3.0\"},\"contracts/release/interfaces/IUniswapV2Pair.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\n/// @title IUniswapV2Pair Interface\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Minimal interface for our interactions with the Uniswap V2's Pair contract\\ninterface IUniswapV2Pair {\\n    function getReserves()\\n        external\\n        view\\n        returns (\\n            uint112,\\n            uint112,\\n            uint32\\n        );\\n\\n    function kLast() external view returns (uint256);\\n\\n    function token0() external view returns (address);\\n\\n    function token1() external view returns (address);\\n\\n    function totalSupply() external view returns (uint256);\\n}\\n\",\"keccak256\":\"0xb9c7a1802e5c9e522c7dee20b0511bb55ccc600aef480083f4a6980c9d02c06c\",\"license\":\"GPL-3.0\"},\"contracts/release/utils/MathHelpers.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\n/*\\n    This file is part of the Enzyme Protocol.\\n\\n    (c) Enzyme Council <council@enzyme.finance>\\n\\n    For the full license information, please view the LICENSE\\n    file that was distributed with this source code.\\n*/\\n\\npragma solidity 0.6.12;\\n\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\n\\n/// @title MathHelpers Contract\\n/// @author Enzyme Council <security@enzyme.finance>\\n/// @notice Helper functions for common math operations\\nabstract contract MathHelpers {\\n    using SafeMath for uint256;\\n\\n    /// @dev Calculates a proportional value relative to a known ratio\\n    function __calcRelativeQuantity(\\n        uint256 _quantity1,\\n        uint256 _quantity2,\\n        uint256 _relativeQuantity1\\n    ) internal pure returns (uint256 relativeQuantity2_) {\\n        return _relativeQuantity1.mul(_quantity2).div(_quantity1);\\n    }\\n\\n    /// @dev Calculates a rate normalized to 10^18 precision,\\n    /// for given base and quote asset decimals and amounts\\n    function __calcNormalizedRate(\\n        uint256 _baseAssetDecimals,\\n        uint256 _baseAssetAmount,\\n        uint256 _quoteAssetDecimals,\\n        uint256 _quoteAssetAmount\\n    ) internal pure returns (uint256 normalizedRate_) {\\n        return\\n            _quoteAssetAmount.mul(10**_baseAssetDecimals.add(18)).div(\\n                _baseAssetAmount.mul(10**_quoteAssetDecimals)\\n            );\\n    }\\n}\\n\",\"keccak256\":\"0xbd048b7fa2d2f2f716812b722ee3b60e759a623f8564ddae15274b4db8d9c0e7\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x6101406040523480156200001257600080fd5b50604051620028db380380620028db833981016040819052620000359162000862565b6001600160601b0319606087811b82166080524260a05286811b821660c05283811b821660e05285811b82166101005284901b16610120526200007a81868662000086565b50505050505062000b3e565b60005b8351811015620004a65760006001600160a01b0316848281518110620000ab57fe5b60200260200101516001600160a01b03161415620000e65760405162461bcd60e51b8152600401620000dd9062000a75565b60405180910390fd5b60006001600160a01b03166000808684815181106200010157fe5b6020908102919091018101516001600160a01b03908116835290820192909252604001600020541614620001495760405162461bcd60e51b8152600401620000dd9062000a63565b60008482815181106200015857fe5b602002602001015190506000816001600160a01b0316630dfe16816040518163ffffffff1660e01b815260040160206040518083038186803b1580156200019e57600080fd5b505afa158015620001b3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620001d9919062000841565b90506000826001600160a01b031663d21220a76040518163ffffffff1660e01b815260040160206040518083038186803b1580156200021757600080fd5b505afa1580156200022c573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062000252919062000841565b90506200026286868484620004ac565b620002815760405162461bcd60e51b8152600401620000dd9062000a87565b6040518060800160405280836001600160a01b03168152602001826001600160a01b03168152602001836001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b158015620002e457600080fd5b505afa158015620002f9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906200031f91906200092f565b60ff168152602001826001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b1580156200036157600080fd5b505afa15801562000376573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906200039c91906200092f565b60ff16815250600080898781518110620003b257fe5b6020908102919091018101516001600160a01b039081168352828201939093526040918201600020845181546001600160a01b03199081169186169190911782559185015160019091018054938601516060909601519390921693169290921760ff60a01b1916600160a01b60ff948516021760ff60a81b1916600160a81b939091169290920291909117905586518790859081106200044e57fe5b60200260200101516001600160a01b03167f2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf83836040516200049292919062000a3d565b60405180910390a250505060010162000089565b50505050565b604051634df48c7360e11b8152600090859085906001600160a01b03821690639be918e690620004e190889060040162000a2d565b60206040518083038186803b158015620004fa57600080fd5b505afa1580156200050f573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906200053591906200090e565b156200065e57604051634df48c7360e11b81526001600160a01b03821690639be918e6906200056990879060040162000a2d565b60206040518083038186803b1580156200058257600080fd5b505afa15801562000597573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620005bd91906200090e565b80620006465750604051634df48c7360e11b81526001600160a01b03831690639be918e690620005f290879060040162000a2d565b60206040518083038186803b1580156200060b57600080fd5b505afa15801562000620573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906200064691906200090e565b15620006585760019250505062000783565b6200077c565b604051634df48c7360e11b81526001600160a01b03831690639be918e6906200068c90889060040162000a2d565b60206040518083038186803b158015620006a557600080fd5b505afa158015620006ba573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620006e091906200090e565b80156200076a5750604051634df48c7360e11b81526001600160a01b03821690639be918e6906200071690879060040162000a2d565b60206040518083038186803b1580156200072f57600080fd5b505afa15801562000744573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906200076a91906200090e565b156200077c5760019250505062000783565b6000925050505b949350505050565b8051620007988162000b0e565b92915050565b600082601f830112620007b057600080fd5b8151620007c7620007c18262000ac0565b62000a99565b91508181835260208401935060208101905083856020840282011115620007ed57600080fd5b60005b838110156200081d57816200080688826200078b565b8452506020928301929190910190600101620007f0565b5050505092915050565b8051620007988162000b28565b8051620007988162000b33565b6000602082840312156200085457600080fd5b60006200078384846200078b565b60008060008060008060c087890312156200087c57600080fd5b60006200088a89896200078b565b96505060206200089d89828a016200078b565b9550506040620008b089828a016200078b565b9450506060620008c389828a016200078b565b9350506080620008d689828a016200078b565b92505060a08701516001600160401b03811115620008f357600080fd5b6200090189828a016200079e565b9150509295509295509295565b6000602082840312156200092157600080fd5b600062000783848462000827565b6000602082840312156200094257600080fd5b600062000783848462000834565b6200095b8162000aea565b82525050565b60006200097060228362000ae1565b7f5f5f616464506f6f6c546f6b656e733a2056616c756520616c72656164792073815261195d60f21b602082015260400192915050565b6000620009b660208362000ae1565b7f5f5f616464506f6f6c546f6b656e733a20456d70747920706f6f6c546f6b656e815260200192915050565b6000620009f160278362000ae1565b7f5f5f616464506f6f6c546f6b656e733a20556e737570706f7274656420706f6f81526636103a37b5b2b760c91b602082015260400192915050565b6020810162000798828462000950565b6040810162000a4d828562000950565b62000a5c602083018462000950565b9392505050565b60208082528101620007988162000961565b602080825281016200079881620009a7565b602080825281016200079881620009e2565b6040518181016001600160401b038111828210171562000ab857600080fd5b604052919050565b60006001600160401b0382111562000ad757600080fd5b5060209081020190565b90815260200190565b6000620007988262000afc565b151590565b6001600160a01b031690565b60ff1690565b62000b198162000aea565b811462000b2557600080fd5b50565b62000b198162000af7565b62000b198162000b08565b60805160601c60a05160c05160601c60e05160601c6101005160601c6101205160601c611d2162000bba6000398061053e5280610b415280610bf35250806102af52806102dd5280610a8452508061047d52806105625250806101d7528061028c525080610662525080610588528061061e5250611d216000f3fe608060405234801561001057600080fd5b50600436106100b45760003560e01c8063875fb4b311610071578063875fb4b31461015657806388cc58e41461015e578063893d20e81461016657806397c0ac871461016e5780639be918e614610176578063ba4906b814610196576100b4565b806301b453e5146100b95780632d98a99b146100e357806332db4ed5146100f857806349be72f31461010d57806367e0e07614610115578063727212f614610135575b600080fd5b6100cc6100c73660046115b9565b6101ab565b6040516100da929190611b28565b60405180910390f35b6100eb6101d5565b6040516100da9190611b1a565b61010b61010636600461162f565b6101f9565b005b6100eb6102db565b6101286101233660046115b9565b6102ff565b6040516100da9190611c3e565b6101486101433660046115f5565b610367565b6040516100da929190611b6b565b6100eb61053c565b6100eb610560565b6100eb610584565b6100eb61061c565b6101896101843660046115b9565b610640565b6040516100da9190611b90565b61019e610660565b6040516100da9190611c4c565b6001600160a01b039081166000908152602081905260409020805460019091015490821692911690565b7f000000000000000000000000000000000000000000000000000000000000000090565b610201610584565b6001600160a01b0316336001600160a01b03161461023a5760405162461bcd60e51b815260040161023190611bae565b60405180910390fd5b806102575760405162461bcd60e51b815260040161023190611c0e565b6102d78282808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152507f000000000000000000000000000000000000000000000000000000000000000092507f000000000000000000000000000000000000000000000000000000000000000091506106849050565b5050565b7f000000000000000000000000000000000000000000000000000000000000000090565b6103076114f8565b506001600160a01b038082166000908152602081815260409182902082516080810184528154851681526001909101549384169181019190915260ff600160a01b8404811692820192909252600160a81b9092041660608201525b919050565b6060806103726114f8565b506001600160a01b038481166000908152602081815260409182902082516080810184528154851681526001909101549384168183015260ff600160a01b8504811682850152600160a81b909404909316606080850191909152825160028082529181018452929091830190803683370190505092508060000151836000815181106103fa57fe5b60200260200101906001600160a01b031690816001600160a01b03168152505080602001518360018151811061042c57fe5b60200260200101906001600160a01b031690816001600160a01b03168152505060008061047183600001518460200151856040015160ff16866060015160ff16610a7d565b915091506000806104a47f00000000000000000000000000000000000000000000000000000000000000008a8686610cab565b604080516002808252606082019092529294509092508160200160208202803683370190505095506104e8670de0b6b3a76400006104e28a85610cdb565b90610d1e565b866000815181106104f557fe5b6020908102919091010152610516670de0b6b3a76400006104e28a84610cdb565b8660018151811061052357fe5b60200260200101818152505050505050505b9250929050565b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b1580156105df57600080fd5b505afa1580156105f3573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061061791906115d7565b905090565b7f000000000000000000000000000000000000000000000000000000000000000090565b6001600160a01b0390811660009081526020819052604090205416151590565b7f000000000000000000000000000000000000000000000000000000000000000090565b60005b8351811015610a775760006001600160a01b03168482815181106106a757fe5b60200260200101516001600160a01b031614156106d65760405162461bcd60e51b815260040161023190611c1e565b60006001600160a01b03166000808684815181106106f057fe5b6020908102919091018101516001600160a01b039081168352908201929092526040016000205416146107355760405162461bcd60e51b815260040161023190611b9e565b600084828151811061074357fe5b602002602001015190506000816001600160a01b0316630dfe16816040518163ffffffff1660e01b815260040160206040518083038186803b15801561078857600080fd5b505afa15801561079c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107c091906115d7565b90506000826001600160a01b031663d21220a76040518163ffffffff1660e01b815260040160206040518083038186803b1580156107fd57600080fd5b505afa158015610811573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061083591906115d7565b905061084386868484610d50565b61085f5760405162461bcd60e51b815260040161023190611c2e565b6040518060800160405280836001600160a01b03168152602001826001600160a01b03168152602001836001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b1580156108c157600080fd5b505afa1580156108d5573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108f9919061172a565b60ff168152602001826001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b15801561093a57600080fd5b505afa15801561094e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610972919061172a565b60ff1681525060008089878151811061098757fe5b6020908102919091018101516001600160a01b039081168352828201939093526040918201600020845181546001600160a01b03199081169186169190911782559185015160019091018054938601516060909601519390921693169290921760ff60a01b1916600160a01b60ff948516021760ff60a81b1916600160a81b93909116929092029190911790558651879085908110610a2257fe5b60200260200101516001600160a01b03167f2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf8383604051610a64929190611b28565b60405180910390a2505050600101610687565b50505050565b60008060007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316639be918e6886040518263ffffffff1660e01b8152600401610ace9190611b1a565b60206040518083038186803b158015610ae657600080fd5b505afa158015610afa573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b1e9190611671565b15610bd557604051632633f08360e11b8152600a85900a92506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690634c67e10690610b7a90899086908c90600401611b43565b6040805180830381600087803b158015610b9357600080fd5b505af1158015610ba7573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610bcb91906116fa565b9093509050610c83565b604051632633f08360e11b8152600a86900a93506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690634c67e10690610c2c908a9087908b90600401611b43565b6040805180830381600087803b158015610c4557600080fd5b505af1158015610c59573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c7d91906116fa565b90925090505b80610ca05760405162461bcd60e51b815260040161023190611bfe565b505b94509492505050565b600080600080610cbc878787611009565b91509150610ccc88888484611118565b93509350505094509492505050565b600082610cea57506000610d18565b82820282848281610cf757fe5b0414610d155760405162461bcd60e51b815260040161023190611bee565b90505b92915050565b6000808211610d3f5760405162461bcd60e51b815260040161023190611bde565b818381610d4857fe5b049392505050565b604051634df48c7360e11b8152600090859085906001600160a01b03821690639be918e690610d83908890600401611b1a565b60206040518083038186803b158015610d9b57600080fd5b505afa158015610daf573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610dd39190611671565b15610eeb57604051634df48c7360e11b81526001600160a01b03821690639be918e690610e04908790600401611b1a565b60206040518083038186803b158015610e1c57600080fd5b505afa158015610e30573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610e549190611671565b80610ed65750604051634df48c7360e11b81526001600160a01b03831690639be918e690610e86908790600401611b1a565b60206040518083038186803b158015610e9e57600080fd5b505afa158015610eb2573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ed69190611671565b15610ee657600192505050611001565b610ffa565b604051634df48c7360e11b81526001600160a01b03831690639be918e690610f17908890600401611b1a565b60206040518083038186803b158015610f2f57600080fd5b505afa158015610f43573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f679190611671565b8015610fea5750604051634df48c7360e11b81526001600160a01b03821690639be918e690610f9a908790600401611b1a565b60206040518083038186803b158015610fb257600080fd5b505afa158015610fc6573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610fea9190611671565b15610ffa57600192505050611001565b6000925050505b949350505050565b600080846001600160a01b0316630902f1ac6040518163ffffffff1660e01b815260040160606040518083038186803b15801561104557600080fd5b505afa158015611059573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061107d919061168f565b506001600160701b03918216935016905060008061109d86868686611345565b9150915080600014156110b1575050611110565b81156110e45760006110c4828686611410565b90506110d0858361145a565b94506110dc848261147f565b93505061110d565b60006110f1828587611410565b90506110fd848361145a565b9350611109858261147f565b9450505b50505b935093915050565b60008060008590506000816001600160a01b03166318160ddd6040518163ffffffff1660e01b815260040160206040518083038186803b15801561115b57600080fd5b505afa15801561116f573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061119391906116dc565b905060006001600160a01b0316886001600160a01b031663017e7e586040518163ffffffff1660e01b815260040160206040518083038186803b1580156111d957600080fd5b505afa1580156111ed573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061121191906115d7565b6001600160a01b031614611319576000826001600160a01b0316637464fc3d6040518163ffffffff1660e01b815260040160206040518083038186803b15801561125a57600080fd5b505afa15801561126e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061129291906116dc565b905080156113175760006112ae6112a98989610cdb565b6114a7565b905060006112bb836114a7565b9050808211156113145760006112db6112d4848461147f565b8690610cdb565b905060006112f4836112ee866005610cdb565b9061145a565b905060006113028383610d1e565b905061130e878261145a565b96505050505b50505b505b61132f816104e288670de0b6b3a7640000610cdb565b610ccc826104e288670de0b6b3a7640000610cdb565b60008085611357846104e28789610cdb565b10915060008083156113a85761138d6112a9611375896103e5610cdb565b6104e26103e86113878d818d8d610cdb565b90610cdb565b91506113a16103e56104e2886103e8610cdb565b90506113e3565b6113cc6112a96113ba8a6103e5610cdb565b6104e26103e86113878c818d8d610cdb565b91506113e06103e56104e2876103e8610cdb565b90505b808210156113f957600080935093505050610ca2565b611403828261147f565b9250505094509492505050565b60008061141f856103e5610cdb565b9050600061142d8285610cdb565b90506000611441836112ee886103e8610cdb565b905061144d8282610d1e565b93505050505b9392505050565b600082820183811015610d155760405162461bcd60e51b815260040161023190611bbe565b6000828211156114a15760405162461bcd60e51b815260040161023190611bce565b50900390565b600060038211156114ea575080600160028204015b818110156114e4578091506002818285816114d357fe5b0401816114dc57fe5b0490506114bc565b50610362565b811561036257506001919050565b60408051608081018252600080825260208201819052918101829052606081019190915290565b8035610d1881611ca7565b8051610d1881611ca7565b60008083601f84011261154757600080fd5b50813567ffffffffffffffff81111561155f57600080fd5b60208301915083602082028301111561053557600080fd5b8051610d1881611cbe565b8051610d1881611cc7565b8035610d1881611cd0565b8051610d1881611cd0565b8051610d1881611cd9565b8051610d1881611ce2565b6000602082840312156115cb57600080fd5b6000611001848461151f565b6000602082840312156115e957600080fd5b6000611001848461152a565b6000806040838503121561160857600080fd5b6000611614858561151f565b92505060206116258582860161158d565b9150509250929050565b6000806020838503121561164257600080fd5b823567ffffffffffffffff81111561165957600080fd5b61166585828601611535565b92509250509250929050565b60006020828403121561168357600080fd5b60006110018484611577565b6000806000606084860312156116a457600080fd5b60006116b08686611582565b93505060206116c186828701611582565b92505060406116d2868287016115a3565b9150509250925092565b6000602082840312156116ee57600080fd5b60006110018484611598565b6000806040838503121561170d57600080fd5b60006117198585611598565b925050602061162585828601611577565b60006020828403121561173c57600080fd5b600061100184846115ae565b60006117548383611768565b505060200190565b60006117548383611b08565b61177181611c6d565b82525050565b600061178282611c60565b61178c8185611c64565b935061179783611c5a565b8060005b838110156117c55781516117af8882611748565b97506117ba83611c5a565b92505060010161179b565b509495945050505050565b60006117db82611c60565b6117e58185611c64565b93506117f083611c5a565b8060005b838110156117c5578151611808888261175c565b975061181383611c5a565b9250506001016117f4565b61177181611c78565b6000611834602283611c64565b7f5f5f616464506f6f6c546f6b656e733a2056616c756520616c72656164792073815261195d60f21b602082015260400192915050565b6000611878604983611c64565b7f6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652081527f46756e644465706c6f796572206f776e65722063616e2063616c6c207468697360208201526810333ab731ba34b7b760b91b604082015260600192915050565b60006118e9601b83611c64565b7f536166654d6174683a206164646974696f6e206f766572666c6f770000000000815260200192915050565b6000611922601e83611c64565b7f536166654d6174683a207375627472616374696f6e206f766572666c6f770000815260200192915050565b600061195b601a83611c64565b7f536166654d6174683a206469766973696f6e206279207a65726f000000000000815260200192915050565b6000611994602183611c64565b7f536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f8152607760f81b602082015260400192915050565b60006119d7601f83611c64565b7f5f5f63616c6354727573746564526174653a20496e76616c6964207261746500815260200192915050565b6000611a10602083611c64565b7f616464506f6f6c546f6b656e733a20456d707479205f706f6f6c546f6b656e73815260200192915050565b6000611a49602083611c64565b7f5f5f616464506f6f6c546f6b656e733a20456d70747920706f6f6c546f6b656e815260200192915050565b6000611a82602783611c64565b7f5f5f616464506f6f6c546f6b656e733a20556e737570706f7274656420706f6f81526636103a37b5b2b760c91b602082015260400192915050565b80516080830190611acf8482611768565b506020820151611ae26020850182611768565b506040820151611af56040850182611b11565b506060820151610a776060850182611b11565b61177181611c95565b61177181611ca1565b60208101610d188284611768565b60408101611b368285611768565b6114536020830184611768565b60608101611b518286611768565b611b5e6020830185611b08565b6110016040830184611768565b60408082528101611b7c8185611777565b9050818103602083015261100181846117d0565b60208101610d18828461181e565b60208082528101610d1881611827565b60208082528101610d188161186b565b60208082528101610d18816118dc565b60208082528101610d1881611915565b60208082528101610d188161194e565b60208082528101610d1881611987565b60208082528101610d18816119ca565b60208082528101610d1881611a03565b60208082528101610d1881611a3c565b60208082528101610d1881611a75565b60808101610d188284611abe565b60208101610d188284611b08565b60200190565b5190565b90815260200190565b6000610d1882611c89565b151590565b6001600160701b031690565b6001600160a01b031690565b90565b63ffffffff1690565b60ff1690565b611cb081611c6d565b8114611cbb57600080fd5b50565b611cb081611c78565b611cb081611c7d565b611cb081611c95565b611cb081611c98565b611cb081611ca156fea264697066735822122043ed7550827c32cddc52f73b43895c568e2a4c1ab1bb41fecfeae933e5b348b764736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100b45760003560e01c8063875fb4b311610071578063875fb4b31461015657806388cc58e41461015e578063893d20e81461016657806397c0ac871461016e5780639be918e614610176578063ba4906b814610196576100b4565b806301b453e5146100b95780632d98a99b146100e357806332db4ed5146100f857806349be72f31461010d57806367e0e07614610115578063727212f614610135575b600080fd5b6100cc6100c73660046115b9565b6101ab565b6040516100da929190611b28565b60405180910390f35b6100eb6101d5565b6040516100da9190611b1a565b61010b61010636600461162f565b6101f9565b005b6100eb6102db565b6101286101233660046115b9565b6102ff565b6040516100da9190611c3e565b6101486101433660046115f5565b610367565b6040516100da929190611b6b565b6100eb61053c565b6100eb610560565b6100eb610584565b6100eb61061c565b6101896101843660046115b9565b610640565b6040516100da9190611b90565b61019e610660565b6040516100da9190611c4c565b6001600160a01b039081166000908152602081905260409020805460019091015490821692911690565b7f000000000000000000000000000000000000000000000000000000000000000090565b610201610584565b6001600160a01b0316336001600160a01b03161461023a5760405162461bcd60e51b815260040161023190611bae565b60405180910390fd5b806102575760405162461bcd60e51b815260040161023190611c0e565b6102d78282808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152507f000000000000000000000000000000000000000000000000000000000000000092507f000000000000000000000000000000000000000000000000000000000000000091506106849050565b5050565b7f000000000000000000000000000000000000000000000000000000000000000090565b6103076114f8565b506001600160a01b038082166000908152602081815260409182902082516080810184528154851681526001909101549384169181019190915260ff600160a01b8404811692820192909252600160a81b9092041660608201525b919050565b6060806103726114f8565b506001600160a01b038481166000908152602081815260409182902082516080810184528154851681526001909101549384168183015260ff600160a01b8504811682850152600160a81b909404909316606080850191909152825160028082529181018452929091830190803683370190505092508060000151836000815181106103fa57fe5b60200260200101906001600160a01b031690816001600160a01b03168152505080602001518360018151811061042c57fe5b60200260200101906001600160a01b031690816001600160a01b03168152505060008061047183600001518460200151856040015160ff16866060015160ff16610a7d565b915091506000806104a47f00000000000000000000000000000000000000000000000000000000000000008a8686610cab565b604080516002808252606082019092529294509092508160200160208202803683370190505095506104e8670de0b6b3a76400006104e28a85610cdb565b90610d1e565b866000815181106104f557fe5b6020908102919091010152610516670de0b6b3a76400006104e28a84610cdb565b8660018151811061052357fe5b60200260200101818152505050505050505b9250929050565b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663893d20e86040518163ffffffff1660e01b815260040160206040518083038186803b1580156105df57600080fd5b505afa1580156105f3573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061061791906115d7565b905090565b7f000000000000000000000000000000000000000000000000000000000000000090565b6001600160a01b0390811660009081526020819052604090205416151590565b7f000000000000000000000000000000000000000000000000000000000000000090565b60005b8351811015610a775760006001600160a01b03168482815181106106a757fe5b60200260200101516001600160a01b031614156106d65760405162461bcd60e51b815260040161023190611c1e565b60006001600160a01b03166000808684815181106106f057fe5b6020908102919091018101516001600160a01b039081168352908201929092526040016000205416146107355760405162461bcd60e51b815260040161023190611b9e565b600084828151811061074357fe5b602002602001015190506000816001600160a01b0316630dfe16816040518163ffffffff1660e01b815260040160206040518083038186803b15801561078857600080fd5b505afa15801561079c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107c091906115d7565b90506000826001600160a01b031663d21220a76040518163ffffffff1660e01b815260040160206040518083038186803b1580156107fd57600080fd5b505afa158015610811573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061083591906115d7565b905061084386868484610d50565b61085f5760405162461bcd60e51b815260040161023190611c2e565b6040518060800160405280836001600160a01b03168152602001826001600160a01b03168152602001836001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b1580156108c157600080fd5b505afa1580156108d5573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108f9919061172a565b60ff168152602001826001600160a01b031663313ce5676040518163ffffffff1660e01b815260040160206040518083038186803b15801561093a57600080fd5b505afa15801561094e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610972919061172a565b60ff1681525060008089878151811061098757fe5b6020908102919091018101516001600160a01b039081168352828201939093526040918201600020845181546001600160a01b03199081169186169190911782559185015160019091018054938601516060909601519390921693169290921760ff60a01b1916600160a01b60ff948516021760ff60a81b1916600160a81b93909116929092029190911790558651879085908110610a2257fe5b60200260200101516001600160a01b03167f2d64d749034284f79591001c60e51eeab7a396decc5296df21e417306e9d92bf8383604051610a64929190611b28565b60405180910390a2505050600101610687565b50505050565b60008060007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316639be918e6886040518263ffffffff1660e01b8152600401610ace9190611b1a565b60206040518083038186803b158015610ae657600080fd5b505afa158015610afa573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b1e9190611671565b15610bd557604051632633f08360e11b8152600a85900a92506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690634c67e10690610b7a90899086908c90600401611b43565b6040805180830381600087803b158015610b9357600080fd5b505af1158015610ba7573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610bcb91906116fa565b9093509050610c83565b604051632633f08360e11b8152600a86900a93506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690634c67e10690610c2c908a9087908b90600401611b43565b6040805180830381600087803b158015610c4557600080fd5b505af1158015610c59573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c7d91906116fa565b90925090505b80610ca05760405162461bcd60e51b815260040161023190611bfe565b505b94509492505050565b600080600080610cbc878787611009565b91509150610ccc88888484611118565b93509350505094509492505050565b600082610cea57506000610d18565b82820282848281610cf757fe5b0414610d155760405162461bcd60e51b815260040161023190611bee565b90505b92915050565b6000808211610d3f5760405162461bcd60e51b815260040161023190611bde565b818381610d4857fe5b049392505050565b604051634df48c7360e11b8152600090859085906001600160a01b03821690639be918e690610d83908890600401611b1a565b60206040518083038186803b158015610d9b57600080fd5b505afa158015610daf573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610dd39190611671565b15610eeb57604051634df48c7360e11b81526001600160a01b03821690639be918e690610e04908790600401611b1a565b60206040518083038186803b158015610e1c57600080fd5b505afa158015610e30573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610e549190611671565b80610ed65750604051634df48c7360e11b81526001600160a01b03831690639be918e690610e86908790600401611b1a565b60206040518083038186803b158015610e9e57600080fd5b505afa158015610eb2573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ed69190611671565b15610ee657600192505050611001565b610ffa565b604051634df48c7360e11b81526001600160a01b03831690639be918e690610f17908890600401611b1a565b60206040518083038186803b158015610f2f57600080fd5b505afa158015610f43573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f679190611671565b8015610fea5750604051634df48c7360e11b81526001600160a01b03821690639be918e690610f9a908790600401611b1a565b60206040518083038186803b158015610fb257600080fd5b505afa158015610fc6573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610fea9190611671565b15610ffa57600192505050611001565b6000925050505b949350505050565b600080846001600160a01b0316630902f1ac6040518163ffffffff1660e01b815260040160606040518083038186803b15801561104557600080fd5b505afa158015611059573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061107d919061168f565b506001600160701b03918216935016905060008061109d86868686611345565b9150915080600014156110b1575050611110565b81156110e45760006110c4828686611410565b90506110d0858361145a565b94506110dc848261147f565b93505061110d565b60006110f1828587611410565b90506110fd848361145a565b9350611109858261147f565b9450505b50505b935093915050565b60008060008590506000816001600160a01b03166318160ddd6040518163ffffffff1660e01b815260040160206040518083038186803b15801561115b57600080fd5b505afa15801561116f573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061119391906116dc565b905060006001600160a01b0316886001600160a01b031663017e7e586040518163ffffffff1660e01b815260040160206040518083038186803b1580156111d957600080fd5b505afa1580156111ed573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061121191906115d7565b6001600160a01b031614611319576000826001600160a01b0316637464fc3d6040518163ffffffff1660e01b815260040160206040518083038186803b15801561125a57600080fd5b505afa15801561126e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061129291906116dc565b905080156113175760006112ae6112a98989610cdb565b6114a7565b905060006112bb836114a7565b9050808211156113145760006112db6112d4848461147f565b8690610cdb565b905060006112f4836112ee866005610cdb565b9061145a565b905060006113028383610d1e565b905061130e878261145a565b96505050505b50505b505b61132f816104e288670de0b6b3a7640000610cdb565b610ccc826104e288670de0b6b3a7640000610cdb565b60008085611357846104e28789610cdb565b10915060008083156113a85761138d6112a9611375896103e5610cdb565b6104e26103e86113878d818d8d610cdb565b90610cdb565b91506113a16103e56104e2886103e8610cdb565b90506113e3565b6113cc6112a96113ba8a6103e5610cdb565b6104e26103e86113878c818d8d610cdb565b91506113e06103e56104e2876103e8610cdb565b90505b808210156113f957600080935093505050610ca2565b611403828261147f565b9250505094509492505050565b60008061141f856103e5610cdb565b9050600061142d8285610cdb565b90506000611441836112ee886103e8610cdb565b905061144d8282610d1e565b93505050505b9392505050565b600082820183811015610d155760405162461bcd60e51b815260040161023190611bbe565b6000828211156114a15760405162461bcd60e51b815260040161023190611bce565b50900390565b600060038211156114ea575080600160028204015b818110156114e4578091506002818285816114d357fe5b0401816114dc57fe5b0490506114bc565b50610362565b811561036257506001919050565b60408051608081018252600080825260208201819052918101829052606081019190915290565b8035610d1881611ca7565b8051610d1881611ca7565b60008083601f84011261154757600080fd5b50813567ffffffffffffffff81111561155f57600080fd5b60208301915083602082028301111561053557600080fd5b8051610d1881611cbe565b8051610d1881611cc7565b8035610d1881611cd0565b8051610d1881611cd0565b8051610d1881611cd9565b8051610d1881611ce2565b6000602082840312156115cb57600080fd5b6000611001848461151f565b6000602082840312156115e957600080fd5b6000611001848461152a565b6000806040838503121561160857600080fd5b6000611614858561151f565b92505060206116258582860161158d565b9150509250929050565b6000806020838503121561164257600080fd5b823567ffffffffffffffff81111561165957600080fd5b61166585828601611535565b92509250509250929050565b60006020828403121561168357600080fd5b60006110018484611577565b6000806000606084860312156116a457600080fd5b60006116b08686611582565b93505060206116c186828701611582565b92505060406116d2868287016115a3565b9150509250925092565b6000602082840312156116ee57600080fd5b60006110018484611598565b6000806040838503121561170d57600080fd5b60006117198585611598565b925050602061162585828601611577565b60006020828403121561173c57600080fd5b600061100184846115ae565b60006117548383611768565b505060200190565b60006117548383611b08565b61177181611c6d565b82525050565b600061178282611c60565b61178c8185611c64565b935061179783611c5a565b8060005b838110156117c55781516117af8882611748565b97506117ba83611c5a565b92505060010161179b565b509495945050505050565b60006117db82611c60565b6117e58185611c64565b93506117f083611c5a565b8060005b838110156117c5578151611808888261175c565b975061181383611c5a565b9250506001016117f4565b61177181611c78565b6000611834602283611c64565b7f5f5f616464506f6f6c546f6b656e733a2056616c756520616c72656164792073815261195d60f21b602082015260400192915050565b6000611878604983611c64565b7f6f6e6c7946756e644465706c6f7965724f776e65723a204f6e6c79207468652081527f46756e644465706c6f796572206f776e65722063616e2063616c6c207468697360208201526810333ab731ba34b7b760b91b604082015260600192915050565b60006118e9601b83611c64565b7f536166654d6174683a206164646974696f6e206f766572666c6f770000000000815260200192915050565b6000611922601e83611c64565b7f536166654d6174683a207375627472616374696f6e206f766572666c6f770000815260200192915050565b600061195b601a83611c64565b7f536166654d6174683a206469766973696f6e206279207a65726f000000000000815260200192915050565b6000611994602183611c64565b7f536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f8152607760f81b602082015260400192915050565b60006119d7601f83611c64565b7f5f5f63616c6354727573746564526174653a20496e76616c6964207261746500815260200192915050565b6000611a10602083611c64565b7f616464506f6f6c546f6b656e733a20456d707479205f706f6f6c546f6b656e73815260200192915050565b6000611a49602083611c64565b7f5f5f616464506f6f6c546f6b656e733a20456d70747920706f6f6c546f6b656e815260200192915050565b6000611a82602783611c64565b7f5f5f616464506f6f6c546f6b656e733a20556e737570706f7274656420706f6f81526636103a37b5b2b760c91b602082015260400192915050565b80516080830190611acf8482611768565b506020820151611ae26020850182611768565b506040820151611af56040850182611b11565b506060820151610a776060850182611b11565b61177181611c95565b61177181611ca1565b60208101610d188284611768565b60408101611b368285611768565b6114536020830184611768565b60608101611b518286611768565b611b5e6020830185611b08565b6110016040830184611768565b60408082528101611b7c8185611777565b9050818103602083015261100181846117d0565b60208101610d18828461181e565b60208082528101610d1881611827565b60208082528101610d188161186b565b60208082528101610d18816118dc565b60208082528101610d1881611915565b60208082528101610d188161194e565b60208082528101610d1881611987565b60208082528101610d18816119ca565b60208082528101610d1881611a03565b60208082528101610d1881611a3c565b60208082528101610d1881611a75565b60808101610d188284611abe565b60208101610d188284611b08565b60200190565b5190565b90815260200190565b6000610d1882611c89565b151590565b6001600160701b031690565b6001600160a01b031690565b90565b63ffffffff1690565b60ff1690565b611cb081611c6d565b8114611cbb57600080fd5b50565b611cb081611c78565b611cb081611c7d565b611cb081611c95565b611cb081611c98565b611cb081611ca156fea264697066735822122043ed7550827c32cddc52f73b43895c568e2a4c1ab1bb41fecfeae933e5b348b764736f6c634300060c0033",
+  "devdoc": {
+    "author": "Enzyme Council <security@enzyme.finance>",
+    "kind": "dev",
+    "methods": {
+      "addPoolTokens(address[])": {
+        "params": {
+          "_poolTokens": "Uniswap pool tokens to add"
+        }
+      },
+      "calcUnderlyingValues(address,uint256)": {
+        "params": {
+          "_derivative": "The derivative to convert",
+          "_derivativeAmount": "The amount of the derivative to convert"
+        },
+        "returns": {
+          "underlyingAmounts_": "The amount of each underlying asset for the equivalent derivative amount",
+          "underlyings_": "The underlying assets for the _derivative"
+        }
+      },
+      "getDerivativePriceFeed()": {
+        "returns": {
+          "derivativePriceFeed_": "The `DERIVATIVE_PRICE_FEED` variable value"
+        }
+      },
+      "getFactory()": {
+        "returns": {
+          "factory_": "The `FACTORY` variable value"
+        }
+      },
+      "getFundDeployer()": {
+        "returns": {
+          "fundDeployer_": "The `FUND_DEPLOYER` variable value"
+        }
+      },
+      "getOwner()": {
+        "details": "Ownership is deferred to the owner of the FundDeployer contract",
+        "returns": {
+          "owner_": "The owner"
+        }
+      },
+      "getPoolTokenInfo(address)": {
+        "params": {
+          "_poolToken": "The pool token for which to get the `PoolTokenInfo`"
+        },
+        "returns": {
+          "poolTokenInfo_": "The `PoolTokenInfo` value"
+        }
+      },
+      "getPoolTokenUnderlyings(address)": {
+        "params": {
+          "_poolToken": "The pool token for which to get its underlyings"
+        },
+        "returns": {
+          "token0_": "The UniswapV2Pair.token0 value",
+          "token1_": "The UniswapV2Pair.token1 value"
+        }
+      },
+      "getPrimitivePriceFeed()": {
+        "returns": {
+          "primitivePriceFeed_": "The `PRIMITIVE_PRICE_FEED` variable value"
+        }
+      },
+      "getValueInterpreter()": {
+        "returns": {
+          "valueInterpreter_": "The `VALUE_INTERPRETER` variable value"
+        }
+      },
+      "isSupportedAsset(address)": {
+        "params": {
+          "_asset": "The asset to check"
+        },
+        "returns": {
+          "isSupported_": "True if the asset is supported"
+        }
+      }
+    },
+    "title": "UniswapV2PoolPriceFeed Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "addPoolTokens(address[])": {
+        "notice": "Adds Uniswap pool tokens to the price feed"
+      },
+      "calcUnderlyingValues(address,uint256)": {
+        "notice": "Converts a given amount of a derivative to its underlying asset values"
+      },
+      "getDerivativePriceFeed()": {
+        "notice": "Gets the `DERIVATIVE_PRICE_FEED` variable value"
+      },
+      "getFactory()": {
+        "notice": "Gets the `FACTORY` variable value"
+      },
+      "getFundDeployer()": {
+        "notice": "Gets the `FUND_DEPLOYER` variable"
+      },
+      "getOwner()": {
+        "notice": "Gets the owner of this contract"
+      },
+      "getPoolTokenInfo(address)": {
+        "notice": "Gets the `PoolTokenInfo` for a given pool token"
+      },
+      "getPoolTokenUnderlyings(address)": {
+        "notice": "Gets the underlyings for a given pool token"
+      },
+      "getPrimitivePriceFeed()": {
+        "notice": "Gets the `PRIMITIVE_PRICE_FEED` variable value"
+      },
+      "getValueInterpreter()": {
+        "notice": "Gets the `VALUE_INTERPRETER` variable value"
+      },
+      "isSupportedAsset(address)": {
+        "notice": "Checks if an asset is supported by the price feed"
+      }
+    },
+    "notice": "Price feed for Uniswap lending pool tokens",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 42179,
+        "contract": "contracts/release/infrastructure/price-feeds/derivatives/feeds/UniswapV2PoolPriceFeed.sol:UniswapV2PoolPriceFeed",
+        "label": "poolTokenToInfo",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_struct(PoolTokenInfo)42162_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_struct(PoolTokenInfo)42162_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct UniswapV2PoolPriceFeed.PoolTokenInfo)",
+        "numberOfBytes": "32",
+        "value": "t_struct(PoolTokenInfo)42162_storage"
+      },
+      "t_struct(PoolTokenInfo)42162_storage": {
+        "encoding": "inplace",
+        "label": "struct UniswapV2PoolPriceFeed.PoolTokenInfo",
+        "members": [
+          {
+            "astId": 42155,
+            "contract": "contracts/release/infrastructure/price-feeds/derivatives/feeds/UniswapV2PoolPriceFeed.sol:UniswapV2PoolPriceFeed",
+            "label": "token0",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 42157,
+            "contract": "contracts/release/infrastructure/price-feeds/derivatives/feeds/UniswapV2PoolPriceFeed.sol:UniswapV2PoolPriceFeed",
+            "label": "token1",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 42159,
+            "contract": "contracts/release/infrastructure/price-feeds/derivatives/feeds/UniswapV2PoolPriceFeed.sol:UniswapV2PoolPriceFeed",
+            "label": "token0Decimals",
+            "offset": 20,
+            "slot": "1",
+            "type": "t_uint8"
+          },
+          {
+            "astId": 42161,
+            "contract": "contracts/release/infrastructure/price-feeds/derivatives/feeds/UniswapV2PoolPriceFeed.sol:UniswapV2PoolPriceFeed",
+            "label": "token1Decimals",
+            "offset": 21,
+            "slot": "1",
+            "type": "t_uint8"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
   "chainId": "1",
   "contracts": {
     "AaveAdapter": {
-      "address": "0x32d0CB26C2964749bd5D10Ba93695e52b4B57eA3",
+      "address": "0xa796632613dd5ed7D70BeD22a078b8268bC35413",
       "abi": [
         {
           "inputs": [
@@ -132,6 +132,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -190,6 +203,19 @@
               "internalType": "address",
               "name": "aavePriceFeed_",
               "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -343,7 +369,7 @@
       }
     },
     "AavePriceFeed": {
-      "address": "0x4e49a272dC42E26C8772de366aaa93d1AC816794",
+      "address": "0x2D0cBa63370d9E6e196ab13546a4fC6151e27A42",
       "abi": [
         {
           "inputs": [
@@ -442,6 +468,19 @@
         },
         {
           "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getFundDeployer",
           "outputs": [
             {
@@ -533,7 +572,7 @@
       ]
     },
     "AdapterBlacklist": {
-      "address": "0xA2A031B137452986B0E8fA32c9430D29b9b0494F",
+      "address": "0x0D143aa7f6240879099155Fd8F6c62c37b52EB82",
       "abi": [
         {
           "inputs": [
@@ -634,6 +673,19 @@
               "internalType": "address[]",
               "name": "list_",
               "type": "address[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getPolicyDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -789,7 +841,7 @@
       }
     },
     "AdapterWhitelist": {
-      "address": "0x306f571110C5441a8481d3CD7E8B16A7E2E967E3",
+      "address": "0x365C2CC13FeefC907fC7F9cc02edA248ef72c4e7",
       "abi": [
         {
           "inputs": [
@@ -890,6 +942,19 @@
               "internalType": "address[]",
               "name": "list_",
               "type": "address[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getPolicyDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -1045,7 +1110,7 @@
       }
     },
     "AggregatedDerivativePriceFeed": {
-      "address": "0x2E45f9B3fd5871cCaf4eB415dFCcbDD126F57C4f",
+      "address": "0x5642D3380320aC106816b921c998758D61a224f2",
       "abi": [
         {
           "inputs": [
@@ -1174,6 +1239,19 @@
         },
         {
           "inputs": [],
+          "name": "getDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getFundDeployer",
           "outputs": [
             {
@@ -1270,7 +1348,7 @@
       ]
     },
     "AlphaHomoraV1Adapter": {
-      "address": "0x63765Ae5Df9bB8AF9D8bc976E595b79907CF341c",
+      "address": "0x7964B015d665E64d25cF8FcA844eAAd37a9e8D33",
       "abi": [
         {
           "inputs": [
@@ -1399,6 +1477,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -1444,6 +1535,19 @@
               "internalType": "bytes4",
               "name": "",
               "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -1601,7 +1705,7 @@
       }
     },
     "AlphaHomoraV1PriceFeed": {
-      "address": "0x1a8b4f6D469Ee775d5982C4d4AAb46677c2C92d4",
+      "address": "0xc4Cd70d98EfB9cc6c10935803712b95E4518BF00",
       "abi": [
         {
           "inputs": [
@@ -1646,6 +1750,19 @@
             }
           ],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -1696,7 +1813,7 @@
       ]
     },
     "AssetBlacklist": {
-      "address": "0xdC1e40174ad831e505E8191881A66e90c3681E33",
+      "address": "0x580c189e0D0cdB07c9603B76bf5Fbae671081bbC",
       "abi": [
         {
           "inputs": [
@@ -1797,6 +1914,19 @@
               "internalType": "address[]",
               "name": "list_",
               "type": "address[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getPolicyDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -1952,7 +2082,7 @@
       }
     },
     "AssetWhitelist": {
-      "address": "0xA3b7B872407452E38dFfACa8dA2dB3eD6D756Ad1",
+      "address": "0x049bc8FaE739dEDF4Fec98b3f4350A8787da0BD3",
       "abi": [
         {
           "inputs": [
@@ -2053,6 +2183,19 @@
               "internalType": "address[]",
               "name": "list_",
               "type": "address[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getPolicyDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -2207,8 +2350,416 @@
         "type": "POLICY"
       }
     },
+    "AuthUserExecutedSharesRequestorFactory": {
+      "address": "0xAEAB593E645E550B6BF6CC357345002743EaDc59",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_dispatcher",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_authUserExecutedSharesRequestorLib",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "comptrollerProxy",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "sharesRequestorProxy",
+              "type": "address"
+            }
+          ],
+          "name": "SharesRequestorProxyDeployed",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "CREATION_TIMESTAMP",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_comptrollerProxy",
+              "type": "address"
+            }
+          ],
+          "name": "deploySharesRequestorProxy",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "sharesRequestorProxy_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAuthUserExecutedSharesRequestorLib",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "authUserExecutedSharesRequestorLib_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getDispatcher",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "dispatcher_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_comptrollerProxy",
+              "type": "address"
+            }
+          ],
+          "name": "getSharesRequestorProxyForComptrollerProxy",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "sharesRequestorProxy_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+    },
+    "AuthUserExecutedSharesRequestorLib": {
+      "address": "0x29e2eC1647782654C291Cb9d55315606897Cbb18",
+      "abi": [
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "requestOwner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "investmentAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "minSharesQuantity",
+              "type": "uint256"
+            }
+          ],
+          "name": "RequestCanceled",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "requestOwner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "investmentAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "minSharesQuantity",
+              "type": "uint256"
+            }
+          ],
+          "name": "RequestCreated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "caller",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "requestOwner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "investmentAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "minSharesQuantity",
+              "type": "uint256"
+            }
+          ],
+          "name": "RequestExecuted",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "RequestExecutorAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "RequestExecutorRemoved",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "CREATION_TIMESTAMP",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "_requestExecutors",
+              "type": "address[]"
+            }
+          ],
+          "name": "addRequestExecutors",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "cancelRequest",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_investmentAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_minSharesQuantity",
+              "type": "uint256"
+            }
+          ],
+          "name": "createRequest",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "_requestOwners",
+              "type": "address[]"
+            }
+          ],
+          "name": "executeRequests",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getComptrollerProxy",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "comptrollerProxy_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getDenominationAsset",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "denominationAsset_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFundOwner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "fundOwner_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_requestOwner",
+              "type": "address"
+            }
+          ],
+          "name": "getSharesRequestInfoForOwner",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "investmentAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "minSharesQuantity",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct AuthUserExecutedSharesRequestorLib.RequestInfo",
+              "name": "requestInfo_",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_comptrollerProxy",
+              "type": "address"
+            }
+          ],
+          "name": "init",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_who",
+              "type": "address"
+            }
+          ],
+          "name": "isRequestExecutor",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "isRequestExecutor_",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "_requestExecutors",
+              "type": "address[]"
+            }
+          ],
+          "name": "removeRequestExecutors",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]
+    },
     "BuySharesCallerWhitelist": {
-      "address": "0xbc91dcc90ccdd0b51e3c623528cb886358c60105",
+      "address": "0xf4509FDe9eb5100dD9eEcC1Bfa9346951850eefF",
       "abi": [
         {
           "inputs": [
@@ -2309,6 +2860,19 @@
               "internalType": "address[]",
               "name": "list_",
               "type": "address[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getPolicyDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -2463,8 +3027,209 @@
         "type": "POLICY"
       }
     },
+    "BuybackVaultV1": {
+      "address": "0x1910EE81d212Dc84A0Ad10BC36F159587bbe0da3",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "dispatcher",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "feeManager",
+              "type": "address"
+            }
+          ],
+          "name": "OperatorsSet",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_vault",
+              "type": "address"
+            }
+          ],
+          "name": "addTrackedVault",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getDispatcher",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFeeManager",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getOwner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_id",
+              "type": "uint256"
+            }
+          ],
+          "name": "getTrackedVault",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getTrackedVaultsLength",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_vault",
+              "type": "address"
+            }
+          ],
+          "name": "isTrackedVault",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "redeemAllShares",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "_vaults",
+              "type": "address[]"
+            }
+          ],
+          "name": "redeemShares",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_vault",
+              "type": "address"
+            }
+          ],
+          "name": "removeTrackedVault",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_dispatcher",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_feeManager",
+              "type": "address"
+            }
+          ],
+          "name": "setOperators",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "_assets",
+              "type": "address[]"
+            },
+            {
+              "internalType": "address",
+              "name": "_withdrawAddress",
+              "type": "address"
+            }
+          ],
+          "name": "withdrawERC20",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]
+    },
     "ChainlinkPriceFeed": {
-      "address": "0x1fad8faf11E027f8630F394599830dBeb97004EE",
+      "address": "0x05993fB3AF1E99b09Fe0352982b38FBAC4f5CC1D",
       "abi": [
         {
           "inputs": [
@@ -2784,6 +3549,19 @@
           "type": "function"
         },
         {
+          "inputs": [],
+          "name": "getPricefeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
           "inputs": [
             {
               "internalType": "address",
@@ -2958,7 +3736,7 @@
       ]
     },
     "CompoundAdapter": {
-      "address": "0xb7bfd3582582A82Ef2A2f0Df0adf705f35A07D4B",
+      "address": "0xFd64d60C9EaBE19A92829D7bd062d25dCFA584a4",
       "abi": [
         {
           "inputs": [
@@ -3087,6 +3865,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -3132,6 +3923,19 @@
               "internalType": "bytes4",
               "name": "",
               "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -3289,7 +4093,7 @@
       }
     },
     "CompoundPriceFeed": {
-      "address": "0x6d7F71Cc3109D4132Ad6124D84e72E353b979880",
+      "address": "0xb553EA9f4FBE85827DCB886Da40639521aa25483",
       "abi": [
         {
           "inputs": [
@@ -3380,6 +4184,19 @@
         },
         {
           "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getFundDeployer",
           "outputs": [
             {
@@ -3445,7 +4262,7 @@
       ]
     },
     "ComptrollerLib": {
-      "address": "0x1A7CBEDf13E25818dC377d2B1277E03e5d496300",
+      "address": "0xd8c701D092124C5532959ee5D582B69fC09e589e",
       "abi": [
         {
           "inputs": [
@@ -4171,10 +4988,6 @@
               "0x1b39ee86ec5979ba5c322b826b3ecb8c79991699",
               0
             ],
-            "cover": [
-              "0x0ad50393f11ffac4dd0fe5f1056448ecb75226cf",
-              1
-            ],
             "cro": [
               "0xca696a9eb93b81adfe6435759a29ab4cf2991a96",
               0
@@ -4402,7 +5215,6 @@
           "busd": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
           "bzrx": "0x56d811088235f11c8920698a204a5010a788f4b3",
           "comp": "0xc00e94cb662c3520282e6f5717214004a7f26888",
-          "cover": "0x4688a8b1f292fdab17e9a90c8bc379dc1dbd8713",
           "cro": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
           "crv": "0xd533a949740bb3306d119cc777fa900ba034cd52",
           "dai": "0x6b175474e89094c44da98b954eedeac495271d0f",
@@ -4530,7 +5342,6 @@
             "busdUsdt": "0xa0abda1f980e03d7eadb78aed8fc1f2dd0fe83dd",
             "bzrxWeth": "0xb9b752f7f4a4680eeb327ffe728f46666763a796",
             "compWeth": "0xcffdded873554f362ac02f8fb1f02e5ada10516f",
-            "coverWeth": "0x84e99ccc19da8290a754cb015ca188676d695f0a",
             "croWeth": "0x90704ac59e7e54632b0cc9d22573aecd7eb094ad",
             "daiUsdc": "0xae461ca67b15dc8dc81ce7615e0320da1a9ab8d5",
             "daiUsdt": "0xb20bd5d04be54f870d5c0d3ca85d82b34b836405",
@@ -4619,7 +5430,7 @@
       }
     },
     "CurveExchangeAdapter": {
-      "address": "0x1990D8Bc382D38fA21EE3B570e9d1E6272152165",
+      "address": "0xa8cf8dA9d66A88923f2aee88A9397868A8721762",
       "abi": [
         {
           "inputs": [
@@ -4748,6 +5559,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -4793,6 +5617,19 @@
               "internalType": "bytes4",
               "name": "",
               "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -4927,7 +5764,7 @@
       }
     },
     "CurveLiquidityAaveAdapter": {
-      "address": "0x78bA80C8517A4f3146FD76A3642Fa57B77F331eb",
+      "address": "0xD72614648c755Ae680E48F39902ab16910872FF0",
       "abi": [
         {
           "inputs": [
@@ -5091,6 +5928,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -5231,6 +6081,19 @@
           "name": "claimRewardsAndSwap",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -5562,7 +6425,7 @@
       }
     },
     "CurveLiquidityEursAdapter": {
-      "address": "0x893b4FA60eFBABFC35a54795E2ea9Eb97344f64D",
+      "address": "0xa7711DD0fcB6aE997f89E4b13B1A6db00Ac78844",
       "abi": [
         {
           "inputs": [
@@ -5800,6 +6663,19 @@
           "name": "claimRewards",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -6107,7 +6983,7 @@
       }
     },
     "CurveLiquiditySethAdapter": {
-      "address": "0xeE91E3bB4752F358DDAaC6ab825536698b239546",
+      "address": "0xE13feA6f5D6a8D54E485c2B6FF06f895735644C0",
       "abi": [
         {
           "inputs": [
@@ -6266,6 +7142,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -6406,6 +7295,19 @@
           "name": "claimRewardsAndSwap",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -6730,7 +7632,7 @@
       }
     },
     "CurveLiquidityStethAdapter": {
-      "address": "0x6367bb496390dDf0ef508Db2992F53DBf376b1f4",
+      "address": "0xE5db4811b094bDb10cb99ce1B119a31d540604d7",
       "abi": [
         {
           "inputs": [
@@ -6889,6 +7791,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -7029,6 +7944,19 @@
           "name": "claimRewardsAndSwap",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -7353,7 +8281,7 @@
       }
     },
     "CurvePriceFeed": {
-      "address": "0xc106f1B01017c854a9cd2D88Db733408236DD809",
+      "address": "0x8F99659606bcE13cA21c40fb44452D65D03BA487",
       "abi": [
         {
           "inputs": [
@@ -7513,6 +8441,19 @@
         },
         {
           "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getFundDeployer",
           "outputs": [
             {
@@ -7571,13 +8512,201 @@
         }
       ]
     },
-    "Dispatcher": {
-      "address": "0xC3DC853dD716bd5754f421ef94fdCbac3902ab32",
+    "DaoStaking": {
+      "address": "0xd1239ebe4C1da18C919EB4b1aE61C2905E8B3a98",
       "abi": [
         {
           "inputs": [],
           "stateMutability": "nonpayable",
           "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "newFee",
+              "type": "uint256"
+            }
+          ],
+          "name": "ProtocolFeeSet",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "whitelistType",
+              "type": "uint8"
+            }
+          ],
+          "name": "WhitelistAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "whitelistType",
+              "type": "uint8"
+            }
+          ],
+          "name": "WhitelistRemoved",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_vaultProxy",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_user",
+              "type": "address"
+            }
+          ],
+          "name": "getExitFee",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFeeDivisor",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_user",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_vault",
+              "type": "address"
+            },
+            {
+              "internalType": "uint8",
+              "name": "_whitelistType",
+              "type": "uint8"
+            }
+          ],
+          "name": "removeWhitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_newFee",
+              "type": "uint256"
+            }
+          ],
+          "name": "setProtocolFee",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_user",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_vault",
+              "type": "address"
+            },
+            {
+              "internalType": "uint8",
+              "name": "_whitelistType",
+              "type": "uint8"
+            }
+          ],
+          "name": "whitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]
+    },
+    "Dispatcher": {
+      "address": "0xe819b666c7Cccec2e51806862bBB58615dcd84fA",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_buybackVault",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newBuybackVault",
+              "type": "address"
+            }
+          ],
+          "name": "BuybackVaultSet",
+          "type": "event"
         },
         {
           "anonymous": false,
@@ -8018,6 +9147,19 @@
         },
         {
           "inputs": [],
+          "name": "getBuybackVault",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getCurrentFundDeployer",
           "outputs": [
             {
@@ -8202,6 +9344,19 @@
           "inputs": [
             {
               "internalType": "address",
+              "name": "_newVault",
+              "type": "address"
+            }
+          ],
+          "name": "setBuybackVault",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
               "name": "_nextFundDeployer",
               "type": "address"
             }
@@ -8281,7 +9436,7 @@
       ]
     },
     "EntranceRateBurnFee": {
-      "address": "0x27F74B89B29508091014487253d8D9b88aa0264A",
+      "address": "0x492Ba86AEF75c137B6a0249fb81abdf6c9542aE9",
       "abi": [
         {
           "inputs": [
@@ -8311,6 +9466,32 @@
             }
           ],
           "name": "FundSettingsAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistRemoved",
           "type": "event"
         },
         {
@@ -8372,6 +9553,32 @@
           "name": "addFundSettings",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "addPayerWhitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFeeActivationTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -8464,6 +9671,25 @@
           "inputs": [
             {
               "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "isPayerWhitelisted",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
               "name": "",
               "type": "address"
             },
@@ -8481,6 +9707,19 @@
               "type": "bool"
             }
           ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "removePayerWhitelist",
+          "outputs": [],
           "stateMutability": "nonpayable",
           "type": "function"
         },
@@ -8568,11 +9807,12 @@
         }
       ],
       "linkedData": {
-        "type": "FEE"
+        "type": "FEE",
+        "FEE_buybackWhitelist": true
       }
     },
     "EntranceRateDirectFee": {
-      "address": "0x30a398Eb63B62bF2865F90e37752c8300Ef22F05",
+      "address": "0x44C5e122d373DcE40ec7651Bd09E9D7A0ff15a36",
       "abi": [
         {
           "inputs": [
@@ -8602,6 +9842,32 @@
             }
           ],
           "name": "FundSettingsAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistRemoved",
           "type": "event"
         },
         {
@@ -8663,6 +9929,32 @@
           "name": "addFundSettings",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "addPayerWhitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFeeActivationTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -8755,6 +10047,25 @@
           "inputs": [
             {
               "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "isPayerWhitelisted",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
               "name": "",
               "type": "address"
             },
@@ -8772,6 +10083,19 @@
               "type": "bool"
             }
           ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "removePayerWhitelist",
+          "outputs": [],
           "stateMutability": "nonpayable",
           "type": "function"
         },
@@ -8859,11 +10183,12 @@
         }
       ],
       "linkedData": {
-        "type": "FEE"
+        "type": "FEE",
+        "FEE_buybackWhitelist": true
       }
     },
     "FeeManager": {
-      "address": "0x5d0a363e9a17fb839e2843ffa93c808cdafccb67",
+      "address": "0x0546043FFf4533A8EEA5279034e1bF6362ec20D1",
       "abi": [
         {
           "inputs": [
@@ -9062,6 +10387,19 @@
             {
               "indexed": true,
               "internalType": "address",
+              "name": "newProtocolFee",
+              "type": "address"
+            }
+          ],
+          "name": "ProtocolFeeUpdated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
               "name": "comptrollerProxy",
               "type": "address"
             },
@@ -9090,6 +10428,24 @@
             }
           ],
           "name": "activateForFund",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "fees",
+              "type": "address[]"
+            },
+            {
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            }
+          ],
+          "name": "addUserFeeWhitelist",
           "outputs": [],
           "stateMutability": "nonpayable",
           "type": "function"
@@ -9220,6 +10576,19 @@
           "type": "function"
         },
         {
+          "inputs": [],
+          "name": "getExtensionDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
           "inputs": [
             {
               "internalType": "address",
@@ -9263,6 +10632,19 @@
             {
               "internalType": "address",
               "name": "owner_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getProtocolFee",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
               "type": "address"
             }
           ],
@@ -9327,6 +10709,40 @@
         {
           "inputs": [
             {
+              "internalType": "enum IFeeManager.FeeHook",
+              "name": "_hook",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_settlementData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_gav",
+              "type": "uint256"
+            }
+          ],
+          "name": "invokeHookProtocolFee",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
               "internalType": "address",
               "name": "_fee",
               "type": "address"
@@ -9382,6 +10798,24 @@
         {
           "inputs": [
             {
+              "internalType": "address[]",
+              "name": "fees",
+              "type": "address[]"
+            },
+            {
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            }
+          ],
+          "name": "removeUserFeeWhitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
               "internalType": "bytes",
               "name": "_configData",
               "type": "bytes"
@@ -9391,11 +10825,24 @@
           "outputs": [],
           "stateMutability": "nonpayable",
           "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_newProtocolFee",
+              "type": "address"
+            }
+          ],
+          "name": "updateProtocolFee",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
         }
       ]
     },
     "FundActionsWrapper": {
-      "address": "0xbc9a63cad5a825bD5854Abca4f3D42d6aCF9Bffa",
+      "address": "0x6f700f413Dd9F7BD6f460783b787d353ec1527Cd",
       "abi": [
         {
           "inputs": [
@@ -9412,6 +10859,19 @@
           ],
           "stateMutability": "nonpayable",
           "type": "constructor"
+        },
+        {
+          "inputs": [],
+          "name": "CREATION_TIMESTAMP",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         },
         {
           "inputs": [
@@ -9580,7 +11040,7 @@
       ]
     },
     "FundDeployer": {
-      "address": "0x7e6d3b1161DF9c9c7527F68d651B297d2Fdb820B",
+      "address": "0x217912B16c8A00C2D9F2fDFCA94127ca37cFe948",
       "abi": [
         {
           "inputs": [
@@ -9943,6 +11403,19 @@
         },
         {
           "inputs": [],
+          "name": "getBuybackVault",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getComptrollerLib",
           "outputs": [
             {
@@ -10206,7 +11679,7 @@
       ]
     },
     "GuaranteedRedemption": {
-      "address": "0x08d4225f0995d770c4c8ea85380602b3499164a9",
+      "address": "0xe7dc62b7635282b67C366452fB628109b93535A5",
       "abi": [
         {
           "inputs": [
@@ -10419,6 +11892,19 @@
         },
         {
           "inputs": [],
+          "name": "getPolicyDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getPolicyManager",
           "outputs": [
             {
@@ -10613,7 +12099,7 @@
       }
     },
     "IdleAdapter": {
-      "address": "0x649b6cc835c8fe3d3b94b6a9c155f791bf500dfe",
+      "address": "0x5c628660E2E641c91FC1A57BA4BD1F561385729B",
       "abi": [
         {
           "inputs": [
@@ -10735,6 +12221,19 @@
         {
           "inputs": [],
           "name": "REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
           "outputs": [
             {
               "internalType": "bytes4",
@@ -10887,6 +12386,19 @@
           "name": "claimRewardsAndSwap",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -11050,7 +12562,7 @@
       }
     },
     "IdlePriceFeed": {
-      "address": "0x13c2263e534BD27149d96b8Cb9961ea1beB560Ef",
+      "address": "0x040Ce9d2a8F2Ff1b210790cED9dB8c3A6D023941",
       "abi": [
         {
           "inputs": [
@@ -11144,6 +12656,19 @@
         },
         {
           "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getFundDeployer",
           "outputs": [
             {
@@ -11222,7 +12747,7 @@
       ]
     },
     "IntegrationManager": {
-      "address": "0x965ca477106476B4600562a2eBe13536581883A6",
+      "address": "0x4B37f5DCA5FB2D5548e9EcEe9f98d9Ac95f60774",
       "abi": [
         {
           "inputs": [
@@ -11478,6 +13003,19 @@
         },
         {
           "inputs": [],
+          "name": "getExtensionDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getFundDeployer",
           "outputs": [
             {
@@ -11654,7 +13192,7 @@
       ]
     },
     "InvestorWhitelist": {
-      "address": "0x775f8d5d016c4d8a1427982148ec2170282c7784",
+      "address": "0xED4B446aFa4c441eaB4fcA1Bd4EFE650D32F68C5",
       "abi": [
         {
           "inputs": [
@@ -11755,6 +13293,19 @@
               "internalType": "address[]",
               "name": "list_",
               "type": "address[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getPolicyDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -11910,7 +13461,7 @@
       }
     },
     "KyberAdapter": {
-      "address": "0x4ff16EfF3b6D2175A513EF4c5b95f5f4D2F05179",
+      "address": "0x9a6221Fd6cFF0C42371d5bA20f887ae6353150fa",
       "abi": [
         {
           "inputs": [
@@ -12039,6 +13590,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -12084,6 +13648,19 @@
               "internalType": "bytes4",
               "name": "",
               "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -12218,7 +13795,7 @@
       }
     },
     "LidoStethPriceFeed": {
-      "address": "0x11D8d414724281BD702838BA16C8F15F7C473e9a",
+      "address": "0x7b132c6FadF8EB36cCcda7D2E732FA0a8685ef22",
       "abi": [
         {
           "inputs": [
@@ -12280,6 +13857,19 @@
         },
         {
           "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getUnderlying",
           "outputs": [
             {
@@ -12313,7 +13903,7 @@
       ]
     },
     "ManagementFee": {
-      "address": "0x45f1b268cc6412b454dae20f8971fc4a36af0d29",
+      "address": "0xCA6Ac50d5798C4fe41Cb9a078f669c009818B201",
       "abi": [
         {
           "inputs": [
@@ -12356,6 +13946,32 @@
             }
           ],
           "name": "FundSettingsAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistRemoved",
           "type": "event"
         },
         {
@@ -12417,6 +14033,32 @@
           "name": "addFundSettings",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "addPayerWhitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFeeActivationTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -12508,6 +14150,25 @@
           "inputs": [
             {
               "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "isPayerWhitelisted",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
               "name": "",
               "type": "address"
             },
@@ -12525,6 +14186,19 @@
               "type": "bool"
             }
           ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "removePayerWhitelist",
+          "outputs": [],
           "stateMutability": "nonpayable",
           "type": "function"
         },
@@ -12612,11 +14286,12 @@
         }
       ],
       "linkedData": {
-        "type": "FEE"
+        "type": "FEE",
+        "FEE_buybackWhitelist": true
       }
     },
     "MaxConcentration": {
-      "address": "0xdee63b253432a443a09bf8461f20256d184319de",
+      "address": "0x341dE0602cbdf5FA25C46Be3F33CC00533f17Be9",
       "abi": [
         {
           "inputs": [
@@ -12702,6 +14377,19 @@
             {
               "internalType": "uint256",
               "name": "maxConcentration_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getPolicyDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
               "type": "uint256"
             }
           ],
@@ -12852,7 +14540,7 @@
       }
     },
     "MinMaxInvestment": {
-      "address": "0x016a7287f0fdbdce5f903334f574b2238be3fa25",
+      "address": "0x7ddDFa48F05f7ad43dcfde8B167Df0b1199DcFFa",
       "abi": [
         {
           "inputs": [
@@ -12952,6 +14640,19 @@
               "internalType": "struct MinMaxInvestment.FundSettings",
               "name": "fundSettings_",
               "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getPolicyDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -13083,7 +14784,7 @@
       }
     },
     "ParaSwapV4Adapter": {
-      "address": "0x8eA6Ca02274E1b05b70c11058213ADC667258C3D",
+      "address": "0x7C3aF224b72B30868609De94aFA1675Ef95Ef7D8",
       "abi": [
         {
           "inputs": [
@@ -13212,6 +14913,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -13257,6 +14971,19 @@
               "internalType": "bytes4",
               "name": "",
               "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -13387,7 +15114,7 @@
       }
     },
     "PerformanceFee": {
-      "address": "0x3c3f9143A15042B69eB314Cac211688A4E71a087",
+      "address": "0xE29cD779643Ffc06c0d2E9a6aA063f567DAa5f82",
       "abi": [
         {
           "inputs": [
@@ -13506,6 +15233,32 @@
             {
               "indexed": true,
               "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistRemoved",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
               "name": "comptrollerProxy",
               "type": "address"
             },
@@ -13565,6 +15318,32 @@
           "name": "addFundSettings",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "addPayerWhitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFeeActivationTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -13681,6 +15460,25 @@
           "inputs": [
             {
               "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "isPayerWhitelisted",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
               "name": "_comptrollerProxy",
               "type": "address"
             },
@@ -13718,6 +15516,19 @@
             }
           ],
           "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "removePayerWhitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
           "type": "function"
         },
         {
@@ -13804,11 +15615,12 @@
         }
       ],
       "linkedData": {
-        "type": "FEE"
+        "type": "FEE",
+        "FEE_buybackWhitelist": true
       }
     },
     "PolicyManager": {
-      "address": "0x0Bd9f0465d21d4c300c7B8d781A013bdc87A31E8",
+      "address": "0x73A064974e0B97c251fDc0c0E627F2518dfAeBEd",
       "abi": [
         {
           "inputs": [
@@ -13997,6 +15809,19 @@
               "internalType": "address[]",
               "name": "enabledPolicies_",
               "type": "address[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getExtensionDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -14224,8 +16049,413 @@
         }
       ]
     },
+    "ProtocolFee": {
+      "address": "0xB71028Dd29491C7544e379cCEcCae81351B64251",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_feeManager",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_fundDeployer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_stakingDao",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            }
+          ],
+          "name": "PayerWhitelistRemoved",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "comptrollerProxy",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "payer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "sharesQuantity",
+              "type": "uint256"
+            }
+          ],
+          "name": "Settled",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newStakingDao",
+              "type": "address"
+            }
+          ],
+          "name": "StakingDaoUpdated",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "activateForFund",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_comptrollerProxy",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_settingsData",
+              "type": "bytes"
+            }
+          ],
+          "name": "addFundSettings",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "addPayerWhitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFeeActivationTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFeeManager",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "feeManager_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getFundDeployer",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "fundDeployer_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getOwner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "owner_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getStakingDao",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "identifier",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "identifier_",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "implementedHooks",
+          "outputs": [
+            {
+              "internalType": "enum IFeeManager.FeeHook[]",
+              "name": "implementedHooksForSettle_",
+              "type": "uint8[]"
+            },
+            {
+              "internalType": "enum IFeeManager.FeeHook[]",
+              "name": "implementedHooksForUpdate_",
+              "type": "uint8[]"
+            },
+            {
+              "internalType": "bool",
+              "name": "usesGavOnSettle_",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "usesGavOnUpdate_",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "isPayerWhitelisted",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "payout",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_payer",
+              "type": "address"
+            }
+          ],
+          "name": "removePayerWhitelist",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_comptrollerProxy",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_vaultProxy",
+              "type": "address"
+            },
+            {
+              "internalType": "enum IFeeManager.FeeHook",
+              "name": "",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_settlementData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "settle",
+          "outputs": [
+            {
+              "internalType": "enum IFeeManager.SettlementType",
+              "name": "settlementType_",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "payer_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sharesDue_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "enum IFeeManager.FeeHook",
+              "name": "",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "update",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_newStaking",
+              "type": "address"
+            }
+          ],
+          "name": "updateStakingDao",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ],
+      "linkedData": {
+        "FEE_buybackWhitelist": true
+      }
+    },
     "RevertingPriceFeed": {
-      "address": "0xE6e93746b8e2e0f03a3A1d469411059e93babe04",
+      "address": "0xf8BF8BC5eC5FE432634Cc7Ca73BD8f3Ad0D43632",
       "abi": [
         {
           "inputs": [
@@ -14257,6 +16487,19 @@
           "type": "function"
         },
         {
+          "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
           "inputs": [
             {
               "internalType": "address",
@@ -14278,7 +16521,7 @@
       ]
     },
     "StakehoundEthPriceFeed": {
-      "address": "0xd3C515EAD7Bcc7451cd920e066C4a1849B827dfD",
+      "address": "0x5073B1666E9f9BD9E3CE589fA02e85684d1F3e93",
       "abi": [
         {
           "inputs": [
@@ -14340,6 +16583,19 @@
         },
         {
           "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getUnderlying",
           "outputs": [
             {
@@ -14373,7 +16629,7 @@
       ]
     },
     "SynthetixAdapter": {
-      "address": "0x07698c3fa26a62ec6320872bf2950ba160a2dd7c",
+      "address": "0xC48971e3680C95521432e1F2D6D2355f107f2d85",
       "abi": [
         {
           "inputs": [
@@ -14512,6 +16768,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -14557,6 +16826,19 @@
               "internalType": "bytes4",
               "name": "",
               "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -14713,7 +16995,7 @@
       }
     },
     "SynthetixPriceFeed": {
-      "address": "0x4158F02ac2fF0f0E7959A768D06619B685aBF0C8",
+      "address": "0x0A887f7eD35383F3B7732962CC7eB7967647bf9F",
       "abi": [
         {
           "inputs": [
@@ -14880,6 +17162,19 @@
         },
         {
           "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getFundDeployer",
           "outputs": [
             {
@@ -14952,7 +17247,7 @@
       ]
     },
     "TrackedAssetsAdapter": {
-      "address": "0xeA05F4a383adCE7F1E9cC1b6029B51d7260E53aa",
+      "address": "0x3114fE0DE7342427a9BDAf5d1Ab688C108fA6231",
       "abi": [
         {
           "inputs": [
@@ -15187,6 +17482,19 @@
         },
         {
           "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getDustToleranceInWeth",
           "outputs": [
             {
@@ -15356,10 +17664,13 @@
           "stateMutability": "nonpayable",
           "type": "function"
         }
-      ]
+      ],
+      "linkedData": {
+        "type": "ADAPTER"
+      }
     },
     "UniswapV2Adapter": {
-      "address": "0x8481150a0f36c98EE859e6C7B46d61FDD836768f",
+      "address": "0x00166c7ACb369499B6FeCE84efF02937a7A4f524",
       "abi": [
         {
           "inputs": [
@@ -15488,6 +17799,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -15533,6 +17857,19 @@
               "internalType": "bytes4",
               "name": "",
               "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -15709,7 +18046,7 @@
       }
     },
     "UniswapV2PoolPriceFeed": {
-      "address": "0x37FFB1842eF012d83A6FFdc92A6353044Ae0e3e8",
+      "address": "0xC26b3601315af9f3DBc7939127BfAea7b37efE8D",
       "abi": [
         {
           "inputs": [
@@ -15822,6 +18159,19 @@
               "internalType": "address",
               "name": "derivativePriceFeed_",
               "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -15978,8 +18328,320 @@
         }
       ]
     },
+    "UniswapV3Adapter": {
+      "address": "0xD6D444c9792bc3EFE3663D65C8ECCe587B825C3A",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_integrationManager",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_router",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [],
+          "name": "ADD_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "APPROVE_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIM_REWARDS_AND_REINVEST_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIM_REWARDS_AND_SWAP_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIM_REWARDS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "LEND_AND_STAKE_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "LEND_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "STAKE_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "TAKE_ORDER_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "UNSTAKE_AND_REDEEM_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "UNSTAKE_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getIntegrationManager",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "integrationManager_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getUniswapV3Router",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "router_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "identifier",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "identifier_",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes4",
+              "name": "_selector",
+              "type": "bytes4"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_encodedCallArgs",
+              "type": "bytes"
+            }
+          ],
+          "name": "parseAssetsForMethod",
+          "outputs": [
+            {
+              "internalType": "enum IIntegrationManager.SpendAssetsHandleType",
+              "name": "spendAssetsHandleType_",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address[]",
+              "name": "spendAssets_",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "spendAssetAmounts_",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "address[]",
+              "name": "incomingAssets_",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "minIncomingAssetAmounts_",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_vaultProxy",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_encodedCallArgs",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "name": "takeOrder",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ],
+      "linkedData": {
+        "type": "ADAPTER"
+      }
+    },
     "ValueInterpreter": {
-      "address": "0x10a5624840Ac07287f756777DF1DEC34d2C2d654",
+      "address": "0xA0B9298aAe86f4BFdcB07cc6dCac40049bb8dFb0",
       "abi": [
         {
           "inputs": [
@@ -16158,11 +18820,24 @@
           ],
           "stateMutability": "view",
           "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getValueInterpreterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
         }
       ]
     },
     "VaultLib": {
-      "address": "0x1b3694907Ed7459c7B0116e7c6a4B7788288577F",
+      "address": "0xc184A20c52b5fB08EDb21beA4FF4Dd0c2Eb440Cb",
       "abi": [
         {
           "anonymous": false,
@@ -16579,6 +19254,19 @@
         },
         {
           "inputs": [],
+          "name": "getTrackedAssetsLength",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getVaultLib",
           "outputs": [
             {
@@ -16856,7 +19544,7 @@
       ]
     },
     "WdgldPriceFeed": {
-      "address": "0x76b548553d4E729c81e8ae8Ab826795bd88BA9E7",
+      "address": "0x94841425485917067Cef962c5308704b9d2dB076",
       "abi": [
         {
           "inputs": [
@@ -16920,6 +19608,19 @@
             {
               "internalType": "uint256",
               "name": "wdgldToXauRate_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
               "type": "uint256"
             }
           ],
@@ -16999,9 +19700,8 @@
         }
       ]
     },
-
     "YearnVaultV2Adapter": {
-      "address": "0xDA27D95Bd940cAc017f9484175E5512D3e4B0662",
+      "address": "0xf1B491c556B3B6AD911AF4857B5Cc978131733B2",
       "abi": [
         {
           "inputs": [
@@ -17125,6 +19825,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -17170,6 +19883,19 @@
               "internalType": "bytes4",
               "name": "",
               "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -17310,7 +20036,7 @@
       }
     },
     "YearnVaultV2PriceFeed": {
-      "address": "0x7B768DD670B6f0d4AFC270cb413A8F7ca1889BD7",
+      "address": "0xCe0e9a5F4DbDf83E5E212E1E8340b946Ae249c79",
       "abi": [
         {
           "inputs": [
@@ -17409,6 +20135,19 @@
         },
         {
           "inputs": [],
+          "name": "getDerivativePriceFeedDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "getFundDeployer",
           "outputs": [
             {
@@ -17500,7 +20239,7 @@
       ]
     },
     "ZeroExV2Adapter": {
-      "address": "0x9b6cD2195d3c275875cB469A59dd437995712550",
+      "address": "0x4493F5C5875a1D1A3e524344571aC39CDE61D23B",
       "abi": [
         {
           "inputs": [
@@ -17660,6 +20399,19 @@
         },
         {
           "inputs": [],
+          "name": "REMOVE_TRACKED_ASSETS_SELECTOR",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
           "name": "STAKE_SELECTOR",
           "outputs": [
             {
@@ -17721,6 +20473,19 @@
           "name": "addAllowedMakers",
           "outputs": [],
           "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getAdapterDeployTimestamp",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
           "type": "function"
         },
         {
