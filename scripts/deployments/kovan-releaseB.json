@@ -3,7 +3,7 @@
   "chainId": "42",
   "contracts": {
     "AdapterBlacklist": {
-      "address": "0x311c92e87852769094F4B51b8EC145CC3D17f904",
+      "address": "0x2D0722A485Fe2C32EB4261439f36E38eDaA9CDf6",
       "abi": [
         {
           "inputs": [
@@ -259,7 +259,7 @@
       }
     },
     "AdapterWhitelist": {
-      "address": "0x00f1d9b9d65d3cD4c6Bc9a81B3313a3Bd6A906F5",
+      "address": "0xA92d12C64F131c3C6a83aFD0bCF8ab6c1bfbF32e",
       "abi": [
         {
           "inputs": [
@@ -515,7 +515,7 @@
       }
     },
     "AggregatedDerivativePriceFeed": {
-      "address": "0x109e67c9E3C76Af5985769BcbC1EBAD7c4703553",
+      "address": "0xAc4c98e6f161F4CF2CBD72Fa357Ae9E50BDD6d46",
       "abi": [
         {
           "inputs": [
@@ -740,7 +740,7 @@
       ]
     },
     "AssetBlacklist": {
-      "address": "0x55cCb6c57190Fdb5e6f7943f3ac003426bBaBF51",
+      "address": "0x2505ba09F6af620e9F785A67C7D5FbFD439cba8f",
       "abi": [
         {
           "inputs": [
@@ -996,7 +996,7 @@
       }
     },
     "AssetWhitelist": {
-      "address": "0xb81ba538b965fb0515e43471bec04934d9aa2404",
+      "address": "0xd5a5A9eD348400ca7C0b34BA1535401f2701F586",
       "abi": [
         {
           "inputs": [
@@ -1252,7 +1252,7 @@
       }
     },
     "AuthUserExecutedSharesRequestorFactory": {
-      "address": "0xF3485e8D185CE5596d92279685EA7a5eAEBDfa37",
+      "address": "0xF637860c509e804C640C13c720d4150D5b3AC457",
       "abi": [
         {
           "inputs": [
@@ -1356,7 +1356,7 @@
       ]
     },
     "AuthUserExecutedSharesRequestorLib": {
-      "address": "0xC79cF886A468a06e777075e6799C610bb2623835",
+      "address": "0x3d1Bf7977cEa53620Acc5d382b8414431D48A68f",
       "abi": [
         {
           "anonymous": false,
@@ -1634,7 +1634,7 @@
       ]
     },
     "BuySharesCallerWhitelist": {
-      "address": "0x3Ca09Dc224E0838dd29C778356eB00E26CaD3AF5",
+      "address": "0x43413C9277979F6E73685CF248aae3b13B180Aa6",
       "abi": [
         {
           "inputs": [
@@ -1890,7 +1890,7 @@
       }
     },
     "ChainlinkPriceFeed": {
-      "address": "0x2cC6D6915A9E9f340435b7AD8C2e916706b8FD59",
+      "address": "0x24fDD4a3287EF99F67D28533C98901A8c683Bace",
       "abi": [
         {
           "inputs": [
@@ -2384,7 +2384,7 @@
       ]
     },
     "CompoundAdapter": {
-      "address": "0xA061153B8D6A44cF4D3e89564101C8b419710313",
+      "address": "0x1AC3aE11A54f42AF7d8030580ba2255C5D89b8F0",
       "abi": [
         {
           "inputs": [
@@ -2728,7 +2728,7 @@
       }
     },
     "CompoundPriceFeed": {
-      "address": "0xF694f588cfC026f4988538cac07cA72684123807",
+      "address": "0x9E9AdD0D8AFCbC462434c556Df50ffBc10A374a2",
       "abi": [
         {
           "inputs": [
@@ -2884,7 +2884,7 @@
       ]
     },
     "ComptrollerLib": {
-      "address": "0x50381b32b9a1b91D2423d4773A2E02a855cb0c0d",
+      "address": "0xB393531EB9786B027f9d2a0bF738E8a5c7A5ba72",
       "abi": [
         {
           "inputs": [
@@ -3557,17 +3557,8 @@
           "ethusd": "0x9326bfa02add2366b30bacb125260af641031331"
         },
         "compound": {
-          "ceth": "0x651c7d880878c1febf485b3279d5883f41e24896",
-          "ctokens": {
-            "cbat": "0xdbacce684dcd33af1a4da089b3173a5dedba7469",
-            "cdai": "0x9b19b1590b9289e5abbc7ee9511076be8d75ac42",
-            "crep": "0x9be41d202e8a1d7327b2fd860749e41baa89cb6a",
-            "cuni": "0x3e9867f6e41df327eae9d0832530d1007d1fbb4f",
-            "cusdc": "0x1ad7ecfb656ec99538db3bc46d66e7d79e9acc9e",
-            "cusdt": "0xab8b04c6f87a47aeef37b7bc82d39656549a3a29",
-            "cwbtc": "0x4f4a33bdc3e4b4b4cc25d8f1f29bc185b176e525",
-            "czrx": "0xcb37f0ce3ce7fa5545de084a41f2b18f76815a85"
-          }
+          "ceth": "0x0000000000000000000000000000000000000000",
+          "ctokens": {}
         },
         "curve": {
           "addressProvider": "0x0000000000000000000000000000000000000000",
@@ -3595,7 +3586,7 @@
         },
         "idle": {},
         "kyber": {
-          "networkProxy": "0x9AAb3f75489902f3a48495025729a0AF77d4b11e"
+          "networkProxy": "0x0000000000000000000000000000000000000000"
         },
         "lido": {
           "steth": "0x0000000000000000000000000000000000000000"
@@ -3635,14 +3626,12 @@
           "steth": "0x0000000000000000000000000000000000000000"
         },
         "synthetix": {
-          "addressResolver": "0x93A5c5c7547832c8ebFcCAbc2157D43A9c5E68d4",
-          "delegateApprovals": "0x93a5c5c7547832c8ebfccabc2157d43a9c5e68d4",
-          "originator": "0x1ad1fc9964c551f456238Dd88D6a38344B5319D7",
+          "addressResolver": "0x0000000000000000000000000000000000000000",
+          "delegateApprovals": "0x0000000000000000000000000000000000000000",
+          "originator": "0x0000000000000000000000000000000000000000",
           "snx": "0x4c22d46c07ab880f94e8213e0256727af471a9f4",
           "susd": "0x190cece40aef39a2a15d8858cafa691f01a909c5",
-          "synths": {
-            "sdefi": "0xf1762903953e3729335be6cf02b846501c9049a8"
-          },
+          "synths": {},
           "trackingCode": "0x454e5a594d450000000000000000000000000000000000000000000000000000"
         },
         "uniswap": {
@@ -3651,28 +3640,28 @@
           "router": "0x0022B151B637722757852Ef64c57c982277203fF"
         },
         "uniswapV3": {
-          "router": "0xB09eF74C72e565E29A6398415F64415fb39d578E"
+          "router": "0x9A785E6A8AA330Af1Fee1d2435e90c0034ef992D"
         },
         "unsupportedAssets": {},
         "wdgld": {
           "ethusd": "0x9326bfa02add2366b30bacb125260af641031331",
-          "wdgld": "0x23993cA98c63F1f8de457C271f8ceFD9076A42f4",
+          "wdgld": "0x0000000000000000000000000000000000000000",
           "xauusd": "0x0000000000000000000000000000000000000000"
         },
         "weth": "0xd0a1e359811322d97991e03f863a0c30c2cf029c",
         "yearn": {
           "vaultV2": {
-            "registry": "0x50c1a2eA0a861A967D9d0FFE2AE4012c2E053804",
+            "registry": "0x0000000000000000000000000000000000000000",
             "yVaults": {}
           }
         },
         "zeroex": {
           "allowedMakers": [],
-          "exchange": "0x6Ffa4088e56986E25e65d73657C23D3A869EE570"
+          "exchange": "0x0000000000000000000000000000000000000000"
         },
         "vaultCalls": [
           [
-            "0x93a5c5c7547832c8ebfccabc2157d43a9c5e68d4",
+            "0x0000000000000000000000000000000000000000",
             "0x447fbc63"
           ],
           [
@@ -3691,7 +3680,7 @@
       }
     },
     "Dispatcher": {
-      "address": "0xeb85C242C8de456aD6b4104b351668aB96399615",
+      "address": "0x23d312616373b28218Bd4112217EB9223B1ab96F",
       "abi": [
         {
           "inputs": [],
@@ -4400,7 +4389,7 @@
       ]
     },
     "EntranceRateBurnFee": {
-      "address": "0xd8FAF922653212360327eDE27ee1CC64731f7358",
+      "address": "0xc2c1D12b721067ef5F4D5E2Bbc6ED1289448A478",
       "abi": [
         {
           "inputs": [
@@ -4691,7 +4680,7 @@
       }
     },
     "EntranceRateDirectFee": {
-      "address": "0x60fEDBC04fb795F0455D494578b7F342bF8B3F27",
+      "address": "0x9FAE1574be262F2a031073888fd1c9af7B9ca67c",
       "abi": [
         {
           "inputs": [
@@ -4982,7 +4971,7 @@
       }
     },
     "FeeManager": {
-      "address": "0xFDB42488D0A2F32693F3D87141806734ea7833b9",
+      "address": "0x252e45b575E721F4eF69bD4498414587CCD64322",
       "abi": [
         {
           "inputs": [
@@ -5514,7 +5503,7 @@
       ]
     },
     "FundActionsWrapper": {
-      "address": "0x529eFd4cf667b182e6CcC771335DEb1A2383E3A7",
+      "address": "0x80BbfC89090D66435f4D0f19e68e92B62dE95B39",
       "abi": [
         {
           "inputs": [
@@ -5699,7 +5688,7 @@
       ]
     },
     "FundDeployer": {
-      "address": "0x148a6FFbD7CCF8Ef7DB4dFD3103C4f197f3d46B2",
+      "address": "0x4B68177FaCb5e04a1a82Fbd37a4F967a2F154DD5",
       "abi": [
         {
           "inputs": [
@@ -6325,7 +6314,7 @@
       ]
     },
     "GuaranteedRedemption": {
-      "address": "0x3ed8993dd7f2553528151a2866319cd360a239ab",
+      "address": "0x73DB013E5e43af99227154c60E36417c779F3251",
       "abi": [
         {
           "inputs": [
@@ -6732,7 +6721,7 @@
       }
     },
     "IntegrationManager": {
-      "address": "0x35a9ed450d4b5a12e24Ff81df198C7e412Aa2745",
+      "address": "0xC990069177FA2fc6FB9d19F0F846Bcb7a3aa01D8",
       "abi": [
         {
           "inputs": [
@@ -7164,7 +7153,7 @@
       ]
     },
     "InvestorWhitelist": {
-      "address": "0x14f1595fb49c681b2f722135ed112fb461fa351a",
+      "address": "0x7eE64c6E316F278263136138921474873c481fEf",
       "abi": [
         {
           "inputs": [
@@ -7420,7 +7409,7 @@
       }
     },
     "KyberAdapter": {
-      "address": "0x96ddd26E07055fe1709b3702A1CbdD1128F29bc9",
+      "address": "0x82331E27Bd4D9E86D2de136D993bBD4286eb3313",
       "abi": [
         {
           "inputs": [
@@ -7741,7 +7730,7 @@
       }
     },
     "ManagementFee": {
-      "address": "0x9d41c27b06a8e51c05E2E24284aD8489A2A3206d",
+      "address": "0x572A5349E6D6669aEBC62024F936C63B85b5cA3E",
       "abi": [
         {
           "inputs": [
@@ -8044,7 +8033,7 @@
       }
     },
     "MaxConcentration": {
-      "address": "0xEFc8b170A74481590CDCD0651B7032BD8ee5d776",
+      "address": "0x114C1f4d5b5BF261EDDb012C9Acca04E7a292069",
       "abi": [
         {
           "inputs": [
@@ -8280,7 +8269,7 @@
       }
     },
     "MinMaxInvestment": {
-      "address": "0xb2c37f3d8C5f22c891Ff43f59d33DE53Dd97d71c",
+      "address": "0x494171f6698b15da0C9919d3CA1b89f4fC1b4ba3",
       "abi": [
         {
           "inputs": [
@@ -8511,7 +8500,7 @@
       }
     },
     "PerformanceFee": {
-      "address": "0xa049B664F1A4E6aE46445dd4f970a29Fd9236fC0",
+      "address": "0x3A328f390097d1F888F42992d5c61947eb037214",
       "abi": [
         {
           "inputs": [
@@ -8932,7 +8921,7 @@
       }
     },
     "PolicyManager": {
-      "address": "0x008DBE548c97D253c8161305883AE506f264c4fD",
+      "address": "0x54EeC5e561Cc8278e3C4009e8c573b64578364a0",
       "abi": [
         {
           "inputs": [
@@ -9349,7 +9338,7 @@
       ]
     },
     "RevertingPriceFeed": {
-      "address": "0x91eBf511F14a96b25E0BE98E6441bE2EB90A9783",
+      "address": "0xD40AD87F86919058558661B2105DAbF4248305e0",
       "abi": [
         {
           "inputs": [
@@ -9402,7 +9391,7 @@
       ]
     },
     "SynthetixAdapter": {
-      "address": "0xf58f5683CdaDF0DBAeC0c684Cc8706e441b78def",
+      "address": "0x25434a9c7B64CDdd5E6B032E7524938003A05F62",
       "abi": [
         {
           "inputs": [
@@ -9755,7 +9744,7 @@
       }
     },
     "SynthetixPriceFeed": {
-      "address": "0xfE9bE5590f2BEEb56F76D1CEcf815E89b8C9020C",
+      "address": "0x2C98D8189E5747934a9830797eb7d155030Bd403",
       "abi": [
         {
           "inputs": [
@@ -9994,7 +9983,7 @@
       ]
     },
     "TrackedAssetsAdapter": {
-      "address": "0x900D14dbe9BaD3fCBae7A724E1A55026154a7B20",
+      "address": "0x3FaFf7059abca7bdE9207421C204ABe32773A6a8",
       "abi": [
         {
           "inputs": [
@@ -10404,7 +10393,7 @@
       }
     },
     "UniswapV2Adapter": {
-      "address": "0x9786Ad458E9B2d248e44335FF16715f0523cB5F7",
+      "address": "0xa1C20f9C5C3255281254064B5E3b5ADc755E128d",
       "abi": [
         {
           "inputs": [
@@ -10767,7 +10756,7 @@
       }
     },
     "UniswapV2PoolPriceFeed": {
-      "address": "0x7226F0Fbc141943f5c6E196CD6148BCCEa1E0f8e",
+      "address": "0x3BD4D80a1F8D9193FB4bE2399Daf206FDf0FC1e4",
       "abi": [
         {
           "inputs": [
@@ -11037,7 +11026,7 @@
       ]
     },
     "UniswapV3Adapter": {
-      "address": "0x01441CF6A4bde170d5BeCA5E8B91689E565CB495",
+      "address": "0x5Ea3e08F2b2a1ea1A336D09F5a47dAFDDB5c4137",
       "abi": [
         {
           "inputs": [
@@ -11336,7 +11325,7 @@
       }
     },
     "ValueInterpreter": {
-      "address": "0x1f956E9D93ACa08907323Bf0878A1a87F96a8C65",
+      "address": "0x0e20d58D0a93560653177E1c208DD4A607FEE80b",
       "abi": [
         {
           "inputs": [
@@ -11519,7 +11508,7 @@
       ]
     },
     "VaultLib": {
-      "address": "0x7D47fbB324f3BBD70e4234edb148579bF403adC3",
+      "address": "0xf67b7aAEB5156271780a3788D46a1c66ff6950aa",
       "abi": [
         {
           "anonymous": false,
@@ -12213,7 +12202,7 @@
       ]
     },
     "YearnVaultV2Adapter": {
-      "address": "0x8649b862BC810af3Eb617068d123981Cb07553Fb",
+      "address": "0xd188a90436a1817E6A26A083d08E79C8F06e3c69",
       "abi": [
         {
           "inputs": [
@@ -12535,7 +12524,7 @@
       }
     },
     "YearnVaultV2PriceFeed": {
-      "address": "0x9cCB32c5Cfc343a2CA7dc0c5ccB2467800DF7e28",
+      "address": "0xb5F50fC5FE04c32BeD0b3efefc4c213efBefdc35",
       "abi": [
         {
           "inputs": [
@@ -12725,7 +12714,7 @@
       ]
     },
     "ZeroExV2Adapter": {
-      "address": "0xCcdbB68F05665d69d0C7950746bBeBbDc1480A2f",
+      "address": "0x038F035687fE3ECa2bBE620783E4aF9daC557048",
       "abi": [
         {
           "inputs": [

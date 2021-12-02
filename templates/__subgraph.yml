@@ -1,0 +1,871 @@
+specVersion: 0.0.2
+description: Dexify Finance
+repository: https://github.com/trust0212/dexfund-subgraph.git
+schema:
+  file: ./schema.graphql
+# graft:
+#   base: QmPzMXZBUdUiCwynwpPFw7jKTbp97Xf1ZKXGQ348Hsz5pB
+#   block: 12399536
+# features:
+#   - nonFatalErrors
+
+
+dataSources:
+  - name: DispatcherDataSource
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      address: '{{dispatcher}}'
+      abi: DispatcherContract
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/Dispatcher.ts
+      entities: []
+      abis:
+        - name: DispatcherContract
+          file: ./abi/{{networkName}}/Dispatcher.json
+        - name: FundDeployerContract
+          file: ./abi/{{networkName}}/FundDeployer.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+      eventHandlers:
+        - event: CurrentFundDeployerSet(address,address)
+          handler: handleCurrentFundDeployerSet
+        - event: MigrationCancelled(indexed address,indexed address,indexed address,address,address,uint256)
+          handler: handleMigrationCancelled
+        - event: MigrationExecuted(indexed address,indexed address,indexed address,address,address,uint256)
+          handler: handleMigrationExecuted
+        - event: MigrationSignaled(indexed address,indexed address,indexed address,address,address,uint256)
+          handler: handleMigrationSignaled
+        - event: MigrationInCancelHookFailed(bytes,indexed address,indexed address,indexed address,address,address)
+          handler: handleMigrationInCancelHookFailed
+        - event: MigrationOutHookFailed(bytes,uint8,indexed address,indexed address,indexed address,address,address)
+          handler: handleMigrationOutHookFailed
+        - event: MigrationTimelockSet(uint256,uint256)
+          handler: handleMigrationTimelockSet
+        - event: NominatedOwnerRemoved(indexed address)
+          handler: handleNominatedOwnerRemoved
+        - event: NominatedOwnerSet(indexed address)
+          handler: handleNominatedOwnerSet
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: SharesTokenSymbolSet(string)
+          handler: handleSharesTokenSymbolSet
+        - event: VaultProxyDeployed(indexed address,indexed address,address,indexed address,address,string)
+          handler: handleVaultProxyDeployed
+
+# Release specific contracts
+# {{#each releases}}
+# Release: {{id}}
+  - name: FundDeployerDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: FundDeployerContract
+      address: '{{fundDeployer}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/FundDeployer.ts
+      entities: []
+      abis:
+        - name: FundDeployerContract
+          file: ./abi/{{networkName}}/FundDeployer.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+      eventHandlers:
+        - event: ComptrollerLibSet(address)
+          handler: handleComptrollerLibSet
+        - event: ComptrollerProxyDeployed(indexed address,address,indexed address,uint256,bytes,bytes,indexed bool)
+          handler: handleComptrollerProxyDeployed
+        - event: NewFundCreated(indexed address,address,address,indexed address,string,indexed address,uint256,bytes,bytes)
+          handler: handleNewFundCreated
+        - event: ReleaseStatusSet(indexed uint8,indexed uint8)
+          handler: handleReleaseStatusSet
+        - event: VaultCallDeregistered(indexed address,bytes4)
+          handler: handleVaultCallDeregistered
+        - event: VaultCallRegistered(indexed address,bytes4)
+          handler: handleVaultCallRegistered
+
+  - name: FeeManagerDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: FeeManagerContract
+      address: '{{feeManager}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/FeeManager.ts
+      entities: []
+      abis:
+        - name: FeeManagerContract
+          file: ./abi/{{networkName}}/FeeManager.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+        - name: IFeeInterface
+          file: ./node_modules/@enzymefinance/protocol/artifacts/IFee.json
+        - name: ManagementFeeContract
+          file: ./abi/{{networkName}}/ManagementFee.json
+        - name: PerformanceFeeContract
+          file: ./abi/{{networkName}}/PerformanceFee.json
+      eventHandlers:
+        - event: AllSharesOutstandingForcePaidForFund(indexed address,address,uint256)
+          handler: handleAllSharesOutstandingForcePaidForFund
+        - event: FeeDeregistered(indexed address,indexed string)
+          handler: handleFeeDeregistered
+        - event: FeeEnabledForFund(indexed address,indexed address,bytes)
+          handler: handleFeeEnabledForFund
+        - event: FeeRegistered(indexed address,indexed string,uint8[],uint8[],bool,bool)
+          handler: handleFeeRegistered
+        - event: FeeSettledForFund(indexed address,indexed address,indexed uint8,address,address,uint256)
+          handler: handleFeeSettledForFund
+        - event: FeesRecipientSetForFund(indexed address,address,address)
+          handler: handleFeesRecipientSet
+        - event: SharesOutstandingPaidForFund(indexed address,indexed address,uint256)
+          handler: handleSharesOutstandingPaidForFund
+
+  - name: ManagementFeeDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: ManagementFeeContract
+      address: '{{managementFee}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ManagementFee.ts
+      entities: []
+      abis:
+        - name: ManagementFeeContract
+          file: ./abi/{{networkName}}/ManagementFee.json
+        - name: FeeManagerContract
+          file: ./abi/{{networkName}}/FeeManager.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+        - name: IFeeInterface
+          file: ./node_modules/@enzymefinance/protocol/artifacts/IFee.json
+        - name: ManagementFeeContract
+          file: ./abi/{{networkName}}/ManagementFee.json
+      eventHandlers:
+        - event: FundSettingsAdded(indexed address,uint256)
+          handler: handleFundSettingsAdded
+        - event: Settled(indexed address,uint256,uint256)
+          handler: handleSettled
+        - event: ActivatedForMigratedFund(indexed address)
+          handler: handleActivatedForMigratedFund
+
+  - name: PerformanceFeeDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: PerformanceFeeContract
+      address: '{{performanceFee}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/PerformanceFee.ts
+      entities: []
+      abis:
+        - name: PerformanceFeeContract
+          file: ./abi/{{networkName}}/PerformanceFee.json
+        - name: ManagementFeeContract
+          file: ./abi/{{networkName}}/ManagementFee.json
+        - name: FeeManagerContract
+          file: ./abi/{{networkName}}/FeeManager.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+      eventHandlers:
+        - event: ActivatedForFund(indexed address,uint256)
+          handler: handleActivatedForFund
+        - event: FundSettingsAdded(indexed address,uint256,uint256)
+          handler: handleFundSettingsAdded
+        - event: LastSharePriceUpdated(indexed address,uint256,uint256)
+          handler: handleLastSharePriceUpdated
+        - event: PaidOut(indexed address,uint256,uint256,uint256)
+          handler: handlePaidOut
+        - event: PerformanceUpdated(indexed address,uint256,uint256,int256)
+          handler: handlePerformanceUpdated
+
+  - name: EntranceRateDirectFeeDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: EntranceRateDirectFeeContract
+      address: '{{entranceRateDirectFee}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/EntranceRateDirectFee.ts
+      entities: []
+      abis:
+        - name: EntranceRateDirectFeeContract
+          file: ./abi/{{networkName}}/EntranceRateDirectFee.json
+        - name: FeeManagerContract
+          file: ./abi/{{networkName}}/FeeManager.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+        - name: IFeeInterface
+          file: ./node_modules/@enzymefinance/protocol/artifacts/IFee.json
+        - name: ManagementFeeContract
+          file: ./abi/{{networkName}}/ManagementFee.json
+      eventHandlers:
+        - event: FundSettingsAdded(indexed address,uint256)
+          handler: handleFundSettingsAdded
+        - event: Settled(indexed address,indexed address,uint256)
+          handler: handleSettled
+
+  - name: EntranceRateBurnFeeDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: EntranceRateBurnFeeContract
+      address: '{{entranceRateBurnFee}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/EntranceRateBurnFee.ts
+      entities: []
+      abis:
+        - name: EntranceRateBurnFeeContract
+          file: ./abi/{{networkName}}/EntranceRateBurnFee.json
+        - name: FeeManagerContract
+          file: ./abi/{{networkName}}/FeeManager.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+        - name: IFeeInterface
+          file: ./node_modules/@enzymefinance/protocol/artifacts/IFee.json
+        - name: ManagementFeeContract
+          file: ./abi/{{networkName}}/ManagementFee.json
+      eventHandlers:
+        - event: FundSettingsAdded(indexed address,uint256)
+          handler: handleFundSettingsAdded
+        - event: Settled(indexed address,indexed address,uint256)
+          handler: handleSettled
+
+  - name: PolicyManagerDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: PolicyManagerContract
+      address: '{{policyManager}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/PolicyManager.ts
+      entities: []
+      abis:
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+        - name: IPolicyInterface
+          file: ./node_modules/@enzymefinance/protocol/artifacts/IPolicy.json
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+      eventHandlers:
+        - event: PolicyDeregistered(indexed address,indexed string)
+          handler: handlePolicyDeregistered
+        - event: PolicyDisabledForFund(indexed address,indexed address)
+          handler: handlePolicyDisabledForFund
+        - event: PolicyEnabledForFund(indexed address,indexed address,bytes)
+          handler: handlePolicyEnabledForFund
+        - event: PolicyRegistered(indexed address,indexed string,uint8[])
+          handler: handlePolicyRegistered
+
+  - name: AdapterBlacklistDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: AdapterBlacklistContract
+      address: '{{adapterBlacklist}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/AdapterBlacklist.ts
+      entities: []
+      abis:
+        - name: AdapterBlacklistContract
+          file: ./abi/{{networkName}}/AdapterBlacklist.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+      eventHandlers:
+        - event: AddressesAdded(indexed address,address[])
+          handler: handleAddressesAdded
+        - event: AddressesRemoved(indexed address,address[])
+          handler: handleAddressesRemoved
+
+  - name: AdapterWhitelistDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: AdapterWhitelistContract
+      address: '{{adapterWhitelist}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/AdapterWhitelist.ts
+      entities: []
+      abis:
+        - name: AdapterWhitelistContract
+          file: ./abi/{{networkName}}/AdapterWhitelist.json
+        - name: FeeManagerContract
+          file: ./abi/{{networkName}}/FeeManager.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+      eventHandlers:
+        - event: AddressesAdded(indexed address,address[])
+          handler: handleAddressesAdded
+        - event: AddressesRemoved(indexed address,address[])
+          handler: handleAddressesRemoved
+
+  - name: AssetWhitelistDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: AssetWhitelistContract
+      address: '{{assetWhitelist}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/AssetWhitelist.ts
+      entities: []
+      abis:
+        - name: AssetWhitelistContract
+          file: ./abi/{{networkName}}/AssetWhitelist.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+      eventHandlers:
+        - event: AddressesAdded(indexed address,address[])
+          handler: handleAddressesAdded
+        - event: AddressesRemoved(indexed address,address[])
+          handler: handleAddressesRemoved
+
+  - name: AssetBlacklistDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: AssetBlacklistContract
+      address: '{{assetBlacklist}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/AssetBlacklist.ts
+      entities: []
+      abis:
+        - name: AssetBlacklistContract
+          file: ./abi/{{networkName}}/AssetBlacklist.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+      eventHandlers:
+        - event: AddressesAdded(indexed address,address[])
+          handler: handleAddressesAdded
+        - event: AddressesRemoved(indexed address,address[])
+          handler: handleAddressesRemoved
+
+  - name: BuySharesCallerWhitelistDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: BuySharesCallerWhitelistContract
+      address: '{{buySharesCallerWhitelist}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/BuySharesCallerWhitelist.ts
+      entities: []
+      abis:
+        - name: BuySharesCallerWhitelistContract
+          file: ./abi/{{networkName}}/BuySharesCallerWhitelist.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+      eventHandlers:
+        - event: AddressesAdded(indexed address,address[])
+          handler: handleAddressesAdded
+        - event: AddressesRemoved(indexed address,address[])
+          handler: handleAddressesRemoved
+
+  - name: GuaranteedRedemptionDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: GuaranteedRedemptionContract
+      address: '{{guaranteedRedemption}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/GuaranteedRedemption.ts
+      entities: []
+      abis:
+        - name: GuaranteedRedemptionContract
+          file: ./abi/{{networkName}}/GuaranteedRedemption.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json          
+      eventHandlers:
+        - event: AdapterAdded(address)
+          handler: handleAdapterAdded
+        - event: AdapterRemoved(address)
+          handler: handleAdapterRemoved
+        - event: FundSettingsSet(indexed address,uint256,uint256)
+          handler: handleFundSettingsSet
+        - event: RedemptionWindowBufferSet(uint256,uint256)
+          handler: handleRedemptionWindowBufferSet
+
+  - name: InvestorWhitelistDataSource{{id}}
+    kind: ethereum/contract
+    network: '{{networkName}}'
+    source:
+      abi: InvestorWhitelistContract
+      address: '{{investorWhitelist}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/InvestorWhitelist.ts
+      entities: []
+      abis:
+        - name: InvestorWhitelistContract
+          file: ./abi/{{networkName}}/InvestorWhitelist.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+      eventHandlers:
+        - event: AddressesAdded(indexed address,address[])
+          handler: handleAddressesAdded
+        - event: AddressesRemoved(indexed address,address[])
+          handler: handleAddressesRemoved
+
+  - name: MaxConcentrationDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: MaxConcentrationContract
+      address: '{{maxConcentration}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/MaxConcentration.ts
+      entities: []
+      abis:
+        - name: MaxConcentrationContract
+          file: ./abi/{{networkName}}/MaxConcentration.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+      eventHandlers:
+        - event: MaxConcentrationSet(indexed address,uint256)
+          handler: handleMaxConcentrationSet
+
+  - name: MinMaxInvestmentDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: MinMaxInvestmentContract
+      address: '{{minMaxInvestment}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/MinMaxInvestment.ts
+      entities: []
+      abis:
+        - name: MinMaxInvestmentContract
+          file: ./abi/{{networkName}}/MinMaxInvestment.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: PolicyManagerContract
+          file: ./abi/{{networkName}}/PolicyManager.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+      eventHandlers:
+        - event: FundSettingsSet(indexed address,uint256,uint256)
+          handler: handleFundSettingsSet
+
+  - name: IntegrationManagerDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: IntegrationManagerContract
+      address: '{{integrationManager}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/IntegrationManager.ts
+      entities: []
+      abis:
+        - name: IntegrationManagerContract
+          file: ./abi/{{networkName}}/IntegrationManager.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+        - name: IIntegrationAdapterInterface
+          file: ./node_modules/@enzymefinance/protocol/artifacts/IIntegrationAdapter.json
+        - name: CompoundAdapter
+          file: ./abi/{{networkName}}/CompoundAdapter.json
+      eventHandlers:
+        - event: AdapterDeregistered(indexed address,indexed string)
+          handler: handleAdapterDeregistered
+        - event: AdapterRegistered(indexed address,indexed string)
+          handler: handleAdapterRegistered
+        - event: AuthUserAddedForFund(indexed address,indexed address)
+          handler: handleAuthUserAddedForFund
+        - event: AuthUserRemovedForFund(indexed address,indexed address)
+          handler: handleAuthUserRemovedForFund
+        - event: CallOnIntegrationExecutedForFund(indexed address,address,address,indexed address,indexed bytes4,bytes,address[],uint256[],address[],uint256[])
+          handler: handleCallOnIntegrationExecutedForFund
+
+  - name: ChainlinkPriceFeedDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: ChainlinkPriceFeedContract
+      address: '{{chainlinkPriceFeed}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ChainlinkPriceFeed.ts
+      entities: []
+      abis:
+        - name: ChainlinkPriceFeedContract
+          file: ./abi/{{networkName}}/ChainlinkPriceFeed.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+        - name: ChainlinkAggregatorContract
+          file: ./node_modules/@chainlink/contracts/abi/v0.6/AggregatorInterface.json
+        - name: ChainlinkAggregatorProxyContract
+          file: ./node_modules/@chainlink/contracts/abi/v0.6/AggregatorProxy.json
+        - name: ValueInterpreterContract
+          file: ./abi/{{networkName}}/ValueInterpreter.json
+      eventHandlers:
+        - event: EthUsdAggregatorSet(address,address)
+          handler: handleEthUsdAggregatorSet
+        - event: PrimitiveAdded(indexed address,address,uint8,uint256)
+          handler: handlePrimitiveAdded
+        - event: PrimitiveRemoved(indexed address)
+          handler: handlePrimitiveRemoved
+        - event: PrimitiveUpdated(indexed address,address,address)
+          handler: handlePrimitiveUpdated
+
+  - name: AggregatedDerivativePriceFeedDataSource{{id}}
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: AggregatedDerivativePriceFeedContract
+      address: '{{aggregatedDerivativePriceFeed}}'
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/AggregatedDerivativePriceFeed.ts
+      entities: []
+      abis:
+        - name: AggregatedDerivativePriceFeedContract
+          file: ./abi/{{networkName}}/AggregatedDerivativePriceFeed.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+        - name: ValueInterpreterContract
+          file: ./abi/{{networkName}}/ValueInterpreter.json
+        - name: IUniswapV2PairContract
+          file: ./node_modules/@enzymefinance/protocol/artifacts/IUniswapV2Pair.json
+        - name: ICERC20Contract
+          file: ./node_modules/@enzymefinance/protocol/artifacts/ICERC20.json
+        - name: AavePriceFeedContract
+          file: ./node_modules/@enzymefinance/protocol/artifacts/AavePriceFeed.json
+        - name: AlphaHomoraV1PriceFeedContract
+          file: ./node_modules/@enzymefinance/protocol/artifacts/AlphaHomoraV1PriceFeed.json
+        - name: CompoundPriceFeedContract
+          file: ./abi/{{networkName}}/CompoundPriceFeed.json
+        - name: CurvePriceFeedContract
+          file: ./node_modules/@enzymefinance/protocol/artifacts/CurvePriceFeed.json
+        - name: ICurveAddressProviderContract
+          file: ./node_modules/@enzymefinance/protocol/artifacts/ICurveAddressProvider.json
+        - name: CurveRegistryContract
+          file: ./src/utils/abis/CurveRegistry.json
+        - name: IdlePriceFeedContract
+          file: ./node_modules/@enzymefinance/protocol/artifacts/IdlePriceFeed.json
+        - name: StakehoundEthPriceFeedContract
+          file: ./node_modules/@enzymefinance/protocol/artifacts/StakehoundEthPriceFeed.json
+        - name: SynthetixPriceFeedContract
+          file: ./abi/{{networkName}}/SynthetixPriceFeed.json
+        - name: UniswapV2PoolPriceFeedContract
+          file: ./abi/{{networkName}}/UniswapV2PoolPriceFeed.json
+        - name: YearnVaultV2PriceFeedContract
+          file: ./abi/{{networkName}}/YearnVaultV2PriceFeed.json
+      eventHandlers:
+        - event: DerivativeAdded(indexed address,address)
+          handler: handleDerivativeAdded
+        - event: DerivativeRemoved(indexed address)
+          handler: handleDerivativeRemoved
+        - event: DerivativeUpdated(indexed address,address,address)
+          handler: handleDerivativeUpdated
+# {{/each}}
+
+templates:
+  - name: VaultLibDataSource
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: VaultLibContract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/VaultLib.ts
+      entities: []
+      abis:
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+      eventHandlers:
+        - event: AccessorSet(address,address)
+          handler: handleAccessorSet
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: AssetWithdrawn(indexed address,indexed address,uint256)
+          handler: handleAssetWithdrawn
+        - event: MigratorSet(address,address)
+          handler: handleMigratorSet
+        - event: OwnerSet(address,address)
+          handler: handleOwnerSet
+        - event: TrackedAssetAdded(address)
+          handler: handleTrackedAssetAdded
+        - event: TrackedAssetRemoved(address)
+          handler: handleTrackedAssetRemoved
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: VaultLibSet(address,address)
+          handler: handleVaultLibSet
+
+  - name: ComptrollerLibDataSource
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: ComptrollerLibContract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings/ComptrollerLib.ts
+      entities: []
+      abis:
+        - name: ComptrollerLibContract
+          file: ./abi/{{networkName}}/ComptrollerLib.json
+        - name: VaultLibContract
+          file: ./abi/{{networkName}}/VaultLib.json
+        - name: ERC20Contract
+          file: ./node_modules/@openzeppelin/contracts/build/contracts/ERC20.json
+        - name: ERC20NameBytesContract
+          file: ./src/utils/abis/ERC20NameBytes.json
+        - name: ERC20SymbolBytesContract
+          file: ./src/utils/abis/ERC20SymbolBytes.json
+      eventHandlers:
+        - event: MigratedSharesDuePaid(uint256)
+          handler: handleMigratedSharesDuePaid
+        - event: OverridePauseSet(indexed bool)
+          handler: handleOverridePauseSet
+        - event: PreRedeemSharesHookFailed(bytes,address,uint256)
+          handler: handlePreRedeemSharesHookFailed
+        - event: SharesBought(indexed address,indexed address,uint256,uint256,uint256)
+          handler: handleSharesBought
+        - event: SharesRedeemed(indexed address,uint256,address[],uint256[])
+          handler: handleSharesRedeemed
+        - event: VaultProxySet(address)
+          handler: handleVaultProxySet
+
+  - name: ChainlinkAggregatorDataSource
+    kind: ethereum/contract
+    network: {{networkName}}
+    source:
+      abi: ChainlinkAggregatorContract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities: []
+      file: ./src/mappings/ChainlinkAggregator.ts
+      abis:
+        - name: ValueInterpreterContract
+          file: ./abi/{{networkName}}/ValueInterpreter.json
+        - name: ChainlinkAggregatorContract
+          file: ./node_modules/@chainlink/contracts/abi/v0.6/AggregatorInterface.json
+        - name: ChainlinkAggregatorProxyContract
+          file: ./node_modules/@chainlink/contracts/abi/v0.6/AggregatorProxy.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdated

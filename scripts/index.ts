@@ -4,10 +4,10 @@ import handlebars from 'handlebars';
 import moment from 'moment';
 import path from 'path';
 import yargs from 'yargs';
-import kovanA from './deployments/kovan-releaseA.json';
-import kovanB from './deployments/kovan-releaseB.json';
 import mainnetA from './deployments/mainnet-releaseA.json';
 import mainnetB from './deployments/mainnet-releaseB.json';
+import bscA from './deployments/bsc.json';
+import bscB from './deployments/bsc.json';
 
 interface Deployment {
   // Core
@@ -113,174 +113,176 @@ interface DeploymentWithMetadata extends Deployment {
 }
 async function fetchDeployment(source: string): Promise<DeploymentWithMetadata> {
   console.log('netsource: ', source)
-  if (source === 'kovan') {
+  if (source === 'bsc') {
     return {
-      networkName: 'kovan',
-      startBlock: 24700000,
+      networkName: 'bsc',
+      startBlock: 13092871,
 
       // Core
-      dispatcher: kovanA.contracts.Dispatcher.address,
+      dispatcher: bscA.contracts.Dispatcher.address,
 
       releases: [
         {
+          // A is FundDeployer 0x9134c9975244b46692ad9a7da36dba8734ec6da3 - Jan-11-2021 11:00:42 PM +UTC
           id: 'A',
-          networkName: 'kovan',
-          startBlock: 24700000,
-          fundDeployer: kovanA.contracts.FundDeployer.address,
-          vaultLib: kovanA.contracts.VaultLib.address,
-          comptrollerLib: kovanA.contracts.ComptrollerLib.address,
-          valueInterpreter: kovanA.contracts.ValueInterpreter.address,
-          integrationManager: kovanA.contracts.IntegrationManager.address,
-          policyManager: kovanA.contracts.PolicyManager.address,
-          feeManager: kovanA.contracts.FeeManager.address,
+          networkName: 'bsc',
+          startBlock: 13092871,
+          fundDeployer: bscA.contracts.FundDeployer.address,
+          vaultLib: bscA.contracts.VaultLib.address,
+          comptrollerLib: bscA.contracts.ComptrollerLib.address,
+          valueInterpreter: bscA.contracts.ValueInterpreter.address,
+          integrationManager: bscA.contracts.IntegrationManager.address,
+          policyManager: bscA.contracts.PolicyManager.address,
+          feeManager: bscA.contracts.FeeManager.address,
 
           // Prices
-          aggregatedDerivativePriceFeed: kovanA.contracts.AggregatedDerivativePriceFeed.address,
-          chainlinkPriceFeed: kovanA.contracts.ChainlinkPriceFeed.address,
+          aggregatedDerivativePriceFeed: bscA.contracts.AggregatedDerivativePriceFeed.address,
+          chainlinkPriceFeed: bscA.contracts.ChainlinkPriceFeed.address,
 
           // Derivative Price Feeds
-          aavePriceFeed: '0x0000000000000000000000000000000000000000',
-          alphaHomoraV1PriceFeed: '0x0000000000000000000000000000000000000000',
+          aavePriceFeed: bscA.contracts.AavePriceFeed.address,
+          alphaHomoraV1PriceFeed: bscA.contracts.AlphaHomoraV1PriceFeed.address,
           chaiPriceFeed: '0x0000000000000000000000000000000000000000',
-          compoundPriceFeed: kovanA.contracts.CompoundPriceFeed.address,
+          compoundPriceFeed: bscA.contracts.CompoundPriceFeed.address,
           curvePriceFeed: '0x0000000000000000000000000000000000000000',
-          idlePriceFeed: '0x0000000000000000000000000000000000000000',
+          idlePriceFeed: bscA.contracts.IdlePriceFeed.address,
           lidoStethPriceFeed: '0x0000000000000000000000000000000000000000',
           stakehoundEthPriceFeed: '0x0000000000000000000000000000000000000000',
-          synthetixPriceFeed: kovanA.contracts.SynthetixPriceFeed.address,
-          uniswapV2PoolPriceFeed: kovanA.contracts.UniswapV2PoolPriceFeed.address,
+          synthetixPriceFeed: bscA.contracts.SynthetixPriceFeed.address,
+          uniswapV2PoolPriceFeed: bscA.contracts.UniswapV2PoolPriceFeed.address,
           wdgldPriceFeed: '0x0000000000000000000000000000000000000000',
           yearnVaultV2PriceFeed: '0x0000000000000000000000000000000000000000',
 
           // Peripheral
-          fundActionsWrapper: kovanA.contracts.FundActionsWrapper.address,
+          fundActionsWrapper: bscA.contracts.FundActionsWrapper.address,
 
           // Fees
-          managementFee: kovanA.contracts.ManagementFee.address,
-          performanceFee: kovanA.contracts.PerformanceFee.address,
-          entranceRateBurnFee: kovanA.contracts.EntranceRateBurnFee.address,
-          entranceRateDirectFee: kovanA.contracts.EntranceRateDirectFee.address,
+          managementFee: bscA.contracts.ManagementFee.address,
+          performanceFee: bscA.contracts.PerformanceFee.address,
+          entranceRateBurnFee: bscA.contracts.EntranceRateBurnFee.address,
+          entranceRateDirectFee: bscA.contracts.EntranceRateDirectFee.address,
 
           // Policies
-          adapterBlacklist: kovanA.contracts.AdapterBlacklist.address,
-          adapterWhitelist: kovanA.contracts.AdapterWhitelist.address,
-          assetBlacklist: kovanA.contracts.AssetBlacklist.address,
-          assetWhitelist: kovanA.contracts.AssetWhitelist.address,
-          investorWhitelist: kovanA.contracts.InvestorWhitelist.address,
-          guaranteedRedemption: kovanA.contracts.GuaranteedRedemption.address,
-          maxConcentration: kovanA.contracts.MaxConcentration.address,
-          minMaxInvestment: kovanA.contracts.MinMaxInvestment.address,
-          buySharesCallerWhitelist: kovanA.contracts.BuySharesCallerWhitelist.address,
+          adapterBlacklist: bscA.contracts.AdapterBlacklist.address,
+          adapterWhitelist: bscA.contracts.AdapterWhitelist.address,
+          assetBlacklist: bscA.contracts.AssetBlacklist.address,
+          assetWhitelist: bscA.contracts.AssetWhitelist.address,
+          investorWhitelist: bscA.contracts.InvestorWhitelist.address,
+          guaranteedRedemption: bscA.contracts.GuaranteedRedemption.address,
+          maxConcentration: bscA.contracts.MaxConcentration.address,
+          minMaxInvestment: bscA.contracts.MinMaxInvestment.address,
+          buySharesCallerWhitelist: bscA.contracts.BuySharesCallerWhitelist.address,
 
           // Adapters
-          aaveAdapter: '0x0000000000000000000000000000000000000000',
-          alphaHomoraV1Adapter: '0x0000000000000000000000000000000000000000',
-          chaiAdapter: '0x0000000000000000000000000000000000000000',
-          compoundAdapter: kovanA.contracts.CompoundAdapter.address,
-          curveExchangeAdapter: '0x0000000000000000000000000000000000000000',
+          aaveAdapter: bscA.contracts.AaveAdapter.address,
+          alphaHomoraV1Adapter: bscA.contracts.AlphaHomoraV1Adapter.address,
+          curveExchangeAdapter: bscA.contracts.CurveExchangeAdapter.address,
           curveLiquidityAaveAdapter: '0x0000000000000000000000000000000000000000',
           curveLiquidityEursAdapter: '0x0000000000000000000000000000000000000000',
           curveLiquiditySethAdapter: '0x0000000000000000000000000000000000000000',
           curveLiquidityStethAdapter: '0x0000000000000000000000000000000000000000',
-          idleAdapter: '0x0000000000000000000000000000000000000000',
-          kyberAdapter: kovanA.contracts.KyberAdapter.address,
+          trackedAssetsAdapter: bscA.contracts.TrackedAssetsAdapter.address,
+          compoundAdapter: bscA.contracts.CompoundAdapter.address,
+          chaiAdapter: '0x0000000000000000000000000000000000000000',
+          idleAdapter: bscA.contracts.IdleAdapter.address,
+          kyberAdapter: bscA.contracts.KyberAdapter.address,
           paraSwapAdapter: '0x0000000000000000000000000000000000000000',
-          paraSwapV4Adapter: '0x0000000000000000000000000000000000000000',
-          synthetixAdapter: kovanA.contracts.SynthetixAdapter.address,
-          trackedAssetsAdapter: kovanA.contracts.TrackedAssetsAdapter.address,
-          uniswapV2Adapter: kovanA.contracts.UniswapV2Adapter.address,
+          paraSwapV4Adapter: bscA.contracts.ParaSwapV4Adapter.address,
+          synthetixAdapter: bscA.contracts.SynthetixAdapter.address,
+          uniswapV2Adapter: bscA.contracts.UniswapV2Adapter.address,
           yearnVaultV2Adapter: '0x0000000000000000000000000000000000000000',
-          zeroExV2Adapter: kovanA.contracts.ZeroExV2Adapter.address,
+          zeroExV2Adapter: bscA.contracts.ZeroExV2Adapter.address,
         },
+        // B is FundDeployer xxxx -
         {
           id: 'B',
-          networkName: 'kovan',
-          startBlock: 24700000,
-          fundDeployer: kovanB.contracts.FundDeployer.address,
-          vaultLib: kovanB.contracts.VaultLib.address,
-          comptrollerLib: kovanB.contracts.ComptrollerLib.address,
-          valueInterpreter: kovanB.contracts.ValueInterpreter.address,
-          integrationManager: kovanB.contracts.IntegrationManager.address,
-          policyManager: kovanB.contracts.PolicyManager.address,
-          feeManager: kovanB.contracts.FeeManager.address,
+          networkName: 'bsc',
+          startBlock: 13092871,
+          fundDeployer: bscB.contracts.FundDeployer.address,
+          vaultLib: bscB.contracts.VaultLib.address,
+          comptrollerLib: bscB.contracts.ComptrollerLib.address,
+          valueInterpreter: bscB.contracts.ValueInterpreter.address,
+          integrationManager: bscB.contracts.IntegrationManager.address,
+          policyManager: bscB.contracts.PolicyManager.address,
+          feeManager: bscB.contracts.FeeManager.address,
 
           // Prices
-          aggregatedDerivativePriceFeed: kovanB.contracts.AggregatedDerivativePriceFeed.address,
-          chainlinkPriceFeed: kovanB.contracts.ChainlinkPriceFeed.address,
+          aggregatedDerivativePriceFeed: bscB.contracts.AggregatedDerivativePriceFeed.address,
+          chainlinkPriceFeed: bscB.contracts.ChainlinkPriceFeed.address,
 
           // Derivative Price Feeds
-          aavePriceFeed: '0x0000000000000000000000000000000000000000',
-          alphaHomoraV1PriceFeed: '0x0000000000000000000000000000000000000000',
+          aavePriceFeed: bscB.contracts.AavePriceFeed.address,
+          alphaHomoraV1PriceFeed: bscB.contracts.AlphaHomoraV1PriceFeed.address,
           chaiPriceFeed: '0x0000000000000000000000000000000000000000',
-          compoundPriceFeed: kovanB.contracts.CompoundPriceFeed.address,
+          compoundPriceFeed: bscB.contracts.CompoundPriceFeed.address,
           curvePriceFeed: '0x0000000000000000000000000000000000000000',
-          idlePriceFeed: '0x0000000000000000000000000000000000000000',
+          idlePriceFeed: bscB.contracts.IdlePriceFeed.address,
           lidoStethPriceFeed: '0x0000000000000000000000000000000000000000',
           stakehoundEthPriceFeed: '0x0000000000000000000000000000000000000000',
-          synthetixPriceFeed: kovanB.contracts.SynthetixPriceFeed.address,
-          uniswapV2PoolPriceFeed: kovanB.contracts.UniswapV2PoolPriceFeed.address,
+          synthetixPriceFeed: bscB.contracts.SynthetixPriceFeed.address,
+          uniswapV2PoolPriceFeed: bscB.contracts.UniswapV2PoolPriceFeed.address,
           wdgldPriceFeed: '0x0000000000000000000000000000000000000000',
-          yearnVaultV2PriceFeed: '0x0000000000000000000000000000000000000000',
+          yearnVaultV2PriceFeed: bscB.contracts.YearnVaultV2PriceFeed.address,
 
           // Peripheral
-          fundActionsWrapper: kovanB.contracts.FundActionsWrapper.address,
+          fundActionsWrapper: bscB.contracts.FundActionsWrapper.address,
 
           // Fees
-          managementFee: kovanB.contracts.ManagementFee.address,
-          performanceFee: kovanB.contracts.PerformanceFee.address,
-          entranceRateBurnFee: kovanB.contracts.EntranceRateBurnFee.address,
-          entranceRateDirectFee: kovanB.contracts.EntranceRateDirectFee.address,
+          managementFee: bscB.contracts.ManagementFee.address,
+          performanceFee: bscB.contracts.PerformanceFee.address,
+          entranceRateBurnFee: bscB.contracts.EntranceRateBurnFee.address,
+          entranceRateDirectFee: bscB.contracts.EntranceRateDirectFee.address,
 
           // Policies
-          adapterBlacklist: kovanB.contracts.AdapterBlacklist.address,
-          adapterWhitelist: kovanB.contracts.AdapterWhitelist.address,
-          assetBlacklist: kovanB.contracts.AssetBlacklist.address,
-          assetWhitelist: kovanB.contracts.AssetWhitelist.address,
-          investorWhitelist: kovanB.contracts.InvestorWhitelist.address,
-          guaranteedRedemption: kovanB.contracts.GuaranteedRedemption.address,
-          maxConcentration: kovanB.contracts.MaxConcentration.address,
-          minMaxInvestment: kovanB.contracts.MinMaxInvestment.address,
-          buySharesCallerWhitelist: kovanB.contracts.BuySharesCallerWhitelist.address,
+          adapterBlacklist: bscB.contracts.AdapterBlacklist.address,
+          adapterWhitelist: bscB.contracts.AdapterWhitelist.address,
+          assetBlacklist: bscB.contracts.AssetBlacklist.address,
+          assetWhitelist: bscB.contracts.AssetWhitelist.address,
+          investorWhitelist: bscB.contracts.InvestorWhitelist.address,
+          guaranteedRedemption: bscB.contracts.GuaranteedRedemption.address,
+          maxConcentration: bscB.contracts.MaxConcentration.address,
+          minMaxInvestment: bscB.contracts.MinMaxInvestment.address,
+          buySharesCallerWhitelist: bscB.contracts.BuySharesCallerWhitelist.address,
 
           // Adapters
-          aaveAdapter: '0x0000000000000000000000000000000000000000',
-          alphaHomoraV1Adapter: '0x0000000000000000000000000000000000000000',
-          chaiAdapter: '0x0000000000000000000000000000000000000000',
-          compoundAdapter: kovanB.contracts.CompoundAdapter.address,
-          curveExchangeAdapter: '0x0000000000000000000000000000000000000000',
+          aaveAdapter: bscB.contracts.AaveAdapter.address,
+          alphaHomoraV1Adapter: bscB.contracts.AlphaHomoraV1Adapter.address,
+          curveExchangeAdapter: bscB.contracts.CurveExchangeAdapter.address,
           curveLiquidityAaveAdapter: '0x0000000000000000000000000000000000000000',
           curveLiquidityEursAdapter: '0x0000000000000000000000000000000000000000',
           curveLiquiditySethAdapter: '0x0000000000000000000000000000000000000000',
           curveLiquidityStethAdapter: '0x0000000000000000000000000000000000000000',
-          idleAdapter: '0x0000000000000000000000000000000000000000',
-          kyberAdapter: kovanB.contracts.KyberAdapter.address,
+          trackedAssetsAdapter: bscB.contracts.TrackedAssetsAdapter.address,
+          compoundAdapter: bscB.contracts.CompoundAdapter.address,
+          chaiAdapter: '0x0000000000000000000000000000000000000000',
+          idleAdapter: bscB.contracts.IdleAdapter.address,
+          kyberAdapter: bscB.contracts.KyberAdapter.address,
           paraSwapAdapter: '0x0000000000000000000000000000000000000000',
-          paraSwapV4Adapter: '0x0000000000000000000000000000000000000000',
-          synthetixAdapter: kovanB.contracts.SynthetixAdapter.address,
-          trackedAssetsAdapter: kovanB.contracts.TrackedAssetsAdapter.address,
-          uniswapV2Adapter: kovanB.contracts.UniswapV2Adapter.address,
-          yearnVaultV2Adapter: '0x0000000000000000000000000000000000000000',
-          zeroExV2Adapter: kovanB.contracts.ZeroExV2Adapter.address,
+          paraSwapV4Adapter: bscB.contracts.ParaSwapV4Adapter.address,
+          synthetixAdapter: bscB.contracts.SynthetixAdapter.address,
+          uniswapV2Adapter: bscB.contracts.UniswapV2Adapter.address,
+          yearnVaultV2Adapter: bscB.contracts.YearnVaultV2Adapter.address,
+          zeroExV2Adapter: bscB.contracts.ZeroExV2Adapter.address,
         },
       ],
 
       // External
-      wethToken: '0xd0a1e359811322d97991e03f863a0c30c2cf029c',
+      wethToken: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
       // TODO: Expose all the external addresses under their right names.
       chaiIntegratee: '0x0000000000000000000000000000000000000000',
-      kyberIntegratee: kovanA.contracts.Config.linkedData.kyber.networkProxy,
-      uniswapV2Integratee: kovanA.contracts.Config.linkedData.uniswap.factory,
-      synthetixIntegratee: kovanA.contracts.Config.linkedData.synthetix.addressResolver,
-      synthetixAddressResolver: kovanA.contracts.Config.linkedData.synthetix.addressResolver,
-      synthetixDelegateApprovals: kovanA.contracts.Config.linkedData.synthetix.delegateApprovals,
+      kyberIntegratee: bscA.contracts['Config'].linkedData.kyber.networkProxy,
+      uniswapV2Integratee: bscA.contracts['Config'].linkedData.uniswap.router,
+      synthetixIntegratee: bscA.contracts['Config'].linkedData.synthetix.snx,
+      synthetixAddressResolver: bscA.contracts['Config'].linkedData.synthetix.addressResolver,
+      synthetixDelegateApprovals: bscA.contracts['Config'].linkedData.synthetix.delegateApprovals,
 
       // Currencies
-      audChainlinkAggregator: '0x5813A90f826e16dB392abd2aF7966313fc1fd5B8',
-      btcChainlinkAggregator: '0x6135b13325bfC4B00278B4abC5e20bbce2D6580e',
-      chfChainlinkAggregator: '0xed0616BeF04D374969f302a34AE4A63882490A8C',
-      eurChainlinkAggregator: '0x0c15Ab9A0DB086e062194c273CC79f41597Bbf13',
-      gbpChainlinkAggregator: '0x28b0061f44E6A9780224AA61BEc8C3Fcb0d37de9',
-      jpyChainlinkAggregator: '0xD627B1eF3AC23F1d3e576FA6206126F3c1Bd0942',
+      audChainlinkAggregator: '0x0000000000000000000000000000000000000000',
+      btcChainlinkAggregator: '0x264990fbd0A4796A3E3d8E37C4d5F87a3aCa5Ebf',
+      chfChainlinkAggregator: '0x0000000000000000000000000000000000000000',
+      eurChainlinkAggregator: '0x0bf79F617988C472DcA68ff41eFe1338955b9A80',
+      gbpChainlinkAggregator: '0x0000000000000000000000000000000000000000',
+      jpyChainlinkAggregator: '0x22Db8397a6E77E41471dE256a7803829fDC8bC57',
     };
   }
 
@@ -313,7 +315,7 @@ async function fetchDeployment(source: string): Promise<DeploymentWithMetadata> 
           // Derivative Price Feeds
           aavePriceFeed: mainnetA.contracts.AavePriceFeed.address,
           alphaHomoraV1PriceFeed: mainnetA.contracts.AlphaHomoraV1PriceFeed.address,
-          chaiPriceFeed: mainnetA.contracts.ChaiPriceFeed.address,
+          chaiPriceFeed: '0x0000000000000000000000000000000000000000',
           compoundPriceFeed: mainnetA.contracts.CompoundPriceFeed.address,
           curvePriceFeed: mainnetA.contracts.CurvePriceFeed.address,
           idlePriceFeed: mainnetA.contracts.IdlePriceFeed.address,
@@ -354,10 +356,10 @@ async function fetchDeployment(source: string): Promise<DeploymentWithMetadata> 
           curveLiquidityStethAdapter: mainnetA.contracts.CurveLiquidityStethAdapter.address,
           trackedAssetsAdapter: mainnetA.contracts.TrackedAssetsAdapter.address,
           compoundAdapter: mainnetA.contracts.CompoundAdapter.address,
-          chaiAdapter: mainnetA.contracts.ChaiAdapter.address,
+          chaiAdapter: '0x0000000000000000000000000000000000000000',
           idleAdapter: mainnetA.contracts.IdleAdapter.address,
           kyberAdapter: mainnetA.contracts.KyberAdapter.address,
-          paraSwapAdapter: mainnetA.contracts.ParaSwapAdapter.address,
+          paraSwapAdapter: '0x0000000000000000000000000000000000000000',
           paraSwapV4Adapter: mainnetA.contracts.ParaSwapV4Adapter.address,
           synthetixAdapter: mainnetA.contracts.SynthetixAdapter.address,
           uniswapV2Adapter: mainnetA.contracts.UniswapV2Adapter.address,
@@ -440,7 +442,7 @@ async function fetchDeployment(source: string): Promise<DeploymentWithMetadata> 
       // External
       wethToken: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
       // TODO: Expose all the external addresses under their right names.
-      chaiIntegratee: mainnetA.contracts['Config'].linkedData.chai.chai,
+      chaiIntegratee: '0x0000000000000000000000000000000000000000',
       kyberIntegratee: mainnetA.contracts['Config'].linkedData.kyber.networkProxy,
       uniswapV2Integratee: mainnetA.contracts['Config'].linkedData.uniswap.router,
       synthetixIntegratee: mainnetA.contracts['Config'].linkedData.synthetix.snx,

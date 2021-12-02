@@ -181,7 +181,7 @@ export function handlePrimitiveAdded(event: PrimitiveAdded): void {
   let current = toBigDecimal(contract.latestAnswer(), primitive.type === 'USD' ? 8 : 18);
 
   // NOTE: We incorrectly added a DPI/USD aggregator, we need to do some special treatmet for that one.
-  let dpiUsdAggregator = Address.fromString('0xd2a593bf7594ace1fad597adb697b5645d5eddb2');
+  let dpiUsdAggregator = Address.fromString('0x7ee7E7847FFC93F8Cf67BCCc0002afF9C52DE524');
   if (event.params.aggregator.equals(dpiUsdAggregator)) {
     current = BigDecimal.fromString('0');
 
