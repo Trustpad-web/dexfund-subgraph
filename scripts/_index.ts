@@ -116,7 +116,7 @@ async function fetchDeployment(source: string): Promise<DeploymentWithMetadata> 
   if (source === 'kovan') {
     return {
       networkName: 'kovan',
-      startBlock: 24700000,
+      startBlock: 28602138,
 
       // Core
       dispatcher: kovanA.contracts.Dispatcher.address,
@@ -125,7 +125,7 @@ async function fetchDeployment(source: string): Promise<DeploymentWithMetadata> 
         {
           id: 'A',
           networkName: 'kovan',
-          startBlock: 24700000,
+          startBlock: 28602138,
           fundDeployer: kovanA.contracts.FundDeployer.address,
           vaultLib: kovanA.contracts.VaultLib.address,
           comptrollerLib: kovanA.contracts.ComptrollerLib.address,
@@ -195,7 +195,7 @@ async function fetchDeployment(source: string): Promise<DeploymentWithMetadata> 
         {
           id: 'B',
           networkName: 'kovan',
-          startBlock: 24700000,
+          startBlock: 28602138,
           fundDeployer: kovanB.contracts.FundDeployer.address,
           vaultLib: kovanB.contracts.VaultLib.address,
           comptrollerLib: kovanB.contracts.ComptrollerLib.address,

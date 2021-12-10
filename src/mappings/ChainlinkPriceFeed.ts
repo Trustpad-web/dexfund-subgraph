@@ -88,13 +88,13 @@ export function handleEthUsdAggregatorSet(event: EthUsdAggregatorSet): void {
   weth.save();
 
   // Aggregators for currencies
-  let audProxy = audChainlinkAggregatorAddress;
-  let audAggregator = unwrapAggregator(audChainlinkAggregatorAddress);
-  let aud = ensureCurrency('AUD');
-  let audAggregatorContract = ChainlinkAggregatorContract.bind(audAggregator);
-  let audCurrentPrice = toBigDecimal(audAggregatorContract.latestAnswer(), 8);
-  trackCurrencyPrice(aud, event.block.timestamp, audCurrentPrice);
-  ensureChainlinkCurrencyAggregatorProxy(audProxy, audAggregator, aud);
+  // let audProxy = audChainlinkAggregatorAddress;
+  // let audAggregator = unwrapAggregator(audChainlinkAggregatorAddress);
+  // let aud = ensureCurrency('AUD');
+  // let audAggregatorContract = ChainlinkAggregatorContract.bind(audAggregator);
+  // let audCurrentPrice = toBigDecimal(audAggregatorContract.latestAnswer(), 8);
+  // trackCurrencyPrice(aud, event.block.timestamp, audCurrentPrice);
+  // ensureChainlinkCurrencyAggregatorProxy(audProxy, audAggregator, aud);
 
   let btcProxy = btcChainlinkAggregatorAddress;
   let btcAggregator = unwrapAggregator(btcChainlinkAggregatorAddress);
@@ -104,13 +104,13 @@ export function handleEthUsdAggregatorSet(event: EthUsdAggregatorSet): void {
   trackCurrencyPrice(btc, event.block.timestamp, btcCurrentPrice);
   ensureChainlinkCurrencyAggregatorProxy(btcProxy, btcAggregator, btc);
 
-  let chfProxy = chfChainlinkAggregatorAddress;
-  let chfAggregator = unwrapAggregator(chfChainlinkAggregatorAddress);
-  let chf = ensureCurrency('CHF');
-  let chfAggregatorContract = ChainlinkAggregatorContract.bind(chfAggregator);
-  let chfCurrentPrice = toBigDecimal(chfAggregatorContract.latestAnswer(), 8);
-  trackCurrencyPrice(chf, event.block.timestamp, chfCurrentPrice);
-  ensureChainlinkCurrencyAggregatorProxy(chfProxy, chfAggregator, chf);
+  // let chfProxy = chfChainlinkAggregatorAddress;
+  // let chfAggregator = unwrapAggregator(chfChainlinkAggregatorAddress);
+  // let chf = ensureCurrency('CHF');
+  // let chfAggregatorContract = ChainlinkAggregatorContract.bind(chfAggregator);
+  // let chfCurrentPrice = toBigDecimal(chfAggregatorContract.latestAnswer(), 8);
+  // trackCurrencyPrice(chf, event.block.timestamp, chfCurrentPrice);
+  // ensureChainlinkCurrencyAggregatorProxy(chfProxy, chfAggregator, chf);
 
   let eurProxy = eurChainlinkAggregatorAddress;
   let eurAggregator = unwrapAggregator(eurChainlinkAggregatorAddress);
@@ -120,13 +120,13 @@ export function handleEthUsdAggregatorSet(event: EthUsdAggregatorSet): void {
   trackCurrencyPrice(eur, event.block.timestamp, eurCurrentPrice);
   ensureChainlinkCurrencyAggregatorProxy(eurProxy, eurAggregator, eur);
 
-  let gbpProxy = gbpChainlinkAggregatorAddress;
-  let gbpAggregator = unwrapAggregator(gbpChainlinkAggregatorAddress);
-  let gbp = ensureCurrency('GBP');
-  let gbpAggregatorContract = ChainlinkAggregatorContract.bind(gbpAggregator);
-  let gbpCurrentPrice = toBigDecimal(gbpAggregatorContract.latestAnswer(), 8);
-  trackCurrencyPrice(gbp, event.block.timestamp, gbpCurrentPrice);
-  ensureChainlinkCurrencyAggregatorProxy(gbpProxy, gbpAggregator, gbp);
+  // let gbpProxy = gbpChainlinkAggregatorAddress;
+  // let gbpAggregator = unwrapAggregator(gbpChainlinkAggregatorAddress);
+  // let gbp = ensureCurrency('GBP');
+  // let gbpAggregatorContract = ChainlinkAggregatorContract.bind(gbpAggregator);
+  // let gbpCurrentPrice = toBigDecimal(gbpAggregatorContract.latestAnswer(), 8);
+  // trackCurrencyPrice(gbp, event.block.timestamp, gbpCurrentPrice);
+  // ensureChainlinkCurrencyAggregatorProxy(gbpProxy, gbpAggregator, gbp);
 
   let jpyProxy = jpyChainlinkAggregatorAddress;
   let jpyAggregator = unwrapAggregator(jpyChainlinkAggregatorAddress);
@@ -142,7 +142,8 @@ export function handleEthUsdAggregatorSet(event: EthUsdAggregatorSet): void {
   let cron = ensureCron();
   cron.primitives = arrayUnique<string>(cron.primitives.concat([weth.id]));
   cron.currencies = arrayUnique<string>(
-    cron.currencies.concat([aud.id, btc.id, chf.id, eth.id, eur.id, gbp.id, jpy.id, usd.id]),
+    // cron.currencies.concat([aud.id, btc.id, chf.id, eth.id, eur.id, gbp.id, jpy.id, usd.id]),
+    cron.currencies.concat([btc.id, eth.id, eur.id, jpy.id, usd.id]),
   );
   cron.save();
 

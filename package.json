@@ -28,7 +28,7 @@
     "postcodegen:bsc": "yarn script flatten",
     "predeploy:kovan-local": "graph create enzymefinance/enzyme-kovan --node http://127.0.0.1:8020 || true",
     "predeploy:mainnet-local": "graph create enzymefinance/enzyme --node http://127.0.0.1:8020 || true",
-    "deploy:kovan": "graph deploy trust0212/dexify-subgraph subgraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy:kovan": "graph deploy trust0212/dexify-finance-subgraph subgraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy:kovan-dev": "graph deploy enzymefinance/enzyme-kovan-dev subgraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy:kovan-local": "graph deploy enzymefinance/enzyme-kovan subgraph.yaml --ipfs http://localhost:5001 --node http://127.0.0.1:8020/",
     "deploy:mainnet": "graph deploy trust0212/dexify-subgraph subgraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
