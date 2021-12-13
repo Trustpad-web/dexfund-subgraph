@@ -115,8 +115,8 @@
       "steth": "0x0000000000000000000000000000000000000000"
     },
     "paraSwapV4": {
-      "augustusSwapper": "0xDEF171Fe48CF0115B1d80b88dc8eAB59176FEe57",
-      "tokenTransferProxy": "0x216b4b4ba9f3e719726886d34a177484278bfcae"
+      "augustusSwapper": "0x55a0e3b6579972055faa983482aceb4b251dcf15",
+      "tokenTransferProxy": "0x7CFCBA271f8671640455f5F81143e741F46507ab"
     },
     "policies": {
       "guaranteedRedemption": {

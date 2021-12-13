@@ -1,0 +1,178 @@
+{
+  "address": "0x6cA2042458B6DA5Ffbc010A26C8C5Be371041F79",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_ibethToken",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_wethToken",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_derivative",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_derivativeAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "calcUnderlyingValues",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "underlyings_",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "underlyingAmounts_",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getIbethToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "ibethToken_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getWethToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "wethToken_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_asset",
+          "type": "address"
+        }
+      ],
+      "name": "isSupportedAsset",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isSupported_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xbb0da5c405675ba63d3bb5b9393af6f9bf8ea675e4c493d5bd24fb27a4705738",
+  "receipt": {
+    "to": null,
+    "from": "0x5DB342FB039C1c85bec5fE89Af6734621f421D84",
+    "contractAddress": "0x6cA2042458B6DA5Ffbc010A26C8C5Be371041F79",
+    "transactionIndex": 827,
+    "gasUsed": "342808",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x949ca128f31864927109e626abf83f7cbf580dd4d9c1453672307263a83bd6c3",
+    "transactionHash": "0xbb0da5c405675ba63d3bb5b9393af6f9bf8ea675e4c493d5bd24fb27a4705738",
+    "logs": [],
+    "blockNumber": 13093083,
+    "cumulativeGasUsed": "96504379",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x0000000000000000000000000000000000000000",
+    "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+  ],
+  "solcInputHash": "d126f4cb4e28eb2318e549d67a96b976",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_ibethToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_wethToken\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_derivative\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_derivativeAmount\",\"type\":\"uint256\"}],\"name\":\"calcUnderlyingValues\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"underlyings_\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"underlyingAmounts_\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getIbethToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"ibethToken_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getWethToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"wethToken_\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\"}],\"name\":\"isSupportedAsset\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isSupported_\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Enzyme Council <security@enzyme.finance>\",\"kind\":\"dev\",\"methods\":{\"calcUnderlyingValues(address,uint256)\":{\"params\":{\"_derivative\":\"The derivative to convert\",\"_derivativeAmount\":\"The amount of the derivative to convert\"},\"returns\":{\"underlyingAmounts_\":\"The amount of each underlying asset for the equivalent derivative amount\",\"underlyings_\":\"The underlying assets for the _derivative\"}},\"getIbethToken()\":{\"returns\":{\"ibethToken_\":\"The `IBETH_TOKEN` variable value\"}},\"getWethToken()\":{\"returns\":{\"wethToken_\":\"The `WETH_TOKEN` variable value\"}},\"isSupportedAsset(address)\":{\"params\":{\"_asset\":\"The asset to check\"},\"returns\":{\"isSupported_\":\"True if the asset is supported\"}}},\"title\":\"AlphaHomoraV1PriceFeed Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"calcUnderlyingValues(address,uint256)\":{\"notice\":\"Converts a given amount of a derivative to its underlying asset values\"},\"getIbethToken()\":{\"notice\":\"Gets the `IBETH_TOKEN` variable\"},\"getWethToken()\":{\"notice\":\"Gets the `WETH_TOKEN` variable\"},\"isSupportedAsset(address)\":{\"notice\":\"Checks if an asset is supported by the price feed\"}},\"notice\":\"Price source oracle for Alpha Homora v1 ibETH\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/release/infrastructure/price-feeds/derivatives/feeds/AlphaHomoraV1PriceFeed.sol\":\"AlphaHomoraV1PriceFeed\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0 <0.8.0;\\n\\n/**\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\n * checks.\\n *\\n * Arithmetic operations in Solidity wrap on overflow. This can easily result\\n * in bugs, because programmers usually assume that an overflow raises an\\n * error, which is the standard behavior in high level programming languages.\\n * `SafeMath` restores this intuition by reverting the transaction when an\\n * operation overflows.\\n *\\n * Using this library instead of the unchecked operations eliminates an entire\\n * class of bugs, so it's recommended to use it always.\\n */\\nlibrary SafeMath {\\n    /**\\n     * @dev Returns the addition of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        uint256 c = a + b;\\n        if (c < a) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the substraction of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b > a) return (false, 0);\\n        return (true, a - b);\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\n        // benefit is lost if 'b' is also tested.\\n        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522\\n        if (a == 0) return (true, 0);\\n        uint256 c = a * b;\\n        if (c / a != b) return (false, 0);\\n        return (true, c);\\n    }\\n\\n    /**\\n     * @dev Returns the division of two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a / b);\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        if (b == 0) return (false, 0);\\n        return (true, a % b);\\n    }\\n\\n    /**\\n     * @dev Returns the addition of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `+` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Addition cannot overflow.\\n     */\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\n        uint256 c = a + b;\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting on\\n     * overflow (when the result is negative).\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b <= a, \\\"SafeMath: subtraction overflow\\\");\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `*` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Multiplication cannot overflow.\\n     */\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\n        if (a == 0) return 0;\\n        uint256 c = a * b;\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\n        return c;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: division by zero\\\");\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting when dividing by zero.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\n        require(b > 0, \\\"SafeMath: modulo by zero\\\");\\n        return a % b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on\\n     * overflow (when the result is negative).\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {trySub}.\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b <= a, errorMessage);\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting with custom message on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryDiv}.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting with custom message when dividing by zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryMod}.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\n        require(b > 0, errorMessage);\\n        return a % b;\\n    }\\n}\\n\",\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\"},\"contracts/release/infrastructure/price-feeds/derivatives/IDerivativePriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\r\\n\\r\\n/*\\r\\n    This file is part of the Enzyme Protocol.\\r\\n\\r\\n    (c) Enzyme Council <council@enzyme.finance>\\r\\n\\r\\n    For the full license information, please view the LICENSE\\r\\n    file that was distributed with this source code.\\r\\n*/\\r\\n\\r\\npragma solidity 0.6.12;\\r\\n\\r\\n/// @title IDerivativePriceFeed Interface\\r\\n/// @author Enzyme Council <security@enzyme.finance>\\r\\n/// @notice Simple interface for derivative price source oracle implementations\\r\\ninterface IDerivativePriceFeed {\\r\\n    function calcUnderlyingValues(address, uint256)\\r\\n        external\\r\\n        returns (address[] memory, uint256[] memory);\\r\\n\\r\\n    function isSupportedAsset(address) external view returns (bool);\\r\\n}\\r\\n\",\"keccak256\":\"0x577c4605a159c1083ef8d823d3b18896c321fd712071360ae235e22bf207cad0\",\"license\":\"GPL-3.0\"},\"contracts/release/infrastructure/price-feeds/derivatives/feeds/AlphaHomoraV1PriceFeed.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\r\\n\\r\\n/*\\r\\n    This file is part of the Enzyme Protocol.\\r\\n\\r\\n    (c) Enzyme Council <council@enzyme.finance>\\r\\n\\r\\n    For the full license information, please view the LICENSE\\r\\n    file that was distributed with this source code.\\r\\n*/\\r\\n\\r\\npragma solidity 0.6.12;\\r\\n\\r\\nimport \\\"@openzeppelin/contracts/math/SafeMath.sol\\\";\\r\\nimport \\\"../../../../interfaces/IAlphaHomoraV1Bank.sol\\\";\\r\\nimport \\\"../IDerivativePriceFeed.sol\\\";\\r\\n\\r\\n/// @title AlphaHomoraV1PriceFeed Contract\\r\\n/// @author Enzyme Council <security@enzyme.finance>\\r\\n/// @notice Price source oracle for Alpha Homora v1 ibETH\\r\\ncontract AlphaHomoraV1PriceFeed is IDerivativePriceFeed {\\r\\n    using SafeMath for uint256;\\r\\n\\r\\n    address private immutable IBETH_TOKEN;\\r\\n    address private immutable WETH_TOKEN;\\r\\n\\r\\n    constructor(address _ibethToken, address _wethToken) public {\\r\\n        IBETH_TOKEN = _ibethToken;\\r\\n        WETH_TOKEN = _wethToken;\\r\\n    }\\r\\n\\r\\n    /// @notice Converts a given amount of a derivative to its underlying asset values\\r\\n    /// @param _derivative The derivative to convert\\r\\n    /// @param _derivativeAmount The amount of the derivative to convert\\r\\n    /// @return underlyings_ The underlying assets for the _derivative\\r\\n    /// @return underlyingAmounts_ The amount of each underlying asset for the equivalent derivative amount\\r\\n    function calcUnderlyingValues(address _derivative, uint256 _derivativeAmount)\\r\\n        external\\r\\n        override\\r\\n        returns (address[] memory underlyings_, uint256[] memory underlyingAmounts_)\\r\\n    {\\r\\n        require(isSupportedAsset(_derivative), \\\"calcUnderlyingValues: Only ibETH is supported\\\");\\r\\n\\r\\n        underlyings_ = new address[](1);\\r\\n        underlyings_[0] = WETH_TOKEN;\\r\\n        underlyingAmounts_ = new uint256[](1);\\r\\n\\r\\n        IAlphaHomoraV1Bank alphaHomoraBankContract = IAlphaHomoraV1Bank(IBETH_TOKEN);\\r\\n        underlyingAmounts_[0] = _derivativeAmount.mul(alphaHomoraBankContract.totalETH()).div(\\r\\n            alphaHomoraBankContract.totalSupply()\\r\\n        );\\r\\n\\r\\n        return (underlyings_, underlyingAmounts_);\\r\\n    }\\r\\n\\r\\n    /// @notice Checks if an asset is supported by the price feed\\r\\n    /// @param _asset The asset to check\\r\\n    /// @return isSupported_ True if the asset is supported\\r\\n    function isSupportedAsset(address _asset) public view override returns (bool isSupported_) {\\r\\n        return _asset == IBETH_TOKEN;\\r\\n    }\\r\\n\\r\\n    ///////////////////\\r\\n    // STATE GETTERS //\\r\\n    ///////////////////\\r\\n\\r\\n    /// @notice Gets the `IBETH_TOKEN` variable\\r\\n    /// @return ibethToken_ The `IBETH_TOKEN` variable value\\r\\n    function getIbethToken() external view returns (address ibethToken_) {\\r\\n        return IBETH_TOKEN;\\r\\n    }\\r\\n\\r\\n    /// @notice Gets the `WETH_TOKEN` variable\\r\\n    /// @return wethToken_ The `WETH_TOKEN` variable value\\r\\n    function getWethToken() external view returns (address wethToken_) {\\r\\n        return WETH_TOKEN;\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0xaf1cd444d0b7cae1df9cb488cec47e5eb93b5d548db964cec94e9b6f538e692c\",\"license\":\"GPL-3.0\"},\"contracts/release/interfaces/IAlphaHomoraV1Bank.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\r\\n\\r\\n/*\\r\\n    This file is part of the Enzyme Protocol.\\r\\n\\r\\n    (c) Enzyme Council <council@enzyme.finance>\\r\\n\\r\\n    For the full license information, please view the LICENSE\\r\\n    file that was distributed with this source code.\\r\\n*/\\r\\n\\r\\npragma solidity 0.6.12;\\r\\n\\r\\n/// @title IAlphaHomoraV1Bank interface\\r\\n/// @author Enzyme Council <security@enzyme.finance>\\r\\ninterface IAlphaHomoraV1Bank {\\r\\n    function deposit() external payable;\\r\\n\\r\\n    function totalETH() external view returns (uint256);\\r\\n\\r\\n    function totalSupply() external view returns (uint256);\\r\\n\\r\\n    function withdraw(uint256) external;\\r\\n}\\r\\n\",\"keccak256\":\"0x7e723b20c389a943aa0eb13b9ab987e956872ebe339c19cd91e0bafa3ce1d977\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x60c060405234801561001057600080fd5b506040516105c73803806105c78339818101604052604081101561003357600080fd5b5080516020909101516001600160601b0319606092831b8116608052911b1660a05260805160601c60a05160601c61053a61008d6000398061017e528061022d5250806101a2528061029352806103bd525061053a6000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80634c252f91146100515780636ea6114914610075578063727212f61461007d5780639be918e614610142575b600080fd5b61005961017c565b604080516001600160a01b039092168252519081900360200190f35b6100596101a0565b6100a96004803603604081101561009357600080fd5b506001600160a01b0381351690602001356101c4565b604051808060200180602001838103835285818151815260200191508051906020019060200280838360005b838110156100ed5781810151838201526020016100d5565b50505050905001838103825284818151815260200191508051906020019060200280838360005b8381101561012c578181015183820152602001610114565b5050505090500194505050505060405180910390f35b6101686004803603602081101561015857600080fd5b50356001600160a01b03166103bb565b604080519115158252519081900360200190f35b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b6060806101d0846103bb565b61020b5760405162461bcd60e51b815260040180806020018281038252602d8152602001806104b7602d913960400191505060405180910390fd5b60408051600180825281830190925290602080830190803683370190505091507f00000000000000000000000000000000000000000000000000000000000000008260008151811061025957fe5b6001600160a01b039290921660209283029190910182015260408051600180825281830190925291828101908036833701905050905060007f0000000000000000000000000000000000000000000000000000000000000000905061039a816001600160a01b03166318160ddd6040518163ffffffff1660e01b815260040160206040518083038186803b1580156102f057600080fd5b505afa158015610304573d6000803e3d6000fd5b505050506040513d602081101561031a57600080fd5b505160408051630daf7b9d60e21b81529051610394916001600160a01b038616916336bdee7491600480820192602092909190829003018186803b15801561036157600080fd5b505afa158015610375573d6000803e3d6000fd5b505050506040513d602081101561038b57600080fd5b505187906103ed565b9061044f565b826000815181106103a757fe5b602002602001018181525050509250929050565b7f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0390811691161490565b6000826103fc57506000610449565b8282028284828161040957fe5b04146104465760405162461bcd60e51b81526004018080602001828103825260218152602001806104e46021913960400191505060405180910390fd5b90505b92915050565b60008082116104a5576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b8183816104ae57fe5b04939250505056fe63616c63556e6465726c79696e6756616c7565733a204f6e6c7920696245544820697320737570706f72746564536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f77a2646970667358221220499f3204ddfd8851cf6f5e8e9a50d104626077fb2a6cdda7dbb09e38a55c374d64736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80634c252f91146100515780636ea6114914610075578063727212f61461007d5780639be918e614610142575b600080fd5b61005961017c565b604080516001600160a01b039092168252519081900360200190f35b6100596101a0565b6100a96004803603604081101561009357600080fd5b506001600160a01b0381351690602001356101c4565b604051808060200180602001838103835285818151815260200191508051906020019060200280838360005b838110156100ed5781810151838201526020016100d5565b50505050905001838103825284818151815260200191508051906020019060200280838360005b8381101561012c578181015183820152602001610114565b5050505090500194505050505060405180910390f35b6101686004803603602081101561015857600080fd5b50356001600160a01b03166103bb565b604080519115158252519081900360200190f35b7f000000000000000000000000000000000000000000000000000000000000000090565b7f000000000000000000000000000000000000000000000000000000000000000090565b6060806101d0846103bb565b61020b5760405162461bcd60e51b815260040180806020018281038252602d8152602001806104b7602d913960400191505060405180910390fd5b60408051600180825281830190925290602080830190803683370190505091507f00000000000000000000000000000000000000000000000000000000000000008260008151811061025957fe5b6001600160a01b039290921660209283029190910182015260408051600180825281830190925291828101908036833701905050905060007f0000000000000000000000000000000000000000000000000000000000000000905061039a816001600160a01b03166318160ddd6040518163ffffffff1660e01b815260040160206040518083038186803b1580156102f057600080fd5b505afa158015610304573d6000803e3d6000fd5b505050506040513d602081101561031a57600080fd5b505160408051630daf7b9d60e21b81529051610394916001600160a01b038616916336bdee7491600480820192602092909190829003018186803b15801561036157600080fd5b505afa158015610375573d6000803e3d6000fd5b505050506040513d602081101561038b57600080fd5b505187906103ed565b9061044f565b826000815181106103a757fe5b602002602001018181525050509250929050565b7f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0390811691161490565b6000826103fc57506000610449565b8282028284828161040957fe5b04146104465760405162461bcd60e51b81526004018080602001828103825260218152602001806104e46021913960400191505060405180910390fd5b90505b92915050565b60008082116104a5576040805162461bcd60e51b815260206004820152601a60248201527f536166654d6174683a206469766973696f6e206279207a65726f000000000000604482015290519081900360640190fd5b8183816104ae57fe5b04939250505056fe63616c63556e6465726c79696e6756616c7565733a204f6e6c7920696245544820697320737570706f72746564536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f77a2646970667358221220499f3204ddfd8851cf6f5e8e9a50d104626077fb2a6cdda7dbb09e38a55c374d64736f6c634300060c0033",
+  "devdoc": {
+    "author": "Enzyme Council <security@enzyme.finance>",
+    "kind": "dev",
+    "methods": {
+      "calcUnderlyingValues(address,uint256)": {
+        "params": {
+          "_derivative": "The derivative to convert",
+          "_derivativeAmount": "The amount of the derivative to convert"
+        },
+        "returns": {
+          "underlyingAmounts_": "The amount of each underlying asset for the equivalent derivative amount",
+          "underlyings_": "The underlying assets for the _derivative"
+        }
+      },
+      "getIbethToken()": {
+        "returns": {
+          "ibethToken_": "The `IBETH_TOKEN` variable value"
+        }
+      },
+      "getWethToken()": {
+        "returns": {
+          "wethToken_": "The `WETH_TOKEN` variable value"
+        }
+      },
+      "isSupportedAsset(address)": {
+        "params": {
+          "_asset": "The asset to check"
+        },
+        "returns": {
+          "isSupported_": "True if the asset is supported"
+        }
+      }
+    },
+    "title": "AlphaHomoraV1PriceFeed Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "calcUnderlyingValues(address,uint256)": {
+        "notice": "Converts a given amount of a derivative to its underlying asset values"
+      },
+      "getIbethToken()": {
+        "notice": "Gets the `IBETH_TOKEN` variable"
+      },
+      "getWethToken()": {
+        "notice": "Gets the `WETH_TOKEN` variable"
+      },
+      "isSupportedAsset(address)": {
+        "notice": "Checks if an asset is supported by the price feed"
+      }
+    },
+    "notice": "Price source oracle for Alpha Homora v1 ibETH",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}
